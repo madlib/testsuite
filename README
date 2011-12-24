@@ -1,0 +1,4 @@
+Long running test suite for madlib project.
+
+This subproject contain large datasets and more extensive tests than
+can be found in the basic install-check.
