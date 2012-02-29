@@ -1,0 +1,1385 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<algorithms>
+    <algorithm>
+         <name>kmeans</name>
+         <method>
+            <name>kmeans_cset</name>
+            <template>
+                   SELECT * FROM {madlib_schema}.kmeans_cset
+                        ( {src_relation}     -- src_relation
+                        , {src_col_data}     -- src_col_data 
+                        , {src_col_id}       -- src_col_id
+                        , {out_points}       -- out_points
+                        , {out_centroids}    -- out_centroids
+                        , {dist_metric}      -- dist_metric
+                        , {max_iter}         -- max_iteration
+                        , {conv_threshold}   -- convergence_threshold
+                        , {evaluate}         -- gof_test_switch
+                        , {verbosity}        -- verbosity_switch
+                        , {init_cset_rel}    -- init_cset_rel
+                        , {init_cset_col}    -- init_cset_col
+                        ) AS q;
+            </template>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>              
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>   
+            </input_parameter>           
+            <input_parameter>
+                <name>src_col_id</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>out_points</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>out_centroids</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>l2norm</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>evaluate</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>init_cset_rel</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>init_cset_col</name>
+                <type>text</type>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>point_count</name>
+                <type>bigint</type>
+            </output_parameter>
+            <output_parameter>
+                <name>iterations</name>
+                <type>int</type>
+            </output_parameter>
+            <output_parameter>
+                <name>cost_func</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>silhouette</name>
+                <type>double precision</type>
+            </output_parameter>
+         </method>
+
+         <method>        
+            <name>kmeans_plusplus</name>
+            <template>
+                   SELECT * FROM {madlib_schema}.kmeans_plusplus
+                        ( {src_relation}     -- src_relation
+                        , {src_col_data}     -- src_col_data 
+                        , {src_col_id}       -- src_col_id
+                        , {out_points}       -- out_points
+                        , {out_centroids}    -- out_centroids
+                        , {dist_metric}      -- dist_metric
+                        , {max_iter}         -- max_iteration
+                        , {conv_threshold}   -- convergence_threshold
+                        , {evaluate}         -- gof_test_switch
+                        , {verbosity}        -- verbosity_mode
+                        , {k}                -- number_of_centroids
+                        , {sample_frac}      -- sample_fraction
+                        ) AS q;
+            </template>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>              
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>   
+            </input_parameter>           
+            <input_parameter>
+                <name>src_col_id</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>out_points</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>out_centroids</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>l2norm</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>evaluate</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>k</name>
+                <type>int</type>
+            </input_parameter>
+            <input_parameter>
+                <name>sample_frac</name>
+                <type>float</type>
+                <default>0.01</default>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>point_count</name>
+                <type>bigint</type>
+            </output_parameter>
+            <output_parameter>
+                <name>iterations</name>
+                <type>int</type>
+            </output_parameter>
+            <output_parameter>
+                <name>cost_func</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>silhouette</name>
+                <type>double precision</type>
+            </output_parameter>
+         </method>
+         
+          <method>        
+            <name>kmeans_random</name>
+            <template>
+                   SELECT * FROM {madlib_schema}.kmeans_random
+                        ( {src_relation}     -- src_relation
+                        , {src_col_data}     -- src_col_data 
+                        , {src_col_id}       -- src_col_id
+                        , {out_points}       -- out_points
+                        , {out_centroids}    -- out_centroids
+                        , {dist_metric}      -- dist_metric
+                        , {max_iter}         -- max_iteration
+                        , {conv_threshold}   -- convergence_threshold
+                        , {evaluate}         -- gof_test_switch
+                        , {verbosity}        -- verbosity_mode
+                        , {k}                -- number_of_centroids
+                        ) AS q;
+            </template>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>              
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>   
+            </input_parameter>           
+            <input_parameter>
+                <name>src_col_id</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>out_points</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>out_centroids</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>l2norm</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>evaluate</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>k</name>
+                <type>int</type>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>point_count</name>
+                <type>bigint</type>
+            </output_parameter>
+            <output_parameter>
+                <name>iterations</name>
+                <type>int</type>
+            </output_parameter>
+            <output_parameter>
+                <name>cost_func</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>silhouette</name>
+                <type>double precision</type>
+            </output_parameter>
+         </method>
+
+         <method>        
+            <name>kmeans_canopy</name>
+            <template>
+                   SELECT * FROM {madlib_schema}.kmeans_canopy
+                        ( {src_relation}     -- src_relation
+                        , {src_col_data}     -- src_col_data 
+                        , {src_col_id}       -- src_col_id
+                        , {out_points}       -- out_points
+                        , {out_centroids}    -- out_centroids
+                        , {dist_metric}      -- dist_metric
+                        , {max_iter}         -- max_iteration
+                        , {conv_threshold}   -- convergence_threshold
+                        , {evaluate}         -- gof_test_switch
+                        , {verbosity}        -- verbosity_mode
+                        , {t1}               -- lower_seeding_threshold
+                        , {t2}               -- upper_seeding_threshold
+                        ) AS q;
+            </template>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>              
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>   
+            </input_parameter>           
+            <input_parameter>
+                <name>src_col_id</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>out_points</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>out_centroids</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>l2norm</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>evaluate</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>t1</name>
+                <type>float</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>t2</name>
+                <type>float</type>
+                <default>NULL</default>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>point_count</name>
+                <type>bigint</type>
+            </output_parameter>
+            <output_parameter>
+                <name>iterations</name>
+                <type>int</type>
+            </output_parameter>
+            <output_parameter>
+                <name>cost_func</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>silhouette</name>
+                <type>double precision</type>
+            </output_parameter>
+         </method>
+ 
+          <method>
+            <name>kmeans_cset_ctas</name>
+            <template>
+                CREATE TABLE {table_name} AS
+                   SELECT * FROM {madlib_schema}.kmeans_cset
+                        ( {src_relation}     -- src_relation
+                        , {src_col_data}     -- src_col_data 
+                        , {src_col_id}       -- src_col_id
+                        , {out_points}       -- out_points
+                        , {out_centroids}    -- out_centroids
+                        , {dist_metric}      -- dist_metric
+                        , {max_iter}         -- max_iteration
+                        , {conv_threshold}   -- convergence_threshold
+                        , {evaluate}         -- gof_test_switch
+                        , {verbosity}        -- verbosity_switch
+                        , {init_cset_rel}    -- init_cset_rel
+                        , {init_cset_col}    -- init_cset_col
+                        );
+                DROP TABLE {table_name};
+            </template>
+            <input_parameter>
+                <name>table_name </name>
+                <type>text</type>
+                <quote>false</quote>              
+            </input_parameter>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>              
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>   
+            </input_parameter>           
+            <input_parameter>
+                <name>src_col_id</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>out_points</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>out_centroids</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>l2norm</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>evaluate</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>init_cset_rel</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>init_cset_col</name>
+                <type>text</type>
+            </input_parameter>
+            <!-- no result arguments for create table as -->
+         </method>
+
+         <method>        
+            <name>kmeans_plusplus_ctas</name>
+            <template>
+                CREATE TABLE {table_name} AS
+                   SELECT * FROM {madlib_schema}.kmeans_plusplus
+                        ( {src_relation}     -- src_relation
+                        , {src_col_data}     -- src_col_data 
+                        , {src_col_id}       -- src_col_id
+                        , {out_points}       -- out_points
+                        , {out_centroids}    -- out_centroids
+                        , {dist_metric}      -- dist_metric
+                        , {max_iter}         -- max_iteration
+                        , {conv_threshold}   -- convergence_threshold
+                        , {evaluate}         -- gof_test_switch
+                        , {verbosity}        -- verbosity_mode
+                        , {k}                -- number_of_centroids
+                        , {sample_frac}      -- sample_fraction
+                        );
+                DROP TABLE {table_name};
+            </template>
+            <input_parameter>
+                <name>table_name </name>
+                <type>text</type>
+                <quote>false</quote>              
+            </input_parameter>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>              
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>   
+            </input_parameter>           
+            <input_parameter>
+                <name>src_col_id</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>out_points</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>out_centroids</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>l2norm</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>evaluate</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>k</name>
+                <type>int</type>
+            </input_parameter>
+            <input_parameter>
+                <name>sample_frac</name>
+                <type>float</type>
+                <default>0.01</default>
+            </input_parameter>
+            <!-- no result arguments for create table as -->
+         </method>
+         
+          <method>        
+            <name>kmeans_random_ctas</name>
+            <template>
+                CREATE TABLE {table_name} AS
+                   SELECT * FROM {madlib_schema}.kmeans_random
+                        ( {src_relation}     -- src_relation
+                        , {src_col_data}     -- src_col_data 
+                        , {src_col_id}       -- src_col_id
+                        , {out_points}       -- out_points
+                        , {out_centroids}    -- out_centroids
+                        , {dist_metric}      -- dist_metric
+                        , {max_iter}         -- max_iteration
+                        , {conv_threshold}   -- convergence_threshold
+                        , {evaluate}         -- gof_test_switch
+                        , {verbosity}        -- verbosity_mode
+                        , {k}                -- number_of_centroids
+                        );
+                DROP TABLE {table_name};
+            </template>
+            <input_parameter>
+                <name>table_name </name>
+                <type>text</type>
+                <quote>false</quote>              
+            </input_parameter>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>              
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>   
+            </input_parameter>           
+            <input_parameter>
+                <name>src_col_id</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>out_points</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>out_centroids</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>l2norm</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>evaluate</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>k</name>
+                <type>int</type>
+            </input_parameter>
+            <!-- no result arguments for create table as -->
+         </method>
+
+         <method>        
+            <name>kmeans_canopy_ctas</name>
+            <template>
+                CREATE TABLE {table_name} AS
+                   SELECT * FROM {madlib_schema}.kmeans_canopy
+                        ( {src_relation}     -- src_relation
+                        , {src_col_data}     -- src_col_data 
+                        , {src_col_id}       -- src_col_id
+                        , {out_points}       -- out_points
+                        , {out_centroids}    -- out_centroids
+                        , {dist_metric}      -- dist_metric
+                        , {max_iter}         -- max_iteration
+                        , {conv_threshold}   -- convergence_threshold
+                        , {evaluate}         -- gof_test_switch
+                        , {verbosity}        -- verbosity_mode
+                        , {t1}               -- lower_seeding_threshold
+                        , {t2}               -- upper_seeding_threshold
+                        );
+                DROP TABLE {table_name};
+            </template>
+            <input_parameter>
+                <name>table_name </name>
+                <type>text</type>
+                <quote>false</quote>              
+            </input_parameter>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>              
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>   
+            </input_parameter>           
+            <input_parameter>
+                <name>src_col_id</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>out_points</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>out_centroids</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>l2norm</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>evaluate</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>t1</name>
+                <type>float</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>t2</name>
+                <type>float</type>
+                <default>NULL</default>
+            </input_parameter>
+            <!-- no result arguments for create table as -->
+         </method>
+     </algorithm>
+    
+     <algorithm>
+         <name>linear_regression</name>
+         <method>        
+            <name>linregr</name>
+            <template>
+                SELECT (linregr).* FROM (
+                    SELECT {madlib_schema}.linregr(
+                    {dependent_varname}         --dependent_varname
+                    ,{independent_varname})     --independent_varname
+                    FROM {source_table}         
+                ) AS q;
+            </template>
+            <input_parameter>
+                <name>source_table</name>
+                <type>text</type> 
+                <quote>false</quote>
+           </input_parameter>
+           <input_parameter>
+                <name>dependent_varname</name>
+                <type>text</type>  
+                <quote>false</quote>
+                <default>y</default>  
+           </input_parameter>
+           <input_parameter>
+                <name>independent_varname</name>
+                <type>text</type>  
+                <quote>false</quote>
+                <default>x</default>  
+           </input_parameter>
+           
+           <!-- Below is used by Random generated Dataset -->       
+            <input_parameter>
+                <name>input_ivariables</name> 
+                <type>int</type>
+                <default>NULL</default>            
+            </input_parameter>
+            <input_parameter>
+                <name>input_rows</name>
+                <type>int</type>
+                <default>NULL</default>                  
+            </input_parameter>
+            
+           <!-- Below is output parameter-->       
+            <output_parameter>
+                <name>coef</name>
+                <type>double precision[]</type>
+            </output_parameter>
+            <output_parameter>
+                <name>r2</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>std_err</name>
+                <type>double precision[]</type>
+            </output_parameter>
+            <output_parameter>
+                <name>t_stats</name>
+                <type>double precision[]</type>
+            </output_parameter>
+            <output_parameter>
+                <name>p_values</name>
+                <type>double precision[]</type>
+            </output_parameter>
+        </method>
+        
+        <method>        
+            <name>ctas_linregr</name>
+            <template>
+                CREATE TABLE {table_name} AS
+                SELECT {madlib_schema}.linregr(
+                    {dependent_varname}         --dependent_varname
+                    ,{independent_varname})     --independent_varname
+                    FROM {source_table}         
+                ;
+                INSERT INTO {table_name}
+                    SELECT {madlib_schema}.linregr(
+                    {dependent_varname}         --dependent_varname
+                    ,{independent_varname})     --independent_varname
+                    FROM {source_table}      
+                ;
+                DROP TABLE {table_name};
+            </template>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>      
+            </input_parameter>
+            <input_parameter>
+                <name>source_table</name>
+                <type>text</type> 
+                <quote>false</quote>
+           </input_parameter>
+           <input_parameter>
+                <name>dependent_varname</name>
+                <type>text</type>  
+                <quote>false</quote>
+                <default>y</default>  
+           </input_parameter>
+           <input_parameter>
+                <name>independent_varname</name>
+                <type>text</type>  
+                <quote>false</quote>
+                <default>x</default>  
+           </input_parameter> 
+        </method>
+    
+        <method>        
+            <name>group_by_linregr</name>
+            <template>
+                SELECT {madlib_schema}.linregr(
+                    y, x), id
+                    FROM {table_name}
+                    group by id
+                    order by id;
+            </template>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>      
+            </input_parameter>
+        </method>
+    </algorithm>
+    
+    
+    <algorithm>
+         <name>logistic_regression</name>
+         <method>        
+            <name>logregr</name>
+            <template>
+                SELECT * FROM 
+                    {madlib_schema}.logregr (
+                    {source_table}              --source_table
+                    , {dependent_varname}       --dependent_varname
+                    , {independent_varname}     --independent_varname
+                    , {max_iteration}           --max_iteration
+                    , {optimizer}               --optimizer
+                    , {convergence_threshold}   --convergence_threshold
+                ) AS q;
+            </template>
+            <input_parameter>
+                <name>source_table</name>
+                <type>text</type> 
+           </input_parameter>
+           <input_parameter>
+                <name>dependent_varname</name>
+                <type>text</type>  
+                <default>y</default>  
+           </input_parameter>
+           <input_parameter>
+                <name>independent_varname</name>
+                <type>text</type>  
+                <default>x</default>  
+           </input_parameter>
+           
+           <input_parameter>
+                <name>max_iteration</name>
+                <type>int</type> 
+                <default>20</default>    
+           </input_parameter>
+           <input_parameter>
+                <name>convergence_threshold</name>
+                <type>double precision</type>  
+                <default>0.0001</default>     
+           </input_parameter>
+           <input_parameter>
+                <name>optimizer</name>
+                <type>text</type>    
+                <default>irls</default>    
+           </input_parameter>
+           
+           <!-- Below is used by Random generated Dataset -->       
+            <input_parameter>
+                <name>input_ivariables</name> 
+                <type>int</type>
+                <default>NULL</default>            
+            </input_parameter>
+            <input_parameter>
+                <name>input_rows</name>
+                <type>int</type>
+                <default>NULL</default>                  
+            </input_parameter>
+            
+           <!-- Below is output parameter-->       
+            <output_parameter>
+                <name>coef</name>
+                <type>double precision[]</type>
+            </output_parameter>
+            <output_parameter>
+                <name>log_likelihood</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>std_err</name>
+                <type>double precision[]</type>
+            </output_parameter>
+            <output_parameter>
+                <name>z_stats</name>
+                <type>double precision[]</type>
+            </output_parameter>
+            <output_parameter>
+                <name>p_values</name>
+                <type>double precision[]</type>
+            </output_parameter>
+            <output_parameter>
+                <name>odds_ratios</name>
+                <type>double precision[]</type>
+            </output_parameter>
+        </method>     
+        
+        <method>        
+            <name>ctas_logregr</name>
+            <template>
+                CREATE TABLE {table_name} AS
+                SELECT * FROM 
+                    {madlib_schema}.logregr (
+                    {source_table}              --source_table
+                    , {dependent_varname}       --dependent_varname
+                    , {independent_varname}     --independent_varname
+                    , {max_iteration}           --max_iteration
+                    , {optimizer}               --optimizer
+                    , {convergence_threshold}   --convergence_threshold
+                );
+                INSERT INTO {table_name}
+                SELECT * FROM 
+                    {madlib_schema}.logregr (
+                    {source_table}              --source_table
+                    , {dependent_varname}       --dependent_varname
+                    , {independent_varname}     --independent_varname
+                    , {max_iteration}           --max_iteration
+                    , {optimizer}               --optimizer
+                    , {convergence_threshold}   --convergence_threshold
+                );
+                DROP TABLE {table_name};
+            </template>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>      
+            </input_parameter>
+            <input_parameter>
+                <name>source_table</name>
+                <type>text</type> 
+           </input_parameter>
+           <input_parameter>
+                <name>dependent_varname</name>
+                <type>text</type>  
+                <default>y</default>  
+           </input_parameter>
+           <input_parameter>
+                <name>independent_varname</name>
+                <type>text</type>  
+                <default>x</default>  
+           </input_parameter>
+           
+           <input_parameter>
+                <name>max_iteration</name>
+                <type>int</type> 
+                <default>20</default>    
+           </input_parameter>
+           <input_parameter>
+                <name>convergence_threshold</name>
+                <type>double precision</type>  
+                <default>0.0001</default>     
+           </input_parameter>
+           <input_parameter>
+                <name>optimizer</name>
+                <type>text</type>    
+                <default>irls</default>    
+           </input_parameter>
+        </method>        
+    </algorithm>
+        
+    <algorithm>
+         <name>decision_tree</name>
+         <method>
+            <name>c45_train</name>    
+            <template>
+                SELECT training_set_size, tree_nodes, tree_depth FROM {madlib_schema}.c45_train
+                    ({split_criterion_name}         --split_criterion_name
+                    ,{training_table_name}          --training_table_name
+                    , {result_tree_table_name}      --result_tree_table_name
+                    , {validation_table_name}       --validation_table_name
+                    , {continuous_feature_names}    --continuous_feature_names
+                    , {feature_col_names}           --feature_col_names
+                    , {id_col_name}                 --id_col_name
+                    , {class_col_name}              --class_col_name
+                    , {confidence_level}            --confidence_level
+                    , {how2handle_missing_value}    --how2handle_missing_value 
+                    , {max_iterations}              --max_iterations
+                    , {max_tree_depth}              --max_tree_depth
+                    , {min_percent_mode}            --min_percent_mode
+                    , {min_percent_split}           --min_percent_split
+                    , {verbosity}                   --verbosity
+                ) AS Q;
+            </template>
+            <input_parameter>
+                <name>split_criterion_name</name>
+                <type>text</type>              
+            </input_parameter>
+            <input_parameter>
+                <name>training_table_name</name>
+                <type>text</type>
+            </input_parameter>           
+            <input_parameter>
+                <name>result_tree_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>validation_table_name</name>
+                <type>text</type>
+                <default>NULL</default>  
+            </input_parameter>
+            <input_parameter>
+                <name>continuous_feature_names</name>
+                <type>text</type>
+                <default>NULL</default> 
+            </input_parameter>
+            <input_parameter>
+                <name>feature_col_names</name>
+                <type>text</type>
+                <default>NULL</default> 
+            </input_parameter>
+            <input_parameter>
+                <name>id_col_name</name>
+                <type>text</type>
+                <default>id</default> 
+            </input_parameter>
+            <input_parameter>
+                <name>class_col_name</name>
+                <type>text</type>
+                <default>class</default>
+            </input_parameter>
+            <input_parameter>
+                <name>confidence_level</name>
+                <type>float</type>
+                <default>100</default>
+            </input_parameter>
+            <input_parameter>
+                <name>how2handle_missing_value</name>
+                <type>text</type>
+                <default>explicit</default>  
+            </input_parameter>
+            <input_parameter>
+                <name>max_iterations</name>
+                <type>int</type>
+                <default>15000</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_tree_depth</name>
+                <type>int</type>
+                <default>30</default>
+            </input_parameter>
+            <input_parameter>
+                <name>min_percent_mode</name>
+                <type>float</type>
+                <default>0</default>
+            </input_parameter>
+            <input_parameter>
+                <name>min_percent_split</name>
+                <type>float</type>
+                <default>0</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>int</type>
+                <default>0</default>
+            </input_parameter>
+            <!-- Below is output parameter--> 
+            <output_parameter>
+                <name>training_set_size</name>
+                <type>bigint</type>
+            </output_parameter>
+            <output_parameter>
+                <name>tree_nodes</name>
+                <type>bigint</type>
+            </output_parameter>
+            <output_parameter>
+                <name>tree_depth</name>
+                <type>int</type>
+            </output_parameter>
+        </method>
+        <method>         
+            <name>c45_score</name>            
+            <template>
+                SELECT * FROM {madlib_schema}.c45_score
+                    ({dt_table_name}            --dt_table_name
+                    , {scoring_table_name}      --scoring_table_name
+                    , {verbosity}               --verbosity
+                ) AS score;
+            </template>
+            <input_parameter>
+                <name>dt_table_name</name>
+                <type>text</type>              
+            </input_parameter>
+            <input_parameter>
+                <name>scoring_table_name</name>
+                <type>text</type>
+            </input_parameter>           
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>false</default>  
+            </input_parameter>
+            <!-- result -->
+            <output_parameter>
+                <name>score</name>
+                <type>float</type>
+            </output_parameter>
+        </method>   
+        <method>         
+            <name>c45_classify</name>
+            <template>
+                SELECT input_set_size FROM {madlib_schema}.c45_classify
+                    ({dt_table_name}                --dt_table_name
+                    , {classification_table_name}   --classification_table_name
+                    , {result_table_name}           --result_table_name
+                    , {verbosity}                   --verbosity
+                ) AS q;
+            </template>
+            <input_parameter>
+                <name>dt_table_name</name>
+                <type>text</type>              
+            </input_parameter>
+            <input_parameter>
+                <name>classification_table_name</name>
+                <type>text</type>   
+            </input_parameter>
+            <input_parameter>
+                <name>result_table_name</name>
+                <type>text</type>              
+             </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>false</default> 
+            </input_parameter>
+            <output_parameter>
+                <name>input_set_size</name>
+                <type>bigint</type>
+            </output_parameter>
+        </method>
+        <method>         
+            <name>c45_display</name>            
+            <template>
+                SELECT * FROM {madlib_schema}.c45_display
+                    ({result_tree_table_name}   --result_tree_table_name
+                ) AS tree;
+            </template>
+            <input_parameter>
+                <name>result_tree_table_name</name>
+                <type>text</type>              
+            </input_parameter>
+            <!-- result-->
+            <output_parameter>
+                <name>tree</name>
+                <type>text</type>   
+            </output_parameter>
+        </method> 
+        <method>
+            <name>c45_clean</name>
+            <template>
+                SELECT * FROM {madlib_schema}.c45_clean
+                    ({dt_table_name}        --dt_table_name
+                ) AS is_clean;
+            </template>
+            <input_parameter>
+                <name>dt_table_name</name>
+                <type>text</type>              
+            </input_parameter>
+            <!-- result-->
+            <output_parameter>
+                <name>is_clean</name>
+                <type>boolean</type>    
+            </output_parameter>
+        </method>  
+        
+        <method>
+            <name>ctas_c45_train</name>
+            <template>
+                CREATE TABLE {table_name} AS 
+                SELECT training_set_size, tree_nodes, tree_depth FROM {madlib_schema}.c45_train
+                    ({split_criterion_name}         --split_criterion_name
+                    ,{training_table_name}          --training_table_name
+                    , {result_tree_table_name}      --result_tree_table_name
+                    , {validation_table_name}       --validation_table_name
+                    , {continuous_feature_names}    --continuous_feature_names
+                    , {feature_col_names}           --feature_col_names
+                    , {id_col_name}                 --id_col_name
+                    , {class_col_name}              --class_col_name
+                    , {confidence_level}            --confidence_level
+                    , {how2handle_missing_value}    --how2handle_missing_value 
+                    , {max_iterations}              --max_iterations
+                    , {max_tree_depth}              --max_tree_depth
+                    , {min_percent_mode}            --min_percent_mode
+                    , {min_percent_split}           --min_percent_split
+                    , {verbosity}                   --verbosity
+                ) AS Q;
+                DROP TABLE {table_name};
+            </template>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>      
+            </input_parameter>
+            <input_parameter>
+                <name>split_criterion_name</name>
+                <type>text</type>              
+            </input_parameter>
+            <input_parameter>
+                <name>training_table_name</name>
+                <type>text</type>
+            </input_parameter>           
+            <input_parameter>
+                <name>result_tree_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>validation_table_name</name>
+                <type>text</type>
+                <default>NULL</default>  
+            </input_parameter>
+            <input_parameter>
+                <name>continuous_feature_names</name>
+                <type>text</type>
+                <default>NULL</default> 
+            </input_parameter>
+            <input_parameter>
+                <name>feature_col_names</name>
+                <type>text</type>
+                <default>NULL</default> 
+            </input_parameter>
+            <input_parameter>
+                <name>id_col_name</name>
+                <type>text</type>
+                <default>id</default> 
+            </input_parameter>
+            <input_parameter>
+                <name>class_col_name</name>
+                <type>text</type>
+                <default>class</default>
+            </input_parameter>
+            <input_parameter>
+                <name>confidence_level</name>
+                <type>float</type>
+                <default>25</default>
+            </input_parameter>
+            <input_parameter>
+                <name>how2handle_missing_value</name>
+                <type>text</type>
+                <default>explicit</default>  
+            </input_parameter>
+            <input_parameter>
+                <name>max_iterations</name>
+                <type>int</type>
+                <default>2000</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_tree_depth</name>
+                <type>int</type>
+                <default>100</default>
+            </input_parameter>
+            <input_parameter>
+                <name>min_percent_mode</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>min_percent_split</name>
+                <type>float</type>
+                <default>0.01</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>int</type>
+                <default>0</default>
+            </input_parameter>
+        </method>
+        <method>        
+            <name>ctas_c45_score</name>       
+            <template>
+                CREATE TABLE {table_name} AS 
+                SELECT * FROM {madlib_schema}.c45_score
+                    ({dt_table_name}            --dt_table_name
+                    , {scoring_table_name}      --scoring_table_name
+                    , {verbosity}               --verbosity
+                );
+                INSERT INTO {table_name}
+                SELECT * FROM {madlib_schema}.c45_score
+                    ({dt_table_name}            --dt_table_name
+                    , {scoring_table_name}      --scoring_table_name
+                    , {verbosity}               --verbosity
+                );
+                DROP TABLE {table_name};
+            </template>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>      
+            </input_parameter>
+            <input_parameter>
+                <name>dt_table_name</name>
+                <type>text</type>              
+            </input_parameter>
+            <input_parameter>
+                <name>scoring_table_name</name>
+                <type>text</type>
+            </input_parameter>           
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>false</default>  
+            </input_parameter>
+        </method>   
+        <method>         
+            <name>ctas_c45_classify</name>
+            <template>
+                CREATE TABLE {table_name} AS 
+                SELECT input_set_size FROM {madlib_schema}.c45_classify
+                    ({dt_table_name}                --dt_table_name
+                    , {classification_table_name}   --classification_table_name
+                    , {result_table_name}           --result_table_name
+                    , {verbosity}                   --verbosity
+                );
+                DROP TABLE {table_name};
+            </template>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>      
+            </input_parameter>
+            <input_parameter>
+                <name>dt_table_name</name>
+                <type>text</type>              
+            </input_parameter>
+            <input_parameter>
+                <name>classification_table_name</name>
+                <type>text</type>   
+            </input_parameter>
+            <input_parameter>
+                <name>result_table_name</name>
+                <type>text</type>              
+             </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>false</default> 
+            </input_parameter>
+        </method>
+        <method>         
+            <name>ctas_c45_display</name>            
+            <template>
+                CREATE TABLE {table_name} AS 
+                SELECT * FROM {madlib_schema}.c45_display
+                    ({result_tree_table_name}   --result_tree_table_name
+                );
+                INSERT INTO {table_name}
+                SELECT * FROM {madlib_schema}.c45_display
+                    ({result_tree_table_name}   --result_tree_table_name
+                );
+                DROP TABLE {table_name};
+            </template>            
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>      
+            </input_parameter>
+            <input_parameter>
+                <name>result_tree_table_name</name>
+                <type>text</type>              
+            </input_parameter>
+        </method> 
+        <method>
+            <name>ctas_c45_clean</name>
+            <template>
+                CREATE TABLE {table_name} AS 
+                SELECT * FROM {madlib_schema}.c45_clean
+                    ({dt_table_name}        --dt_table_name
+                ) AS is_clean;
+                DROP TABLE {table_name};
+            </template>      
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>      
+            </input_parameter>
+            <input_parameter>
+                <name>dt_table_name</name>
+                <type>text</type>              
+            </input_parameter>
+        </method>  
+    </algorithm>
+</algorithms>

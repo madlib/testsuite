@@ -1,0 +1,368 @@
+### GPDB clusters and MADlib pre-installation, test data preparation ###
+
+Step 01: Install database for test result capturing purpose
+         For example, install GPDB 4.2.0.0 cluster on one dedicate host with a database (say 'benchmark_logger') initialized to capture the test results of each run
+
+Step 02: Install database(s) for test cases execution purpose, multiple GPDBs/PGDBs are supported
+         For exmaple, you may install a GPDB 4.2.0.0 cluster, a GPDB 4.1.0.0 cluster, and a POSTGRES 9.1 database
+
+         NOTE: The master host of GPDBs and host of POSTGRES should be the same host.
+               This host will also be used to install MADlib and MADMARK.
+
+Step 03: Install MADlib binary for each GPDB cluster and POSTGRES instance with corresponding MADlib installer
+
+        Method 1 - Use gppkg for MADlib (preferred solution at present for GPDB)
+
+        Method 2 - Use rpm package (preferred solution at present PGDB)
+            (1) Logon to the host as superuser
+            (2) Download MADlib rpm package from pulse server, and copy the rpm packages over all segment hosts using gpscp
+            (3) Install MADlib binaries as superuser
+
+Step 04: Install MADlib in GPDB clusters and POSTGRES instance
+        For example
+            for each GPDB cluster:
+                (1) Run 'gpstart -a -d /PATH/TO/MASTER/DATA/DIRECTORY'
+                (2) Run '/CORRESPONDING/FOLDER/FOR/CURRENT/PLATFORM/madpack/madpack.py -p greenplum -c $GPUSER@$GPDBHOST/madlib uninstall'
+                (3) Run '/CORRESPONDING/FOLDER/FOR/CURRENT/PLATFORM/madpack/madpack.py -p greenplum -c $GPUSER@$GPDBHOST/madlib install'
+                (4) Run 'psql -d madlib -U $GPUSER -p $GPPORT -c "GRANT USAGE ON SCHEMA madlib TO madlibtester"'
+                (5) Run 'gpstop -a -d /PATH/TO/MASTER/DATA/DIRECTORY'
+
+            for each POSTGRES instance:
+                (1) Run 'pg_ctl start -D /PATH/TO/PG/DATA/DIRECTORY'
+                (2) Run '/CORRESPONDING/FOLDER/FOR/CURRENT/PLATFORM/madpack/madpack.py -p postgres -c $PGUSER@$PGDBHOST/madlib uninstall'
+                (3) Run '/CORRESPONDING/FOLDER/FOR/CURRENT/PLATFORM/madpack/madpack.py -p postgres -c $PGUSER@$PGDBHOST/madlib install'
+                (4) Run 'psql -d madlib -U $PGUSER -p $PGPORT -c "GRANT USAGE ON SCHEMA madlib TO madlibtester"'
+                (5) Run 'pg_ctl stop -D /PATH/TO/PG/DATA/DIRECTORY'
+
+Step 05: Download madmark and place the madmark source code in a folder, which will be $MADMARK_HOME 
+
+Step 06: Configure test result database in madmark
+
+         (1) Run 'cd $MADMARK_HOME/testspec/metadata; cp testconfig.xml.example testconfig.xml'
+         (2) Edit '$MADMARK_HOME/testspec/metadata/testconfig.xml' as following example:
+
+        <configuration>
+                <metadatadb>
+                    <user>gpdbchina</user>
+                    <host>gpdb3.delta.sm.greenplum.com</host>
+                    <port>5433</port>
+                    <database>benchmark_logger</database>
+                    <schema>benchmark</schema>
+                </metadatadb>
+        </configuration>
+
+Step 07: Configure testing clusters in madmark
+
+         (1) Edit '$MADMARK_HOME/testspec/metadata/analyticstool.xml' as following example:
+
+        <analytics_tool>
+            <name>GPDB42</name>
+            <kind>greenplum</kind>
+            <toolversion>4.2.0.0</toolversion>
+            <madlibversion>0.2</madlibversion>
+            <host>gpdb2.delta.sm.greenplum.com</host>
+            <port>5432</port>
+            <database>madlib</database>
+            <user>madlibtester</user>
+            <superuser>gpdbchina</superuser>
+            <segmentnum>8</segmentnum>
+            <master_dir>/data/home/gpdbchina/greenplum-db-4.2.0.0/gpdata/madlib08/master/gpseg-1</master_dir>
+            <env>/data/home/gpdbchina/greenplum-db-4.2.0.0/gpdb/greenplum_path.sh</env>
+            <sql_source>/data/home/gpdbchina/madmark/dataset/UCI_Extracted/madlibtestdata_GP.sql.gz</sql_source>
+        </analytics_tool>
+
+        <analytics_tool>
+            <name>GPDB41</name>
+            <kind>greenplum</kind>
+            <toolversion>4.1.0.0</toolversion>
+            <madlibversion>0.2</madlibversion>
+            <host>gpdb2.delta.sm.greenplum.com</host>
+            <port>5432</port>
+            <database>madlib</database>
+            <user>madlibtester</user>
+            <superuser>gpdbchina</superuser>
+            <segmentnum>8</segmentnum>
+            <master_dir>/data/home/gpdbchina/greenplum-db-4.1.0.0/gpdata/madlib08/master/gpseg-1</master_dir>
+            <env>/data/home/gpdbchina/greenplum-db-4.1.0.0/gpdb/greenplum_path.sh</env>
+            <sql_source>/data/home/gpdbchina/madmark/dataset/UCI_Extracted/madlibtestdata_GP.sql.gz</sql_source>
+        </analytics_tool>
+
+        <analytics_tool>
+            <name>PGDB91</name>
+            <kind>postgres</kind>
+            <toolversion>9.1.2</toolversion>
+            <madlibversion>0.2</madlibversion>
+            <host>gpdb2.delta.sm.greenplum.com</host>
+            <port>5431</port>
+            <database>madlib</database>
+            <user>madlibtester</user>
+            <superuser>gpdbchina</superuser>
+            <segmentnum>1</segmentnum>
+            <master_dir>/data/home/gpdbchina/pgsql-9.1.2/pgdata</master_dir>
+            <env>/data/home/gpdbchina/pgsql-9.1.2/pgdb/postgres_path.sh</env>
+            <sql_source>/data/home/gpdbchina/madmark/dataset/UCI_Extracted/madlibtestdata_PG.sql.gz</sql_source>
+        </analytics_tool>
+
+Step 08: Load test data into testing clusters using 'cd $MADMARK_HOME/bin; python load.py'
+         NOTE: before loading the test data, you need to create a dump file which contains tables dumped from GPDB/PGDB, madlibtestdata_GP.sql.gz for example
+               and then set sql_source as the full path of the dump file as showed in Step 07
+
+
+
+### Write your own test cases and add them in a schedule
+Step 09: Configure test data sets
+         The test data sets specification may differ for each algorithm in MADlib, below is the example for kmeans.
+         You need to add them in '$MADMARK_HOME/casespec/metadata/dataset.xml'.
+
+<datasets>
+        <dataset>
+        <name>km_perf_100000_2000</name>
+        <rows>100000</rows>
+        <algorithm>
+           <method>
+                <name>kmeans_cset</name>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_perf_100000_2000</value>
+                </parameter>
+                <parameter>
+                    <name>init_cset_rel</name>
+                    <value>madlibtestdata.km_perf_100000_2000_centroids</value>
+                </parameter>
+                <parameter>
+                    <name>init_cset_col</name>
+                    <value>position</value>
+                </parameter>
+           </method>
+           <method>
+                <name>kmeans_plusplus</name>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_perf_100000_2000</value>
+                </parameter>
+           </method>
+           <method>
+                <name>kmeans_random</name>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_perf_100000_2000</value>
+                </parameter>
+           </method>
+           <method>
+                <name>kmeans_canopy</name>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_perf_100000_2000</value>
+                </parameter>
+           </method>
+           <method>
+                <name>kmeans_cset_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_cset_ctas_perf_100000_2000</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_perf_100000_2000</value>
+                </parameter>
+                <parameter>
+                    <name>init_cset_rel</name>
+                    <value>madlibtestdata.km_perf_100000_2000_centroids</value>
+                </parameter>
+                <parameter>
+                    <name>init_cset_col</name>
+                    <value>position</value>
+                </parameter>
+           </method>
+           <method>
+                <name>kmeans_plusplus_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_plusplus_ctas_perf_100000_2000</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_perf_100000_2000</value>
+                </parameter>
+           </method>
+           <method>
+                <name>kmeans_random_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_random_ctas_perf_100000_2000</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_perf_100000_2000</value>
+                </parameter>
+           </method>
+           <method>
+                <name>kmeans_canopy_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_canopy_ctas_perf_100000_2000</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_perf_100000_2000</value>
+                </parameter>
+           </method>
+        </algorithm>
+        </dataset>
+</datasets>
+
+Step 10: Write test cases specification
+         For each algorithm you need to write your own test cases specificaiton so that madmark can automatically generate runnable test cases for you.
+         Below are the test cases specificaiton for kmeans:
+
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>
+
+        <algorithm>kmeans</algorithm>
+        <methods>
+            <method>
+                <name>kmeans_cset</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>kmeans_plusplus</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>kmeans_random</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>kmeans_canopy</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>kmeans_cset_ctas</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>kmeans_plusplus_ctas</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>kmeans_random_ctas</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>kmeans_canopy_ctas</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+        </methods>
+
+       <test_suite>
+            <name>kmeans_cset_baseline</name>
+            <comments>It is to get baseline of kmeans using predefined centroids against R.</comments>
+                <!-- It indicate max execution times-->
+                <execite_rate>1</execite_rate>
+            <method>
+                <name>kmeans_cset</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>km_perf_100000_200</value><value>km_perf_2000</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>dist_metric</name>
+                    <value>l1norm</value><value>l2norm</value><value>cosine</value><value>tanimoto</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_cset_baseline_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_cset_baseline_out_centroids</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_baseline_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_baseline_out_centroids;
+                </tear_down>
+            </method>
+        </test_suite>
+
+    </multi_test_suites>
+</test_suites>
+
+Step 11: Write schedule of test cases
+         In '$MADMARK_HOME/schedule', you might write files which contain test cases, file name in which contains test cases, and yaml file that is a schedule for a run
+         As in below example, 'case_kmeans' is a file which has 4 test cases for kmeans; 'skip_kmeans_canopy' is a file which has 2 test cases that will be skipped;
+         'list_full_regression' is a file which contains the name of the file 'case_kmeans', and 'schedule.yaml' is a file which will be used as a schedule by madmark.
+
+# case_kmeans
+kmeans_cset_baseline_0_0
+kmeans_cset_baseline_0_1
+kmeans_canopy_baseline_0_0
+kmeans_canopy_baseline_0_1
+
+# skip_kmeans_canopy
+kmeans_canopy_baseline_0_0
+kmeans_canopy_baseline_0_1
+
+# list_full_regression
+case_kmeans
+
+# schedule.yaml
+- cases : case_kmeans
+  platform : GPDB_4.2.0
+  unique : true
+
+# or schedule.yaml
+- lists: list_full_regression
+  platform : GPDB_4.2.0
+  unique : true
+
+
+
+### Run MADlib test ###
+Step 12: Initialize test result database
+
+         (1) NOTE: Manually add access entry in pg_hba.conf on test result database for $GPUSER/$PGUSER
+                   i.e., 'host   all   $GPUSER   $GPDBHOSTIP/32   trust'
+
+         (2) IF THE FIRST TIME USING MADMARK: run 'cd $MADMARK_HOME/bin; python run.py -i'
+             OTHERWISE:                       run 'cd $MADMARK_HOME/bin; python run.py -g'
+
+Step 13: Run MADlib test
+
+         (1) Source the test result database's environment variable file
+         (2) Run 'cd $MADMARK_HOME/schedule; cp schedule.yaml.example schedule.yaml' and then edit the test suites in the schedule file
+         (3) Run 'cd $MADMARK_HOME/bin; nohup python run.py -s schedule.yaml  > schedule.log 2>&1 &' to start the test in background
+
