@@ -13,8 +13,8 @@ from test_config import *
 from template_executor import *
 from analytics_tool import *
 from datasets import *
-from multi_testsuit import *
-from testsuit import *
+from multi_testsuite import *
+from testsuite import *
 from testcase import *
 from para_handler import *
 
@@ -40,7 +40,7 @@ class Generator (Parser):
         self.paraHandler        =   ParaHandler(analyticsTools, datasets)
         self.caseScheduleFileHd =   open(caseScheduleFileHd, "w")
         self.caseSQLFileHd      =   open(caseSQLFileHd, "w")
-        self.testSuitSqlHd      =   open(tsSqlFileHd, "w")
+        self.testSuiteSqlHd     =   open(tsSqlFileHd, "w")
         self.testItemSqlHd      =   open(tiSqlFileHd, "w")
 
     def GenCases(self):
@@ -61,11 +61,11 @@ class Generator (Parser):
         ts          =   Parser.getNodeTag(self, self.xmlDoc, "test_suites")
         tsType      =   Parser.getNodeVal(self, ts, "test_type")
         mulTsList   =   Parser.getNodeList(self, ts, "multi_test_suites")
-        # loop to parse each multi test suit
+        # loop to parse each multi test suite
         for mulTs in mulTsList:
-            self.__multiTestSuit(mulTs, tsType)
+            self.__multiTestSuite(mulTs, tsType)
 
-    def __multiTestSuit(self, mlTs, tsType):
+    def __multiTestSuite(self, mlTs, tsType):
         """Parse one multi-test suite.
 
         params:
@@ -78,13 +78,13 @@ class Generator (Parser):
         methods     =   Parser.getNodeTag(self, mlTs, "methods")
         mtdNodeList =   Parser.getNodeList(self, methods, "method")
         preParas    =   self.__preParas(mtdNodeList)
-        # get test suit nodes list
+        # get test suite nodes list
         tsNodeList  =   Parser.getNodeList(self, mlTs, "test_suite")
-        # init a MutiTestSuit instance
-        mlTs        =   MultiTestSuit(self.configer, self.analyticsTools, \
+        # init a MutiTestSuite instance
+        mlTs        =   MultiTestSuite(self.configer, self.analyticsTools, \
                                       self.datasets, self.paraHandler, algorithm, preParas, \
                                       tsNodeList, tsType, self.caseScheduleFileHd, \
-                                      self.caseSQLFileHd, self.testSuitSqlHd, self.testItemSqlHd)
+                                      self.caseSQLFileHd, self.testSuiteSqlHd, self.testItemSqlHd)
         mlTs.GenCases()
 
     def __preParas(self, mtdNodeList):
@@ -164,13 +164,13 @@ def main():
         # test cases's file absolute path
         scheduleFile    =   Path.casePath + name + ".schedule"
         caseSQLFile     =   Path.casePath + name + ".sql_out"
-        suitSqlFile     =   Path.casePath + name + "suit.sql"
+        suiteSqlFile    =   Path.casePath + name + "suite.sql"
         itemSqlFile     =   Path.casePath + name + "item.sql"
 
         try:
             # create a generator to generate cases with this specXml
             generator = Generator(configer, analyticsTools. analyticsTools, datasets.descs, \
-                specXml, scheduleFile, caseSQLFile, suitSqlFile, itemSqlFile)
+                specXml, scheduleFile, caseSQLFile, suiteSqlFile, itemSqlFile)
             generator.GenCases()
         except Exception, exp:
             print exp

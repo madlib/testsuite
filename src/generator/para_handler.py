@@ -31,11 +31,10 @@ class ParaHandler():
 
     def __varHandler(self, name, value, mtName):
         val = value
-        if "analyticstool" == name:
-            val
-#            val = val + " --p " + self.analyticsTools[value]["kind"]
-        elif "dataset" == name:
+
+        if "dataset" == name:
             val = self.datasets[value][mtName]
+
         return val
 
     def __paraHandler(self, name, value, mtName):

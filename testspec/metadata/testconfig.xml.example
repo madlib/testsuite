@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <configuration>
 	<metadatadb>
-		<user>bjcoe</user>    
-		<host>localhost</host>
-	    <port>5432</port>
-	    <database>benchmark_logger</database>
-	    <schema>benchmark</schema>
+            <user>$RESULT_DB_USER</user>    
+	    <host>$RESULT_DB_HOST</host>
+	    <port>$RESULT_DB_PORT</port>
+	    <database>$RESULT_DB_NAME</database>
+	    <schema>$RESULT_DB_SCHEMA</schema>
 	</metadatadb>
 </configuration>

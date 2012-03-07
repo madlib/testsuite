@@ -52,15 +52,15 @@
             <kind>greenplum</kind>
             <toolversion>4.2.0.0</toolversion>
             <madlibversion>0.2</madlibversion>
-            <host>gpdb2.delta.sm.greenplum.com</host>
-            <port>5432</port>
+            <host>$GP_HOST_42</host>
+            <port>$GP_PORT_42</port>
             <database>madlib</database>
             <user>madlibtester</user>
-            <superuser>gpdbchina</superuser>
-            <segmentnum>8</segmentnum>
-            <master_dir>/data/home/gpdbchina/greenplum-db-4.2.0.0/gpdata/madlib08/master/gpseg-1</master_dir>
-            <env>/data/home/gpdbchina/greenplum-db-4.2.0.0/gpdb/greenplum_path.sh</env>
-            <sql_source>/data/home/gpdbchina/madmark/dataset/dumpfile/madlibtestdata_GP.sql.gz</sql_source>
+            <superuser>$GP_USER_42</superuser>
+            <segmentnum>$GP_SEG_NUM_42</segmentnum>
+            <master_dir>$GP_MASTER_DATA_DIRECTORY_42</master_dir>
+            <env>$GPHOME_42/greenplum_path.sh</env>
+            <sql_source>$MADMARK_HOME_42/dataset/madlibtestdata_GP.sql.gz</sql_source>
         </analytics_tool>
 
         <analytics_tool>
@@ -68,15 +68,15 @@
             <kind>greenplum</kind>
             <toolversion>4.1.0.0</toolversion>
             <madlibversion>0.2</madlibversion>
-            <host>gpdb2.delta.sm.greenplum.com</host>
-            <port>5432</port>
+            <host>$GP_HOME_41</host>
+            <port>$GP_PORT_41</port>
             <database>madlib</database>
             <user>madlibtester</user>
-            <superuser>gpdbchina</superuser>
-            <segmentnum>8</segmentnum>
-            <master_dir>/data/home/gpdbchina/greenplum-db-4.1.0.0/gpdata/madlib08/master/gpseg-1</master_dir>
-            <env>/data/home/gpdbchina/greenplum-db-4.1.0.0/gpdb/greenplum_path.sh</env>
-            <sql_source>/data/home/gpdbchina/madmark/dataset/dumpfile/madlibtestdata_GP.sql.gz</sql_source>
+            <superuser>$GP_USER_41</superuser>
+            <segmentnum>$GP_SEG_NUM_41</segmentnum>
+            <master_dir>$GP_MASTER_DATA_DIRECTORY_41</master_dir>
+            <env>$GPHOME_41/greenplum_path.sh</env>
+            <sql_source>$MADMARK_HOME_41/dataset/madlibtestdata_GP.sql.gz</sql_source>
         </analytics_tool>	
 
 </analytics_tools>

@@ -8,7 +8,7 @@ from analytics_tool import *
 from testcase import *
 from para_handler import *
 
-class TestSuit(Parser):
+class TestSuite(Parser):
     
     def __init__(self, tsNode, tsType, configer, analyticsTools, datasets,paraHandler, \
                  algorithm, preParas, caseScheduleHd, caseSQLFileHd, tsSqlFileHd, tiSqlFileHd):
@@ -31,7 +31,7 @@ class TestSuit(Parser):
         self.tsNode         =   tsNode
         self.tsName         =   Parser.getNodeVal(self, tsNode, "name")
         self.tsComments     =   Parser.getNodeVal(self, tsNode, "comments")
-        self.tsExeciterate  =   Parser.getNodeVal(self, tsNode, "execite_rate")
+        self.tsExecuterate  =   Parser.getNodeVal(self, tsNode, "execute_rate")
         self.tsType         =   tsType
         self.configer       =   configer
         self.analyticsTools =   analyticsTools
@@ -41,7 +41,7 @@ class TestSuit(Parser):
         self.preParas       =   preParas
         self.caseScheduleHd =   caseScheduleHd
         self.caseSQLFileHd  =   caseSQLFileHd
-        self.testSuitSqlHd  =   tsSqlFileHd
+        self.testSuiteSqlHd =   tsSqlFileHd
         self.testItemSqlHd  =   tiSqlFileHd
         self.numExtendParams = 1
         # List of method's extent vary parameter pairs 
@@ -54,17 +54,17 @@ class TestSuit(Parser):
         self.__varParaPairs()
         
         # write test case name and comments 
-        self.caseScheduleHd.write("# TestSuit Name : " + self.tsName + "\n")
+        self.caseScheduleHd.write("# TestSuite Name : " + self.tsName + "\n")
         self.caseScheduleHd.write("# " + self.tsComments + "\n")
-        self.caseScheduleHd.write("# Start TestSuit ==========\n")
-        self.caseSQLFileHd.write( "-- TestSuit Name : " + self.tsName + "\n")
+        self.caseScheduleHd.write("# Start TestSuite ==========\n")
+        self.caseSQLFileHd.write( "-- TestSuite Name : " + self.tsName + "\n")
         
-        # generate case command for each test suit(including several method)
+        # generate case command for each test suite(including several method)
         mtdList = Parser.getNodeList(self, self.tsNode, "method")
         
         # testsuite exec iteration
         i = 0 
-        for i in range(0, int(self.tsExeciterate)):
+        for i in range(0, int(self.tsExecuterate)):
             for caseID in range(0, self.numExtendParams):
                 caseName = self.tsName + '_' + str(0) + '_' + str(caseID)
                 caseFileHD = open(os.path.join(Path.casePath, caseName + '.case'), 'a+')
@@ -72,14 +72,14 @@ class TestSuit(Parser):
                             self.algorithm, self.paraHandler, self.preParas, \
                             self.varExpandParaPairList, self.tsName, caseName, caseID, \
                             caseFileHD, self.caseScheduleHd, self.caseSQLFileHd, \
-                            self.testSuitSqlHd, self.testItemSqlHd)
+                            self.testSuiteSqlHd, self.testItemSqlHd)
                 case.GenCase(mtdList, i, self.tsType)
                 if i==0:
                     self.caseScheduleHd.write(caseName + '\n')
             self.caseScheduleHd.write("\n")
             # end one testsuite
             if i==0: 
-                self.__writeTestSuitsSql()
+                self.__writeTestSuitesSql()
             
         self.caseSQLFileHd.write( "\n\n")
     
@@ -180,7 +180,7 @@ class TestSuit(Parser):
                 result.extend(r)
             return result
 
-    def __writeTestSuitsSql(self):
+    def __writeTestSuitesSql(self):
         """write test suite sql statement"""
 
         tbName = self.configer.metaDBSchema + "." + "testsuites"
@@ -192,7 +192,7 @@ class TestSuit(Parser):
             "'" + self.tsComments + "'" + ", " +\
             "'" + samePara + "'" + \
             ");"
-        self.testSuitSqlHd.write(stmt + "\n\n")
+        self.testSuiteSqlHd.write(stmt + "\n\n")
     
     def __formSamePara(self, prePara):
         samePara = []

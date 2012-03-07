@@ -215,9 +215,9 @@ class AnalyticsTools(Parser):
         atDic = {}
         for at in atList:
             name = Parser.getNodeVal(self, at, "name")
-            kind = Parser.getNodeVal(self, at, "kind")
+            kind = Parser.getNodeVal(self, at, "kind").upper()
 
-            if kind.upper() == "GREENPLUM" or kind.upper() == "POSTGRES":
+            if kind == "GREENPLUM" or kind == "POSTGRES":
                 atDic["name"] = Parser.getNodeVal(self, at,"name")
                 atDic["kind"]  = Parser.getNodeVal(self, at,"kind")
                 atDic["toolversion"] = Parser.getNodeVal(self, at,"toolversion")
@@ -231,10 +231,9 @@ class AnalyticsTools(Parser):
                 atDic["master_dir"] = Parser.getNodeVal(self, at,"master_dir")
                 atDic["sql_source"] = Parser.getNodeVal(self, at,"sql_source")
                 atDic["env"] = Parser.getNodeVal(self, at,"env")
-            elif kind == "R":
-                pass
-            elif kind == "MaHout ":
-                pass
+            # unsupported or invalid analytical tools such as R and MAHOUT, etc
+            else:
+                sys.exit( '%s is not a supported analytical tool!' % (kind) )
 
             self.analyticsTools[name] = atDic
             atDic = {}

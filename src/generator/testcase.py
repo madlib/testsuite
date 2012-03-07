@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""generate test case from each <testsuit> tag, including using differenct iteration 
+"""generate test case from each <testsuite> tag, including using differenct iteration 
 number and different vary parameter combinations
 """
 import os
@@ -65,7 +65,7 @@ class TestCase(Parser):
         self.caseFileHd         =   caseFileHd
         self.caseScheduleFileHd =   caseScheduleFileHd
         self.caseSQLFileHd      =   caseSQLFileHd
-        self.testSuitSqlHd      =   tsSqlFileHd
+        self.testSuiteSqlH      =   tsSqlFileHd
         self.testItemSqlHd      =   tiSqlFileHd
 
     def __writeTestItemsSql(self, itemName, algorithm, method, \

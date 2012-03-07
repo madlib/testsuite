@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Store usually used pathes."""
+"""Store usually used paths."""
 import os
 
 class Path:

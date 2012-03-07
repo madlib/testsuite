@@ -129,7 +129,7 @@ CREATE TABLE benchmark.evaluation_decision_tree(
       training_size int,
       score_table text,
       score_size int,
-      source  text,  --- R, Weka, Manhout
+      source  text,  --- R, Weka, Mahout
       missing_value   boolean,
       featurenum int,
       cotinuousnum int,
@@ -139,7 +139,7 @@ CREATE TABLE benchmark.evaluation_decision_tree(
 CREATE TABLE benchmark.evaluation_kmeans(
       test_table text,
       test_size int,
-      source  text,  --- R, Weka, Manhout
+      source  text,  --- R, Weka, Mahout
       k_value int,
       gof float) DISTRIBUTED randomly;
 

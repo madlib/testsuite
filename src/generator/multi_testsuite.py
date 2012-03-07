@@ -4,10 +4,10 @@
 from xml_parser import *
 from test_config import *
 from analytics_tool import *
-from testsuit import *
+from testsuite import *
 from para_handler import *
 
-class MultiTestSuit(Parser):
+class MultiTestSuite(Parser):
     def __init__(self, configer, analyticsTools, datasets, paraHandler, algorithm, preParas, \
             tsNodes, tsType, caseScheduleFileHd, caseSQLFileHd, tsSqlFileHd, tiSqlFileHd):
         """
@@ -35,14 +35,14 @@ class MultiTestSuit(Parser):
         self.tsType             =   tsType
         self.caseScheduleFileHd =   caseScheduleFileHd
         self.caseSQLFileHd      =   caseSQLFileHd
-        self.testSuitSqlHd      =   tsSqlFileHd
+        self.testSuiteSqlHd     =   tsSqlFileHd
         self.testItemSqlHd      =   tiSqlFileHd
       
     def GenCases(self):
         """Generate test case under this <multi_test_suites> tag."""
         for ts in self.tsNodes:         
-            # Init a testsuit instance 
-            testsuit = TestSuit(ts, self.tsType, self.configer, self.analyticsTools, self.datasets, \
+            # Init a testsuite instance 
+            testsuite = TestSuite(ts, self.tsType, self.configer, self.analyticsTools, self.datasets, \
                     self.paraHandler, self.algorithm, self.preParas, self.caseScheduleFileHd, \
-                    self.caseSQLFileHd, self.testSuitSqlHd, self.testItemSqlHd)
-            testsuit.GenCases()
+                    self.caseSQLFileHd, self.testSuiteSqlHd, self.testItemSqlHd)
+            testsuite.GenCases()
