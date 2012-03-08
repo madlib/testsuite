@@ -162,7 +162,7 @@ def main():
         name = specXml.split("/")[len(specXml.split("/"))-1].split(".")[0]
 
         # test cases's file absolute path
-        scheduleFile    =   Path.casePath + name + ".schedule"
+        scheduleFile    =   Path.casePath + "case_" + name
         caseSQLFile     =   Path.casePath + name + ".sql_out"
         suiteSqlFile    =   Path.casePath + name + "suite.sql"
         itemSqlFile     =   Path.casePath + name + "item.sql"
