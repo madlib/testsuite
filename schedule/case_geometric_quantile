@@ -1,0 +1,35 @@
+# TestSuite Name : geometric_quantile_feature_test_p
+# geometric_quantile
+# Start TestSuite ==========
+geometric_quantile_feature_test_p_0_0
+geometric_quantile_feature_test_p_0_1
+geometric_quantile_feature_test_p_0_2
+geometric_quantile_feature_test_p_0_3
+geometric_quantile_feature_test_p_0_4
+
+# TestSuite Name : geometric_quantile_feature_test_spp
+# geometric_quantile
+# Start TestSuite ==========
+geometric_quantile_feature_test_spp_0_0
+geometric_quantile_feature_test_spp_0_1
+geometric_quantile_feature_test_spp_0_2
+geometric_quantile_feature_test_spp_0_3
+geometric_quantile_feature_test_spp_0_4
+geometric_quantile_feature_test_spp_0_5
+
+# TestSuite Name : geometric_quantile_negative_case_p
+# geometric_quantile
+# Start TestSuite ==========
+geometric_quantile_negative_case_p_0_0
+geometric_quantile_negative_case_p_0_1
+geometric_quantile_negative_case_p_0_2
+geometric_quantile_negative_case_p_0_3
+
+# TestSuite Name : geometric_quantile_negative_case_spp
+# geometric_quantile
+# Start TestSuite ==========
+geometric_quantile_negative_case_spp_0_0
+geometric_quantile_negative_case_spp_0_1
+geometric_quantile_negative_case_spp_0_2
+geometric_quantile_negative_case_spp_0_3
+

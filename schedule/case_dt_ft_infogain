@@ -1,0 +1,132 @@
+# TestSuite Name : dt_scoreeqtrain_infogain
+# DT00: It is to verify score when score table is the same as training table
+# Start TestSuite ==========
+dt_scoreeqtrain_infogain_0_0
+dt_scoreeqtrain_infogain_0_1
+dt_scoreeqtrain_infogain_0_2
+dt_scoreeqtrain_infogain_0_3
+dt_scoreeqtrain_infogain_0_4
+dt_scoreeqtrain_infogain_0_5
+dt_scoreeqtrain_infogain_0_6
+dt_scoreeqtrain_infogain_0_7
+dt_scoreeqtrain_infogain_0_8
+dt_scoreeqtrain_infogain_0_9
+dt_scoreeqtrain_infogain_0_10
+
+# TestSuite Name : dt_largesize_infogain
+# DT02: It is to verify DT result correctness on large size data sets
+# Start TestSuite ==========
+dt_largesize_infogain_0_0
+dt_largesize_infogain_0_1
+dt_largesize_infogain_0_2
+dt_largesize_infogain_0_3
+
+# TestSuite Name : dt_normalsize_infogain
+# DT02: It is to verify DT result correctness on normal size data sets
+# Start TestSuite ==========
+dt_normalsize_infogain_0_0
+dt_normalsize_infogain_0_1
+dt_normalsize_infogain_0_2
+dt_normalsize_infogain_0_3
+dt_normalsize_infogain_0_4
+dt_normalsize_infogain_0_5
+
+# TestSuite Name : dt_sparse_infogain
+# DT03: It is to verify DT result correctness on sparse distribution data sets
+# Start TestSuite ==========
+dt_sparse_infogain_0_0
+dt_sparse_infogain_0_1
+dt_sparse_infogain_0_2
+dt_sparse_infogain_0_3
+
+# TestSuite Name : dt_continuous_infogain
+# DT04: It is to verify DT result correctness on continuous features
+# Start TestSuite ==========
+dt_continuous_infogain_0_0
+dt_continuous_infogain_0_1
+dt_continuous_infogain_0_2
+
+# TestSuite Name : dt_discrete_infogain
+# DT04: It is to verify DT result correctness on discrete features
+# Start TestSuite ==========
+dt_discrete_infogain_0_0
+dt_discrete_infogain_0_1
+dt_discrete_infogain_0_2
+
+# TestSuite Name : dt_specialdataset_infogain
+# DT05: Test DT result correctness on special data sets such as empty table; all rows are same class; duplicate rows; conflict rows.
+# Start TestSuite ==========
+dt_specialdataset_infogain_0_0
+dt_specialdataset_infogain_0_1
+dt_specialdataset_infogain_0_2
+dt_specialdataset_infogain_0_3
+
+# TestSuite Name : dt_validateeqtrain_infogain
+# DT07: It is to verify the training trees are the same when the "validation table name" is NULL or "training table" respectively
+# Start TestSuite ==========
+dt_validateeqtrain_infogain_0_0
+dt_validateeqtrain_infogain_0_1
+dt_validateeqtrain_infogain_0_2
+dt_validateeqtrain_infogain_0_3
+
+# TestSuite Name : dt_validateeqtest_infogain
+# DT08: It is to verify the training trees should be expected result when validation table is test data
+# Start TestSuite ==========
+dt_validateeqtest_infogain_0_0
+dt_validateeqtest_infogain_0_1
+dt_validateeqtest_infogain_0_2
+dt_validateeqtest_infogain_0_3
+dt_validateeqtest_infogain_0_4
+dt_validateeqtest_infogain_0_5
+dt_validateeqtest_infogain_0_6
+dt_validateeqtest_infogain_0_7
+
+# TestSuite Name : dt_pruneconf_infogain
+# DT10: It is to Verify "confidence_level" can affect tree format correctly
+# Start TestSuite ==========
+dt_pruneconf_infogain_0_0
+dt_pruneconf_infogain_0_1
+dt_pruneconf_infogain_0_2
+dt_pruneconf_infogain_0_3
+dt_pruneconf_infogain_0_4
+dt_pruneconf_infogain_0_5
+
+# TestSuite Name : dt_maxdepth_infogain
+# DT12: It is to Verify "max_tree_depth" can affect tree format correctly
+# Start TestSuite ==========
+dt_maxdepth_infogain_0_0
+dt_maxdepth_infogain_0_1
+dt_maxdepth_infogain_0_2
+dt_maxdepth_infogain_0_3
+
+# TestSuite Name : dt_node_prune_infogain
+# DT13: It is to Verify "node_prune_threshold" can affect tree format correctly
+# Start TestSuite ==========
+dt_node_prune_infogain_0_0
+dt_node_prune_infogain_0_1
+dt_node_prune_infogain_0_2
+dt_node_prune_infogain_0_3
+
+# TestSuite Name : dt_node_split_infogain
+# DT14: It is to Verify "node_split_threshold" can affect tree format correctly
+# Start TestSuite ==========
+dt_node_split_infogain_0_0
+dt_node_split_infogain_0_1
+dt_node_split_infogain_0_2
+dt_node_split_infogain_0_3
+
+# TestSuite Name : dt_datatype_infogain
+# DT018:It is to ensure datatype as discrete feature
+# Start TestSuite ==========
+dt_datatype_infogain_0_0
+
+# TestSuite Name : dt_infogain_cross_validate
+# DT01: dt_infogain_cross_validate
+# Start TestSuite ==========
+dt_infogain_cross_validate_0_0
+dt_infogain_cross_validate_0_1
+dt_infogain_cross_validate_0_2
+dt_infogain_cross_validate_0_3
+dt_infogain_cross_validate_0_4
+dt_infogain_cross_validate_0_5
+

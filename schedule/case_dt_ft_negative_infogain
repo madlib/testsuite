@@ -1,0 +1,95 @@
+# TestSuite Name : dt_train_negative_name_infogain
+# It is to test invalid parameter for c45_train
+# Start TestSuite ==========
+dt_train_negative_name_infogain_0_0
+
+# TestSuite Name : dt_train_negative_prune_infogain
+# It is to test invalid parameter for c45_train:confidence_level
+# Start TestSuite ==========
+dt_train_negative_prune_infogain_0_0
+dt_train_negative_prune_infogain_0_1
+dt_train_negative_prune_infogain_0_2
+
+# TestSuite Name : dt_train_negative_maxdepth_infogain
+# It is to test invalid parameter for c45_train: max_tree_depth
+# Start TestSuite ==========
+dt_train_negative_maxdepth_infogain_0_0
+dt_train_negative_maxdepth_infogain_0_1
+dt_train_negative_maxdepth_infogain_0_2
+
+# TestSuite Name : dt_train_negative_node_prune_infogain
+# It is to test invalid parameter for c45_train: max_tree_depth
+# Start TestSuite ==========
+dt_train_negative_node_prune_infogain_0_0
+dt_train_negative_node_prune_infogain_0_1
+dt_train_negative_node_prune_infogain_0_2
+
+# TestSuite Name : dt_train_negative_node_split_infogain
+# It is to test invalid parameter for c45_train: max_tree_depth
+# Start TestSuite ==========
+dt_train_negative_node_split_infogain_0_0
+dt_train_negative_node_split_infogain_0_1
+dt_train_negative_node_split_infogain_0_2
+
+# TestSuite Name : dt_train_negative_verbosity_infogain
+# It is to test invalid parameter for c45_train: max_tree_depth
+# Start TestSuite ==========
+dt_train_negative_verbosity_infogain_0_0
+
+# TestSuite Name : dt_score_negative_infogain
+# It is to invalid parameters for score
+# Start TestSuite ==========
+dt_score_negative_infogain_0_0
+
+# TestSuite Name : dt_classify_negative_infogain
+# It is to invalid parameters for classify
+# Start TestSuite ==========
+dt_classify_negative_infogain_0_0
+
+# TestSuite Name : dt_displaynegative_infogain
+# It is to invalid parameters for display
+# Start TestSuite ==========
+dt_displaynegative_infogain_0_0
+
+# TestSuite Name : dt_cleannegative_infogain
+# It is to invalid parameters for clean
+# Start TestSuite ==========
+dt_cleannegative_infogain_0_0
+
+# TestSuite Name : dt_datatype_negative_infogain
+# It is to invalid different data type as continuous data type
+# Start TestSuite ==========
+dt_datatype_negative_infogain_0_0
+dt_datatype_negative_infogain_0_1
+dt_datatype_negative_infogain_0_2
+dt_datatype_negative_infogain_0_3
+dt_datatype_negative_infogain_0_4
+dt_datatype_negative_infogain_0_5
+dt_datatype_negative_infogain_0_6
+dt_datatype_negative_infogain_0_7
+dt_datatype_negative_infogain_0_8
+dt_datatype_negative_infogain_0_9
+dt_datatype_negative_infogain_0_10
+dt_datatype_negative_infogain_0_11
+dt_datatype_negative_infogain_0_12
+dt_datatype_negative_infogain_0_13
+dt_datatype_negative_infogain_0_14
+dt_datatype_negative_infogain_0_15
+dt_datatype_negative_infogain_0_16
+dt_datatype_negative_infogain_0_17
+dt_datatype_negative_infogain_0_18
+dt_datatype_negative_infogain_0_19
+dt_datatype_negative_infogain_0_20
+dt_datatype_negative_infogain_0_21
+dt_datatype_negative_infogain_0_22
+dt_datatype_negative_infogain_0_23
+
+# TestSuite Name : dt_specialds_negative_infogain
+# DT05: Test DT result correctness on special data sets such as empty table; all rows are same class; duplicate rows; conflict rows.
+# Start TestSuite ==========
+dt_specialds_negative_infogain_0_0
+dt_specialds_negative_infogain_0_1
+dt_specialds_negative_infogain_0_2
+dt_specialds_negative_infogain_0_3
+dt_specialds_negative_infogain_0_4
+

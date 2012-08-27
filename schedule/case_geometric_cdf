@@ -1,0 +1,31 @@
+# TestSuite Name : geometric_cdf_feature_test_x
+# geometric_cdf
+# Start TestSuite ==========
+geometric_cdf_feature_test_x_0_0
+geometric_cdf_feature_test_x_0_1
+geometric_cdf_feature_test_x_0_2
+geometric_cdf_feature_test_x_0_3
+geometric_cdf_feature_test_x_0_4
+geometric_cdf_feature_test_x_0_5
+geometric_cdf_feature_test_x_0_6
+geometric_cdf_feature_test_x_0_7
+geometric_cdf_feature_test_x_0_8
+
+# TestSuite Name : geometric_cdf_feature_test_spp
+# geometric_cdf
+# Start TestSuite ==========
+geometric_cdf_feature_test_spp_0_0
+geometric_cdf_feature_test_spp_0_1
+geometric_cdf_feature_test_spp_0_2
+geometric_cdf_feature_test_spp_0_3
+geometric_cdf_feature_test_spp_0_4
+geometric_cdf_feature_test_spp_0_5
+
+# TestSuite Name : geometric_cdf_negative_case_spp
+# geometric_cdf
+# Start TestSuite ==========
+geometric_cdf_negative_case_spp_0_0
+geometric_cdf_negative_case_spp_0_1
+geometric_cdf_negative_case_spp_0_2
+geometric_cdf_negative_case_spp_0_3
+

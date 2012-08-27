@@ -1,0 +1,14 @@
+Class  INT
+Alcohol  float8
+Malic_acid  float8
+Ash  float8
+Alcalinity_of_ash    float8
+Magnesium  float8
+Total_phenols  float8
+Flavanoids  float8
+Nonflavanoid_phenols  float8
+Proanthocyanins  float8
+Color_intensity  float8
+Hue  float8
+OD280OD315_of_diluted_wines  float8
+Proline     float8

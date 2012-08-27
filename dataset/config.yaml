@@ -1,0 +1,14 @@
+DataModeling :
+    SupervisedLearning :
+        DecisionTree : 
+        LinearRegression : 
+        LogisticRegression : 
+        NaiveBayesClassification : false
+        RandomForest : 
+        SupportVectorMachines : false
+    UnsupervisedLearning :
+        kMeansClustering : 
+        AssociationRules : false
+        ParallelLatentDirichletAllocation : false
+InferentialStatistics :
+    HypothesisTests : 

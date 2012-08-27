@@ -1,0 +1,39 @@
+# TestSuite Name : rf_gini_negative_train_name
+# It is to test invalid name parameter for rf_train
+# Start TestSuite ==========
+rf_gini_negative_train_name_0_0
+
+# TestSuite Name : rf_gini_negative_train_underflow
+# It is to test underflow parameter for rf_train
+# Start TestSuite ==========
+rf_gini_negative_train_underflow_0_0
+
+# TestSuite Name : rf_gini_negative_train_zero
+# It is to test zero parameter for rf_train
+# Start TestSuite ==========
+rf_gini_negative_train_zero_0_0
+
+# TestSuite Name : rf_gini_negative_train_overflow
+# It is to test overflow parameter for rf_train
+# Start TestSuite ==========
+rf_gini_negative_train_overflow_0_0
+
+# TestSuite Name : rf_gini_negative_train_NULL
+# It is to test NULL parameter for rf_train
+# Start TestSuite ==========
+rf_gini_negative_train_NULL_0_0
+
+# TestSuite Name : rf_gini_negative_score_classify_display_clean
+# It is to test invalid parameter for score, classify, display and clean
+# Start TestSuite ==========
+rf_gini_negative_score_classify_display_clean_0_0
+
+# TestSuite Name : rf_specialds_negative_gini
+# Test DT result correctness on special data sets such as empty table; all rows are same class; duplicate rows; conflict rows.
+# Start TestSuite ==========
+rf_specialds_negative_gini_0_0
+rf_specialds_negative_gini_0_1
+rf_specialds_negative_gini_0_2
+rf_specialds_negative_gini_0_3
+rf_specialds_negative_gini_0_4
+

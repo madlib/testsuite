@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>
+        <algorithm>hypothesis_tests</algorithm>
+        <methods>
+                <method>
+                    <name>t_test_one</name>
+                    <parameter>
+                       <name>benchmark</name>
+                        <value>TemplateExecutor</value>
+                    </parameter>
+                </method>
+	</methods> 
+<test_suite>
+            <name>ht_feature_normal</name>
+            <comments>test normal case, using different values</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>t_test_one</name>
+                <list_parameter>
+                	<name>count</name>
+			<value>5</value>
+			<value>30</value>
+			<value>1000</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>t_test_two_pooled</name>
+                <list_parameter>
+                        <name>count</name>
+                        <value>5</value>
+                        <value>30</value>
+                        <value>1000</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>t_test_two_unpooled</name>
+                <list_parameter>
+                        <name>count</name>
+                        <value>5</value>
+                        <value>30</value>
+                        <value>1000</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>f_test</name>
+                <list_parameter>
+                        <name>count</name>
+                        <value>5</value>
+                        <value>30</value>
+                        <value>1000</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>ks_test</name>
+                <list_parameter>
+                        <name>count</name>
+                        <value>100</value>
+                        <value>500</value>
+                        <value>1000</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>wsr_test_constant_precision</name>
+                <list_parameter>
+                        <name>count</name>
+                        <value>100</value>
+                        <value>500</value>
+                        <value>1000</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>one_way_anova</name>
+                <list_parameter>
+                        <name>count</name>
+                        <value>100</value>
+                        <value>500</value>
+                        <value>1000</value>
+                </list_parameter>
+            </method>
+</test_suite>
+       <test_suite>
+            <name>ht_feature_special</name>
+            <comments>test the effect of special numbers</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+		<name>t_test_one</name>
+		<list_parameter>
+			<name>value</name>
+			<value>null_value</value>
+			<value>pinfinity_value</value>
+			<value>ninfinity_value</value>
+			<value>nan_value</value>
+		</list_parameter>
+		<parameters>
+			<parameter>
+				<name>table_name</name>
+				<value>ht_normal_small</value>
+			</parameter>
+		</parameters>
+	    </method>
+            <method>
+                <name>t_test_two_pooled</name>
+                <list_parameter>
+                        <name>value</name>
+                        <value>null_value</value>
+                        <value>pinfinity_value</value>
+                        <value>ninfinity_value</value>
+                        <value>nan_value</value>
+                </list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+            </method>
+            <method>
+                <name>t_test_two_unpooled</name>
+                <list_parameter>
+                        <name>value</name>
+                        <value>null_value</value>
+                        <value>pinfinity_value</value>
+                        <value>ninfinity_value</value>
+                        <value>nan_value</value>
+                </list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+            </method>
+            <method>
+                <name>f_test</name>
+                <list_parameter>
+                        <name>value</name>
+                        <value>null_value</value>
+                        <value>pinfinity_value</value>
+                        <value>ninfinity_value</value>
+                        <value>nan_value</value>
+                </list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+            </method>
+            <method>
+                <name>ks_test</name>
+                <list_parameter>
+                        <name>value</name>
+                        <value>null_value</value>
+                        <value>pinfinity_value</value>
+                        <value>ninfinity_value</value>
+                        <value>nan_value</value>
+                </list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+            </method>
+            <method>
+                <name>mw_test</name>
+                <list_parameter>
+                        <name>value</name>
+                        <value>null_value</value>
+                        <value>pinfinity_value</value>
+                        <value>ninfinity_value</value>
+                        <value>nan_value</value>
+                </list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+            </method>
+            <method>
+                <name>wsr_test_constant_precision</name>
+                <list_parameter>
+                        <name>value</name>
+                        <value>null_value</value>
+                        <value>pinfinity_value</value>
+                        <value>ninfinity_value</value>
+                        <value>nan_value</value>
+                </list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+            </method>
+            <method>
+                <name>one_way_anova</name>
+                <list_parameter>
+                        <name>value</name>
+                        <value>null_value</value>
+                        <value>pinfinity_value</value>
+                        <value>ninfinity_value</value>
+                        <value>nan_value</value>
+                </list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+            </method>
+</test_suite>
+<test_suite>
+            <name>ht_feature_normal_chi2</name>
+            <comments>test normal case, using different values</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>chi2_gof_test</name>
+                <list_parameter>
+                        <name>count</name>
+                        <value>100</value>
+                        <value>500</value>
+                        <value>1000</value>
+                </list_parameter>
+                <list_parameter>
+                        <name>df_in</name>
+                        <value>0</value>
+                        <value>1</value>
+                        <value>500</value>
+                </list_parameter>
+            </method>
+
+</test_suite>
+<test_suite>
+            <name>ht_feature_normal_mw_test</name>
+            <comments>test normal case, using different values</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>mw_test</name>
+                <list_parameter>
+                        <name>count</name>
+                        <value>100</value>
+                        <value>500</value>
+                        <value>1000</value>
+                </list_parameter>
+                <list_parameter>
+                        <name>precision</name>
+                        <value>NULL</value>
+                        <value>0.1</value>
+                        <value>0.001</value>
+                </list_parameter>
+            </method>
+</test_suite>
+
+<test_suite>
+	    <name>ht_feature_chi_gof_observed</name>
+	    <comments>test</comments>
+	   <execute_rate>1</execute_rate>
+            <method>
+                <name>chi2_gof_test</name>
+                <list_parameter>
+                        <name>observed</name>
+                        <value>null_observed</value>
+                </list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+            </method>
+</test_suite>
+
+       <test_suite>
+            <name>ht_feature_unreasonable</name>
+            <comments>test the effect of special numbers</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+		<name>t_test_one</name>
+		<list_parameter>
+			<name>value</name>
+			<value>shifted_value</value>
+			<value>noise_value</value>
+		</list_parameter>
+	    </method>
+            <method>
+                <name>t_test_two_pooled</name>
+                <list_parameter>
+                        <name>value</name>
+			<value>shifted_value</value>
+			<value>noise_value</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>t_test_two_unpooled</name>
+                <list_parameter>
+                        <name>value</name>
+			<value>shifted_value</value>
+			<value>noise_value</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>f_test</name>
+                <list_parameter>
+                        <name>value</name>
+			<value>shifted_value</value>
+			<value>noise_value</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>ks_test</name>
+                <list_parameter>
+                        <name>value</name>
+			<value>shifted_value</value>
+			<value>noise_value</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>mw_test</name>
+                <list_parameter>
+                        <name>value</name>
+			<value>shifted_value</value>
+			<value>noise_value</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>wsr_test_constant_precision</name>
+                <list_parameter>
+                        <name>value</name>
+			<value>shifted_value</value>
+			<value>noise_value</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>one_way_anova</name>
+                <list_parameter>
+                        <name>value</name>
+			<value>shifted_value</value>
+			<value>noise_value</value>
+                </list_parameter>
+            </method>
+</test_suite>
+<test_suite>
+        <name>ht_feature_wsr_test_constant_precision</name>
+        <comments>test wsr using negative precision value</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+                <name>wsr_test_constant_precision</name>
+                <list_parameter>
+                        <name>precision</name>
+                        <value>-0.001</value>
+                        <value>NaN</value>
+                        <value>+INFINITY</value>
+                        <value>NINFINITY</value>
+                </list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+        </method>
+</test_suite>
+
+<test_suite>
+        <name>ht_feature_wsr_test_variable_precision</name>
+        <comments>test wsr using precision column included negative value</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+                <name>wsr_test_variable_precision</name>
+                <list_parameter>
+                        <name>precision</name>
+                        <value>negative_precision</value>
+                        <value>nan_precision</value>
+                        <value>pinfinity_precision</value>
+                        <value>ninfinity_precision</value>
+                </list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+        </method>
+</test_suite>
+
+</multi_test_suites>
+</test_suites>
+
+

@@ -1,0 +1,122 @@
+#USAGE: ./convertor.sh <input> <sql> <table> <desc>
+cmd : "./convertor.sh <data> <sql> <table> <desc>"
+tables :
+    - id : rf_hypo
+      args :
+          data : "http://www.csd.uwo.ca/courses/CS9626b/links_files/R8/Data/hypo.data"
+          desc : "./desc/hypo.desc"
+    - id : rf_hypo_test
+      args :
+          data : "http://www.csd.uwo.ca/courses/CS9626b/links_files/R8/Data/hypo.test"
+          desc : "./desc/hypo.desc"
+    - id : rf_golf
+      args :
+          data : "http://www.sgi.com/tech/mlc/db/golf.data"
+          desc : "./desc/golf.desc"
+    - id : rf_nursery
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/nursery/nursery.data"
+          desc : "./desc/nursery.desc"
+    - id : rf_madelon
+      cmd : "python madelon_train.py <data> <label> <desc> <sql> <table>"
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/madelon/MADELON/madelon_train.data"
+          label : "http://archive.ics.uci.edu/ml/machine-learning-databases/madelon/MADELON/madelon_train.labels"
+          desc : "./desc/madelon.desc"
+    - id : rf_madelon_test
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/madelon/MADELON/madelon_test.data"
+          desc : "./desc/madelon_test.desc"
+    - id : rf_isolet
+      skip : pg
+      sql : "./rf_cross_validation.sql"
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/isolet/isolet5.data.Z"
+          desc : "./desc/isolet.desc"
+    - id : rf_isolet_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/isolet/isolet1+2+3+4.data.Z"
+          desc : "./desc/isolet_test.desc"
+    - id : rf_abalone 
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data"
+          desc : "./desc/abalone.desc"
+    - id : rf_abalone_test
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data"
+          desc : "./desc/abalone.desc"
+    - id : rf_internet_ad 
+      skip : pg
+      args : 
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/internet_ads/ad.data"
+          desc : "./desc/internet_ads.desc"
+    - id : rf_internet_ad_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/internet_ads/ad.data"
+          desc : "./desc/internet_ads.desc"
+    - id : rf_musk
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/musk/clean2.data.Z"
+          desc : "./desc/musk.desc"
+    - id : rf_musk_test
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/musk/clean1.data.Z"
+          desc : "./desc/musk_test.desc"
+    - id : rf_poker_hand 
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/poker/poker-hand-training-true.data"
+          desc : "./desc/poker_hand.desc"
+    - id : rf_poker_hand_test
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/poker/poker-hand-testing.data"
+          desc : "./desc/poker_hand_test.desc"
+    - id : rf_adult
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data"
+          desc : "./desc/adult.desc"
+    - id : rf_adult_test
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test"
+          desc : "./desc/adult_test.desc"
+    - id : rf_connect
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/connect-4/connect-4.data.Z"
+          desc : "./desc/connect.desc"
+    - id : rf_connect_test
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/connect-4/connect-4.data.Z"
+          desc : "./desc/connect_test.desc"
+    - id : rf_census_income
+      skip : pg
+      args :
+          data : "http://kdd.ics.uci.edu/databases/census-income/census-income.data.gz"
+          desc : "./desc/census_income.desc"
+    - id : rf_census_income_test
+      skip : pg
+      args :
+          data : "http://kdd.ics.uci.edu/databases/census-income/census-income.test.gz"
+          desc : "./desc/census_income_test.desc"
+    - id : rf_kddcup
+      skip : pg
+      args : 
+          data : "http://archive.ics.uci.edu/ml/databases/kddcup99/kddcup.data.gz" 
+          desc : "./desc/kddcup.desc"
+    - id : rf_kddcup_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/databases/kddcup99/kddcup.data.gz" 
+          desc : "./desc/kddcup_test.desc"
+    - id : rf_donation
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/00210/donation.zip"
+          desc : "./desc/donation.desc"
+    - id : rf_donation_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/00210/donation.zip"
+          desc : "./desc/donation_test.desc"
+
+sql : "./init.sql"

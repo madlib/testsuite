@@ -1,0 +1,11 @@
+Sample_code_number	text
+Clump_Thickness	float8
+Uniformity_of_Cell_Size	float8
+Uniformity_of_Cell_Shape	float8
+Marginal_Adhesion	float8
+Single_Epithelial_Cell_Size	float8
+Bare_Nuclei	float8
+Bland_Chromatin	float8
+Normal_Nucleoli	float8
+Mitoses	float8
+Class boolean

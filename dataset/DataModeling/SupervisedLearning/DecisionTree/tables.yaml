@@ -1,0 +1,205 @@
+#USAGE: ./convertor.sh <input> <sql> <table> <desc>
+cmd : "./convertor.sh <data> <sql> <table> <desc>"
+sql : "./decisiontreeinit.sql"
+tables :
+    - id : dt_soybean
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/soybean/soybean-large.data"
+          desc : "./desc/dt_soybean.desc"
+    - id : dt_hypo
+      args :
+          data : "http://www.csd.uwo.ca/courses/CS9626b/links_files/R8/Data/hypo.data"
+          desc : "./desc/dt_hypo.desc"
+    - id : dt_hypo_test
+      args :
+          data : "http://www.csd.uwo.ca/courses/CS9626b/links_files/R8/Data/hypo.test"
+          desc : "./desc/dt_hypo.desc"
+    - id : dt_monk
+      skip : pg
+      sql : "./dt_cross_validation.sql"
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/monks-problems/monks-1.train"
+          desc : "./desc/dt_monk.desc"
+    - id : dt_monk_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/monks-problems/monks-1.test"
+          desc : "./desc/dt_monk.desc"
+    - id : dt_badges
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/badges/badges.data"
+          desc : "./desc/dt_badges.desc"
+    - id : dt_car
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/car/car.data"
+          desc : "./desc/dt_car.desc"
+    - id : dt_crx
+      skip : pg
+      args :
+          data : "http://mlearn.ics.uci.edu/databases/credit-screening/crx.data"
+          desc : "./desc/dt_crx.desc"
+    - id : dt_crx_test
+      skip : pg
+      args :
+          data : "http://mlearn.ics.uci.edu/databases/credit-screening/crx.data"
+          desc : "./desc/dt_crx.desc"
+    - id : dt_golf
+      args :
+          data : "http://www.sgi.com/tech/mlc/db/golf.data"
+          desc : "./desc/dt_golf.desc"
+    - id : dt_krkopt
+      args :
+          data : "http://ftp.ics.uci.edu/pub/machine-learning-databases/chess/king-rook-vs-king/krkopt.data"
+          desc : "./desc/dt_krkopt.desc"
+    - id : dt_labor_neg
+      args :
+          data : "http://www.sgi.com/tech/mlc/db/labor-neg.data"
+          desc : "./desc/dt_labor_neg.desc"
+    - id : dt_labor_neg_test
+      args :
+          data : "http://www.sgi.com/tech/mlc/db/labor-neg.test"
+          desc : "./desc/dt_labor_neg_test.desc"
+    - id : dt_nursery
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/nursery/nursery.data"
+          desc : "./desc/dt_nursery.desc"
+    - id : dt_spect
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/spect/SPECT.train"
+          desc : "./desc/dt_spect.desc"
+    - id : dt_spect_test
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/spect/SPECT.test"
+          desc : "./desc/dt_spect_test.desc"
+    - id : dt_vote
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/voting-records/house-votes-84.data"
+          desc : "./desc/dt_vote.desc"
+    - id : dt_vote_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/voting-records/house-votes-84.data"
+          desc : "./desc/dt_vote.desc"
+    - id : dt_wine
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data"
+          desc : "./desc/dt_wine.desc"
+    - id : dt_winequality_red
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
+          desc : "./desc/dt_winequality_red.desc"
+    - id : dt_winequality_white
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv"
+          desc : "./desc/dt_winequality_white.desc"
+    - id : dt_zoo
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/zoo/zoo.data"
+          desc : "./desc/dt_zoo.desc"
+    - id : dt_madelon
+      skip : pg
+      cmd : "python madelon_train.py <data> <label> <desc> <sql> <table>"
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/madelon/MADELON/madelon_train.data"
+          label : "http://archive.ics.uci.edu/ml/machine-learning-databases/madelon/MADELON/madelon_train.labels"
+          desc : "./desc/dt_madelon.desc"
+    - id : dt_madelon_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/madelon/MADELON/madelon_test.data"
+          desc : "./desc/dt_madelon_test.desc"
+    - id : dt_isolet
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/isolet/isolet5.data.Z"
+          desc : "./desc/dt_isolet.desc"
+    - id : dt_isolet_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/isolet/isolet1+2+3+4.data.Z"
+          desc : "./desc/dt_isolet_test.desc"
+    - id : dt_abalone 
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data"
+          desc : "./desc/dt_abalone.desc"
+    - id : dt_abalone_test
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data"
+          desc : "./desc/dt_abalone.desc"
+    - id : dt_musk
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/musk/clean2.data.Z"
+          desc : "./desc/dt_musk.desc"
+    - id : dt_musk_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/musk/clean1.data.Z"
+          desc : "./desc/dt_musk_test.desc"
+    - id : dt_poker_hand 
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/poker/poker-hand-training-true.data"
+          desc : "./desc/dt_poker_hand.desc"
+    - id : dt_poker_hand_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/poker/poker-hand-testing.data"
+          desc : "./desc/dt_poker_hand_test.desc"
+    - id : dt_adult
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data"
+          desc : "./desc/dt_adult.desc"
+    - id : dt_adult_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test"
+          desc : "./desc/dt_adult_test.desc"
+    - id : dt_connect
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/connect-4/connect-4.data.Z"
+          desc : "./desc/dt_connect.desc"
+    - id : dt_connect_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/connect-4/connect-4.data.Z"
+          desc : "./desc/dt_connect.desc"
+    - id : dt_census_income
+      skip : pg
+      args :
+          data : "http://kdd.ics.uci.edu/databases/census-income/census-income.data.gz"
+          desc : "./desc/dt_census_income.desc"
+    - id : dt_census_income_test
+      skip : pg
+      args :
+          data : "http://kdd.ics.uci.edu/databases/census-income/census-income.test.gz"
+          desc : "./desc/dt_census_income_test.desc"
+    - id : dt_kddcup
+      skip : pg
+      args : 
+          data : "http://archive.ics.uci.edu/ml/databases/kddcup99/kddcup.data.gz" 
+          desc : "./desc/dt_kddcup.desc"
+    - id : dt_kddcup_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/databases/kddcup99/kddcup.data.gz" 
+          desc : "./desc/dt_kddcup_test.desc"
+    - id : dt_donation
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/00210/donation.zip"
+          desc : "./desc/dt_donation.desc"
+    - id : dt_donation_test
+      skip : pg
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/00210/donation.zip"
+          desc : "./desc/dt_donation_test.desc"

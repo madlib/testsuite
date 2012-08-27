@@ -1,0 +1,69 @@
+# TestSuite Name : gamma_quantile_feature_test_p_1
+# gamma_quantile
+# Start TestSuite ==========
+gamma_quantile_feature_test_p_1_0_0
+gamma_quantile_feature_test_p_1_0_1
+gamma_quantile_feature_test_p_1_0_2
+gamma_quantile_feature_test_p_1_0_3
+gamma_quantile_feature_test_p_1_0_4
+gamma_quantile_feature_test_p_1_0_5
+gamma_quantile_feature_test_p_1_0_6
+
+# TestSuite Name : gamma_quantile_feature_test_p_2
+# gamma_quantile
+# Start TestSuite ==========
+gamma_quantile_feature_test_p_2_0_0
+gamma_quantile_feature_test_p_2_0_1
+gamma_quantile_feature_test_p_2_0_2
+gamma_quantile_feature_test_p_2_0_3
+gamma_quantile_feature_test_p_2_0_4
+gamma_quantile_feature_test_p_2_0_5
+gamma_quantile_feature_test_p_2_0_6
+
+# TestSuite Name : gamma_quantile_feature_test_shape
+# gamma_quantile
+# Start TestSuite ==========
+gamma_quantile_feature_test_shape_0_0
+gamma_quantile_feature_test_shape_0_1
+gamma_quantile_feature_test_shape_0_2
+gamma_quantile_feature_test_shape_0_3
+gamma_quantile_feature_test_shape_0_4
+
+# TestSuite Name : gamma_quantile_feature_test_scale
+# gamma_quantile
+# Start TestSuite ==========
+gamma_quantile_feature_test_scale_0_0
+gamma_quantile_feature_test_scale_0_1
+gamma_quantile_feature_test_scale_0_2
+gamma_quantile_feature_test_scale_0_3
+gamma_quantile_feature_test_scale_0_4
+gamma_quantile_feature_test_scale_0_5
+gamma_quantile_feature_test_scale_0_6
+gamma_quantile_feature_test_scale_0_7
+gamma_quantile_feature_test_scale_0_8
+gamma_quantile_feature_test_scale_0_9
+
+# TestSuite Name : gamma_quantile_negative_case_p
+# gamma_quantile
+# Start TestSuite ==========
+gamma_quantile_negative_case_p_0_0
+gamma_quantile_negative_case_p_0_1
+gamma_quantile_negative_case_p_0_2
+gamma_quantile_negative_case_p_0_3
+
+# TestSuite Name : gamma_quantile_negative_case_shape
+# gamma_quantile
+# Start TestSuite ==========
+gamma_quantile_negative_case_shape_0_0
+gamma_quantile_negative_case_shape_0_1
+gamma_quantile_negative_case_shape_0_2
+gamma_quantile_negative_case_shape_0_3
+
+# TestSuite Name : gamma_quantile_negative_case_scale
+# gamma_quantile
+# Start TestSuite ==========
+gamma_quantile_negative_case_scale_0_0
+gamma_quantile_negative_case_scale_0_1
+gamma_quantile_negative_case_scale_0_2
+gamma_quantile_negative_case_scale_0_3
+

@@ -1,0 +1,55 @@
+# TestSuite Name : non_central_chi_squared_quantile_feature_test_p
+# non_central_chi_squared_quantile
+# Start TestSuite ==========
+non_central_chi_squared_quantile_feature_test_p_0_0
+non_central_chi_squared_quantile_feature_test_p_0_1
+non_central_chi_squared_quantile_feature_test_p_0_2
+non_central_chi_squared_quantile_feature_test_p_0_3
+non_central_chi_squared_quantile_feature_test_p_0_4
+
+# TestSuite Name : non_central_chi_squared_quantile_feature_test_df
+# non_central_chi_squared_quantile
+# Start TestSuite ==========
+non_central_chi_squared_quantile_feature_test_df_0_0
+non_central_chi_squared_quantile_feature_test_df_0_1
+non_central_chi_squared_quantile_feature_test_df_0_2
+non_central_chi_squared_quantile_feature_test_df_0_3
+non_central_chi_squared_quantile_feature_test_df_0_4
+non_central_chi_squared_quantile_feature_test_df_0_5
+non_central_chi_squared_quantile_feature_test_df_0_6
+
+# TestSuite Name : non_central_chi_squared_quantile_feature_test_ncp
+# non_central_chi_squared_quantile
+# Start TestSuite ==========
+non_central_chi_squared_quantile_feature_test_ncp_0_0
+non_central_chi_squared_quantile_feature_test_ncp_0_1
+non_central_chi_squared_quantile_feature_test_ncp_0_2
+non_central_chi_squared_quantile_feature_test_ncp_0_3
+non_central_chi_squared_quantile_feature_test_ncp_0_4
+non_central_chi_squared_quantile_feature_test_ncp_0_5
+non_central_chi_squared_quantile_feature_test_ncp_0_6
+non_central_chi_squared_quantile_feature_test_ncp_0_7
+
+# TestSuite Name : non_central_chi_squared_quantile_negative_case_p
+# non_central_chi_squared_quantile
+# Start TestSuite ==========
+non_central_chi_squared_quantile_negative_case_p_0_0
+non_central_chi_squared_quantile_negative_case_p_0_1
+non_central_chi_squared_quantile_negative_case_p_0_2
+non_central_chi_squared_quantile_negative_case_p_0_3
+
+# TestSuite Name : non_central_chi_squared_quantile_negative_case_df
+# non_central_chi_squared_quantile
+# Start TestSuite ==========
+non_central_chi_squared_quantile_negative_case_df_0_0
+non_central_chi_squared_quantile_negative_case_df_0_1
+non_central_chi_squared_quantile_negative_case_df_0_2
+non_central_chi_squared_quantile_negative_case_df_0_3
+
+# TestSuite Name : non_central_chi_squared_quantile_negative_case_ncp
+# non_central_chi_squared_quantile
+# Start TestSuite ==========
+non_central_chi_squared_quantile_negative_case_ncp_0_0
+non_central_chi_squared_quantile_negative_case_ncp_0_1
+non_central_chi_squared_quantile_negative_case_ncp_0_2
+

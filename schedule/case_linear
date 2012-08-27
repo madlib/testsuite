@@ -1,0 +1,78 @@
+# TestSuit Name : linear_regression_functionalities
+# It is to test basic functionalities of linear regression.
+# Start TestSuit ==========
+linear_regression_functionalities_0_0
+linear_regression_functionalities_0_1
+linear_regression_functionalities_0_2
+linear_regression_functionalities_0_3
+linear_regression_functionalities_0_4
+linear_regression_functionalities_0_5
+linear_regression_functionalities_0_6
+linear_regression_functionalities_0_7
+linear_regression_functionalities_0_8
+linear_regression_functionalities_0_9
+linear_regression_functionalities_0_10
+linear_regression_functionalities_0_11
+linear_regression_functionalities_0_12
+linear_regression_functionalities_0_13
+linear_regression_functionalities_0_14
+linear_regression_functionalities_0_15
+linear_regression_functionalities_0_16
+linear_regression_functionalities_0_17
+linear_regression_functionalities_0_18
+linear_regression_functionalities_0_19
+linear_regression_functionalities_0_20
+linear_regression_functionalities_0_21
+linear_regression_functionalities_0_22
+linear_regression_functionalities_0_23
+linear_regression_functionalities_0_24
+linear_regression_functionalities_0_25
+linear_regression_functionalities_0_26
+linear_regression_functionalities_0_27
+linear_regression_functionalities_0_28
+linear_regression_functionalities_0_29
+linear_regression_functionalities_0_30
+linear_regression_functionalities_0_31
+linear_regression_functionalities_0_32
+linear_regression_functionalities_0_33
+linear_regression_functionalities_0_34
+linear_regression_functionalities_0_35
+linear_regression_functionalities_0_36
+linear_regression_functionalities_0_37
+
+# TestSuit Name : linear_regression_corner_scenarios
+# It is to test the corner scenarios of linear regression.
+# Start TestSuit ==========
+linear_regression_corner_scenarios_0_0
+linear_regression_corner_scenarios_0_1
+linear_regression_corner_scenarios_0_2
+linear_regression_corner_scenarios_0_3
+linear_regression_corner_scenarios_0_4
+linear_regression_corner_scenarios_0_5
+
+# TestSuit Name : linear_regression_negative_dependent_varname
+# It is to test the negative scenarios of linear regression.
+# Start TestSuit ==========
+linear_regression_negative_dependent_varname_0_0
+linear_regression_negative_dependent_varname_0_1
+linear_regression_negative_dependent_varname_0_2
+
+# TestSuit Name : linear_regression_negative_independent_varname
+# It is to test the negative scenarios of linear regression.
+# Start TestSuit ==========
+linear_regression_negative_independent_varname_0_0
+linear_regression_negative_independent_varname_0_1
+linear_regression_negative_independent_varname_0_2
+
+# TestSuit Name : linear_regression_ctas
+# It is to test basic functionalities of linear regression with create table as.
+# Start TestSuit ==========
+linear_regression_ctas_0_0
+linear_regression_ctas_0_1
+
+# TestSuit Name : linear_regression_group_by
+# It is to test basic functionalities of linear regression with group by.
+# Start TestSuit ==========
+linear_regression_group_by_0_0
+linear_regression_group_by_0_1
+

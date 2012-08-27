@@ -1,0 +1,22 @@
+- cases : case_performance
+  platform : GPDB_4.2.0_42
+  unique : true
+
+- cases : case_performance
+  platform : GPDB_4.2.0_36
+  unique : true
+
+- cases : case_performance
+  platform : GPDB_4.2.0_30
+  unique : true
+
+- cases : case_performance
+  platform : GPDB_4.2.0_24
+  unique : true
+
+- cases : case_performance
+  platform : GPDB_4.2.0_18
+  unique : true
+
+
+

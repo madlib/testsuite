@@ -1,0 +1,34 @@
+# TestSuite Name : exponential_quantile_feature_test_p
+# exponential_quantile
+# Start TestSuite ==========
+exponential_quantile_feature_test_p_0_0
+exponential_quantile_feature_test_p_0_1
+exponential_quantile_feature_test_p_0_2
+exponential_quantile_feature_test_p_0_3
+exponential_quantile_feature_test_p_0_4
+
+# TestSuite Name : exponential_quantile_feature_test_lambda
+# exponential_quantile
+# Start TestSuite ==========
+exponential_quantile_feature_test_lambda_0_0
+exponential_quantile_feature_test_lambda_0_1
+exponential_quantile_feature_test_lambda_0_2
+exponential_quantile_feature_test_lambda_0_3
+exponential_quantile_feature_test_lambda_0_4
+exponential_quantile_feature_test_lambda_0_5
+
+# TestSuite Name : exponential_quantile_negative_case_p
+# exponential_quantile
+# Start TestSuite ==========
+exponential_quantile_negative_case_p_0_0
+exponential_quantile_negative_case_p_0_1
+exponential_quantile_negative_case_p_0_2
+
+# TestSuite Name : exponential_quantile_negative_case_lambda
+# exponential_quantile
+# Start TestSuite ==========
+exponential_quantile_negative_case_lambda_0_0
+exponential_quantile_negative_case_lambda_0_1
+exponential_quantile_negative_case_lambda_0_2
+exponential_quantile_negative_case_lambda_0_3
+

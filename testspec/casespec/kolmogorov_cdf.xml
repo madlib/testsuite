@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>
+
+    <algorithm>distribution_function</algorithm>
+        <methods>
+                <method>
+                    <name>kolmogorov_cdf</name>
+                    <parameter>
+                        <name>benchmark</name>
+                        <value>TemplateExecutor</value>
+                    </parameter>
+                </method>
+        </methods>
+        <test_suite>
+            <name>kolmogorov_cdf_feature_test_x</name>
+            <comments>kolmogorov_cdf</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>kolmogorov_cdf</name>
+                <list_parameter>
+                    <name>x</name>
+                    <value>NULL</value>
+                    <value>NaN</value>
+                    <value>+INFINITY</value>
+                    <value>NINFINITY</value>
+                    <value>-1</value>
+                    <value>0</value>
+                    <value>0.000001</value>
+                    <value>10</value>
+                    <value>999999</value>
+                </list_parameter>
+                <tear_down></tear_down>
+            </method>
+        </test_suite>
+
+    </multi_test_suites>
+</test_suites>

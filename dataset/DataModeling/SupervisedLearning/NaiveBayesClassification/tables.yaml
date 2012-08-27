@@ -1,0 +1,82 @@
+cmd : "python 2t_fm.py -t <table> -d <sql> -s <sourfile>"
+tables :
+    - id : nb_extra_values_training
+      args :
+          sourfile : "http://jira.madlib.net/secure/attachment/10075/nbtraining2t"
+    - id : nb_extra_values_classify
+      args : 
+          sourfile : "http://jira.madlib.net/secure/attachment/10074/nbtesting2t"
+    - id : nb_recordlink
+      cmd : "python RecordLinkageCPDS_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/00210/donation.zip" 
+    - id : nb_url
+      skip : all
+      cmd : "python URLReputationDS2_fm.py -t <table> -d <sql> -s <sourfile> -D <dimension> -w <date>"
+      args : 
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/url/url_svmlight.tar.gz"
+          dimension : "3231961"
+          date : "1"
+    - id : nb_pokerhand
+      cmd : "python pokerhand_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/poker/poker-hand-training-true.data"
+    - id : nb_pokerhand_test
+      cmd : "python pokerhand_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/poker/poker-hand-testing.data"
+    - id : nb_covtype
+      cmd : "python covtype_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/covtype/covtype.data.gz"
+    - id : nb_miniboo
+      cmd : "python MiniBooNE_fm.py -t <table> -d <sql> -s <sourfile>"
+      args : 
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/00199/MiniBooNE_PID.txt"
+    - id : nb_adult_withmissing
+      cmd : "python adult_withMissing_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data"
+    - id : nb_adult_withmissing_test
+      cmd : "python adult_withMissing_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test"
+    - id : nb_adult_withoutmissing
+      cmd : "python adult_withoutMissing_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data"
+    - id : nb_adult_withoutmissing_test
+      cmd : "python adult_withoutMissing_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test"
+    - id : nb_chess
+      cmd : "python chess_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/chess/king-rook-vs-king/krkopt.data"
+    - id : nb_german
+      cmd : "python german_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/german.data"
+    - id : nb_dorothea
+      skip : all
+      cmd : "python Dorothea_fm.py -t <table> -d <sql> -s <sourfile> -l <label> -D <dimension>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/dorothea/DOROTHEA/dorothea_train.data"
+          label : "http://archive.ics.uci.edu/ml/machine-learning-databases/dorothea/DOROTHEA/dorothea_train.labels"
+          dimension : "100000"
+    - id : nb_p53
+      cmd : "python p53_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/p53/p53_old_2010.zip"
+    - id : nb_gisette
+      cmd : "python gisette_fm.py -t <table> -d <sql> -s <sourfile> -l <label> -D <dimension>"
+      args : 
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/gisette/GISETTE/gisette_train.data"
+          label : "http://archive.ics.uci.edu/ml/machine-learning-databases/gisette/GISETTE/gisette_train.labels"
+          dimension : "5000"
+    - id : nb_gisette_valid
+      cmd : "python gisette_fm.py -t <table> -d <sql> -s <sourfile> -l <label> -D <dimension>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/gisette/GISETTE/gisette_valid.data"
+          label : "http://archive.ics.uci.edu/ml/machine-learning-databases/gisette/gisette_valid.labels"
+          dimension : "5000"

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>negative</test_type>
+    <multi_test_suites>
+        <algorithm>hypothesis_tests</algorithm>
+        <methods>
+                <method>
+                    <name>t_test_one</name>
+                    <parameter>
+                       <name>benchmark</name>
+                        <value>TemplateExecutor</value>
+                    </parameter>
+                </method>
+	</methods>
+<test_suite>
+        <name>ht_negative_chi2_gof_observed</name>
+        <comments>using column included negative observed value</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+                <name>chi2_gof_test</name>
+                <list_parameter>
+                        <name>observed</name>
+                        <value>negative_observed</value>
+                </list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+        </method>
+</test_suite>
+ 
+<test_suite>
+	<name>ht_negative_chi2_gof_df</name>
+	<comments>test negative case</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+		<name>chi2_gof_test</name>
+		<list_parameter>
+			<name>df_in</name>
+			<value>-1</value>
+		</list_parameter>
+                <parameters>
+                        <parameter>
+                                <name>table_name</name>
+                                <value>ht_normal_small</value>
+                        </parameter>
+                </parameters>
+	</method>
+</test_suite>
+
+
+</multi_test_suites>
+</test_suites>
+

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>
+
+    <algorithm>distribution_function</algorithm>
+        <methods>
+                <method>
+                    <name>rayleigh_pdf</name>
+                    <parameter>
+                        <name>benchmark</name>
+                        <value>TemplateExecutor</value>
+                    </parameter>
+                </method>
+        </methods>
+        <test_suite>
+            <name>rayleigh_pdf_feature_test_x</name>
+            <comments>rayleigh_pdf</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>rayleigh_pdf</name>
+                <list_parameter>
+                    <name>x</name>
+                    <value>NULL</value>
+                    <value>NaN</value>
+                    <value>NINFINITY</value>
+                    <value>-1</value>
+                    <value>0</value>
+                    <value>0.199999</value>
+                    <value>1</value>
+                    <value>2</value>
+                    <value>5</value>
+                    <value>+INFINITY</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>scale</name>
+                    <value>1</value>
+                </list_parameter>
+                <tear_down></tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>rayleigh_pdf_feature_test_scale</name>
+            <comments>rayleigh_pdf</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>rayleigh_pdf</name>
+                <list_parameter>
+                    <name>x</name>
+                    <value>1</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>scale</name>
+                    <value>0.000001</value>
+                    <value>1</value>
+                    <value>5</value>
+                    <value>NULL</value>
+                    <value>NaN</value>
+                </list_parameter>
+                <tear_down></tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>rayleigh_pdf_negative_case_scale</name>
+            <comments>rayleigh_pdf</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>rayleigh_pdf</name>
+                <list_parameter>
+                    <name>x</name>
+                    <value>1</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>scale</name>
+                    <value>NINFINITY</value>
+                    <value>-1</value>
+                    <value>0</value>
+                    <value>+INFINITY</value>
+                </list_parameter>
+                <tear_down></tear_down>
+            </method>
+        </test_suite>
+
+    </multi_test_suites>
+</test_suites>

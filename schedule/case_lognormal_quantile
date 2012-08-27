@@ -1,0 +1,53 @@
+# TestSuite Name : lognormal_quantile_feature_test_p
+# lognormal_quantile
+# Start TestSuite ==========
+lognormal_quantile_feature_test_p_0_0
+lognormal_quantile_feature_test_p_0_1
+lognormal_quantile_feature_test_p_0_2
+lognormal_quantile_feature_test_p_0_3
+lognormal_quantile_feature_test_p_0_4
+
+# TestSuite Name : lognormal_quantile_feature_test_location
+# lognormal_quantile
+# Start TestSuite ==========
+lognormal_quantile_feature_test_location_0_0
+lognormal_quantile_feature_test_location_0_1
+lognormal_quantile_feature_test_location_0_2
+lognormal_quantile_feature_test_location_0_3
+lognormal_quantile_feature_test_location_0_4
+lognormal_quantile_feature_test_location_0_5
+lognormal_quantile_feature_test_location_0_6
+
+# TestSuite Name : lognormal_quantile_feature_test_scale
+# lognormal_quantile
+# Start TestSuite ==========
+lognormal_quantile_feature_test_scale_0_0
+lognormal_quantile_feature_test_scale_0_1
+lognormal_quantile_feature_test_scale_0_2
+lognormal_quantile_feature_test_scale_0_3
+lognormal_quantile_feature_test_scale_0_4
+lognormal_quantile_feature_test_scale_0_5
+lognormal_quantile_feature_test_scale_0_6
+
+# TestSuite Name : lognormal_quantile_negative_case_p
+# lognormal_quantile
+# Start TestSuite ==========
+lognormal_quantile_negative_case_p_0_0
+lognormal_quantile_negative_case_p_0_1
+lognormal_quantile_negative_case_p_0_2
+lognormal_quantile_negative_case_p_0_3
+
+# TestSuite Name : lognormal_quantile_negative_case_location
+# lognormal_quantile
+# Start TestSuite ==========
+lognormal_quantile_negative_case_location_0_0
+lognormal_quantile_negative_case_location_0_1
+
+# TestSuite Name : lognormal_quantile_negative_case_scale
+# lognormal_quantile
+# Start TestSuite ==========
+lognormal_quantile_negative_case_scale_0_0
+lognormal_quantile_negative_case_scale_0_1
+lognormal_quantile_negative_case_scale_0_2
+lognormal_quantile_negative_case_scale_0_3
+

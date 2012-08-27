@@ -1,0 +1,91 @@
+# TestSuite Name : rf_gini_dataset
+# RF00:verify dataset
+# Start TestSuite ==========
+rf_gini_dataset_0_0
+rf_gini_dataset_0_1
+rf_gini_dataset_0_2
+rf_gini_dataset_0_3
+rf_gini_dataset_0_4
+rf_gini_dataset_0_5
+rf_gini_dataset_0_6
+rf_gini_dataset_0_7
+rf_gini_dataset_0_8
+rf_gini_dataset_0_9
+rf_gini_dataset_0_10
+rf_gini_dataset_0_11
+
+# TestSuite Name : rf_gini_num_of_trees_abalone
+# RF02:verify number of trees
+# Start TestSuite ==========
+rf_gini_num_of_trees_abalone_0_0
+rf_gini_num_of_trees_abalone_0_1
+
+# TestSuite Name : rf_gini_sampling_percentage_poker_hand
+# RF04:verify sampling percentage
+# Start TestSuite ==========
+rf_gini_sampling_percentage_poker_hand_0_0
+rf_gini_sampling_percentage_poker_hand_0_1
+rf_gini_sampling_percentage_poker_hand_0_2
+rf_gini_sampling_percentage_poker_hand_0_3
+rf_gini_sampling_percentage_poker_hand_0_4
+
+# TestSuite Name : rf_gini_features_per_node_madelon
+# RF06:verify features per node:madelon
+# Start TestSuite ==========
+rf_gini_features_per_node_madelon_0_0
+rf_gini_features_per_node_madelon_0_1
+
+# TestSuite Name : rf_gini_display
+# RF08: It is to verify RF result at different display function.
+# Start TestSuite ==========
+rf_gini_display_0_0
+
+# TestSuite Name : rf_specialdataset_gini
+# RF09: Test RF result correctness on special data sets such as empty table; all rows are same class; duplicate rows; conflict rows.
+# Start TestSuite ==========
+rf_specialdataset_gini_0_0
+rf_specialdataset_gini_0_1
+rf_specialdataset_gini_0_2
+rf_specialdataset_gini_0_3
+
+# TestSuite Name : rf_gini_node_prune_threshold_poker_hand
+# RF10:verify node_prune_threshold
+# Start TestSuite ==========
+rf_gini_node_prune_threshold_poker_hand_0_0
+rf_gini_node_prune_threshold_poker_hand_0_1
+rf_gini_node_prune_threshold_poker_hand_0_2
+
+# TestSuite Name : rf_gini_node_split_threshold_abalone
+# RF11:verify node_split_threshold
+# Start TestSuite ==========
+rf_gini_node_split_threshold_abalone_0_0
+rf_gini_node_split_threshold_abalone_0_1
+rf_gini_node_split_threshold_abalone_0_2
+
+# TestSuite Name : rf_gini_max_tree_depth_abalone
+# RF12:verify max_tree_depth
+# Start TestSuite ==========
+rf_gini_max_tree_depth_abalone_0_0
+rf_gini_max_tree_depth_abalone_0_1
+
+# TestSuite Name : rf_gini_is_serial_classification_donation
+# RF12:verify is_serial_classification
+# Start TestSuite ==========
+rf_gini_is_serial_classification_donation_0_0
+
+# TestSuite Name : rf_gini_num_of_trees_hypo
+# RF01: verify number of trees
+# Start TestSuite ==========
+rf_gini_num_of_trees_hypo_0_0
+rf_gini_num_of_trees_hypo_0_1
+
+# TestSuite Name : rf_gini_cross_validate
+# RF01: verify number of trees
+# Start TestSuite ==========
+rf_gini_cross_validate_0_0
+rf_gini_cross_validate_0_1
+rf_gini_cross_validate_0_2
+rf_gini_cross_validate_0_3
+rf_gini_cross_validate_0_4
+rf_gini_cross_validate_0_5
+

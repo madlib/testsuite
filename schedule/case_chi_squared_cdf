@@ -1,0 +1,48 @@
+# TestSuite Name : chi_squared_cdf_feature_test_x
+# chi_squared_cdf
+# Start TestSuite ==========
+chi_squared_cdf_feature_test_x_0_0
+chi_squared_cdf_feature_test_x_0_1
+chi_squared_cdf_feature_test_x_0_2
+chi_squared_cdf_feature_test_x_0_3
+chi_squared_cdf_feature_test_x_0_4
+chi_squared_cdf_feature_test_x_0_5
+chi_squared_cdf_feature_test_x_0_6
+chi_squared_cdf_feature_test_x_0_7
+chi_squared_cdf_feature_test_x_0_8
+chi_squared_cdf_feature_test_x_0_9
+chi_squared_cdf_feature_test_x_0_10
+chi_squared_cdf_feature_test_x_0_11
+chi_squared_cdf_feature_test_x_0_12
+chi_squared_cdf_feature_test_x_0_13
+chi_squared_cdf_feature_test_x_0_14
+chi_squared_cdf_feature_test_x_0_15
+chi_squared_cdf_feature_test_x_0_16
+chi_squared_cdf_feature_test_x_0_17
+chi_squared_cdf_feature_test_x_0_18
+chi_squared_cdf_feature_test_x_0_19
+chi_squared_cdf_feature_test_x_0_20
+chi_squared_cdf_feature_test_x_0_21
+chi_squared_cdf_feature_test_x_0_22
+chi_squared_cdf_feature_test_x_0_23
+
+# TestSuite Name : chi_squared_cdf_feature_test_df
+# chi_squared_cdf
+# Start TestSuite ==========
+chi_squared_cdf_feature_test_df_0_0
+chi_squared_cdf_feature_test_df_0_1
+chi_squared_cdf_feature_test_df_0_2
+chi_squared_cdf_feature_test_df_0_3
+chi_squared_cdf_feature_test_df_0_4
+chi_squared_cdf_feature_test_df_0_5
+chi_squared_cdf_feature_test_df_0_6
+
+# TestSuite Name : chi_squared_cdf_negative_case_df
+# chi_squared_cdf
+# Start TestSuite ==========
+chi_squared_cdf_negative_case_df_0_0
+chi_squared_cdf_negative_case_df_0_1
+chi_squared_cdf_negative_case_df_0_2
+chi_squared_cdf_negative_case_df_0_3
+chi_squared_cdf_negative_case_df_0_4
+

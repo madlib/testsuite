@@ -1,0 +1,5 @@
+motor	text
+screw	text
+pgain	float8
+vgain	float8
+class	float8

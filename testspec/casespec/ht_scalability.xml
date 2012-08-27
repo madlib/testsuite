@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>scalability</test_type>
+    <multi_test_suites>
+        <algorithm>hypothesis_tests</algorithm>
+        <methods>
+                <method>
+                    <name>t_test_one</name>
+                    <parameter>
+                       <name>benchmark</name>
+                        <value>TemplateExecutor</value>
+                    </parameter>
+                </method>
+	</methods> 
+<test_suite>
+	<name>ht_scalability_t_test_one</name>
+	<comments>test huge values</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+		<name>t_test_one</name>
+		<parameters>
+			<parameter>
+				<name>table_name</name>
+				<value>ht_normal_huge</value>
+			</parameter>
+		</parameters>
+	</method>
+</test_suite>
+<test_suite>
+        <name>ht_scalability_t_test_two_pooled</name>
+        <comments>test huge values</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+		<name>t_test_two_pooled</name>
+		<parameters>
+			<parameter>
+				<name>table_name</name>
+				<value>ht_normal_huge</value>
+			</parameter>
+		</parameters>
+	</method>
+</test_suite>
+<test_suite>
+        <name>ht_scalability_t_test_two_unpooled</name>
+        <comments>test huge values</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+		<name>t_test_two_unpooled</name>
+		<parameters>
+			<parameter>
+				<name>table_name</name>
+				<value>ht_normal_huge</value>
+			</parameter>
+		</parameters>
+	</method>
+</test_suite>
+<test_suite>
+        <name>ht_scalability_f_test</name>
+        <comments>test huge values</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+		<name>f_test</name>
+		<parameters>
+			<parameter>
+				<name>table_name</name>
+				<value>ht_normal_huge</value>
+			</parameter>
+		</parameters>
+	</method>
+</test_suite>
+<test_suite>
+        <name>ht_scalability_chi2_gof_test</name>
+        <comments>test huge values</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+		<name>chi2_gof_test</name>
+		<parameters>
+			<parameter>
+				<name>table_name</name>
+				<value>ht_normal_huge</value>
+			</parameter>
+		</parameters>
+	</method>
+</test_suite>
+<test_suite>
+        <name>ht_scalability_ks_test</name>
+        <comments>test huge values</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+		<name>ks_test</name>
+		<parameters>
+			<parameter>
+				<name>table_name</name>
+				<value>ht_normal_huge</value>
+			</parameter>
+		</parameters>
+	</method>
+</test_suite>
+<test_suite>
+        <name>ht_scalability_mw_test</name>
+        <comments>test huge values</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+		<name>mw_test</name>
+		<parameters>
+			<parameter>
+				<name>table_name</name>
+				<value>ht_normal_huge</value>
+			</parameter>
+		</parameters>
+	</method>
+</test_suite>
+<test_suite>
+        <name>ht_scalability_wsr_test</name>
+        <comments>test huge values</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+		<name>wsr_test_constant_precision</name>
+		<parameters>
+			<parameter>
+				<name>table_name</name>
+				<value>ht_normal_huge</value>
+			</parameter>
+		</parameters>
+	</method>
+</test_suite>
+<test_suite>
+        <name>ht_scalability_one_way_anova</name>
+        <comments>test huge values</comments>
+                <!-- It indicate max execution times-->
+        <execute_rate>1</execute_rate>
+        <method>
+		<name>one_way_anova</name>
+		<parameters>
+			<parameter>
+				<name>table_name</name>
+				<value>ht_normal_huge</value>
+			</parameter>
+		</parameters>
+	</method>
+</test_suite>
+
+
+</multi_test_suites>
+</test_suites>

@@ -1,0 +1,43 @@
+# TestSuite Name : exponential_cdf_feature_test_x
+# exponential_cdf
+# Start TestSuite ==========
+exponential_cdf_feature_test_x_0_0
+exponential_cdf_feature_test_x_0_1
+exponential_cdf_feature_test_x_0_2
+exponential_cdf_feature_test_x_0_3
+exponential_cdf_feature_test_x_0_4
+exponential_cdf_feature_test_x_0_5
+exponential_cdf_feature_test_x_0_6
+exponential_cdf_feature_test_x_0_7
+exponential_cdf_feature_test_x_0_8
+exponential_cdf_feature_test_x_0_9
+exponential_cdf_feature_test_x_0_10
+exponential_cdf_feature_test_x_0_11
+exponential_cdf_feature_test_x_0_12
+exponential_cdf_feature_test_x_0_13
+exponential_cdf_feature_test_x_0_14
+exponential_cdf_feature_test_x_0_15
+exponential_cdf_feature_test_x_0_16
+exponential_cdf_feature_test_x_0_17
+
+# TestSuite Name : exponential_cdf_feature_test_lambda
+# exponential_cdf
+# Start TestSuite ==========
+exponential_cdf_feature_test_lambda_0_0
+exponential_cdf_feature_test_lambda_0_1
+exponential_cdf_feature_test_lambda_0_2
+exponential_cdf_feature_test_lambda_0_3
+exponential_cdf_feature_test_lambda_0_4
+exponential_cdf_feature_test_lambda_0_5
+exponential_cdf_feature_test_lambda_0_6
+exponential_cdf_feature_test_lambda_0_7
+exponential_cdf_feature_test_lambda_0_8
+
+# TestSuite Name : exponential_cdf_negative_case_lambda
+# exponential_cdf
+# Start TestSuite ==========
+exponential_cdf_negative_case_lambda_0_0
+exponential_cdf_negative_case_lambda_0_1
+exponential_cdf_negative_case_lambda_0_2
+exponential_cdf_negative_case_lambda_0_3
+

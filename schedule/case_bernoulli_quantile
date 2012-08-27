@@ -1,0 +1,39 @@
+# TestSuite Name : bernoulli_quantile_feature_test_p
+# bernoulli_quantile
+# Start TestSuite ==========
+bernoulli_quantile_feature_test_p_0_0
+bernoulli_quantile_feature_test_p_0_1
+bernoulli_quantile_feature_test_p_0_2
+bernoulli_quantile_feature_test_p_0_3
+bernoulli_quantile_feature_test_p_0_4
+
+# TestSuite Name : bernoulli_quantile_feature_test_spp
+# bernoulli_quantile
+# Start TestSuite ==========
+bernoulli_quantile_feature_test_spp_0_0
+bernoulli_quantile_feature_test_spp_0_1
+bernoulli_quantile_feature_test_spp_0_2
+bernoulli_quantile_feature_test_spp_0_3
+bernoulli_quantile_feature_test_spp_0_4
+bernoulli_quantile_feature_test_spp_0_5
+bernoulli_quantile_feature_test_spp_0_6
+bernoulli_quantile_feature_test_spp_0_7
+bernoulli_quantile_feature_test_spp_0_8
+bernoulli_quantile_feature_test_spp_0_9
+
+# TestSuite Name : bernoulli_quantile_negative_case_p
+# bernoulli_quantile
+# Start TestSuite ==========
+bernoulli_quantile_negative_case_p_0_0
+bernoulli_quantile_negative_case_p_0_1
+bernoulli_quantile_negative_case_p_0_2
+bernoulli_quantile_negative_case_p_0_3
+
+# TestSuite Name : bernoulli_quantile_negative_case_spp
+# bernoulli_quantile
+# Start TestSuite ==========
+bernoulli_quantile_negative_case_spp_0_0
+bernoulli_quantile_negative_case_spp_0_1
+bernoulli_quantile_negative_case_spp_0_2
+bernoulli_quantile_negative_case_spp_0_3
+

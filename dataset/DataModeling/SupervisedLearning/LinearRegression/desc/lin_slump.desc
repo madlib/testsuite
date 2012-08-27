@@ -1,0 +1,11 @@
+ID	text
+Cement	float8
+Slag	float8
+Fly_ash	float8
+Water	float8
+SP	float8
+Coarse_Aggr	float8
+Fine_Aggr	float8
+SLUMP	text
+FLOW	text
+Class	float8

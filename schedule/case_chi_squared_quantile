@@ -1,0 +1,46 @@
+# TestSuite Name : chi_squared_quantile_feature_test_p
+# chi_squared_quantile
+# Start TestSuite ==========
+chi_squared_quantile_feature_test_p_0_0
+chi_squared_quantile_feature_test_p_0_1
+chi_squared_quantile_feature_test_p_0_2
+chi_squared_quantile_feature_test_p_0_3
+chi_squared_quantile_feature_test_p_0_4
+chi_squared_quantile_feature_test_p_0_5
+chi_squared_quantile_feature_test_p_0_6
+chi_squared_quantile_feature_test_p_0_7
+chi_squared_quantile_feature_test_p_0_8
+chi_squared_quantile_feature_test_p_0_9
+chi_squared_quantile_feature_test_p_0_10
+chi_squared_quantile_feature_test_p_0_11
+chi_squared_quantile_feature_test_p_0_12
+chi_squared_quantile_feature_test_p_0_13
+
+# TestSuite Name : chi_squared_quantile_feature_test_df
+# chi_squared_quantile
+# Start TestSuite ==========
+chi_squared_quantile_feature_test_df_0_0
+chi_squared_quantile_feature_test_df_0_1
+chi_squared_quantile_feature_test_df_0_2
+chi_squared_quantile_feature_test_df_0_3
+chi_squared_quantile_feature_test_df_0_4
+chi_squared_quantile_feature_test_df_0_5
+chi_squared_quantile_feature_test_df_0_6
+
+# TestSuite Name : chi_squared_quantile_negative_case_p
+# chi_squared_quantile
+# Start TestSuite ==========
+chi_squared_quantile_negative_case_p_0_0
+chi_squared_quantile_negative_case_p_0_1
+chi_squared_quantile_negative_case_p_0_2
+chi_squared_quantile_negative_case_p_0_3
+
+# TestSuite Name : chi_squared_quantile_negative_case_df
+# chi_squared_quantile
+# Start TestSuite ==========
+chi_squared_quantile_negative_case_df_0_0
+chi_squared_quantile_negative_case_df_0_1
+chi_squared_quantile_negative_case_df_0_2
+chi_squared_quantile_negative_case_df_0_3
+chi_squared_quantile_negative_case_df_0_4
+

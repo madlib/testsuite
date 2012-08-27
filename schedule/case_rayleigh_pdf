@@ -1,0 +1,31 @@
+# TestSuite Name : rayleigh_pdf_feature_test_x
+# rayleigh_pdf
+# Start TestSuite ==========
+rayleigh_pdf_feature_test_x_0_0
+rayleigh_pdf_feature_test_x_0_1
+rayleigh_pdf_feature_test_x_0_2
+rayleigh_pdf_feature_test_x_0_3
+rayleigh_pdf_feature_test_x_0_4
+rayleigh_pdf_feature_test_x_0_5
+rayleigh_pdf_feature_test_x_0_6
+rayleigh_pdf_feature_test_x_0_7
+rayleigh_pdf_feature_test_x_0_8
+rayleigh_pdf_feature_test_x_0_9
+
+# TestSuite Name : rayleigh_pdf_feature_test_scale
+# rayleigh_pdf
+# Start TestSuite ==========
+rayleigh_pdf_feature_test_scale_0_0
+rayleigh_pdf_feature_test_scale_0_1
+rayleigh_pdf_feature_test_scale_0_2
+rayleigh_pdf_feature_test_scale_0_3
+rayleigh_pdf_feature_test_scale_0_4
+
+# TestSuite Name : rayleigh_pdf_negative_case_scale
+# rayleigh_pdf
+# Start TestSuite ==========
+rayleigh_pdf_negative_case_scale_0_0
+rayleigh_pdf_negative_case_scale_0_1
+rayleigh_pdf_negative_case_scale_0_2
+rayleigh_pdf_negative_case_scale_0_3
+

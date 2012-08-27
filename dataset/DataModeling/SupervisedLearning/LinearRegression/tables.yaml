@@ -1,0 +1,136 @@
+cmd : "./conv_linregr.py -s -t <table> -o <sql> -d <data> -D <desc>"
+sql : "./lininit.sql"
+tables :
+    - id : lin_auto_mpg_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data"
+          desc : "./desc/lin_auto_mpg.desc"
+    - id : lin_auto_mpg_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data"
+          desc : "./desc/lin_auto_mpg.desc"
+    - id : lin_communities_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/communities/communities.data"
+          desc : "./desc/lin_communities.desc"
+    - id : lin_communities_unnormalized_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/00211/CommViolPredUnnormalizedData.txt"
+          desc : "./desc/lin_communities_unnormalized.desc"
+    - id : lin_communities_unnormalized_wi 
+      args : 
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/00211/CommViolPredUnnormalizedData.txt"
+          desc : "./desc/lin_communities_unnormalized.desc"
+    - id : lin_communities_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/communities/communities.data"
+          desc : "./desc/lin_communities.desc"
+    - id : lin_concrete_oi
+      args :
+          data : "http://www.bliasoft.com/Documents/DataConcrete.txt"
+          desc : "./desc/lin_concrete.desc"
+    - id : lin_concrete_wi
+      args :
+          data : "http://www.bliasoft.com/Documents/DataConcrete.txt"
+          desc : "./desc/lin_concrete.desc"
+    - id : lin_flare_oi
+      cmd : "./conv_flare.sh <data1> <data2> <desc> <sql> <table>" 
+      args :
+          data1 : "http://archive.ics.uci.edu/ml/machine-learning-databases/solar-flare/flare.data1"
+          data2 : "http://archive.ics.uci.edu/ml/machine-learning-databases/solar-flare/flare.data2"
+          desc : "./desc/lin_flare.desc"
+    - id : lin_flare_wi
+      cmd : "./conv_flare.sh <data1> <data2> <desc> <sql> <table>"   
+      args :
+          data1 : "http://archive.ics.uci.edu/ml/machine-learning-databases/solar-flare/flare.data1" 
+          data2 : "http://archive.ics.uci.edu/ml/machine-learning-databases/solar-flare/flare.data2" 
+          desc : "./desc/lin_flare.desc"
+    - id : lin_forestfires_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/forest-fires/forestfires.csv"
+          desc : "./desc/lin_forestfires.desc"
+    - id : lin_forestfires_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/forest-fires/forestfires.csv"
+          desc : "./desc/lin_forestfires.desc"
+    - id : lin_housing_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data"
+          desc : "./desc/lin_housing.desc"
+    - id : lin_housing_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data"
+          desc : "./desc/lin_housing.desc"
+    - id : lin_imports_85_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
+          desc : "./desc/lin_imports_85.desc"
+    - id : lin_imports_85_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
+          desc : "./desc/lin_imports_85.desc"
+    - id : lin_machine_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/cpu-performance/machine.data" 
+          desc : "./desc/lin_machine.desc"
+    - id : lin_machine_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/cpu-performance/machine.data"
+          desc : "./desc/lin_machine.desc"
+    - id : lin_o_ring_erosion_only_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/space-shuttle/o-ring-erosion-only.data"
+          desc : "./desc/lin_o_ring_erosion_only.desc"
+    - id : lin_o_ring_erosion_only_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/space-shuttle/o-ring-erosion-only.data"
+          desc : "./desc/lin_o_ring_erosion_only.desc"
+    - id : lin_o_ring_erosion_or_blowby_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/space-shuttle/o-ring-erosion-or-blowby.data"
+          desc : "./desc/lin_o_ring_erosion_or_blowby.desc"
+    - id : lin_o_ring_erosion_or_blowby_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/space-shuttle/o-ring-erosion-or-blowby.data"
+          desc : "./desc/lin_o_ring_erosion_or_blowby.desc"
+    - id : lin_parkinsons_updrs_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/parkinsons/telemonitoring/parkinsons_updrs.data"
+          desc : "./desc/lin_parkinsons_updrs.desc"
+    - id : lin_parkinsons_updrs_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/parkinsons/telemonitoring/parkinsons_updrs.data"
+          desc : "./desc/lin_parkinsons_updrs.desc"
+    - id : lin_servo_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/servo/servo.data"
+          desc : "./desc/lin_servo.desc"
+    - id : lin_servo_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/servo/servo.data"
+          desc : "./desc/lin_servo.desc"
+    - id : lin_slump_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/concrete/slump/slump_test.data"
+          desc : "./desc/lin_slump.desc"
+    - id : lin_slump_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/concrete/slump/slump_test.data"
+          desc : "./desc/lin_slump.desc"
+    - id : lin_winequality_red_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
+          desc : "./desc/lin_winequality_red.desc"
+    - id : lin_winequality_red_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
+          desc : "./desc/lin_winequality_red.desc"
+    - id : lin_winequality_white_oi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv"
+          desc : "./desc/lin_winequality_white.desc"
+    - id : lin_winequality_white_wi
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv"
+          desc : "./desc/lin_winequality_white.desc"
+

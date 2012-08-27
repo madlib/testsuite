@@ -1,0 +1,14 @@
+CRIM	float8
+ZN	float8
+INDUS	float8
+CHAS	float8
+NOX	float8
+RM	float8
+AGE	float8
+DIS	float8
+RAD	float8
+TAX	float8
+PTRATIO	float8
+B	float8
+LSTAT	float8
+Class	float8

@@ -1,0 +1,36 @@
+# TestSuite Name : normal_2_quantile_feature_test_p
+# normal_2_quantile
+# Start TestSuite ==========
+normal_2_quantile_feature_test_p_0_0
+normal_2_quantile_feature_test_p_0_1
+normal_2_quantile_feature_test_p_0_2
+normal_2_quantile_feature_test_p_0_3
+normal_2_quantile_feature_test_p_0_4
+normal_2_quantile_feature_test_p_0_5
+normal_2_quantile_feature_test_p_0_6
+
+# TestSuite Name : normal_2_quantile_feature_test_mean
+# normal_2_quantile
+# Start TestSuite ==========
+normal_2_quantile_feature_test_mean_0_0
+normal_2_quantile_feature_test_mean_0_1
+normal_2_quantile_feature_test_mean_0_2
+normal_2_quantile_feature_test_mean_0_3
+normal_2_quantile_feature_test_mean_0_4
+normal_2_quantile_feature_test_mean_0_5
+normal_2_quantile_feature_test_mean_0_6
+
+# TestSuite Name : normal_2_quantile_negative_case_p
+# normal_2_quantile
+# Start TestSuite ==========
+normal_2_quantile_negative_case_p_0_0
+normal_2_quantile_negative_case_p_0_1
+normal_2_quantile_negative_case_p_0_2
+normal_2_quantile_negative_case_p_0_3
+
+# TestSuite Name : normal_2_quantile_negative_case_mean
+# normal_2_quantile
+# Start TestSuite ==========
+normal_2_quantile_negative_case_mean_0_0
+normal_2_quantile_negative_case_mean_0_1
+

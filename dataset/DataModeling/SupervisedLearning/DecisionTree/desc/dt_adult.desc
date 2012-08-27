@@ -1,0 +1,15 @@
+age  float8
+workclass text
+fnlwgt  float8
+education  text
+education_num  float8
+marital_status  text
+occupation  text
+relationship  text
+race  text
+sex  text
+capital_gain  float8
+capital_loss  float8
+hours_per_week  float8
+native_country text
+class text

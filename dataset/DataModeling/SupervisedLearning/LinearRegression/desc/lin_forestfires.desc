@@ -1,0 +1,13 @@
+X	float8
+Y	float8
+month	text
+day	text
+FFMC	float8
+DMC	float8
+DC	float8
+ISI	float8
+temp	float8
+RH	float8
+wind	float8
+rain	float8
+Class	float8
