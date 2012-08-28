@@ -51,7 +51,7 @@ def parseConnectionStr(connectionStr):
 """
 def runSQL(sql, logusername = None, logpassword = None, loghostname = None
            , logport = None, logdatabase = None
-           , psqlArgs = None, utility=False, stdinCmd=None):
+           , psqlArgs = None, utility=False, stdinCmd=None, onErrorStop = True):
     """Run SQL commands with psql and return output
 
        params:
@@ -62,7 +62,10 @@ def runSQL(sql, logusername = None, logpassword = None, loghostname = None
     # See
     # http://petereisentraut.blogspot.com/2010/03/running-sql-scripts-with-psql.html
     # for valuable information on how to call psql
-    cmdLine = ['psql', '-X', '-q', '-v', 'ON_ERROR_STOP=1']
+    if onErrorStop is True:
+        cmdLine = ['psql', '-X', '-q', '-v', 'ON_ERROR_STOP=1']
+    else:
+        cmdLine = ['psql', '-X', '-q', '-v', 'ON_ERROR_STOP=off']
     if loghostname:
         cmdLine.extend(['-h', loghostname])
     if logport:

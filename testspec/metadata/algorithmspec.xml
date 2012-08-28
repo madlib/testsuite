@@ -1,9 +1,2601 @@
-<?xml version='1.0' encoding='UTF-8'?>
 <algorithms>
+    <algorithm>
+        <name>distribution_function</name>
+        <method>
+            <name>bernoulli_cdf</name>
+            <template>
+            SELECT {madlib_schema}.bernoulli_cdf(
+                {x},    --x
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>bernoulli_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>bernoulli_pmf</name>
+            <template>
+            SELECT {madlib_schema}.bernoulli_pmf(
+                {x},    --x
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>bernoulli_pmf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>bernoulli_quantile</name>
+            <template>
+            SELECT {madlib_schema}.bernoulli_quantile(
+                {p},    --p
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>bernoulli_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>beta_cdf</name>
+            <template>
+            SELECT {madlib_schema}.beta_cdf(
+                {x},    --x
+                {alpha},    --alpha
+                {beta}    --beta
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>alpha</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>beta</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>beta_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>beta_pdf</name>
+            <template>
+            SELECT {madlib_schema}.beta_pdf(
+                {x},    --x
+                {alpha},    --alpha
+                {beta}    --beta
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>alpha</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>beta</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>beta_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>beta_quantile</name>
+            <template>
+            SELECT {madlib_schema}.beta_quantile(
+                {p},    --p
+                {alpha},    --alpha
+                {beta}    --beta
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>alpha</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>beta</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>beta_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>binomial_cdf</name>
+            <template>
+            SELECT {madlib_schema}.binomial_cdf(
+                {x},    --x
+                {n},    --n
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>n</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>binomial_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>binomial_pmf</name>
+            <template>
+            SELECT {madlib_schema}.binomial_pmf(
+                {x},    --x
+                {n},    --n
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>n</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>binomial_pmf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>binomial_quantile</name>
+            <template>
+            SELECT {madlib_schema}.binomial_quantile(
+                {p},    --p
+                {n},    --n
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>n</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>binomial_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>cauchy_cdf</name>
+            <template>
+            SELECT {madlib_schema}.cauchy_cdf(
+                {x},    --x
+                {location},    --location
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>location</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>cauchy_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>cauchy_pdf</name>
+            <template>
+            SELECT {madlib_schema}.cauchy_pdf(
+                {x},    --x
+                {location},    --location
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>location</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>cauchy_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>cauchy_quantile</name>
+            <template>
+            SELECT {madlib_schema}.cauchy_quantile(
+                {p},    --p
+                {location},    --location
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>location</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>cauchy_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>chi_squared_cdf</name>
+            <template>
+            SELECT {madlib_schema}.chi_squared_cdf(
+                {x},    --x
+                {df}    --df
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>chi_squared_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>chi_squared_pdf</name>
+            <template>
+            SELECT {madlib_schema}.chi_squared_pdf(
+                {x},    --x
+                {df}    --df
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>chi_squared_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>chi_squared_quantile</name>
+            <template>
+            SELECT {madlib_schema}.chi_squared_quantile(
+                {p},    --p
+                {df}    --df
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>chi_squared_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>exponential_cdf</name>
+            <template>
+            SELECT {madlib_schema}.exponential_cdf(
+                {x},    --x
+                {lambda}    --lambda
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>lambda</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>exponential_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>exponential_pdf</name>
+            <template>
+            SELECT {madlib_schema}.exponential_pdf(
+                {x},    --x
+                {lambda}    --lambda
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>lambda</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>exponential_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>exponential_quantile</name>
+            <template>
+            SELECT {madlib_schema}.exponential_quantile(
+                {p},    --p
+                {lambda}    --lambda
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>lambda</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>exponential_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>extreme_value_cdf</name>
+            <template>
+            SELECT {madlib_schema}.extreme_value_cdf(
+                {x},    --x
+                {location},    --location
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>location</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>extreme_value_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>extreme_value_pdf</name>
+            <template>
+            SELECT {madlib_schema}.extreme_value_pdf(
+                {x},    --x
+                {location},    --location
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>location</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>extreme_value_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>extreme_value_quantile</name>
+            <template>
+            SELECT {madlib_schema}.extreme_value_quantile(
+                {p},    --p
+                {location},    --location
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>location</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>extreme_value_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>fisher_f_cdf</name>
+            <template>
+            SELECT {madlib_schema}.fisher_f_cdf(
+                {x},    --x
+                {df1},    --df1
+                {df2}    --df2
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df1</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df2</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>fisher_f_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>fisher_f_pdf</name>
+            <template>
+            SELECT {madlib_schema}.fisher_f_pdf(
+                {x},    --x
+                {df1},    --df1
+                {df2}    --df2
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df1</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df2</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>fisher_f_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>fisher_f_quantile</name>
+            <template>
+            SELECT {madlib_schema}.fisher_f_quantile(
+                {p},    --p
+                {df1},    --df1
+                {df2}    --df2
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df1</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df2</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>fisher_f_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>gamma_cdf</name>
+            <template>
+            SELECT {madlib_schema}.gamma_cdf(
+                {x},    --x
+                {shape},    --shape
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>gamma_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>gamma_pdf</name>
+            <template>
+            SELECT {madlib_schema}.gamma_pdf(
+                {x},    --x
+                {shape},    --shape
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>gamma_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>gamma_quantile</name>
+            <template>
+            SELECT {madlib_schema}.gamma_quantile(
+                {p},    --p
+                {shape},    --shape
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>gamma_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>geometric_cdf</name>
+            <template>
+            SELECT {madlib_schema}.geometric_cdf(
+                {x},    --x
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>geometric_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>geometric_pmf</name>
+            <template>
+            SELECT {madlib_schema}.geometric_pmf(
+                {x},    --x
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>geometric_pmf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>geometric_quantile</name>
+            <template>
+            SELECT {madlib_schema}.geometric_quantile(
+                {p},    --p
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>geometric_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>hypergeometric_cdf</name>
+            <template>
+            SELECT {madlib_schema}.hypergeometric_cdf(
+                {x},    --x
+                {r},    --r
+                {n},    --n
+                {nn}    --nn
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>r</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>n</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>nn</name>
+                <type>INT4</type>
+            </input_parameter>
+            <output_parameter>
+                <name>hypergeometric_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>hypergeometric_pmf</name>
+            <template>
+            SELECT {madlib_schema}.hypergeometric_pmf(
+                {x},    --x
+                {r},    --r
+                {n},    --n
+                {nn}    --nn
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>r</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>n</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>nn</name>
+                <type>INT4</type>
+            </input_parameter>
+            <output_parameter>
+                <name>hypergeometric_pmf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>hypergeometric_quantile</name>
+            <template>
+            SELECT {madlib_schema}.hypergeometric_quantile(
+                {p},    --p
+                {r},    --r
+                {n},    --n
+                {nn}    --nn
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>r</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>n</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>nn</name>
+                <type>INT4</type>
+            </input_parameter>
+            <output_parameter>
+                <name>hypergeometric_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>inverse_gamma_cdf</name>
+            <template>
+            SELECT {madlib_schema}.inverse_gamma_cdf(
+                {x},    --x
+                {shape},    --shape
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>inverse_gamma_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>inverse_gamma_pdf</name>
+            <template>
+            SELECT {madlib_schema}.inverse_gamma_pdf(
+                {x},    --x
+                {shape},    --shape
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>inverse_gamma_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>inverse_gamma_quantile</name>
+            <template>
+            SELECT {madlib_schema}.inverse_gamma_quantile(
+                {p},    --p
+                {shape},    --shape
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>inverse_gamma_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>kolmogorov_cdf</name>
+            <template>
+            SELECT {madlib_schema}.kolmogorov_cdf(
+                {x}    --x
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>kolmogorov_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>laplace_cdf</name>
+            <template>
+            SELECT {madlib_schema}.laplace_cdf(
+                {x},    --x
+                {mean},    --mean
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>laplace_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>laplace_pdf</name>
+            <template>
+            SELECT {madlib_schema}.laplace_pdf(
+                {x},    --x
+                {mean},    --mean
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>laplace_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>laplace_quantile</name>
+            <template>
+            SELECT {madlib_schema}.laplace_quantile(
+                {p},    --p
+                {mean},    --mean
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>laplace_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>logistic_cdf</name>
+            <template>
+            SELECT {madlib_schema}.logistic_cdf(
+                {x},    --x
+                {mean},    --mean
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>logistic_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>logistic_pdf</name>
+            <template>
+            SELECT {madlib_schema}.logistic_pdf(
+                {x},    --x
+                {mean},    --mean
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>logistic_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>logistic_quantile</name>
+            <template>
+            SELECT {madlib_schema}.logistic_quantile(
+                {p},    --p
+                {mean},    --mean
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>logistic_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>lognormal_cdf</name>
+            <template>
+            SELECT {madlib_schema}.lognormal_cdf(
+                {x},    --x
+                {location},    --location
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>location</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>lognormal_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>lognormal_pdf</name>
+            <template>
+            SELECT {madlib_schema}.lognormal_pdf(
+                {x},    --x
+                {location},    --location
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>location</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>lognormal_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>lognormal_quantile</name>
+            <template>
+            SELECT {madlib_schema}.lognormal_quantile(
+                {p},    --p
+                {location},    --location
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>location</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>lognormal_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>negative_binomial_cdf</name>
+            <template>
+            SELECT {madlib_schema}.negative_binomial_cdf(
+                {x},    --x
+                {r},    --r
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>r</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>negative_binomial_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>negative_binomial_pmf</name>
+            <template>
+            SELECT {madlib_schema}.negative_binomial_pmf(
+                {x},    --x
+                {r},    --r
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>r</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>negative_binomial_pmf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>negative_binomial_quantile</name>
+            <template>
+            SELECT {madlib_schema}.negative_binomial_quantile(
+                {p},    --p
+                {r},    --r
+                {spp}    --spp
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>r</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>spp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>negative_binomial_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_beta_cdf</name>
+            <template>
+            SELECT {madlib_schema}.non_central_beta_cdf(
+                {x},    --x
+                {alpha},    --alpha
+                {beta},    --beta
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>alpha</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>beta</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_beta_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_beta_pdf</name>
+            <template>
+            SELECT {madlib_schema}.non_central_beta_pdf(
+                {x},    --x
+                {alpha},    --alpha
+                {beta},    --beta
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>alpha</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>beta</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_beta_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_beta_quantile</name>
+            <template>
+            SELECT {madlib_schema}.non_central_beta_quantile(
+                {p},    --p
+                {alpha},    --alpha
+                {beta},    --beta
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>alpha</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>beta</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_beta_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_chi_squared_cdf</name>
+            <template>
+            SELECT {madlib_schema}.non_central_chi_squared_cdf(
+                {x},    --x
+                {df},    --df
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_chi_squared_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_chi_squared_pdf</name>
+            <template>
+            SELECT {madlib_schema}.non_central_chi_squared_pdf(
+                {x},    --x
+                {df},    --df
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_chi_squared_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_chi_squared_quantile</name>
+            <template>
+            SELECT {madlib_schema}.non_central_chi_squared_quantile(
+                {p},    --p
+                {df},    --df
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_chi_squared_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_f_cdf</name>
+            <template>
+            SELECT {madlib_schema}.non_central_f_cdf(
+                {x},    --x
+                {df1},    --df1
+                {df2},    --df2
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df1</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df2</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_f_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_f_pdf</name>
+            <template>
+            SELECT {madlib_schema}.non_central_f_pdf(
+                {x},    --x
+                {df1},    --df1
+                {df2},    --df2
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df1</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df2</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_f_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_f_quantile</name>
+            <template>
+            SELECT {madlib_schema}.non_central_f_quantile(
+                {p},    --p
+                {df1},    --df1
+                {df2},    --df2
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df1</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df2</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_f_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_t_cdf</name>
+            <template>
+            SELECT {madlib_schema}.non_central_t_cdf(
+                {x},    --x
+                {df},    --df
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_t_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_t_pdf</name>
+            <template>
+            SELECT {madlib_schema}.non_central_t_pdf(
+                {x},    --x
+                {df},    --df
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_t_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>non_central_t_quantile</name>
+            <template>
+            SELECT {madlib_schema}.non_central_t_quantile(
+                {p},    --p
+                {df},    --df
+                {ncp}    --ncp
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>ncp</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>non_central_t_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>normal_3_cdf</name>
+            <template>
+            SELECT {madlib_schema}.normal_cdf(
+                {x},    --x
+                {mean},    --mean
+                {sd}    --sd
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>sd</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>normal_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>normal_2_cdf</name>
+            <template>
+            SELECT {madlib_schema}.normal_cdf(
+                {x},    --x
+                {mean}    --mean
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>normal_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>normal_1_cdf</name>
+            <template>
+            SELECT {madlib_schema}.normal_cdf(
+                {x}    --x
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>normal_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>normal_3_pdf</name>
+            <template>
+            SELECT {madlib_schema}.normal_pdf(
+                {x},    --x
+                {mean},    --mean
+                {sd}    --sd
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>sd</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>normal_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>normal_2_pdf</name>
+            <template>
+            SELECT {madlib_schema}.normal_pdf(
+                {x},    --x
+                {mean}    --mean
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>normal_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>normal_1_pdf</name>
+            <template>
+            SELECT {madlib_schema}.normal_pdf(
+                {x}    --x
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>normal_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>normal_3_quantile</name>
+            <template>
+            SELECT {madlib_schema}.normal_quantile(
+                {p},    --p
+                {mean},    --mean
+                {sd}    --sd
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>sd</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>normal_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>normal_2_quantile</name>
+            <template>
+            SELECT {madlib_schema}.normal_quantile(
+                {p},    --p
+                {mean}    --mean
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>normal_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>normal_1_quantile</name>
+            <template>
+            SELECT {madlib_schema}.normal_quantile(
+                {p}    --p
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>normal_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>pareto_cdf</name>
+            <template>
+            SELECT {madlib_schema}.pareto_cdf(
+                {x},    --x
+                {scale},    --scale
+                {shape}    --shape
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>pareto_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>pareto_pdf</name>
+            <template>
+            SELECT {madlib_schema}.pareto_pdf(
+                {x},    --x
+                {scale},    --scale
+                {shape}    --shape
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>pareto_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>pareto_quantile</name>
+            <template>
+            SELECT {madlib_schema}.pareto_quantile(
+                {p},    --p
+                {scale},    --scale
+                {shape}    --shape
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>pareto_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>poisson_cdf</name>
+            <template>
+            SELECT {madlib_schema}.poisson_cdf(
+                {x},    --x
+                {mean}    --mean
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>poisson_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>poisson_pmf</name>
+            <template>
+            SELECT {madlib_schema}.poisson_pmf(
+                {x},    --x
+                {mean}    --mean
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>INT4</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>poisson_pmf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>poisson_quantile</name>
+            <template>
+            SELECT {madlib_schema}.poisson_quantile(
+                {p},    --p
+                {mean}    --mean
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mean</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>poisson_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>rayleigh_cdf</name>
+            <template>
+            SELECT {madlib_schema}.rayleigh_cdf(
+                {x},    --x
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>rayleigh_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>rayleigh_pdf</name>
+            <template>
+            SELECT {madlib_schema}.rayleigh_pdf(
+                {x},    --x
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>rayleigh_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>rayleigh_quantile</name>
+            <template>
+            SELECT {madlib_schema}.rayleigh_quantile(
+                {p},    --p
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>rayleigh_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>students_t_cdf</name>
+            <template>
+            SELECT {madlib_schema}.students_t_cdf(
+                {x},    --x
+                {df}    --df
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>students_t_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>students_t_pdf</name>
+            <template>
+            SELECT {madlib_schema}.students_t_pdf(
+                {x},    --x
+                {df}    --df
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>students_t_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>students_t_quantile</name>
+            <template>
+            SELECT {madlib_schema}.students_t_quantile(
+                {p},    --p
+                {df}    --df
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>df</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>students_t_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>triangular_cdf</name>
+            <template>
+            SELECT {madlib_schema}.triangular_cdf(
+                {x},    --x
+                {lower},    --lower
+                {mode},    --mode
+                {upper}    --upper
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>lower</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mode</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>upper</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>triangular_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>triangular_pdf</name>
+            <template>
+            SELECT {madlib_schema}.triangular_pdf(
+                {x},    --x
+                {lower},    --lower
+                {mode},    --mode
+                {upper}    --upper
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>lower</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mode</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>upper</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>triangular_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>triangular_quantile</name>
+            <template>
+            SELECT {madlib_schema}.triangular_quantile(
+                {p},    --p
+                {lower},    --lower
+                {mode},    --mode
+                {upper}    --upper
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>lower</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>mode</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>upper</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>triangular_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>uniform_cdf</name>
+            <template>
+            SELECT {madlib_schema}.uniform_cdf(
+                {x},    --x
+                {lower},    --lower
+                {upper}    --upper
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>lower</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>upper</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>uniform_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>uniform_pdf</name>
+            <template>
+            SELECT {madlib_schema}.uniform_pdf(
+                {x},    --x
+                {lower},    --lower
+                {upper}    --upper
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>lower</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>upper</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>uniform_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>uniform_quantile</name>
+            <template>
+            SELECT {madlib_schema}.uniform_quantile(
+                {p},    --p
+                {lower},    --lower
+                {upper}    --upper
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>lower</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>upper</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>uniform_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>weibull_cdf</name>
+            <template>
+            SELECT {madlib_schema}.weibull_cdf(
+                {x},    --x
+                {shape},    --shape
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>weibull_cdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>weibull_pdf</name>
+            <template>
+            SELECT {madlib_schema}.weibull_pdf(
+                {x},    --x
+                {shape},    --shape
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>x</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>weibull_pdf</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>weibull_quantile</name>
+            <template>
+            SELECT {madlib_schema}.weibull_quantile(
+                {p},    --p
+                {shape},    --shape
+                {scale}    --scale
+            );
+            </template>
+            <input_parameter>
+                <name>p</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>shape</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scale</name>
+                <type>DOUBLE PRECISION</type>
+            </input_parameter>
+            <output_parameter>
+                <name>weibull_quantile</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+    </algorithm>
+
+       <algorithm>
+        <name>random_forest</name>
+        <method>
+            <name>rf_train</name>
+            <create>true</create>
+            <template>
+                SELECT num_of_samples, num_trees, features_per_node, max_tree_depth,  num_tree_nodes,  split_criterion
+                FROM {madlib_schema}.rf_train
+                    ({split_criterion_name}          --split_criterion_name
+                    ,{training_table_name}           --training_table_name
+                    ,{result_rf_table_name}          --result_tree_table_name
+                    ,{number_of_trees}                 -- number_of_trees
+                    ,{features_per_node}             -- features_per_node 
+                    ,{sampling_percentage}             --sampling_percentage
+                    ,{continuous_feature_names}      -- continuous_feature_names
+                    ,{feature_col_names}             -- feature_col_names
+                    ,{id_col_name}                    -- id_colname 
+                    ,{class_col_name}                 --    class_col_name
+                    ,{how2handle_missing_value}       -- how2handle_missing_value 
+                    ,{max_tree_depth}                -- max_tree_depth
+                    ,{node_prune_threshold}          -- node_prune_threshold
+                    ,{node_split_threshold}          -- node_split_threshold 
+                    ,{verbosity}                        -- verbosity
+                ) AS Q;
+            </template>
+            <input_parameter>
+                <name>split_criterion_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>training_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>result_rf_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>number_of_trees</name>
+                <type>int</type>
+                <default>10</default>
+            </input_parameter>
+            <input_parameter>
+                <name>features_per_node</name>
+                <type>INT</type>
+		       <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>sampling_percentage</name>
+                <type>FLOAT</type>
+                <default>0.632</default>
+            </input_parameter>
+            <input_parameter>
+                <name>continuous_feature_names</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>feature_col_names</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>id_col_name</name>
+                <type>text</type>
+                <default>id</default>
+            </input_parameter>
+            <input_parameter>
+                <name>class_col_name</name>
+                <type>text</type>
+                <default>class</default>
+            </input_parameter>
+            <input_parameter>
+                <name>how2handle_missing_value</name>
+                <type>text</type>
+                <default>explicit</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_tree_depth</name>
+                <type>int</type>
+                <default>10</default>
+            </input_parameter>
+            <input_parameter>
+                <name>node_prune_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>node_split_threshold</name>
+                <type>float</type>
+                <default>0.01</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>int</type>
+                <default>0</default>
+            </input_parameter>
+            <!-- Below is output parameter-->
+            <output_parameter>
+                 <name>num_of_samples</name>
+                 <type>bigint</type>
+            </output_parameter>
+            <output_parameter>
+                   <name>num_trees</name>
+                   <type>int</type>
+            </output_parameter>
+             <output_parameter>
+                 <name>num_tree_nodes</name>
+                 <type>int</type>
+            </output_parameter>
+            <output_parameter>
+                   <name>split_criterion</name>
+                   <type>text</type>
+             </output_parameter>
+        </method>
+        <method>
+            <name>rf_score</name>
+            <create>true</create>
+            <template>
+                SELECT * FROM {madlib_schema}.rf_score
+                    ({rf_table_name}            --rf_table_name
+                    ,{scoring_table_name}       --scoring_table_name
+                    ,{verbosity}                --verbosity
+                ) AS score;
+            </template>
+            <input_parameter>
+                <name>rf_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>scoring_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>int</type>
+                <default>0</default>
+            </input_parameter>
+            <!-- result -->
+            <output_parameter>
+                <name>score</name>
+                <type>float</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>rf_classify</name>
+            <template>
+                SELECT input_set_size FROM {madlib_schema}.rf_classify
+                    ({rf_table_name}                --rf_table_name
+                    , {classification_table_name}   --classification_table_name
+                    , {result_table_name}           --result_table_name
+                    , {is_serial_classification}    -- is_serial_classification
+                    , {verbosity}                   --verbosity
+                ) AS q;
+            </template>
+            <input_parameter>
+                <name>rf_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>classification_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>result_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>is_serial_classification</name>
+                <type>boolean</type>
+                <default>false</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>int</type>
+                <default>0</default>
+            </input_parameter>
+            <output_parameter>
+                <name>input_set_size</name>
+                <type>bigint</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>rf_display</name>
+            <template>
+                SELECT * FROM {madlib_schema}.rf_display
+                        ({rf_table_name}   --result_tree_table_name
+                        ,{tree_ids}
+                        ,{max_depth}
+                ) AS trained_tree;
+            </template>
+            <input_parameter>
+                <name>rf_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>tree_ids</name>
+                <type>integer[]</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_depth</name>
+                <type>integer</type>
+                <default>NULL</default>
+            </input_parameter>
+            <output_parameter>
+                <name>trained_tree</name>
+                <type>TEXT</type>
+            </output_parameter>
+        </method>
+        <method>
+            <name>rf_clean</name>
+            <template>
+                SELECT * FROM {madlib_schema}.rf_clean
+                    ({rf_table_name}        --rf_table_name
+                );
+            </template>
+            <input_parameter>
+                <name>rf_table_name</name>
+                <type>text</type>
+            </input_parameter>
+        </method>
+
+        <method>
+            <name>rf_cross_validate</name>
+            <create>true</create>
+            <template>
+                SELECT *
+                FROM madlibtestdata.rf_cross_validate
+                    ({split_criterion_name}          --split_criterion_name
+                    ,{training_table_name}           --training_table_name
+                    ,{number_of_trees}                 -- number_of_trees
+                    ,{sampling_percentage}             --sampling_percentage
+                    ,{continuous_feature_names}      -- continuous_feature_names
+                    ,{feature_col_names}             -- feature_col_names
+                    ,{id_col_name}                    -- id_colname 
+                    ,{class_col_name}                 --    class_col_name
+                    ,{how2handle_missing_value}       -- how2handle_missing_value 
+                    ,{max_tree_depth}                -- max_tree_depth
+                    ,{node_prune_threshold}          -- node_prune_threshold
+                    ,{node_split_threshold}          -- node_split_threshold 
+                    ,{verbosity}                        -- verbosity
+                    ,{subset_number}                    -- subset_number
+                ) AS avg_score;
+            </template>
+            <input_parameter>
+                <name>split_criterion_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>training_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>number_of_trees</name>
+                <type>int</type>
+                <default>10</default>
+            </input_parameter>
+            <input_parameter>
+                <name>sampling_percentage</name>
+                <type>FLOAT</type>
+                <default>0.632</default>
+            </input_parameter>
+            <input_parameter>
+                <name>continuous_feature_names</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>feature_col_names</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>id_col_name</name>
+                <type>text</type>
+                <default>id</default>
+            </input_parameter>
+            <input_parameter>
+                <name>class_col_name</name>
+                <type>text</type>
+                <default>class</default>
+            </input_parameter>
+            <input_parameter>
+                <name>how2handle_missing_value</name>
+                <type>text</type>
+                <default>explicit</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_tree_depth</name>
+                <type>int</type>
+                <default>10</default>
+            </input_parameter>
+            <input_parameter>
+                <name>node_prune_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>node_split_threshold</name>
+                <type>float</type>
+                <default>0.01</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>int</type>
+                <default>0</default>
+            </input_parameter>
+            <input_parameter>
+                <name>subset_number</name>
+                <type>float8</type>
+                <default>10</default>
+            </input_parameter>
+            <!-- Below is output parameter-->
+            <output_parameter>
+                   <name>avg_score</name>
+                   <type>float8</type>
+             </output_parameter>
+        </method>
+
+
+    </algorithm>
     <algorithm>
          <name>kmeans</name>
          <method>
             <name>kmeans_cset</name>
+            <create>true</create>
             <template>
                    SELECT * FROM {madlib_schema}.kmeans_cset
                         ( {src_relation}     -- src_relation
@@ -95,6 +2687,7 @@
 
          <method>        
             <name>kmeans_plusplus</name>
+            <create>true</create>
             <template>
                    SELECT * FROM {madlib_schema}.kmeans_plusplus
                         ( {src_relation}     -- src_relation
@@ -187,6 +2780,7 @@
          
           <method>        
             <name>kmeans_random</name>
+            <create>true</create>
             <template>
                    SELECT * FROM {madlib_schema}.kmeans_random
                         ( {src_relation}     -- src_relation
@@ -273,6 +2867,7 @@
 
          <method>        
             <name>kmeans_canopy</name>
+            <create>true</create>
             <template>
                    SELECT * FROM {madlib_schema}.kmeans_canopy
                         ( {src_relation}     -- src_relation
@@ -967,6 +3562,7 @@
          <name>decision_tree</name>
          <method>
             <name>c45_train</name>    
+            <create>true</create>
             <template>
                 SELECT training_set_size, tree_nodes, tree_depth FROM {madlib_schema}.c45_train
                     ({split_criterion_name}         --split_criterion_name
@@ -979,222 +3575,12 @@
                     , {class_col_name}              --class_col_name
                     , {confidence_level}            --confidence_level
                     , {how2handle_missing_value}    --how2handle_missing_value 
-                    , {max_iterations}              --max_iterations
                     , {max_tree_depth}              --max_tree_depth
-                    , {min_percent_mode}            --min_percent_mode
-                    , {min_percent_split}           --min_percent_split
+                    , {node_prune_threshold}            --node_prune_threshold
+                    , {node_split_threshold}           --node_split_threshold
                     , {verbosity}                   --verbosity
                 ) AS Q;
             </template>
-            <input_parameter>
-                <name>split_criterion_name</name>
-                <type>text</type>              
-            </input_parameter>
-            <input_parameter>
-                <name>training_table_name</name>
-                <type>text</type>
-            </input_parameter>           
-            <input_parameter>
-                <name>result_tree_table_name</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>validation_table_name</name>
-                <type>text</type>
-                <default>NULL</default>  
-            </input_parameter>
-            <input_parameter>
-                <name>continuous_feature_names</name>
-                <type>text</type>
-                <default>NULL</default> 
-            </input_parameter>
-            <input_parameter>
-                <name>feature_col_names</name>
-                <type>text</type>
-                <default>NULL</default> 
-            </input_parameter>
-            <input_parameter>
-                <name>id_col_name</name>
-                <type>text</type>
-                <default>id</default> 
-            </input_parameter>
-            <input_parameter>
-                <name>class_col_name</name>
-                <type>text</type>
-                <default>class</default>
-            </input_parameter>
-            <input_parameter>
-                <name>confidence_level</name>
-                <type>float</type>
-                <default>100</default>
-            </input_parameter>
-            <input_parameter>
-                <name>how2handle_missing_value</name>
-                <type>text</type>
-                <default>explicit</default>  
-            </input_parameter>
-            <input_parameter>
-                <name>max_iterations</name>
-                <type>int</type>
-                <default>15000</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_tree_depth</name>
-                <type>int</type>
-                <default>30</default>
-            </input_parameter>
-            <input_parameter>
-                <name>min_percent_mode</name>
-                <type>float</type>
-                <default>0</default>
-            </input_parameter>
-            <input_parameter>
-                <name>min_percent_split</name>
-                <type>float</type>
-                <default>0</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>int</type>
-                <default>0</default>
-            </input_parameter>
-            <!-- Below is output parameter--> 
-            <output_parameter>
-                <name>training_set_size</name>
-                <type>bigint</type>
-            </output_parameter>
-            <output_parameter>
-                <name>tree_nodes</name>
-                <type>bigint</type>
-            </output_parameter>
-            <output_parameter>
-                <name>tree_depth</name>
-                <type>int</type>
-            </output_parameter>
-        </method>
-        <method>         
-            <name>c45_score</name>            
-            <template>
-                SELECT * FROM {madlib_schema}.c45_score
-                    ({dt_table_name}            --dt_table_name
-                    , {scoring_table_name}      --scoring_table_name
-                    , {verbosity}               --verbosity
-                ) AS score;
-            </template>
-            <input_parameter>
-                <name>dt_table_name</name>
-                <type>text</type>              
-            </input_parameter>
-            <input_parameter>
-                <name>scoring_table_name</name>
-                <type>text</type>
-            </input_parameter>           
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>false</default>  
-            </input_parameter>
-            <!-- result -->
-            <output_parameter>
-                <name>score</name>
-                <type>float</type>
-            </output_parameter>
-        </method>   
-        <method>         
-            <name>c45_classify</name>
-            <template>
-                SELECT input_set_size FROM {madlib_schema}.c45_classify
-                    ({dt_table_name}                --dt_table_name
-                    , {classification_table_name}   --classification_table_name
-                    , {result_table_name}           --result_table_name
-                    , {verbosity}                   --verbosity
-                ) AS q;
-            </template>
-            <input_parameter>
-                <name>dt_table_name</name>
-                <type>text</type>              
-            </input_parameter>
-            <input_parameter>
-                <name>classification_table_name</name>
-                <type>text</type>   
-            </input_parameter>
-            <input_parameter>
-                <name>result_table_name</name>
-                <type>text</type>              
-             </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>false</default> 
-            </input_parameter>
-            <output_parameter>
-                <name>input_set_size</name>
-                <type>bigint</type>
-            </output_parameter>
-        </method>
-        <method>         
-            <name>c45_display</name>            
-            <template>
-                SELECT * FROM {madlib_schema}.c45_display
-                    ({result_tree_table_name}   --result_tree_table_name
-                ) AS tree;
-            </template>
-            <input_parameter>
-                <name>result_tree_table_name</name>
-                <type>text</type>              
-            </input_parameter>
-            <!-- result-->
-            <output_parameter>
-                <name>tree</name>
-                <type>text</type>   
-            </output_parameter>
-        </method> 
-        <method>
-            <name>c45_clean</name>
-            <template>
-                SELECT * FROM {madlib_schema}.c45_clean
-                    ({dt_table_name}        --dt_table_name
-                ) AS is_clean;
-            </template>
-            <input_parameter>
-                <name>dt_table_name</name>
-                <type>text</type>              
-            </input_parameter>
-            <!-- result-->
-            <output_parameter>
-                <name>is_clean</name>
-                <type>boolean</type>    
-            </output_parameter>
-        </method>  
-        
-        <method>
-            <name>ctas_c45_train</name>
-            <template>
-                CREATE TABLE {table_name} AS 
-                SELECT training_set_size, tree_nodes, tree_depth FROM {madlib_schema}.c45_train
-                    ({split_criterion_name}         --split_criterion_name
-                    ,{training_table_name}          --training_table_name
-                    , {result_tree_table_name}      --result_tree_table_name
-                    , {validation_table_name}       --validation_table_name
-                    , {continuous_feature_names}    --continuous_feature_names
-                    , {feature_col_names}           --feature_col_names
-                    , {id_col_name}                 --id_col_name
-                    , {class_col_name}              --class_col_name
-                    , {confidence_level}            --confidence_level
-                    , {how2handle_missing_value}    --how2handle_missing_value 
-                    , {max_iterations}              --max_iterations
-                    , {max_tree_depth}              --max_tree_depth
-                    , {min_percent_mode}            --min_percent_mode
-                    , {min_percent_split}           --min_percent_split
-                    , {verbosity}                   --verbosity
-                ) AS Q;
-                DROP TABLE {table_name};
-            </template>
-            <input_parameter>
-                <name>table_name</name>
-                <type>text</type>
-                <quote>false</quote>      
-            </input_parameter>
             <input_parameter>
                 <name>split_criterion_name</name>
                 <type>text</type>              
@@ -1243,22 +3629,17 @@
                 <default>explicit</default>  
             </input_parameter>
             <input_parameter>
-                <name>max_iterations</name>
-                <type>int</type>
-                <default>2000</default>
-            </input_parameter>
-            <input_parameter>
                 <name>max_tree_depth</name>
                 <type>int</type>
-                <default>100</default>
+                <default>10</default>
             </input_parameter>
             <input_parameter>
-                <name>min_percent_mode</name>
+                <name>node_prune_threshold</name>
                 <type>float</type>
                 <default>0.001</default>
             </input_parameter>
             <input_parameter>
-                <name>min_percent_split</name>
+                <name>node_split_threshold</name>
                 <type>float</type>
                 <default>0.01</default>
             </input_parameter>
@@ -1267,29 +3648,128 @@
                 <type>int</type>
                 <default>0</default>
             </input_parameter>
+            <!-- Below is output parameter--> 
+            <output_parameter>
+                <name>training_set_size</name>
+                <type>bigint</type>
+            </output_parameter>
+            <output_parameter>
+                <name>tree_nodes</name>
+                <type>bigint</type>
+            </output_parameter>
+            <output_parameter>
+                <name>tree_depth</name>
+                <type>int</type>
+            </output_parameter>
         </method>
-        <method>        
-            <name>ctas_c45_score</name>       
+
+         <method>
+            <name>c45_cross_validate</name>
+            <create>true</create>
             <template>
-                CREATE TABLE {table_name} AS 
-                SELECT * FROM {madlib_schema}.c45_score
-                    ({dt_table_name}            --dt_table_name
-                    , {scoring_table_name}      --scoring_table_name
-                    , {verbosity}               --verbosity
-                );
-                INSERT INTO {table_name}
-                SELECT * FROM {madlib_schema}.c45_score
-                    ({dt_table_name}            --dt_table_name
-                    , {scoring_table_name}      --scoring_table_name
-                    , {verbosity}               --verbosity
-                );
-                DROP TABLE {table_name};
+                SELECT * FROM madlibtestdata.c45_cross_validate
+                    ({split_criterion_name}         --split_criterion_name
+                    ,{training_table_name}          --training_table_name
+                    , {validation_table_name}       --validation_table_name
+                    , {continuous_feature_names}    --continuous_feature_names
+                    , {feature_col_names}           --feature_col_names
+                    , {id_col_name}                 --id_col_name
+                    , {class_col_name}              --class_col_name
+                    , {confidence_level}            --confidence_level
+                    , {how2handle_missing_value}    --how2handle_missing_value
+                    , {max_tree_depth}              --max_tree_depth
+                    , {node_prune_threshold}            --node_prune_threshold
+                    , {node_split_threshold}           --node_split_threshold
+                    , {verbosity}                   --verbosity
+                    , {subset_number}              --subset_number
+                ) AS avg_score;
             </template>
             <input_parameter>
-                <name>table_name</name>
+                <name>split_criterion_name</name>
                 <type>text</type>
-                <quote>false</quote>      
             </input_parameter>
+            <input_parameter>
+                <name>training_table_name</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>validation_table_name</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>continuous_feature_names</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>feature_col_names</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>id_col_name</name>
+                <type>text</type>
+                <default>id</default>
+            </input_parameter>
+            <input_parameter>
+                <name>class_col_name</name>
+                <type>text</type>
+                <default>class</default>
+            </input_parameter>
+            <input_parameter>
+                <name>confidence_level</name>
+                <type>float</type>
+                <default>25</default>
+            </input_parameter>
+            <input_parameter>
+                <name>how2handle_missing_value</name>
+                <type>text</type>
+                <default>explicit</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_tree_depth</name>
+                <type>int</type>
+                <default>10</default>
+            </input_parameter>
+            <input_parameter>
+                <name>node_prune_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>node_split_threshold</name>
+                <type>float</type>
+                <default>0.01</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>int</type>
+                <default>0</default>
+            </input_parameter>
+            <input_parameter>
+                <name>subset_number</name>
+                <type>float</type>
+                <default>10</default>
+            </input_parameter>
+            <!-- Below is output parameter-->
+            <output_parameter>
+                <name>avg_score</name>
+                <type>float8</type>
+            </output_parameter>
+        </method>
+
+
+        <method>         
+            <name>c45_score</name>            
+            <create>true</create>
+            <template>
+                SELECT * FROM {madlib_schema}.c45_score
+                    ({dt_table_name}            --dt_table_name
+                    , {scoring_table_name}      --scoring_table_name
+                    , {verbosity}               --verbosity
+                ) AS score;
+            </template>
             <input_parameter>
                 <name>dt_table_name</name>
                 <type>text</type>              
@@ -1300,27 +3780,25 @@
             </input_parameter>           
             <input_parameter>
                 <name>verbosity</name>
-                <type>boolean</type>
-                <default>false</default>  
+                <type>int</type>
+                <default>0</default>  
             </input_parameter>
+            <!-- result -->
+            <output_parameter>
+                <name>score</name>
+                <type>float</type>
+            </output_parameter>
         </method>   
         <method>         
-            <name>ctas_c45_classify</name>
+            <name>c45_classify</name>
             <template>
-                CREATE TABLE {table_name} AS 
                 SELECT input_set_size FROM {madlib_schema}.c45_classify
                     ({dt_table_name}                --dt_table_name
                     , {classification_table_name}   --classification_table_name
                     , {result_table_name}           --result_table_name
                     , {verbosity}                   --verbosity
-                );
-                DROP TABLE {table_name};
+                ) AS q;
             </template>
-            <input_parameter>
-                <name>table_name</name>
-                <type>text</type>
-                <quote>false</quote>      
-            </input_parameter>
             <input_parameter>
                 <name>dt_table_name</name>
                 <type>text</type>              
@@ -1335,51 +3813,1073 @@
              </input_parameter>
             <input_parameter>
                 <name>verbosity</name>
-                <type>boolean</type>
-                <default>false</default> 
+                <type>int</type>
+                <default>0</default> 
             </input_parameter>
+            <output_parameter>
+                <name>input_set_size</name>
+                <type>bigint</type>
+            </output_parameter>
         </method>
         <method>         
-            <name>ctas_c45_display</name>            
+            <name>c45_display</name>            
             <template>
-                CREATE TABLE {table_name} AS 
                 SELECT * FROM {madlib_schema}.c45_display
                     ({result_tree_table_name}   --result_tree_table_name
-                );
-                INSERT INTO {table_name}
-                SELECT * FROM {madlib_schema}.c45_display
-                    ({result_tree_table_name}   --result_tree_table_name
-                );
-                DROP TABLE {table_name};
-            </template>            
-            <input_parameter>
-                <name>table_name</name>
-                <type>text</type>
-                <quote>false</quote>      
-            </input_parameter>
+                ) AS tree;
+            </template>
             <input_parameter>
                 <name>result_tree_table_name</name>
                 <type>text</type>              
             </input_parameter>
+            <!-- result-->
+            <output_parameter>
+                <name>tree</name>
+                <type>text</type>   
+            </output_parameter>
         </method> 
         <method>
-            <name>ctas_c45_clean</name>
+            <name>c45_clean</name>
             <template>
-                CREATE TABLE {table_name} AS 
                 SELECT * FROM {madlib_schema}.c45_clean
                     ({dt_table_name}        --dt_table_name
                 ) AS is_clean;
-                DROP TABLE {table_name};
-            </template>      
-            <input_parameter>
-                <name>table_name</name>
-                <type>text</type>
-                <quote>false</quote>      
-            </input_parameter>
+            </template>
             <input_parameter>
                 <name>dt_table_name</name>
                 <type>text</type>              
             </input_parameter>
+            <!-- result-->
+            <output_parameter>
+                <name>is_clean</name>
+                <type>boolean</type>    
+            </output_parameter>
         </method>  
+        
     </algorithm>
+
+     <algorithm>
+         <name>hypothesis_tests</name>
+         <method>
+            <name>t_test_one</name>
+            <template>
+                SELECT ({madlib_schema}.t_test_one({value})).* FROM (
+                    SELECT {value} 
+                    FROM madlibtestdata.{table_name} --table_name
+		    ORDER BY {id}
+                    LIMIT {count} --values count
+                    )ht;
+            </template>
+	    <input_parameter>
+                <name>value</name>
+                <type>text</type>
+                <default>value</default>
+                <quote>false</quote>
+            </input_parameter>
+	    <input_parameter>
+                <name>id</name>
+                <type>text</type>
+                <default>id</default>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+		<default>ht_normal_middle</default>
+           </input_parameter>
+           <input_parameter>
+                <name>count</name>
+                <type>bigint</type>
+                <default>1000000000</default>
+                <quote>false</quote>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>df</name>
+                <type>bigint</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_one_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_two_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+         </method>
+
+         <method>
+            <name>t_test_two_pooled</name>
+            <template>
+                SELECT ({madlib_schema}.t_test_two_pooled({first}, {value})).* FROM (
+                    SELECT {first}, {value}
+                    FROM madlibtestdata.{table_name} --table_name
+		    ORDER BY {id}
+                    LIMIT {count} --values count
+                    )ht;
+            </template>
+	    <input_parameter>
+                <name>first</name>
+                <type>text</type>
+                <default>first</default>
+                <quote>false</quote>
+            </input_parameter>
+	    <input_parameter>
+                <name>value</name>
+                <type>text</type>
+                <default>value</default>
+                <quote>false</quote>
+            </input_parameter>
+	    <input_parameter>
+                <name>id</name>
+                <type>text</type>
+                <default>id</default>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+                <default>ht_normal_middle</default>
+           </input_parameter>
+           <input_parameter>
+                <name>count</name>
+                <type>bigint</type>
+                <default>1000000000</default>
+                <quote>false</quote>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>df</name>
+                <type>float8</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_one_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_two_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+         </method>
+
+         <method>
+            <name>t_test_two_unpooled</name>
+            <template>
+                SELECT ({madlib_schema}.t_test_two_unpooled({first}, {value} )).* FROM (
+                    SELECT {first}, {value}
+                    FROM madlibtestdata.{table_name} --table_name
+		    ORDER BY {id}
+                    LIMIT {count} --values count
+                    )ht;
+            </template>
+	    <input_parameter>
+                <name>first</name>
+                <type>text</type>
+                <default>first</default>
+                <quote>false</quote>
+            </input_parameter>
+	    <input_parameter>
+                <name>value</name>
+                <type>text</type>
+                <default>value</default>
+                <quote>false</quote>
+            </input_parameter>
+	    <input_parameter>
+                <name>id</name>
+                <type>text</type>
+                <default>id</default>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+                <default>ht_normal_middle</default>
+           </input_parameter>
+           <input_parameter>
+                <name>count</name>
+                <type>bigint</type>
+                <default>1000000000</default>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>df</name>
+                <type>float8</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_one_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_two_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+         </method>
+
+         <method>
+            <name>f_test</name>
+            <template>
+                SELECT ({madlib_schema}.f_test({first}, {value} )).* FROM (
+                    SELECT {first}, {value}
+                    FROM madlibtestdata.{table_name} --table_name
+		    ORDER BY {id}
+                    LIMIT {count} --values count
+                    )ht;
+            </template>
+	    <input_parameter>
+                <name>first</name>
+                <type>text</type>
+                <default>first</default>
+                <quote>false</quote>
+            </input_parameter>
+	    <input_parameter>
+                <name>value</name>
+                <type>text</type>
+                <default>value</default>
+                <quote>false</quote>
+            </input_parameter>
+	    <input_parameter>
+                <name>id</name>
+                <type>text</type>
+                <default>id</default>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+                <default>ht_normal_middle</default>
+           </input_parameter>
+           <input_parameter>
+                <name>count</name>
+                <type>bigint</type>
+                <default>1000000000</default>
+                <quote>false</quote>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>df1</name>
+                <type>bigint</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>df2</name>
+                <type>bigint</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_one_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_two_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+         </method>
+
+         <method>
+            <name>chi2_gof_test</name>
+            <template>
+                SELECT ({madlib_schema}.chi2_gof_test({observed}, {expected}, {df_in} )).* FROM (
+                    SELECT *
+                    FROM madlibtestdata.{table_name} --table_name
+		    ORDER BY {id}
+                    LIMIT {count} --values count
+                    )ht;
+            </template>
+	    <input_parameter>
+                <name>observed</name>
+                <type>text</type>
+                <default>observed</default>
+                <quote>false</quote>
+            </input_parameter>
+	    <input_parameter>
+                <name>expected</name>
+                <type>text</type>
+                <default>1</default>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+                <default>ht_normal_middle</default>
+           </input_parameter>
+           <input_parameter>
+                <name>count</name>
+                <type>bigint</type>
+                <default>1000000000</default>
+                <quote>false</quote>
+            </input_parameter>
+           <input_parameter>
+                <name>df_in</name>
+                <type>bigint</type>
+                <default>0</default>
+		<quote>false</quote>
+            </input_parameter>
+	    <input_parameter>
+                <name>id</name>
+                <type>text</type>
+                <default>id</default>
+                <quote>false</quote>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>df</name>
+                <type>bigint</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>p_value</name>
+                <type>float8</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>phi</name>
+                <type>float8</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>contingency_coef</name>
+                <type>float8</type>    
+            </output_parameter>
+         </method>
+
+         <method>
+            <name>ks_test</name>
+            <template>
+                SELECT ({madlib_schema}.ks_test({first}, {value}, 
+			(SELECT count({value}) FROM (SELECT * FROM madlibtestdata.{table_name} ORDER BY {id} LIMIT {count})t1 WHERE {first}), 
+			(SELECT count({value}) FROM (SELECT * FROM madlibtestdata.{table_name} ORDER BY {id} LIMIT {count})t2 WHERE NOT {first})
+			ORDER BY {value})).* FROM (
+                    		SELECT {first}, {value}
+                    		FROM madlibtestdata.{table_name} --table_name
+		    		ORDER BY {id}
+                    		LIMIT {count} --values count
+                    		)ht;
+            </template>
+            <input_parameter>
+                <name>first</name>
+                <type>text</type>
+        	<default>first</default>
+                <quote>false</quote>
+           </input_parameter>
+            <input_parameter>
+                <name>value</name>
+                <type>text</type>
+        	<default>value</default>
+                <quote>false</quote>
+           </input_parameter>
+	    <input_parameter>
+                <name>id</name>
+                <type>text</type>
+                <default>id</default>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+                <default>ht_normal_middle</default>
+           </input_parameter>
+           <input_parameter>
+                <name>count</name>
+                <type>bigint</type>
+                <default>1000000000</default>
+                <quote>false</quote>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>k_statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>p_value</name>
+                <type>float8</type>    
+            </output_parameter>
+         </method>
+
+         <method>
+            <name>mw_test</name>
+            <template>
+                SELECT ({madlib_schema}.mw_test({first}, {value} ORDER BY {value})).* FROM (
+                    SELECT {first}, {value}
+                    FROM madlibtestdata.{table_name} --table_name
+		    ORDER BY {id}
+                    LIMIT {count} --values count
+                    )ht;
+            </template>
+	    <input_parameter>
+		<name>value</name>
+		<type>text</type>
+		<quote>false</quote>
+		<default>value</default>
+	   </input_parameter>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+                <default>ht_normal_middle</default>
+           </input_parameter>
+	    <input_parameter>
+                <name>id</name>
+                <type>text</type>
+                <default>id</default>
+                <quote>false</quote>
+            </input_parameter>
+	    <input_parameter>
+                <name>first</name>
+                <type>text</type>
+                <default>first</default>
+                <quote>false</quote>
+            </input_parameter>
+           <input_parameter>
+                <name>count</name>
+                <type>bigint</type>
+                <default>1000000000</default>
+                <quote>false</quote>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>u_statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_one_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_two_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+         </method>
+
+         <method>
+            <name>wsr_test_constant_precision</name>
+            <template>
+                SELECT ({madlib_schema}.wsr_test({value} ORDER BY abs({value}), {precision})).* FROM (
+                    SELECT *
+                    FROM madlibtestdata.{table_name} --table_name
+		    ORDER BY {id}
+                    LIMIT {count} --values count
+                    )ht;
+            </template>
+            <input_parameter>
+                <name>value</name>
+                <type>text</type>
+        	<default>value</default>
+                <quote>false</quote>
+           </input_parameter> 
+            <input_parameter>
+                <name>precision</name>
+                <type>float8</type>
+        	<default>-1</default>
+           </input_parameter>
+	    <input_parameter>
+                <name>id</name>
+                <type>text</type>
+                <default>id</default>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+                <default>ht_normal_middle</default>
+           </input_parameter>
+           <input_parameter>
+                <name>count</name>
+                <type>bigint</type>
+                <default>1000000000</default>
+                <quote>false</quote>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>rank_sum_pos</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>rank_sum_neg</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>z_statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_one_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_two_sided</name>
+                <type>float8</type>    
+            </output_parameter>
+         </method>
+
+         <method>
+            <name>wsr_test_variable_precision</name>
+            <template>
+                SELECT ({madlib_schema}.wsr_test({value} ORDER BY abs({value}), {precision} )).* FROM (
+                    SELECT *
+                    FROM madlibtestdata.{table_name} --table_name
+                    ORDER BY {id}
+                    LIMIT {count} --values count
+                    )ht;
+            </template>
+            <input_parameter>
+                <name>value</name>
+                <type>text</type>
+                <default>value</default>
+                <quote>false</quote>
+           </input_parameter>
+            <input_parameter>
+                <name>precision</name>
+                <type>text</type>
+		<quote>false</quote>
+           </input_parameter>
+            <input_parameter>
+                <name>id</name>
+                <type>text</type>
+                <default>id</default>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+                <default>ht_normal_middle</default>
+           </input_parameter>
+           <input_parameter>
+                <name>count</name>
+                <type>bigint</type>
+                <default>1000000000</default>
+                <quote>false</quote>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>rank_sum_pos</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>rank_sum_neg</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>z_statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_one_sided</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>p_value_two_sided</name>
+                <type>float8</type>
+            </output_parameter>
+         </method>
+
+
+         <method>
+            <name>one_way_anova</name>
+            <template>
+                SELECT ({madlib_schema}.one_way_anova({group_id}, {value})).* FROM (
+                    SELECT {group_id}, {value}
+                    FROM madlibtestdata.{table_name} --table_name
+		    ORDER BY {id}
+                    LIMIT {count} --values count
+                    )ht;
+            </template>
+            <input_parameter>
+            	<name>group_id</name>
+		<type>text</type>
+		<default>group_id</default>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+            	<name>value</name>
+		<type>text</type>
+		<default>value</default>
+                <quote>false</quote>
+            </input_parameter>
+	    <input_parameter>
+                <name>id</name>
+                <type>text</type>
+                <default>id</default>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+                <default>ht_normal_middle</default>
+           </input_parameter>
+           <input_parameter>
+                <name>count</name>
+                <type>bigint</type>
+                <default>1000000000</default>
+                <quote>false</quote>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>sum_squares_between</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>sum_squares_within</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>df_between</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>df_within</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>mean_squares_between</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>mean_squares_within</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>statistic</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>p_value</name>
+                <type>float8</type>    
+            </output_parameter>
+         </method>
+
+    </algorithm>
+
+    <algorithm>
+        <name>assoc_rules</name>
+        <method>
+            <name>assoc_rules_result</name>
+            <template>
+                DROP TABLE IF EXISTS {ar_result_table};
+                CREATE TABLE {ar_result_table} AS SELECT * FROM {madlib_ar_output};
+            </template>
+            <input_parameter>
+                <name>ar_result_table</name>
+                <type>text</type>
+             <quote>false</quote>
+             </input_parameter>
+            <input_parameter>
+                <name>madlib_ar_output</name>
+                <type>text</type>
+              <quote>false</quote>
+             <default>madlibtestresult.assoc_rules</default>
+            </input_parameter>
+        </method>
+        <method>
+            <name>assoc_rules_stat</name>
+            <create>true</create>
+            <template>
+                  SELECT  COUNT(DISTINCT subset_x::float8[]) AS subsetx,
+                          MAX(support_xy)::decimal(15,2) as max_support_xy,
+                          MIN(support_xy)::decimal(15,2) as min_support_xy,
+                          MAX(confidence_xy)::decimal(15,2) as max_confidence_xy,
+                          MIN(confidence_xy)::decimal(15,2) as min_confidence_xy,
+                          MAX(lift_xy)::decimal(15,2) as max_lift_xy,
+                          MIN(lift_xy)::decimal(15,2) as min_lift_xy,
+                          MAX(conviction_xy)::decimal(15,2) as max_conviction_xy,
+                          MIN(conviction_xy)::decimal(15,2) as min_conviction_xy
+                   FROM  madlibtestresult.assoc_rules;
+            </template>
+            <output_parameter>
+                <name>subsetx</name>
+                <type>integer</type>
+            </output_parameter>
+            <output_parameter>
+                <name>max_support_xy</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>min_support_xy</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>max_confidence_xy</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>min_confidence_xy</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>max_lift_xy</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>min_lift_xy </name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>max_conviction_xy</name>
+                <type>float8</type>
+            </output_parameter>
+            <output_parameter>
+                <name>min_conviction_xy</name>
+                <type>float8</type>
+            </output_parameter>
+            </method>
+        <method>
+            <name>assoc_rules</name>
+            <template>
+                SELECT output_table, total_rules from {madlib_schema}.assoc_rules
+                        ({i_support}    --i_support
+                        ,{i_confidence} --i_confidence
+                        ,{id_col}       --id_col
+                        ,{product_col}  --product_col
+                        ,{input_table}  --input_table
+                        ,{output_schema} --output_schema
+                        ,{p_verbose}    --p_verbose
+                        ) AS Q ;
+            </template>
+            <input_parameter>
+                <name>i_support</name>
+                <type>float8</type>
+                <default>0.25</default>
+            </input_parameter>
+            <input_parameter>
+                <name>i_confidence</name>
+                <type>float8</type>
+                <default>0.5</default>
+            </input_parameter>
+            <input_parameter>
+                <name>id_col</name>
+                <type>text</type>
+                <default>trans_id</default>
+            </input_parameter>
+            <input_parameter>
+                <name>product_col</name>
+                <type>text</type>
+                <default>product</default>
+            </input_parameter>
+            <input_parameter>
+                <name>input_table</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>output_schema</name>
+                <type>text</type>
+                <default>madlibtestresult</default>
+            </input_parameter>
+            <input_parameter>
+                <name>p_verbose</name>
+                <type>boolean</type>
+                <default>false</default>
+            </input_parameter><!-- result arguments-->
+            <output_parameter>
+                <name>output_table</name>
+                <type>text</type>
+            </output_parameter>
+            <output_parameter>
+                <name>total_rules</name>
+                <type>int</type>
+            </output_parameter>
+        </method>
+    </algorithm>
+    <algorithm>
+        <name>plda</name>
+        <method>
+            <name>plda_stability</name>
+            <template>
+                SELECT * FROM madlibtestdata.vplda_stability( {iteration}
+                    ,{dict_table}
+                    ,{model_table}
+                    ,{num_topics}
+                    ,{alpha}
+                    ,{eta}
+                    ,{train_corpus_table}
+                    ,{train_output_table}
+                    ,{train_num_iter}
+                    ,{test_corpus_table}
+                    ,{test_output_table});
+            </template>
+            <input_parameter>
+                <name>iteration</name>
+                <type>int</type>
+                <default>5</default>
+            </input_parameter>
+            <input_parameter>
+                <name>dict_table</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>model_table</name>
+                <type>text</type>
+                <default>madlibtestdata.plda_model</default>
+            </input_parameter>
+            <input_parameter>
+                <name>num_topics</name>
+                <type>int</type>
+            </input_parameter>
+            <input_parameter>
+                <name>alpha</name>
+                <type>float</type>
+            </input_parameter>
+            <input_parameter>
+                <name>eta</name>
+                <type>float</type>
+                <default>0.01</default>
+            </input_parameter>
+            <input_parameter>
+                <name>train_corpus_table</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>train_output_table</name>
+                <type>text</type>
+                <default>madlibtestdata.plda_train_o</default>
+            </input_parameter>
+            <input_parameter>
+                <name>train_num_iter</name>
+                <type>int</type>
+            </input_parameter>
+            <input_parameter>
+                <name>test_corpus_table</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>test_output_table</name>
+                <type>text</type>
+                <default>madlibtestdata.plda_test_o</default>
+            </input_parameter>
+        </method>
+        <method>
+            <name>plda_similarity</name>
+            <template>
+                SELECT * FROM madlibtestdata.vplda_similarity( {iteration}
+                    ,{dict_table}
+                    ,{model_table}
+                    ,{num_topics}
+                    ,{alpha}
+                    ,{eta}
+                    ,{train_corpus_table}
+                    ,{train_output_table}
+                    ,{train_num_iter}
+                    ,{test_corpus_table}
+                    ,{test_output_table}
+                    ,{glda_w_t_dist_table_name}
+                    ,{glda_d_t_dist_table_name}
+                    ,{gplda_w_t_dist_table_name}
+                    ,{gplda_d_t_dist_table_name}
+                    ,{rlda_w_t_dist_table_name}
+                    ,{rlda_d_t_dist_table_name});
+            </template>
+            <input_parameter>
+                <name>iteration</name>
+                <type>int</type>
+                <default>5</default>
+            </input_parameter>
+            <input_parameter>
+                <name>dict_table</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>model_table</name>
+                <type>text</type>
+                <default>madlibtestdata.plda_model</default>
+            </input_parameter>
+            <input_parameter>
+                <name>num_topics</name>
+                <type>int</type>
+            </input_parameter>
+            <input_parameter>
+                <name>alpha</name>
+                <type>float</type>
+            </input_parameter>
+            <input_parameter>
+                <name>eta</name>
+                <type>float</type>
+                <default>0.01</default>
+            </input_parameter>
+            <input_parameter>
+                <name>train_corpus_table</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>train_output_table</name>
+                <type>text</type>
+                <default>madlibtestdata.plda_train_o</default>
+            </input_parameter>
+            <input_parameter>
+                <name>train_num_iter</name>
+                <type>int</type>
+            </input_parameter>
+            <input_parameter>
+                <name>test_corpus_table</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>test_output_table</name>
+                <type>text</type>
+                <default>madlibtestdata.plda_test_o</default>
+            </input_parameter>
+            <input_parameter>
+                <name>glda_w_t_dist_table_name</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>glda_d_t_dist_table_name</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>gplda_w_t_dist_table_name</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>gplda_d_t_dist_table_name</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+             <input_parameter>
+                <name>rlda_w_t_dist_table_name</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>rlda_d_t_dist_table_name</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+        </method>
+        <method>
+            <name>plda_run</name>
+            <template>
+                 SELECT {madlib_schema}.plda_run({datatable}    --datatable
+                                ,{dicttable}    --dicttable
+                                ,{modeltable}   --modeltable
+                                ,{outputdatatable}    --outputdatatable
+                                ,{numiter}      --numiter
+                                ,{numtopics}    --numtopics
+                                ,{alpha}        --alpha
+                                ,{eta}          --eta
+                                ) AS Q;
+            </template>
+            <input_parameter>
+                <name>datatable</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dicttable</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>numiter</name>
+                <type>int4</type>
+                <default>30</default>
+            </input_parameter>
+            <input_parameter>
+                <name>numtopics</name>
+                <type>int4</type>
+                <default>10</default>
+            </input_parameter>
+            <input_parameter>
+                <name>alpha</name>
+                <type>float</type>
+                <default>1</default>
+            </input_parameter>
+            <input_parameter>
+                <name>eta</name>
+                <type>float</type>
+                <default>0.01</default>
+            </input_parameter>
+            <input_parameter>
+                <name>modeltable</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>outputdatatable</name>
+                <type>text</type>
+            </input_parameter>
+        </method>
+         <method>
+            <name>plda_label_test_documents</name>
+            <template>
+                SELECT {madlib_schema}.plda_label_test_documents({test_table}
+                                                ,{output_table}
+                                                ,{model_table}
+                                                ,{dict_table}
+                                                ,{num_topics}
+                                                ,{alpha}
+                                                ,{eta}
+                                                ) AS Q;
+            </template>
+            <input_parameter>
+                <name>test_table</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>output_table</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>model_table</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dict_table</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>num_topics</name>
+                <type>int4</type>
+                <default>10</default>
+            </input_parameter>
+            <input_parameter>
+                <name>alpha</name>
+                <type>float</type>
+                <default>1</default>
+            </input_parameter>
+            <input_parameter>
+                <name>eta</name>
+                <type>float</type>
+                <default>0.01</default>
+            </input_parameter>
+        </method>
+    </algorithm>
+ 
 </algorithms>

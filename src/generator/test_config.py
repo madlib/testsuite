@@ -17,18 +17,18 @@ class Configer(Parser):
 
         configuration       =   Parser.getNodeTag(self, self.xmlDoc, "configuration")
         metadatadb          =   Parser.getNodeTag(self, configuration, "metadatadb")        
-        user                =   Parser.getNodeVal(self, metadatadb, "user")
-        host                =   Parser.getNodeVal(self, metadatadb, "host")
-        port                =   Parser.getNodeVal(self, metadatadb, "port")
-        database            =   Parser.getNodeVal(self, metadatadb, "database")
+        self.user                =   Parser.getNodeVal(self, metadatadb, "user")
+        self.host                =   Parser.getNodeVal(self, metadatadb, "host")
+        self.port                =   Parser.getNodeVal(self, metadatadb, "port")
+        self.database            =   Parser.getNodeVal(self, metadatadb, "database")
         self.metaDBSchema   =   Parser.getNodeVal(self, metadatadb, "schema")
         
         try:
-            passwd = Parser.getNodeVal(self, metadatadb, "passwd")
-            self.metaDB = user + "/" + passwd + "@" + host + ":" + port + "/" \
-                            + database + ":" + self.metaDBSchema
+            self.passwd = Parser.getNodeVal(self, self.metadatadb, "passwd")
+            self.metaDB = self.user + "/" + self.passwd + "@" + self.host + ":" + self.port + "/" \
+                            + self.database + ":" + self.metaDBSchema
         except Exception:
-            self.metaDB = user + "@" + host + ":" + port + "/" + database + ":" \
+            self.metaDB = self.user + "@" + self.host + ":" + self.port + "/" + self.database + ":" \
                             + self.metaDBSchema
 
 

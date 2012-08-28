@@ -34,6 +34,7 @@ class AnalyticsTools(Parser):
                 atDic["madlibversion"]  =   Parser.getNodeVal(self, at, "madlibversion")
                 atDic["host"]           =   Parser.getNodeVal(self, at, "host")
                 atDic["port"]           =   Parser.getNodeVal(self, at, "port")
+                atDic["superuser"]  =   Parser.getNodeVal(self, at, "superuser")
                 atDic["database"]       =   Parser.getNodeVal(self, at, "database")
                 atDic["username"]       =   Parser.getNodeVal(self, at, "user")
                 atDic["segmentnum"]     =   Parser.getNodeVal(self, at, "segmentnum")
@@ -111,7 +112,6 @@ class AnalyticsTools(Parser):
 
     def __insertToolsInfo(self):
         """insert the configuration of analytics to the table"""
-
         for _, tool in self.analyticsTools.items():
             stmt = self.__formInsertStmt(self.analyticsToolTb, tool)
             self.sqlFileHd.write(stmt + "\n")

@@ -47,7 +47,7 @@ class TestSuite(Parser):
         # List of method's extent vary parameter pairs 
         self.varExpandParaPairList = []                
         
-    def GenCases(self):
+    def GenCases(self, debug):
         """Generate test case under this <test_suites> tag."""
 
          # generate varparameters pair 
@@ -73,7 +73,7 @@ class TestSuite(Parser):
                             self.varExpandParaPairList, self.tsName, caseName, caseID, \
                             caseFileHD, self.caseScheduleHd, self.caseSQLFileHd, \
                             self.testSuiteSqlHd, self.testItemSqlHd)
-                case.GenCase(mtdList, i, self.tsType)
+                case.GenCase(mtdList, i, self.tsType, debug)
                 if i==0:
                     self.caseScheduleHd.write(caseName + '\n')
             self.caseScheduleHd.write("\n")

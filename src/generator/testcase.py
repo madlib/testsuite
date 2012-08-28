@@ -85,7 +85,7 @@ class TestCase(Parser):
             str(rownum) + ");"
         self.testItemSqlHd.write(stmt + "\n\n")
 
-    def GenCase(self, mtdList, exeIteration, tsType):
+    def GenCase(self, mtdList, exeIteration, tsType, debug):
         """generate each test case
     
         params:    
@@ -177,14 +177,16 @@ class TestCase(Parser):
             #write madlib executor to .case and generate sql file to .sql_out
             madlibCMD = " ".join(caseItem)
             self.caseFileHd.write(madlibCMD + "\n")
-            try:
-                exe = template_executor.Executor(madlibCMD.split(), None)
-                exe.parseArgument()
-                if exeIteration == 0:
-                    self.caseSQLFileHd.write( "-- method: " + targetBaseName + "\n")
-                    self.caseSQLFileHd.write( exe.generateSQL() + "\n\n")
-            except Exception, exp:
-                print str(exp)
+
+            if debug is True:
+                try:
+                    exe = template_executor.Executor(madlibCMD.split(), None)
+                    exe.parseArgument()
+                    if exeIteration == 0:
+                        self.caseSQLFileHd.write( "-- method: " + targetBaseName + "\n")
+                        self.caseSQLFileHd.write( exe.generateSQL() + "\n\n")
+                except Exception, exp:
+                    print str(exp)
 
             # try to add tear down operation, this step is optional
             try:

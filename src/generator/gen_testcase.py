@@ -43,7 +43,7 @@ class Generator (Parser):
         self.testSuiteSqlHd     =   open(tsSqlFileHd, "w")
         self.testItemSqlHd      =   open(tiSqlFileHd, "w")
 
-    def GenCases(self):
+    def GenCases(self, debug = False):
         """Generate cases for each test case xml spec file
 
         Parse the root tag <test_suites>. 
@@ -63,9 +63,9 @@ class Generator (Parser):
         mulTsList   =   Parser.getNodeList(self, ts, "multi_test_suites")
         # loop to parse each multi test suite
         for mulTs in mulTsList:
-            self.__multiTestSuite(mulTs, tsType)
+            self.__multiTestSuite(mulTs, tsType, debug)
 
-    def __multiTestSuite(self, mlTs, tsType):
+    def __multiTestSuite(self, mlTs, tsType, debug):
         """Parse one multi-test suite.
 
         params:
@@ -85,7 +85,7 @@ class Generator (Parser):
                                       self.datasets, self.paraHandler, algorithm, preParas, \
                                       tsNodeList, tsType, self.caseScheduleFileHd, \
                                       self.caseSQLFileHd, self.testSuiteSqlHd, self.testItemSqlHd)
-        mlTs.GenCases()
+        mlTs.GenCases(debug)
 
     def __preParas(self, mtdNodeList):
         """Get prepared parameters.
@@ -113,6 +113,10 @@ def main():
     #remove old cases
     os.system('rm -rf ' + Path.casePath)
     os.system('mkdir ' + Path.casePath)
+
+    debug = False
+    if len(sys.argv) > 1 and sys.argv[1] == 'debug':
+        debug = True
 
     try:
         # parse testconfig
@@ -171,7 +175,7 @@ def main():
             # create a generator to generate cases with this specXml
             generator = Generator(configer, analyticsTools. analyticsTools, datasets.descs, \
                 specXml, scheduleFile, caseSQLFile, suiteSqlFile, itemSqlFile)
-            generator.GenCases()
+            generator.GenCases(debug)
         except Exception, exp:
             print exp
             print 'Error when generating ' +  name + "'s cases !"

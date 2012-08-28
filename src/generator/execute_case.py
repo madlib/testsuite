@@ -132,7 +132,43 @@ class TestCaseExecutor:
             case_name = case_name.strip()
             case_file = os.path.join(test_case_path, case_name)+'.case'
             self.__executeCaseFile(case_file, analytics_tool, run_id, restart)
-    
+
+    def insertOneSkip(self, case, run_id):
+        sql = ""
+        cmd = ""
+        self.__run_cmd(cmd) 
+   
+    def executeStart(self, tool_xml_file):
+        self.__parseAnalyticsToolXML(tool_xml_file)
+        self.__operateTool(self.platform, 'start')
+        self.__executeInitCase(self.platform)
+
+    def executeOneCase(self, test_case_path,analytics_tool, case_name, run_id, restart = False):
+        case_name = case_name.strip()
+        case_file = os.path.join(test_case_path, case_name)+'.case'
+        self.__executeCaseFile(case_file, analytics_tool, run_id, restart)
+
+    def executeStop(self):
+        conf = self.tools_conf_map[self.platform]
+        source_path = 'source ' + conf['env'] + ' && '
+        username, hostname, port, database \
+            = conf['username'], conf['host'], conf['port'], conf['database']
+        psql_append =  " -U "               +       username \
+                     + " -h "               +       hostname \
+                     + " -p "               +       port \
+                     + " -d "               +       database
+        version_sql = """psql -c 'select madlib.version();' """
+        cmd =  source_path + version_sql + psql_append
+        output = commands.getoutput(cmd)
+        try:
+            temp_list = output.split(',')
+            self.version = temp_list[2]
+        except Exception:
+            self.version = "WRONG"
+
+        self.__operateTool(self.platform, 'stop')
+
+ 
     def executeCase(self, test_case_path, tool_xml_file, run_id, restart = False):
         """Execute case files with specific greenplum/postgres configuration
         
