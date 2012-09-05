@@ -150,8 +150,6 @@ def main():
     if options.smartload:
         loading_manager = loadingManager('..', 'madlibtestdata')
         loading_manager.do(options.module, False, False, False)
-#    if options.genreport:
-#        generateReport(psql_cmd, environ, options.genreport, 'all')
 
 if __name__ == '__main__':
     main()

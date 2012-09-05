@@ -1,5 +1,5 @@
 """
-Manager the database start up and down.
+Start up and/or shut down the database.
 """
 
 srcPath = './generator/'
@@ -18,7 +18,7 @@ MadlibSchema            =   'madlib'
 
 
 class dbManager:
-    """Manager the database start up and down."""
+    """Start up and/or shut down the database."""
 
     def __init__(self, xmlPath):
         """Parse AnalyticsTool.xml, get the configuration information of analytics tool
@@ -29,8 +29,7 @@ class dbManager:
             analyticsTools = AnalyticsTools(xmlPath)
             analyticsTools.parseTools()
         except Exception, exp:
-            print str(exp)
-            print "Error when parsing analyticsTools."
+            print "Error when parsing analyticsTools: " + str(exp)
             sys.exit()
         self.dbs = analyticsTools.analyticsTools
         self.cur_db = None
@@ -44,14 +43,14 @@ class dbManager:
             print [key for (key, _) in self.dbs.items()]
         else:
             if not name in self.dbs:
-                sys.exit('No such db exists.')
+                sys.exit('Database ' + name + ' does not exist.')
             conf  = self.dbs[name]
             print conf
 
     def start(self, name):
         """Start up db."""
         if not name in self.dbs:
-            sys.exit('No such db exists.')
+            sys.exit('Database ' + name + ' does not exist.')
         conf  = self.dbs[name]
         source_path = 'source ' + conf['env'] + '&& '
         master_dir = conf['master_dir']
@@ -63,9 +62,9 @@ class dbManager:
         self.cur_db = name
 
     def stop(self, name):
-        """Start up db."""
+        """Shut down db."""
         if not name in self.dbs:
-            sys.exit('No such db exists.')
+            sys.exit('Database ' + name + ' does not exist.')
         conf  = self.dbs[name]
         source_path = 'source ' + conf['env'] + '&& '
         master_dir = conf['master_dir']
@@ -77,9 +76,9 @@ class dbManager:
         self.cur_db = None
 
     def loadSQL(self, file):
-        """Load a sql file into db."""
+        """Load contents within a sql file into db."""
         if self.cur_db is None:
-            sys.exit('No db is running.')
+            sys.exit('Database instance ' + self.cur_db + ' is not running.')
         conf  = self.dbs[self.cur_db]
         source_path = 'source ' + conf['env']
         cmd = "psql -q -p %s -d %s -f %s" % (conf['port'], conf['database'], file)
@@ -88,7 +87,7 @@ class dbManager:
     def runSQL(self, sql):
         """Run a sql at current db."""
         if self.cur_db is None:
-            sys.exit('No db is running.')
+            sys.exit('Database instance ' + self.cur_db + ' is not running.')
         conf = self.dbs[self.cur_db]
         cmd = "psql -p %s -d %s -c '%s'" % (conf['port'], conf['database'], sql)
         return subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell = True).communicate()[0]
@@ -138,9 +137,6 @@ def main():
     db_manager = dbManager()
     db_manager.info()
     db_manager.info('GPDB_4.2.0_24')
-    #db_manager.start('GPDB_4.2.0_24')
-    #db_manager.loadSQL('test.sql')
-    #db_manager.stop('GPDB_4.2.0_24')
 
 if __name__ == '__main__':
     main()

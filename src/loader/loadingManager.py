@@ -115,7 +115,7 @@ class loadingManager:
                     print 'INFO : Success Convert : %s' % table['id']
                 except Exception as e:
                     fail_list.append(table['id'])
-                    print e
+                    print str(e)
         print "FAILED CONVERT LIST:\n", fail_list
 
     def __smartDownload(self, str, table):
