@@ -1,0 +1,5 @@
+Number_of_O_rings_at_risk_on_a_given_flight	float8
+Class	float8
+Launch_temperature	float8
+Leak_check_pressure	float8
+Temporal_order_of_flight	float8

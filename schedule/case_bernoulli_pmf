@@ -1,0 +1,36 @@
+# TestSuite Name : bernoulli_pmf_feature_test_x
+# bernoulli_pmf
+# Start TestSuite ==========
+bernoulli_pmf_feature_test_x_0_0
+bernoulli_pmf_feature_test_x_0_1
+bernoulli_pmf_feature_test_x_0_2
+
+# TestSuite Name : bernoulli_pmf_feature_test_spp
+# bernoulli_pmf
+# Start TestSuite ==========
+bernoulli_pmf_feature_test_spp_0_0
+bernoulli_pmf_feature_test_spp_0_1
+bernoulli_pmf_feature_test_spp_0_2
+bernoulli_pmf_feature_test_spp_0_3
+bernoulli_pmf_feature_test_spp_0_4
+bernoulli_pmf_feature_test_spp_0_5
+bernoulli_pmf_feature_test_spp_0_6
+bernoulli_pmf_feature_test_spp_0_7
+bernoulli_pmf_feature_test_spp_0_8
+bernoulli_pmf_feature_test_spp_0_9
+
+# TestSuite Name : bernoulli_pmf_negative_case_x
+# bernoulli_pmf
+# Start TestSuite ==========
+bernoulli_pmf_negative_case_x_0_0
+bernoulli_pmf_negative_case_x_0_1
+bernoulli_pmf_negative_case_x_0_2
+
+# TestSuite Name : bernoulli_pmf_negative_case_spp
+# bernoulli_pmf
+# Start TestSuite ==========
+bernoulli_pmf_negative_case_spp_0_0
+bernoulli_pmf_negative_case_spp_0_1
+bernoulli_pmf_negative_case_spp_0_2
+bernoulli_pmf_negative_case_spp_0_3
+

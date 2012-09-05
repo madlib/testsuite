@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>
+
+        <algorithm>logistic_regression</algorithm>
+        <methods>
+            <method>
+                <name>logregr</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+        </methods>
+
+        <test_suite>
+            <name>logistic_regression_baseline</name>
+            <comments>It is to get baseline of logistic regression against R.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>logregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.log_breast_cancer_wisconsin</value><value>madlibtestdata.log_ticdata2000</value><value>madlibtestdata.log_wdbc</value><value>madlibtestdata.log_wpbc</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>optimizer</name>
+                    <value>irls</value><value>newton</value><value>cg</value><value>igd</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                    <parameter>
+                        <name>max_iteration</name>
+                        <value>2000</value>
+                    </parameter>
+                    <parameter>
+                        <name>convergence_threshold</name>
+                        <value>0.0</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>logistic_regression_max_iteration</name>
+            <comments>It is to test max iteration number of logistic regression.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>logregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.log_breast_cancer_wisconsin</value><value>madlibtestdata.log_ticdata2000</value><value>madlibtestdata.log_wdbc</value><value>madlibtestdata.log_wpbc</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>max_iteration</name>
+                    <value>0</value><value>5</value><value>10</value><value>15</value><value>20</value><value>25</value><value>30</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                    <parameter>
+                        <name>optimizer</name>
+                        <!-- The default optimizer -->
+                        <value>irls</value>
+                    </parameter>
+                    <parameter>
+                        <name>convergence_threshold</name>
+                        <!-- The default convergence threshold -->
+                        <value>0.0001</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>logistic_regression_optimizer</name>
+            <comments>It is to test optimizer of logistic regression.</comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>logregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.log_breast_cancer_wisconsin</value><value>madlibtestdata.log_ticdata2000</value><value>madlibtestdata.log_wdbc</value><value>madlibtestdata.log_wpbc</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>optimizer</name>
+                    <value>irls</value><value>newton</value><value>cg</value><value>igd</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                    <parameter>
+                        <name>max_iteration</name>
+                        <!-- The default maximum iteration number -->
+                        <value>20</value>
+                    </parameter>
+                    <parameter>
+                        <name>convergence_threshold</name>
+                        <!-- The default convergence threshold -->
+                        <value>0.0001</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>logistic_regression_convergence_threshold</name>
+            <comments>It is to test convergence threshold of logistic regression.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>logregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.log_breast_cancer_wisconsin</value><value>madlibtestdata.log_ticdata2000</value><value>madlibtestdata.log_wdbc</value><value>madlibtestdata.log_wpbc</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>convergence_threshold</name>
+                    <value>1</value><value>0.01</value><value>0.001</value><value>0.0001</value><value>0.00001</value><value>0.000001</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                    <parameter>
+                        <name>max_iteration</name>
+                        <!-- The default maximum iteration number -->
+                        <value>2000</value>
+                    </parameter>
+                    <parameter>
+                        <name>optimizer</name>
+                        <!-- The default optimizer -->
+                        <value>irls</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>logistic_regression_corner_scenarios</name>
+            <comments>It is to test corner scenarios of logistic regression.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>logregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.log_noobservation</value><value>madlibtestdata.log_singleobservation</value><value>madlibtestdata.log_redundantobservations</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                    <parameter>
+                        <name>max_iteration</name>
+                        <value>20</value>
+                    </parameter>
+                    <parameter>
+                        <name>optimizer</name>
+                        <value>irls</value>
+                    </parameter>
+                    <parameter>
+                        <name>convergence_threshold</name>
+                        <value>0.0001</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>logistic_regression_negative_source_table</name>
+            <comments>It is to test negative scenarios of logistic regression.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>logregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>non_existing_source_table</value><value>EMPTY</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                    <parameter>
+                        <name>max_iteration</name>
+                        <value>20</value>
+                    </parameter>
+                    <parameter>
+                        <name>optimizer</name>
+                        <value>irls</value>
+                    </parameter>
+                    <parameter>
+                        <name>convergence_threshold</name>
+                        <value>0.0001</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>logistic_regression_negative_dependent_varname</name>
+            <comments>It is to test negative scenarios of logistic regression.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>logregr</name>
+                <list_parameter>
+                    <name>dependent_varname</name>
+                    <value>non_existing_dependent_varname</value><value>EMPTY</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.log_breast_cancer_wisconsin</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                    <parameter>
+                        <name>max_iteration</name>
+                        <value>20</value>
+                    </parameter>
+                    <parameter>
+                        <name>optimizer</name>
+                        <value>irls</value>
+                    </parameter>
+                    <parameter>
+                        <name>convergence_threshold</name>
+                        <value>0.0001</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>logistic_regression_negative_independent_varname</name>
+            <comments>It is to test negative scenarios of logistic regression.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>logregr</name>
+                <list_parameter>
+                    <name>independent_varname</name>
+                    <value>non_existing_independent_varname</value><value>EMPTY</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.log_breast_cancer_wisconsin</value>
+                    </parameter>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>max_iteration</name>
+                        <value>20</value>
+                    </parameter>
+                    <parameter>
+                        <name>optimizer</name>
+                        <value>irls</value>
+                    </parameter>
+                    <parameter>
+                        <name>convergence_threshold</name>
+                        <value>0.0001</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>logistic_regression_negative_max_iteration</name>
+            <comments>It is to test negative scenarios of logistic regression.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>logregr</name>
+                <list_parameter>
+                    <name>max_iteration</name>
+                    <value>-1</value><value>0</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.log_breast_cancer_wisconsin</value>
+                    </parameter>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                    <parameter>
+                        <name>optimizer</name>
+                        <value>irls</value>
+                    </parameter>
+                    <parameter>
+                        <name>convergence_threshold</name>
+                        <value>0.0001</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>logistic_regression_negative_optimizer</name>
+            <comments>It is to test negative scenarios of logistic regression.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>logregr</name>
+                <list_parameter>
+                    <name>optimizer</name>
+                    <value>invalid_optimizer</value><value>EMPTY</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.log_breast_cancer_wisconsin</value>
+                    </parameter>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                    <parameter>
+                        <name>max_iteration</name>
+                        <value>20</value>
+                    </parameter>
+                    <parameter>
+                        <name>convergence_threshold</name>
+                        <value>0.0001</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>logistic_regression_negative_convergence_threshold</name>
+            <comments>It is to test negative scenarios of logistic regression.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>logregr</name>
+                <list_parameter>
+                    <name>convergence_threshold</name>
+                    <value>-1</value><value>-0.0001</value><value>0</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.log_breast_cancer_wisconsin</value>
+                    </parameter>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                    <parameter>
+                        <name>max_iteration</name>
+                        <value>20</value>
+                    </parameter>
+                    <parameter>
+                        <name>optimizer</name>
+                        <value>irls</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>logistic_regression_ctas</name>
+            <comments>It is to test basic functionalities of logistic regression with create table as.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>ctas_logregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.log_breast_cancer_wisconsin</value><value>madlibtestdata.log_ticdata2000</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>table_name</name>
+                        <value>madlibtestresult.log_breast_cancer_wisconsin_ticdata2000_ctas</value>
+                    </parameter>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                    <parameter>
+                        <name>optimizer</name>
+                        <value>irls</value>
+                    </parameter>
+                    <parameter>
+                        <name>max_iteration</name>
+                        <value>20</value>
+                    </parameter>
+                    <parameter>
+                        <name>convergence_threshold</name>
+                        <value>0.0001</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+    </multi_test_suites>
+</test_suites>

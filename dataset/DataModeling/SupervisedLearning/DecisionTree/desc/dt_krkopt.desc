@@ -1,0 +1,7 @@
+White_King_file text
+White_King_rank float8
+White_Rook_file text
+White_Rook_rank float8
+Black_King_file text
+Black_King_rank float8
+class text

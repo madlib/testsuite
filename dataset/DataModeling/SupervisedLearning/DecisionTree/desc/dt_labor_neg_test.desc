@@ -1,0 +1,17 @@
+duration			float8
+wageincreasefirstyear	float8
+wageincreasesecondyear	float8
+wageincreasethirdyear	float8
+costoflivingadjustment	text
+workinghours			float8
+pension			text
+standbypay			float8
+shiftdifferential		float8
+educationallowance		text
+statutoryholidays		float8
+vacation			text
+longtermdisabilityassistance	text
+contributiontodentalplan	text
+bereavementassistance		text
+contributiontohealthplan	text
+class   text

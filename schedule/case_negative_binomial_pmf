@@ -1,0 +1,50 @@
+# TestSuite Name : negative_binomial_pmf_feature_test_x
+# negative_binomial_pmf
+# Start TestSuite ==========
+negative_binomial_pmf_feature_test_x_0_0
+negative_binomial_pmf_feature_test_x_0_1
+negative_binomial_pmf_feature_test_x_0_2
+negative_binomial_pmf_feature_test_x_0_3
+negative_binomial_pmf_feature_test_x_0_4
+
+# TestSuite Name : negative_binomial_pmf_feature_test_r
+# negative_binomial_pmf
+# Start TestSuite ==========
+negative_binomial_pmf_feature_test_r_0_0
+negative_binomial_pmf_feature_test_r_0_1
+negative_binomial_pmf_feature_test_r_0_2
+negative_binomial_pmf_feature_test_r_0_3
+negative_binomial_pmf_feature_test_r_0_4
+
+# TestSuite Name : negative_binomial_pmf_feature_test_spp
+# negative_binomial_pmf
+# Start TestSuite ==========
+negative_binomial_pmf_feature_test_spp_0_0
+negative_binomial_pmf_feature_test_spp_0_1
+negative_binomial_pmf_feature_test_spp_0_2
+negative_binomial_pmf_feature_test_spp_0_3
+negative_binomial_pmf_feature_test_spp_0_4
+
+# TestSuite Name : negative_binomial_pmf_negative_case_x
+# negative_binomial_pmf
+# Start TestSuite ==========
+negative_binomial_pmf_negative_case_x_0_0
+negative_binomial_pmf_negative_case_x_0_1
+negative_binomial_pmf_negative_case_x_0_2
+
+# TestSuite Name : negative_binomial_pmf_negative_case_r
+# negative_binomial_pmf
+# Start TestSuite ==========
+negative_binomial_pmf_negative_case_r_0_0
+negative_binomial_pmf_negative_case_r_0_1
+negative_binomial_pmf_negative_case_r_0_2
+negative_binomial_pmf_negative_case_r_0_3
+
+# TestSuite Name : negative_binomial_pmf_negative_case_spp
+# negative_binomial_pmf
+# Start TestSuite ==========
+negative_binomial_pmf_negative_case_spp_0_0
+negative_binomial_pmf_negative_case_spp_0_1
+negative_binomial_pmf_negative_case_spp_0_2
+negative_binomial_pmf_negative_case_spp_0_3
+

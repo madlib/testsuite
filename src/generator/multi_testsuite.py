@@ -38,11 +38,11 @@ class MultiTestSuite(Parser):
         self.testSuiteSqlHd     =   tsSqlFileHd
         self.testItemSqlHd      =   tiSqlFileHd
       
-    def GenCases(self):
+    def GenCases(self, debug):
         """Generate test case under this <multi_test_suites> tag."""
         for ts in self.tsNodes:         
             # Init a testsuite instance 
             testsuite = TestSuite(ts, self.tsType, self.configer, self.analyticsTools, self.datasets, \
                     self.paraHandler, self.algorithm, self.preParas, self.caseScheduleFileHd, \
                     self.caseSQLFileHd, self.testSuiteSqlHd, self.testItemSqlHd)
-            testsuite.GenCases()
+            testsuite.GenCases(debug)

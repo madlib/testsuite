@@ -1,0 +1,153 @@
+# TestSuit Name : logistic_regression_baseline
+# It is to get baseline of logistic regression against R.
+# Start TestSuit ==========
+logistic_regression_baseline_0_0
+logistic_regression_baseline_0_1
+logistic_regression_baseline_0_2
+logistic_regression_baseline_0_3
+logistic_regression_baseline_0_4
+logistic_regression_baseline_0_5
+logistic_regression_baseline_0_6
+logistic_regression_baseline_0_7
+logistic_regression_baseline_0_8
+logistic_regression_baseline_0_9
+logistic_regression_baseline_0_10
+logistic_regression_baseline_0_11
+logistic_regression_baseline_0_12
+logistic_regression_baseline_0_14
+logistic_regression_baseline_0_15
+
+# TestSuit Name : logistic_regression_max_iteration
+# It is to test max iteration number of logistic regression.
+# Start TestSuit ==========
+logistic_regression_max_iteration_0_0
+logistic_regression_max_iteration_0_1
+logistic_regression_max_iteration_0_2
+logistic_regression_max_iteration_0_3
+logistic_regression_max_iteration_0_4
+logistic_regression_max_iteration_0_5
+logistic_regression_max_iteration_0_6
+logistic_regression_max_iteration_0_7
+logistic_regression_max_iteration_0_8
+logistic_regression_max_iteration_0_9
+logistic_regression_max_iteration_0_10
+logistic_regression_max_iteration_0_11
+logistic_regression_max_iteration_0_12
+logistic_regression_max_iteration_0_13
+logistic_regression_max_iteration_0_14
+logistic_regression_max_iteration_0_15
+logistic_regression_max_iteration_0_16
+logistic_regression_max_iteration_0_17
+logistic_regression_max_iteration_0_18
+logistic_regression_max_iteration_0_19
+logistic_regression_max_iteration_0_20
+logistic_regression_max_iteration_0_21
+logistic_regression_max_iteration_0_22
+logistic_regression_max_iteration_0_23
+logistic_regression_max_iteration_0_24
+logistic_regression_max_iteration_0_25
+logistic_regression_max_iteration_0_26
+logistic_regression_max_iteration_0_27
+
+# TestSuit Name : logistic_regression_optimizer
+# It is to test optimizer of logistic regression.
+# Start TestSuit ==========
+logistic_regression_optimizer_0_0
+logistic_regression_optimizer_0_1
+logistic_regression_optimizer_0_2
+logistic_regression_optimizer_0_3
+logistic_regression_optimizer_0_4
+logistic_regression_optimizer_0_5
+logistic_regression_optimizer_0_6
+logistic_regression_optimizer_0_7
+logistic_regression_optimizer_0_8
+logistic_regression_optimizer_0_9
+logistic_regression_optimizer_0_10
+logistic_regression_optimizer_0_11
+logistic_regression_optimizer_0_12
+logistic_regression_optimizer_0_13
+logistic_regression_optimizer_0_14
+logistic_regression_optimizer_0_15
+
+# TestSuit Name : logistic_regression_convergence_threshold
+# It is to test convergence threshold of logistic regression.
+# Start TestSuit ==========
+logistic_regression_convergence_threshold_0_0
+logistic_regression_convergence_threshold_0_1
+logistic_regression_convergence_threshold_0_2
+logistic_regression_convergence_threshold_0_3
+logistic_regression_convergence_threshold_0_4
+logistic_regression_convergence_threshold_0_5
+logistic_regression_convergence_threshold_0_6
+logistic_regression_convergence_threshold_0_7
+logistic_regression_convergence_threshold_0_8
+logistic_regression_convergence_threshold_0_9
+logistic_regression_convergence_threshold_0_10
+logistic_regression_convergence_threshold_0_11
+logistic_regression_convergence_threshold_0_12
+logistic_regression_convergence_threshold_0_13
+logistic_regression_convergence_threshold_0_14
+logistic_regression_convergence_threshold_0_15
+logistic_regression_convergence_threshold_0_16
+logistic_regression_convergence_threshold_0_17
+logistic_regression_convergence_threshold_0_18
+logistic_regression_convergence_threshold_0_19
+logistic_regression_convergence_threshold_0_20
+logistic_regression_convergence_threshold_0_21
+logistic_regression_convergence_threshold_0_22
+logistic_regression_convergence_threshold_0_23
+
+# TestSuit Name : logistic_regression_corner_scenarios
+# It is to test corner scenarios of logistic regression.
+# Start TestSuit ==========
+logistic_regression_corner_scenarios_0_0
+logistic_regression_corner_scenarios_0_1
+logistic_regression_corner_scenarios_0_2
+
+# TestSuit Name : logistic_regression_negative_source_table
+# It is to test negative scenarios of logistic regression.
+# Start TestSuit ==========
+logistic_regression_negative_source_table_0_0
+logistic_regression_negative_source_table_0_1
+logistic_regression_negative_source_table_0_2
+
+# TestSuit Name : logistic_regression_negative_dependent_varname
+# It is to test negative scenarios of logistic regression.
+# Start TestSuit ==========
+logistic_regression_negative_dependent_varname_0_0
+logistic_regression_negative_dependent_varname_0_1
+logistic_regression_negative_dependent_varname_0_2
+
+# TestSuit Name : logistic_regression_negative_independent_varname
+# It is to test negative scenarios of logistic regression.
+# Start TestSuit ==========
+logistic_regression_negative_independent_varname_0_0
+logistic_regression_negative_independent_varname_0_1
+logistic_regression_negative_independent_varname_0_2
+
+# TestSuit Name : logistic_regression_negative_max_iteration
+# It is to test negative scenarios of logistic regression.
+# Start TestSuit ==========
+logistic_regression_negative_max_iteration_0_0
+logistic_regression_negative_max_iteration_0_1
+
+# TestSuit Name : logistic_regression_negative_optimizer
+# It is to test negative scenarios of logistic regression.
+# Start TestSuit ==========
+logistic_regression_negative_optimizer_0_0
+logistic_regression_negative_optimizer_0_1
+logistic_regression_negative_optimizer_0_2
+
+# TestSuit Name : logistic_regression_negative_convergence_threshold
+# It is to test negative scenarios of logistic regression.
+# Start TestSuit ==========
+logistic_regression_negative_convergence_threshold_0_0
+logistic_regression_negative_convergence_threshold_0_1
+logistic_regression_negative_convergence_threshold_0_2
+
+# TestSuit Name : logistic_regression_ctas
+# It is to test basic functionalities of logistic regression with create table as.
+# Start TestSuit ==========
+logistic_regression_ctas_0_0
+logistic_regression_ctas_0_1
+

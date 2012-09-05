@@ -1,0 +1,32 @@
+# TestSuite Name : bernoulli_cdf_feature_test_x
+# bernoulli_cdf
+# Start TestSuite ==========
+bernoulli_cdf_feature_test_x_0_0
+bernoulli_cdf_feature_test_x_0_1
+bernoulli_cdf_feature_test_x_0_2
+bernoulli_cdf_feature_test_x_0_3
+bernoulli_cdf_feature_test_x_0_4
+bernoulli_cdf_feature_test_x_0_5
+
+# TestSuite Name : bernoulli_cdf_feature_test_spp
+# bernoulli_cdf
+# Start TestSuite ==========
+bernoulli_cdf_feature_test_spp_0_0
+bernoulli_cdf_feature_test_spp_0_1
+bernoulli_cdf_feature_test_spp_0_2
+bernoulli_cdf_feature_test_spp_0_3
+bernoulli_cdf_feature_test_spp_0_4
+bernoulli_cdf_feature_test_spp_0_5
+bernoulli_cdf_feature_test_spp_0_6
+bernoulli_cdf_feature_test_spp_0_7
+bernoulli_cdf_feature_test_spp_0_8
+bernoulli_cdf_feature_test_spp_0_9
+
+# TestSuite Name : bernoulli_cdf_negative_case_spp
+# bernoulli_cdf
+# Start TestSuite ==========
+bernoulli_cdf_negative_case_spp_0_0
+bernoulli_cdf_negative_case_spp_0_1
+bernoulli_cdf_negative_case_spp_0_2
+bernoulli_cdf_negative_case_spp_0_3
+

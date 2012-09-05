@@ -1,0 +1,9 @@
+Sex		  text
+Length	  float8
+Diameter  float8
+Height	  float8
+Whole  float8
+Shucked  float8
+Viscera  float8
+Shell  float8
+rings  integer

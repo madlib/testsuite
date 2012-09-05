@@ -1,0 +1,10 @@
+vendor	text
+Model	text
+MYCT	float8
+MMIN	float8
+MMAX	float8
+CACH	float8
+CHMIN	float8
+CHMAX	float8
+PRP	text
+Class	float8

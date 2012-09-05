@@ -75,6 +75,7 @@ class AlgorithmTemplate(Parser):
         method_nodes    =   Parser.getNodeList(self, self.top_node, "method")
         self.methods    =   [MethodTemplate(method_node, db_schema)
                                 for method_node in method_nodes]
+
         self.method_map =   {}
         for method in self.methods:
             self.method_map[method.name] = method
@@ -93,12 +94,15 @@ class MethodTemplate(Parser):
         self.db_schema = db_schema
 
         self.name           =   Parser.getNodeVal(self, self.top_node,"name")
+        self.create         =   Parser.getNodeVal(self, self.top_node, "create")
         self.template       =   Parser.getNodeVal(self, self.top_node, "template")
         input_para_nodes    =   Parser.getNodeList(self, self.top_node, "input_parameter")
         self.input_paras    =   [InputParameter(input_para_node) 
                                     for input_para_node in input_para_nodes]
         self.output_paras   =   [InputParameter(output_para_node) for output_para_node 
                                     in Parser.getNodeList(self, self.top_node, "output_parameter")]
+
+
         self.para_map       =   {}
         for para in self.output_paras:
             self.para_map[para.name] = para
@@ -128,6 +132,8 @@ class MethodTemplate(Parser):
         new_map = {}
         for name, value in name_value_map.items():
             # name_value_map may include other environments
+            if value == 'NINFINITY': value = '-INFINITY'
+
             if self.para_map.has_key(name):
                 para = self.para_map[name]
                 new_map[name] = para.getValue(value, disable_quote)
@@ -138,21 +144,26 @@ class MethodTemplate(Parser):
     def generateCreateSQL(self, algorithm):
         """return the sql statement to create the algorithm result table,
         which will be stored after successfully invocation
+
+
     
         param algorithm: algorithm name
         return sql statement
         """
-
-        drop_table = "DROP TABLE IF EXISTS " + self.db_schema + \
-            "." +  algorithm + "_" + self.name + ';'
-        header = "CREATE TABLE " + self.db_schema + "." +  algorithm + \
-            "_" + self.name +"(testitemname text, runid int, "
-        paras = []
-        paras.extend(self.input_paras)
-        paras.extend(self.output_paras)
-        stmt = drop_table + header + ','.join(\
-            [ para.name + ' ' + para.type + ' default null ' for para in paras]) + ');\n\n'
-        return stmt
+        if self.create :
+            #drop_table = "DROP TABLE IF EXISTS " + self.db_schema + \
+            #    "." +  algorithm + "_" + self.name + ';'
+            header = "CREATE TABLE " + self.db_schema + "." +  algorithm + \
+                "_" + self.name +"(testitemname text, runid int, "
+            paras = []
+            paras.extend(self.input_paras)
+            paras.extend(self.output_paras)
+            #stmt = drop_table + header + ','.join(\
+            stmt = header + ','.join(\
+                   [ para.name + ' ' + para.type + ' default null ' for para in paras]) + ');\n\n'
+            return stmt
+        else :
+            return ""
 
 class InputParameter(Parser):
     """The tag of <InputParameter> under the <method> tag."""
@@ -322,32 +333,36 @@ class Executor:
 
         log_schema = self.logger.logger_schema
         method = self.spec.getAlgorithm(self.algorithm).getMethod(self.method)
-        paras = []
-        paras.extend(method.input_paras)
-        paras.extend(method.output_paras)
-        insert_sql = 'INSERT INTO {logger_schema}.' +  self.algorithm + "_" + self.method +\
-                        "(testitemname, runid, " + ','.join([para.name for para in paras]) + \
-                        ") VALUES ( '{testitemname}', {run_id},  "+  \
-                        ','.join(["{" + para.name + "}" for para in paras]) + \
-                        " )"
-        output_paras = {}
-        if method.output_paras:
-            #need to capture output parameters
-            for line in result.splitlines():
-                tokens = line.split('|')
-                if len(tokens) > 1:
-                    value = tokens[1].strip()
-                    if value == '':
-                        value = 'NULL'
-                    output_paras[tokens[0].strip()] = value[-4000:]
-            output_paras = method.parseParaValues(output_paras, False)
-        #merge input parameters
-        output_paras.update(**method.parseParaValues(self.argument.__dict__, False))
-        insert_sql = insert_sql.format(
-                logger_schema = log_schema
-                , testitemname = self.target_base_name
-                , **output_paras)
-        self.logger.runSQL(insert_sql)
+
+        if method.create:
+            paras = []
+            paras.extend(method.input_paras)
+            paras.extend(method.output_paras)
+            insert_sql = 'INSERT INTO {logger_schema}.' +  self.algorithm + "_" + self.method +\
+                            "(testitemname, runid, " + ','.join([para.name for para in paras]) + \
+                            ") VALUES ( '{testitemname}', {run_id},  "+  \
+                            ','.join(["{" + para.name + "}" for para in paras]) + \
+                            " )"
+            output_paras = {}
+            if method.output_paras:
+                #need to capture output parameters
+                for line in result.splitlines():
+                    tokens = line.split('|')
+                    if len(tokens) > 1:
+                        value = tokens[1].strip()
+                        if value == '':
+                            value = 'NULL'
+                        output_paras[tokens[0].strip()] = value[-4000:]
+                output_paras = method.parseParaValues(output_paras, False)
+            #merge input parameters
+            output_paras.update(**method.parseParaValues(self.argument.__dict__, False))
+            insert_sql = insert_sql.format(
+                    logger_schema = log_schema
+                    , testitemname = self.target_base_name
+                    , **output_paras)
+
+            print insert_sql
+            self.logger.runSQL(insert_sql)
 
 def main():
     """Parse the argument options, generate sql, run and store result."""

@@ -1,0 +1,51 @@
+# TestSuite Name : extreme_value_cdf_feature_test_x
+# extreme_value_cdf
+# Start TestSuite ==========
+extreme_value_cdf_feature_test_x_0_0
+extreme_value_cdf_feature_test_x_0_1
+extreme_value_cdf_feature_test_x_0_2
+extreme_value_cdf_feature_test_x_0_3
+extreme_value_cdf_feature_test_x_0_4
+extreme_value_cdf_feature_test_x_0_5
+extreme_value_cdf_feature_test_x_0_6
+extreme_value_cdf_feature_test_x_0_7
+extreme_value_cdf_feature_test_x_0_8
+extreme_value_cdf_feature_test_x_0_9
+extreme_value_cdf_feature_test_x_0_10
+
+# TestSuite Name : extreme_value_cdf_feature_test_location
+# extreme_value_cdf
+# Start TestSuite ==========
+extreme_value_cdf_feature_test_location_0_0
+extreme_value_cdf_feature_test_location_0_1
+extreme_value_cdf_feature_test_location_0_2
+extreme_value_cdf_feature_test_location_0_3
+extreme_value_cdf_feature_test_location_0_4
+extreme_value_cdf_feature_test_location_0_5
+extreme_value_cdf_feature_test_location_0_6
+extreme_value_cdf_feature_test_location_0_7
+extreme_value_cdf_feature_test_location_0_8
+
+# TestSuite Name : extreme_value_cdf_feature_test_scale
+# extreme_value_cdf
+# Start TestSuite ==========
+extreme_value_cdf_feature_test_scale_0_0
+extreme_value_cdf_feature_test_scale_0_1
+extreme_value_cdf_feature_test_scale_0_2
+extreme_value_cdf_feature_test_scale_0_3
+extreme_value_cdf_feature_test_scale_0_4
+
+# TestSuite Name : extreme_value_cdf_negative_case_location
+# extreme_value_cdf
+# Start TestSuite ==========
+extreme_value_cdf_negative_case_location_0_0
+extreme_value_cdf_negative_case_location_0_1
+
+# TestSuite Name : extreme_value_cdf_negative_case_scale
+# extreme_value_cdf
+# Start TestSuite ==========
+extreme_value_cdf_negative_case_scale_0_0
+extreme_value_cdf_negative_case_scale_0_1
+extreme_value_cdf_negative_case_scale_0_2
+extreme_value_cdf_negative_case_scale_0_3
+

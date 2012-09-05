@@ -1,0 +1,35 @@
+# TestSuite Name : poisson_quantile_feature_test_p
+# poisson_quantile
+# Start TestSuite ==========
+poisson_quantile_feature_test_p_0_0
+poisson_quantile_feature_test_p_0_1
+poisson_quantile_feature_test_p_0_2
+poisson_quantile_feature_test_p_0_3
+poisson_quantile_feature_test_p_0_4
+
+# TestSuite Name : poisson_quantile_feature_test_mean
+# poisson_quantile
+# Start TestSuite ==========
+poisson_quantile_feature_test_mean_0_0
+poisson_quantile_feature_test_mean_0_1
+poisson_quantile_feature_test_mean_0_2
+poisson_quantile_feature_test_mean_0_3
+poisson_quantile_feature_test_mean_0_4
+poisson_quantile_feature_test_mean_0_5
+poisson_quantile_feature_test_mean_0_6
+
+# TestSuite Name : poisson_quantile_negative_case_p
+# poisson_quantile
+# Start TestSuite ==========
+poisson_quantile_negative_case_p_0_0
+poisson_quantile_negative_case_p_0_1
+poisson_quantile_negative_case_p_0_2
+
+# TestSuite Name : poisson_quantile_negative_case_mean
+# poisson_quantile
+# Start TestSuite ==========
+poisson_quantile_negative_case_mean_0_0
+poisson_quantile_negative_case_mean_0_1
+poisson_quantile_negative_case_mean_0_2
+poisson_quantile_negative_case_mean_0_3
+

@@ -1,0 +1,54 @@
+# TestSuite Name : cauchy_quantile_feature_test_p
+# cauchy_quantile
+# Start TestSuite ==========
+cauchy_quantile_feature_test_p_0_0
+cauchy_quantile_feature_test_p_0_1
+cauchy_quantile_feature_test_p_0_2
+cauchy_quantile_feature_test_p_0_3
+cauchy_quantile_feature_test_p_0_4
+cauchy_quantile_feature_test_p_0_5
+cauchy_quantile_feature_test_p_0_6
+
+# TestSuite Name : cauchy_quantile_feature_test_location
+# cauchy_quantile
+# Start TestSuite ==========
+cauchy_quantile_feature_test_location_0_0
+cauchy_quantile_feature_test_location_0_1
+cauchy_quantile_feature_test_location_0_2
+cauchy_quantile_feature_test_location_0_3
+cauchy_quantile_feature_test_location_0_4
+cauchy_quantile_feature_test_location_0_5
+cauchy_quantile_feature_test_location_0_6
+cauchy_quantile_feature_test_location_0_7
+
+# TestSuite Name : cauchy_quantile_feature_test_scale
+# cauchy_quantile
+# Start TestSuite ==========
+cauchy_quantile_feature_test_scale_0_0
+cauchy_quantile_feature_test_scale_0_1
+cauchy_quantile_feature_test_scale_0_2
+cauchy_quantile_feature_test_scale_0_3
+cauchy_quantile_feature_test_scale_0_4
+
+# TestSuite Name : cauchy_quantile_negative_case_p
+# cauchy_quantile
+# Start TestSuite ==========
+cauchy_quantile_negative_case_p_0_0
+cauchy_quantile_negative_case_p_0_1
+cauchy_quantile_negative_case_p_0_2
+cauchy_quantile_negative_case_p_0_3
+
+# TestSuite Name : cauchy_quantile_negative_case_location
+# cauchy_quantile
+# Start TestSuite ==========
+cauchy_quantile_negative_case_location_0_0
+cauchy_quantile_negative_case_location_0_1
+
+# TestSuite Name : cauchy_quantile_negative_case_scale
+# cauchy_quantile
+# Start TestSuite ==========
+cauchy_quantile_negative_case_scale_0_0
+cauchy_quantile_negative_case_scale_0_1
+cauchy_quantile_negative_case_scale_0_2
+cauchy_quantile_negative_case_scale_0_3
+

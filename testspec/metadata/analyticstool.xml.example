@@ -29,10 +29,14 @@
 	        <name>database</name>
 	        <type>varchar(128)</type>
 	    </column>
-	    <column>
-	        <name>username</name>
-	        <type>varchar(128)</type>
-	    </column>
+            <column>
+                <name>superuser</name>
+                <type>varchar(128)</type>
+            </column>
+            <column>
+                <name>username</name>
+                <type>varchar(128)</type>
+            </column>
 	    <column>
 	        <name>segmentnum</name>
 	        <type>smallint</type>

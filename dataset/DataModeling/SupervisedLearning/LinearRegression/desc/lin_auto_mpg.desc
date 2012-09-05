@@ -1,0 +1,9 @@
+class	float8
+cylinders	float8
+displacement	float8
+horsepower	float8
+weight	float8
+acceleration	float8
+model_year	float8
+origin	float8
+car_name	text

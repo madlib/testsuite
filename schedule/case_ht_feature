@@ -1,0 +1,68 @@
+# TestSuite Name : ht_feature_normal
+# test normal case, using different values
+# Start TestSuite ==========
+ht_feature_normal_0_0
+ht_feature_normal_0_1
+ht_feature_normal_0_2
+
+# TestSuite Name : ht_feature_special
+# test the effect of special numbers
+# Start TestSuite ==========
+ht_feature_special_0_0
+ht_feature_special_0_1
+ht_feature_special_0_2
+ht_feature_special_0_3
+
+# TestSuite Name : ht_feature_normal_chi2
+# test normal case, using different values
+# Start TestSuite ==========
+ht_feature_normal_chi2_0_0
+ht_feature_normal_chi2_0_1
+ht_feature_normal_chi2_0_2
+ht_feature_normal_chi2_0_3
+ht_feature_normal_chi2_0_4
+ht_feature_normal_chi2_0_5
+ht_feature_normal_chi2_0_6
+ht_feature_normal_chi2_0_7
+ht_feature_normal_chi2_0_8
+
+# TestSuite Name : ht_feature_normal_mw_test
+# test normal case, using different values
+# Start TestSuite ==========
+ht_feature_normal_mw_test_0_0
+ht_feature_normal_mw_test_0_1
+ht_feature_normal_mw_test_0_2
+ht_feature_normal_mw_test_0_3
+ht_feature_normal_mw_test_0_4
+ht_feature_normal_mw_test_0_5
+ht_feature_normal_mw_test_0_6
+ht_feature_normal_mw_test_0_7
+ht_feature_normal_mw_test_0_8
+
+# TestSuite Name : ht_feature_chi_gof_observed
+# test
+# Start TestSuite ==========
+ht_feature_chi_gof_observed_0_0
+
+# TestSuite Name : ht_feature_unreasonable
+# test the effect of special numbers
+# Start TestSuite ==========
+ht_feature_unreasonable_0_0
+ht_feature_unreasonable_0_1
+
+# TestSuite Name : ht_feature_wsr_test_constant_precision
+# test wsr using negative precision value
+# Start TestSuite ==========
+ht_feature_wsr_test_constant_precision_0_0
+ht_feature_wsr_test_constant_precision_0_1
+ht_feature_wsr_test_constant_precision_0_2
+ht_feature_wsr_test_constant_precision_0_3
+
+# TestSuite Name : ht_feature_wsr_test_variable_precision
+# test wsr using precision column included negative value
+# Start TestSuite ==========
+ht_feature_wsr_test_variable_precision_0_0
+ht_feature_wsr_test_variable_precision_0_1
+ht_feature_wsr_test_variable_precision_0_2
+ht_feature_wsr_test_variable_precision_0_3
+

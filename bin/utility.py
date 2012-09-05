@@ -13,7 +13,7 @@ TestConfigXml = '../testspec/metadata/testconfig.xml'
 AnalyticsTool = '../testspec/metadata/analyticstool.xml'
 PostgresPsql  = '/usr/local/pgsql/bin/psql'
 ScheduleDir   = '../schedule/'
-
+CaseDir       = '../testcase/'
 def getList(filename):
     """Parse file and return a list of non-empty lines."""
     return [ l.strip() for l in open(filename).readlines() if l.strip() != '' and l.strip()[0] != '#']
@@ -40,6 +40,9 @@ def __getCasesFromSingle(filename):
         cases = getList(filepath)
     except IOError:
         sys.exit('ERROR: Open schedule file failed.')
+    for case in cases:
+        if not os.path.isfile(CaseDir + case + '.case'):
+            sys.exit('ERROR: Case file: %s missing.' % case)
     return cases
 
 def __getCasesFromMulti(filename):
@@ -78,6 +81,79 @@ def __skipCases(cases, skipfilename):
     except IOError:
         sys.exit('ERROR: Skip file open failed.')
     return skippedcases
+
+GeneratorSrcDir = '../src/generator/'
+
+def runCases(getfile, skipfile, isList, isUnique, platform, testCaseDir, analyticsTool, run_id):
+
+    sys.path.append(GeneratorSrcDir)
+    import execute_case
+    import test_config
+    import file_path
+    import run_sql
+    import template_executor
+
+    configer = test_config.Configer('../testspec/metadata/' + file_path.Path.testconfigXml)
+    configer.testconfig()
+
+    if isList:
+        cases = __getCasesFromMulti(getfile)
+    else:
+        cases = __getCasesFromSingle(getfile)
+    if isUnique:
+        cases = __distinctingCases(cases)
+
+    executor = execute_case.TestCaseExecutor(cases, platform)
+
+    if skipfile:
+        skipfilepath = ScheduleDir + skipfile
+        if cases is None:
+            sys.exit('ERROR: Cases missing.')
+        if skipfilepath is None or not os.path.isfile(skipfilepath):
+            sys.exit('ERROR: Skip file missing.')
+
+        try:
+            skips = getList(skipfilepath)
+        except IOError:
+            sys.exit('ERROR: Skip file open failed.')
+
+        executor.executeStart(analyticsTool)
+
+        skippedcases = []
+        for case in cases:
+            try:
+                skips.index(case)
+
+                f = open('../testcase/'+case+'.case')
+                lines = f.readlines()
+ 
+                for line in lines:
+                    if len(line) < 10:
+                        continue
+                    pos =line.find('target_base_name')
+                    if pos > 0:
+                        target_base_name = line[pos + 17:].strip()
+                    else:
+                        continue
+                    print target_base_name
+                    pos = line.find('-c')
+                    cmd = line[pos + 3:].strip()
+                    sql = """insert into %s.testitemresult
+                        values( '%s', %s, %s, '%s',
+                        '%s', %s, %s, '%s', '%s', %s::bool);
+                        """ % (configer.metaDBSchema, target_base_name, run_id, \
+                            0, 'table', platform, 0,
+                            'NULL', 'NULL', cmd, False)
+     
+                    result = run_sql.runSQL(sql, configer.user, None, configer.host, configer.port, configer.database,['--expanded'])
+            except ValueError:
+                executor.executeOneCase(testCaseDir, platform, case, run_id)
+            
+        executor.executeStop()
+    else:
+        executor.executeCase(testCaseDir, analyticsTool, run_id)
+    return executor.version
+
 
 def parserCasesFromFile(getfile, skipfile, isList, isUnique):
     """Parse cases and return them.
@@ -128,10 +204,13 @@ def getResultDBConnection():
         database = metadatadb.getElementsByTagName("database")[0].childNodes[0].data.strip().encode('ASCII')
     return user + '@' + host + ':' + port + '/' + database
 
-def getResultDBPsqlCMD():
+def getResultDBPsqlCMD(onErrorStop = True):
     """Return the result database psql command."""
     testConfig = open(TestConfigXml)
-    psql_cmd = ['psql', '-X', '-q', '-v', 'ON_ERROR_STOP=1']
+    if onErrorStop is True:
+        psql_cmd = ['psql', '-X', '-q', '-v', 'ON_ERROR_STOP=1']
+    else:
+        psql_cmd = ['psql', '-X', '-q', '-v', 'ON_ERROR_STOP=off']
 
     environ = dict(os.environ)
     try :
@@ -165,7 +244,7 @@ def getResultDBPsqlCMD():
 
     return psql_cmd
 
-def runSQL(cmd, sql, environ, isFile = True):
+def runSQL(cmd, sql, environ, isFile = True, onErrorStop = True):
     """Run sql in database.
     param isFile: if true deal with sql as a *.sql file.
     """
@@ -173,6 +252,7 @@ def runSQL(cmd, sql, environ, isFile = True):
         psql_cmd = cmd + ['-f', sql]
     else:
         psql_cmd = cmd + ['-c', sql]
+
     psqlProcess = subprocess.Popen(psql_cmd, env = environ, stdin = subprocess.PIPE, stdout = subprocess.PIPE, stderr = None)
     (stdoutdata, _) = psqlProcess.communicate()
     return stdoutdata
@@ -242,14 +322,14 @@ class AddUser :
     def __init__(self, username):
         self.user_name = username
         self.pghbastrs = []
-        self.pghbastrs.extend( ["local    all  %s     ident"%self.user_name] )
+        self.pghbastrs.extend( ["local    all  %s     trust"%self.user_name] )
         self.pghbastrs.extend( ["host    all  %s     %s/28   trust"%(self.user_name, ip) 
                                                         for ip in getIpv4Addr() ] )
 
     def run_sql_stmts(self, source_cmd, stmts, hostname, port, database, username):
         for stmt in stmts:
-            run_stmt = source_cmd + ' && psql -h %s -p %s -d %s -U %s -c \'%s\'' \
-                    % (hostname, port, database, username, stmt)
+            run_stmt = source_cmd + ' && psql -p %s -d %s -U %s -c \'%s\'' \
+                    % (port, database, username, stmt)
             print run_stmt
             os.system(run_stmt)
 

@@ -1,0 +1,43 @@
+# TestSuite Name : exponential_pdf_feature_test_x
+# exponential_pdf
+# Start TestSuite ==========
+exponential_pdf_feature_test_x_0_0
+exponential_pdf_feature_test_x_0_1
+exponential_pdf_feature_test_x_0_2
+exponential_pdf_feature_test_x_0_3
+exponential_pdf_feature_test_x_0_4
+exponential_pdf_feature_test_x_0_5
+exponential_pdf_feature_test_x_0_6
+exponential_pdf_feature_test_x_0_7
+exponential_pdf_feature_test_x_0_8
+exponential_pdf_feature_test_x_0_9
+exponential_pdf_feature_test_x_0_10
+exponential_pdf_feature_test_x_0_11
+exponential_pdf_feature_test_x_0_12
+exponential_pdf_feature_test_x_0_13
+exponential_pdf_feature_test_x_0_14
+exponential_pdf_feature_test_x_0_15
+exponential_pdf_feature_test_x_0_16
+exponential_pdf_feature_test_x_0_17
+
+# TestSuite Name : exponential_pdf_feature_test_lambda
+# exponential_pdf
+# Start TestSuite ==========
+exponential_pdf_feature_test_lambda_0_0
+exponential_pdf_feature_test_lambda_0_1
+exponential_pdf_feature_test_lambda_0_2
+exponential_pdf_feature_test_lambda_0_3
+exponential_pdf_feature_test_lambda_0_4
+exponential_pdf_feature_test_lambda_0_5
+exponential_pdf_feature_test_lambda_0_6
+exponential_pdf_feature_test_lambda_0_7
+exponential_pdf_feature_test_lambda_0_8
+
+# TestSuite Name : exponential_pdf_negative_case_lambda
+# exponential_pdf
+# Start TestSuite ==========
+exponential_pdf_negative_case_lambda_0_0
+exponential_pdf_negative_case_lambda_0_1
+exponential_pdf_negative_case_lambda_0_2
+exponential_pdf_negative_case_lambda_0_3
+

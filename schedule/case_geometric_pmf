@@ -1,0 +1,34 @@
+# TestSuite Name : geometric_pmf_feature_test_x
+# geometric_pmf
+# Start TestSuite ==========
+geometric_pmf_feature_test_x_0_0
+geometric_pmf_feature_test_x_0_1
+geometric_pmf_feature_test_x_0_2
+geometric_pmf_feature_test_x_0_3
+geometric_pmf_feature_test_x_0_4
+
+# TestSuite Name : geometric_pmf_feature_test_spp
+# geometric_pmf
+# Start TestSuite ==========
+geometric_pmf_feature_test_spp_0_0
+geometric_pmf_feature_test_spp_0_1
+geometric_pmf_feature_test_spp_0_2
+geometric_pmf_feature_test_spp_0_3
+geometric_pmf_feature_test_spp_0_4
+geometric_pmf_feature_test_spp_0_5
+
+# TestSuite Name : geometric_pmf_negative_case_x
+# geometric_pmf
+# Start TestSuite ==========
+geometric_pmf_negative_case_x_0_0
+geometric_pmf_negative_case_x_0_1
+geometric_pmf_negative_case_x_0_2
+
+# TestSuite Name : geometric_pmf_negative_case_spp
+# geometric_pmf
+# Start TestSuite ==========
+geometric_pmf_negative_case_spp_0_0
+geometric_pmf_negative_case_spp_0_1
+geometric_pmf_negative_case_spp_0_2
+geometric_pmf_negative_case_spp_0_3
+

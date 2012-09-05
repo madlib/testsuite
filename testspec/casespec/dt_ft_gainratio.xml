@@ -1,0 +1,794 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>
+        <algorithm>decision_tree</algorithm>
+        <methods>
+                <method>         
+                    <name>c45_train</name>
+                    <parameter>
+                       <name>benchmark</name>
+                        <value>TemplateExecutor</value>          
+                    </parameter>
+                    <parameter>
+                        <name>split_criterion_name</name>
+                        <value>gainratio</value>            
+                    </parameter>     
+                </method>
+                <method>         
+                    <name>c45_score</name>  
+                    <parameter>
+                        <name>benchmark</name>
+                        <value>TemplateExecutor</value>          
+                    </parameter>   
+                </method>   
+                <method>         
+                    <name>c45_classify</name>
+                    <parameter>
+                        <name>benchmark</name>
+                        <value>TemplateExecutor</value>          
+                    </parameter> 
+                    <parameter>
+                        <name>result_table_name</name>
+                        <value>madlibtestresult.result_tree_clarify</value>
+                    </parameter>        
+                </method>
+                <method>         
+                    <name>c45_display</name>
+                    <parameter>
+                            <name>benchmark</name>
+                            <value>TemplateExecutor</value>          
+                    </parameter>
+                 </method> 
+                 <method>         
+                    <name>c45_clean</name>
+                        <parameter>
+                            <name>benchmark</name>
+                            <value>TemplateExecutor</value>          
+                        </parameter>   
+                 </method>
+        </methods> 
+        <test_suite>
+            <name>dt_scoreeqtrain_gainratio</name>
+            <comments>     
+                DT00: It is to verify score when score table is the same as training table
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>zoo</value><value>winequality_white</value><value>winequality_red</value><value>wine</value><value>soybean</value><value>nursery</value><value>krkopt</value><value>car</value><value>golf</value><value>connect</value><value>badges</value>
+                </list_parameter> 
+                <parameters>
+                	<parameter>
+                        <name>validation_table_name</name>
+                        <value>NULL</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>zoo</value><value>winequality_white</value><value>winequality_red</value><value>wine</value><value>soybean</value><value>nursery</value><value>krkopt</value><value>car</value><value>golf</value><value>connect</value><value>badges</value>
+                </list_parameter>  
+            </method>
+            
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>zoo</value><value>winequality_white</value><value>winequality_red</value><value>wine</value><value>soybean</value><value>nursery</value><value>krkopt</value><value>car</value><value>golf</value><value>connect</value><value>badges</value>
+                </list_parameter>  
+            </method>
+            
+            <method>
+                <name>c45_display</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>zoo</value><value>winequality_white</value><value>winequality_red</value><value>wine</value><value>soybean</value><value>nursery</value><value>krkopt</value><value>car</value><value>golf</value><value>connect</value><value>badges</value>
+                </list_parameter>  
+            </method>
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>zoo</value><value>winequality_white</value><value>winequality_red</value><value>wine</value><value>soybean</value><value>nursery</value><value>krkopt</value><value>car</value><value>golf</value><value>connect</value><value>badges</value>
+                </list_parameter> 
+                <tear_down>
+	                drop table if exists madlibtestresult.result_tree_clarify;
+	            </tear_down>
+           </method>
+        </test_suite>
+        
+        <test_suite>
+            <name>dt_largesize_gainratio</name>
+            <comments>     
+                DT02: It is to verify DT result correctness on large size data sets
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>donation</value><value>kddcup</value><value>census_income</value><value>poker_hand</value>
+                </list_parameter> 
+                <parameters>
+                	<parameter>
+                        <name>validation_table_name</name>
+                        <value>NULL</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>donation_test</value><value>kddcup_test</value><value>census_income_test</value><value>poker_hand_test</value>
+                </list_parameter>   
+            </method>
+            
+            
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>donation</value><value>kddcup</value><value>census_income</value><value>poker_hand</value>
+                </list_parameter>  
+            </method>
+            
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>donation_test</value><value>kddcup_test</value><value>census_income_test</value><value>poker_hand_test</value>
+                </list_parameter>
+               <tear_down>
+	               drop table if exists madlibtestresult.result_tree_clarify;
+	           </tear_down> 	
+            </method> 
+            
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>donation</value><value>kddcup</value><value>census_income</value><value>poker_hand</value>
+                </list_parameter>  
+                <tear_down>
+	               drop table if exists madlibtestresult.result_tree_clarify;
+	           </tear_down> 
+            </method> 
+            
+            <method>
+                <name>c45_display</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>donation</value><value>kddcup</value><value>census_income</value><value>poker_hand</value>
+                </list_parameter> 
+            </method>
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>donation</value><value>kddcup</value><value>census_income</value><value>poker_hand</value>
+                </list_parameter> 	
+           </method>
+       </test_suite>
+       
+       <test_suite>
+            <name>dt_normalsize_gainratio</name>
+            <comments>     
+                DT02: It is to verify DT result correctness on normal size data sets
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>crx</value><value>vote</value><value>labor_neg</value><value>abalone</value><value>musk</value><value>spect</value>
+                </list_parameter> 
+                <parameters>
+                	<parameter>
+                        <name>validation_table_name</name>
+                        <value>NULL</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>crx_test</value><value>vote_test</value><value>labor_neg_test</value><value>abalone_test</value><value>musk_test</value><value>spect_test</value>
+                </list_parameter> 
+                
+            </method>
+            
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>crx</value><value>vote</value><value>labor_neg</value><value>abalone</value><value>musk</value><value>spect</value>
+                </list_parameter> 
+            </method>
+            
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>crx_test</value><value>vote_test</value><value>labor_neg_test</value><value>abalone_test</value><value>musk_test</value><value>spect_test</value>
+                </list_parameter> 
+                <tear_down>
+	               drop table if exists madlibtestresult.result_tree_clarify;
+	            </tear_down>
+            </method>
+            
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>crx</value><value>vote</value><value>labor_neg</value><value>abalone</value><value>musk</value><value>spect</value>
+                </list_parameter> 
+                <tear_down>
+	               drop table if exists madlibtestresult.result_tree_clarify;
+	           </tear_down> 	
+            </method> 
+            
+            <method>
+                <name>c45_display</name>
+                 <list_parameter>
+                    <name>dataset</name>
+                    <value>crx</value><value>vote</value><value>labor_neg</value><value>abalone</value><value>musk</value><value>spect</value>
+                </list_parameter> 
+            </method>
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>crx</value><value>vote</value><value>labor_neg</value><value>abalone</value><value>musk</value><value>spect</value>
+                </list_parameter> 
+           </method>
+       </test_suite>
+        <test_suite>
+            <name>dt_sparse_gainratio</name>
+            <comments>     
+                DT03: It is to verify DT result correctness on sparse distribution data sets
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>adult</value><value>adult_missing</value><value>hypo</value><value>hypo_missing</value>
+                </list_parameter> 
+                <parameters>
+                	<parameter>
+                        <name>validation_table_name</name>
+                        <value>NULL</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>adult_test</value><value>adult_test</value><value>hypo_test</value><value>hypo_test</value>
+                </list_parameter>  
+            </method>
+            
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>adult</value><value>adult</value><value>hypo</value><value>hypo</value>
+                </list_parameter>  
+            </method>
+            
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>adult_test</value><value>adult_test</value><value>hypo_test</value><value>hypo_test</value>
+                </list_parameter> 
+                <tear_down>
+	               drop table if exists madlibtestresult.result_tree_clarify;
+	           </tear_down> 	
+            </method> 
+            
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>adult</value><value>adult</value><value>hypo</value><value>hypo</value>
+                </list_parameter>  
+                <tear_down>
+	               drop table if exists madlibtestresult.result_tree_clarify;
+	           </tear_down> 	
+            </method> 
+            
+            <method>
+                <name>c45_display</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>adult</value><value>adult</value><value>hypo</value><value>hypo</value>
+                </list_parameter>  
+            </method>
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>adult</value><value>adult</value><value>hypo</value><value>hypo</value>
+                </list_parameter>  
+           </method>
+        </test_suite>
+        
+        <test_suite>
+            <name>dt_continuous_gainratio</name>
+            <comments>     
+                DT04: It is to verify DT result correctness on continuous features
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>poker_hand</value><value>isolet</value><value>madelon</value>
+                </list_parameter> 
+                <parameters> 
+                	<parameter>
+                        <name>validation_table_name</name>
+                        <value>NULL</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>poker_hand_test</value><value>isolet_test</value><value>madelon_test</value>
+                </list_parameter>  
+            </method>
+            
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>poker_hand</value><value>isolet</value><value>madelon</value>
+                </list_parameter>   
+            </method>
+            
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>poker_hand_test</value><value>isolet_test</value><value>madelon_test</value>
+                </list_parameter>  
+               <tear_down>
+	               drop table if exists madlibtestresult.result_tree_clarify;
+	           </tear_down> 
+            </method> 
+            
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>poker_hand</value><value>isolet</value><value>madelon</value>
+                </list_parameter>  
+               <tear_down>
+	               drop table if exists madlibtestresult.result_tree_clarify;
+	           </tear_down> 
+            </method> 
+            
+            <method>
+                <name>c45_display</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>poker_hand</value><value>isolet</value><value>madelon</value>
+                </list_parameter>  
+            </method>
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>poker_hand</value><value>isolet</value><value>madelon</value>
+                </list_parameter>  
+           </method>
+        </test_suite>
+        
+        <test_suite>
+            <name>dt_discrete_gainratio</name>
+            <comments>     
+                DT04: It is to verify DT result correctness on discrete features
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>krkopt_discrete</value><value>monk</value><value>nursery_discrete</value>
+                </list_parameter> 
+                <parameters>
+                	<parameter>
+                        <name>validation_table_name</name>
+                        <value>NULL</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>krkopt</value><value>monk_test</value><value>nursery</value>
+                </list_parameter>
+            </method>
+            
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>krkopt</value><value>monk</value><value>nursery</value>
+                </list_parameter>
+            </method>
+            
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>krkopt</value><value>monk_test</value><value>nursery</value>
+                </list_parameter>
+                 <tear_down>
+	               drop table if exists madlibtestresult.result_tree_clarify;
+	           </tear_down>
+            </method> 
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>krkopt</value><value>monk</value><value>nursery</value>
+                </list_parameter>
+                 <tear_down>
+	               drop table if exists madlibtestresult.result_tree_clarify;
+	           </tear_down>
+            </method> 
+            
+            <method>
+                <name>c45_display</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>krkopt</value><value>monk</value><value>nursery</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>krkopt</value><value>monk</value><value>nursery</value>
+                </list_parameter>
+           </method>
+        </test_suite>
+        
+        <test_suite>
+            <name>dt_specialdataset_gainratio</name>
+            <comments>     
+                DT05: Test DT result correctness on special data sets such as empty table; all rows are same class; duplicate rows; conflict rows.
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>golf_duplicate</value><value>golf_conflict</value><value>nursery_conflict</value><value>golfwithclass</value>
+                </list_parameter> 
+                <parameters>
+                	<parameter>
+                        <name>validation_table_name</name>
+                        <value>NULL</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>golf_duplicate</value><value>golf_conflict</value><value>nursery_conflict</value><value>golfwithclass</value>
+                </list_parameter> 
+            </method>
+            
+            <method>
+                <name>c45_classify</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>golf_duplicate</value><value>golf_conflict</value><value>nursery_conflict</value><value>golfwithclass</value>
+                </list_parameter> 
+            </method> 
+            
+            <method>
+                <name>c45_display</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>golf_duplicate</value><value>golf_conflict</value><value>nursery_conflict</value><value>golfwithclass</value>
+                </list_parameter> 
+            </method>
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>golf_duplicate</value><value>golf_conflict</value><value>nursery_conflict</value><value>golfwithclass</value>
+                </list_parameter> 
+               <tear_down>
+	               drop table if exists madlibtestresult.result_tree_clarify;
+	           </tear_down> 	
+           </method>
+        </test_suite>
+        
+       <test_suite>
+            <name>dt_validateeqtrain_gainratio</name>
+            <comments>     
+                DT07: It is to verify the training trees are the same when the "validation table name" is NULL or "training table" respectively
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>connect_vt</value><value>krkopt_vt</value><value>labor_neg_vt</value><value>car_vt</value>
+                </list_parameter> 
+            </method>
+            <method>
+                <name>c45_display</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>connect_vt</value><value>krkopt_vt</value><value>labor_neg_vt</value><value>car_vt</value>
+                </list_parameter> 
+            </method>      
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>connect_vt</value><value>krkopt_vt</value><value>labor_neg_vt</value><value>car_vt</value>
+                </list_parameter>  
+            </method>
+        </test_suite>
+        
+        <test_suite>
+            <name>dt_validateeqtest_gainratio</name>
+            <comments>     
+                DT08: It is to verify the training trees should be expected result when validation table is test data
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>crx</value><value>crx_vtest</value><value>adult</value><value>adult_vtest</value><value>labor_neg</value><value>labor_neg_vtest</value><value>monk</value><value>monk_vtest</value>
+                </list_parameter> 
+            </method>
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>crx</value><value>crx</value><value>adult</value><value>adult</value><value>labor_neg</value><value>labor_neg</value><value>monk</value><value>monk</value>
+                </list_parameter> 
+            </method>
+            <method>
+                <name>c45_score</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>crx_test</value><value>crx_test</value><value>adult_test</value><value>adult_test</value><value>labor_neg_test</value><value>labor_neg_test</value><value>monk_test</value><value>monk_test</value>
+                </list_parameter>  
+            </method>    
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>crx</value><value>crx</value><value>adult</value><value>adult</value><value>labor_neg</value><value>labor_neg</value><value>monk</value><value>monk</value>
+                </list_parameter> 	
+           </method>
+        </test_suite>
+
+       <test_suite>
+            <name>dt_pruneconf_gainratio</name>
+            <comments>     
+                DT10: It is to Verify "confidence_level" can affect tree format correctly
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>labor_neg</value><value>hypo</value>
+                </list_parameter> 
+                <list_parameter>
+                    <name>confidence_level</name>
+                    <value>0.001</value><value>50</value><value>100</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>labor_neg</value><value>labor_neg</value><value>labor_neg</value><value>hypo</value><value>hypo</value><value>hypo</value>
+                </list_parameter>  
+            </method>
+        </test_suite>
+        
+
+       <test_suite>
+            <name>dt_maxdepth_gainratio</name>
+            <comments>     
+                DT12: It is to Verify "max_tree_depth" can affect tree format correctly
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>adult</value><value>spect</value>
+                </list_parameter> 
+                <list_parameter>
+                    <name>max_tree_depth</name>
+                    <value>9</value><value>1</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>c45_display</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>adult</value><value>adult</value><value>spect</value><value>spect</value>
+                </list_parameter> 
+            </method>      
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>adult</value><value>adult</value><value>spect</value><value>spect</value>
+                </list_parameter> 
+            </method>
+        </test_suite>
+        
+        <test_suite>
+            <name>dt_node_prune_gainratio</name>
+            <comments>     
+                DT13: It is to Verify "node_prune_threshold" can affect tree format correctly
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>monk</value><value>car</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>node_prune_threshold</name>
+                    <value>0.07</value><value>1</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>c45_display</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>monk</value><value>monk</value><value>car</value><value>car</value>
+                </list_parameter>
+            </method>      
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>monk</value><value>monk</value><value>car</value><value>car</value>
+                </list_parameter>
+            </method>
+        </test_suite>
+        
+        <test_suite>
+            <name>dt_node_split_gainratio</name>
+            <comments>     
+                DT14: It is to Verify "node_split_threshold" can affect tree format correctly
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>monk</value><value>car</value>
+                </list_parameter> 
+                <list_parameter>
+                    <name>node_split_threshold</name>
+                    <value>0.5</value><value>1</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>c45_display</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>monk</value><value>monk</value><value>car</value><value>car</value>
+                </list_parameter> 
+            </method>      
+            <method>
+                <name>c45_clean</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>monk</value><value>monk</value><value>car</value><value>car</value>
+                </list_parameter> 
+           </method>
+        </test_suite>
+                
+      <test_suite>
+            <name>dt_datatype_gainratio</name>
+            <comments>
+                DT018:It is to ensure datatype as discrete feature 
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>c45_train</name>
+                <parameters>
+                    <parameter>
+                    	<name>dataset</name>
+                     	<value>tablealldatatypes</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            
+            <method>
+                <name>c45_display</name>
+                <parameters>
+                    <parameter>
+                    	<name>dataset</name>
+                     	<value>tablealldatatypes</value>
+                    </parameter>  
+                </parameters>
+            </method> 
+                 
+            <method>
+                <name>c45_clean</name>
+                <parameters>  
+                    <parameter>
+                    	<name>dataset</name>
+                     	<value>tablealldatatypes</value>
+                     </parameter>
+                </parameters> 
+               <tear_down>
+               		drop table if exists madlibtestresult.result_tree_clarify;
+               </tear_down> 
+           </method>
+        </test_suite>
+
+        <test_suite>
+                <name>dt_gainratio_cross_validate</name>
+            <comments>
+                DT01: dt_gainratio_cross_validate
+            </comments>
+                <execute_rate>1</execute_rate>
+                <method>
+                        <name>c45_cross_validate</name>
+                        <list_parameter>
+                                <name>dataset</name>
+                                <value>hypo</value>
+                                <value>abalone</value>
+                                <value>musk</value>
+                                <value>poker_hand</value>
+                                <value>adult</value>
+                                <value>connect</value>
+                        </list_parameter>
+                        <parameters>
+                                <parameter><name>split_criterion</name><value>gainratio</value></parameter>
+                        </parameters>
+                </method>
+        </test_suite>
+
+        
+    </multi_test_suites>
+</test_suites>

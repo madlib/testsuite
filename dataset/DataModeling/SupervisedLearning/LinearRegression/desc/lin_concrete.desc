@@ -1,0 +1,9 @@
+Cement	float8
+Blast_Furnace_Slag	float8
+Fly_Ash	float8
+Water	float8
+Superplasticizer	float8
+Coarse_Aggregate	float8
+Fine_Aggregate	float8
+Age	float8
+Class	float8

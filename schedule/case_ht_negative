@@ -1,0 +1,10 @@
+# TestSuite Name : ht_negative_chi2_gof_observed
+# using column included negative observed value
+# Start TestSuite ==========
+ht_negative_chi2_gof_observed_0_0
+
+# TestSuite Name : ht_negative_chi2_gof_df
+# test negative case
+# Start TestSuite ==========
+ht_negative_chi2_gof_df_0_0
+

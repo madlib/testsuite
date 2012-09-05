@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>
+
+        <algorithm>linear_regression</algorithm>
+        <methods>
+            <method>
+                <name>linregr</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+        </methods>
+
+        <test_suite>
+            <name>linear_regression_functionalities</name>
+            <comments>It is to test basic functionalities of linear regression.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>linregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.lin_Concrete_oi</value><value>madlibtestdata.lin_Concrete_wi</value><value>madlibtestdata.lin_auto_mpg_oi</value><value>madlibtestdata.lin_auto_mpg_wi</value><value>madlibtestdata.lin_communities_unnormalized_oi</value><value>madlibtestdata.lin_communities_unnormalized_wi</value><value>madlibtestdata.lin_communities_oi</value><value>madlibtestdata.lin_communities_wi</value><value>madlibtestdata.lin_flare_oi</value><value>madlibtestdata.lin_flare_wi</value><value>madlibtestdata.lin_forestfires_oi</value><value>madlibtestdata.lin_forestfires_wi</value><value>madlibtestdata.lin_housing_oi</value><value>madlibtestdata.lin_housing_wi</value><value>madlibtestdata.lin_imports_85_oi</value><value>madlibtestdata.lin_imports_85_wi</value><value>madlibtestdata.lin_machine_oi</value><value>madlibtestdata.lin_machine_wi</value><value>madlibtestdata.lin_noobservation_oi</value><value>madlibtestdata.lin_noobservation_wi</value><value>madlibtestdata.lin_o_ring_erosion_only_oi</value><value>madlibtestdata.lin_o_ring_erosion_only_wi</value><value>madlibtestdata.lin_o_ring_erosion_or_blowby_oi</value><value>madlibtestdata.lin_o_ring_erosion_or_blowby_wi</value><value>madlibtestdata.lin_parkinsons_updrs_oi</value><value>madlibtestdata.lin_parkinsons_updrs_wi</value><value>madlibtestdata.lin_redundantobservations_oi</value><value>madlibtestdata.lin_redundantobservations_wi</value><value>madlibtestdata.lin_servo_oi</value><value>madlibtestdata.lin_servo_wi</value><value>madlibtestdata.lin_singleobservation_oi</value><value>madlibtestdata.lin_singleobservation_wi</value><value>madlibtestdata.lin_slump_oi</value><value>madlibtestdata.lin_slump_wi</value><value>madlibtestdata.lin_winequality_red_oi</value><value>madlibtestdata.lin_winequality_red_wi</value><value>madlibtestdata.lin_winequality_white_oi</value><value>madlibtestdata.lin_winequality_white_wi</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>linear_regression_corner_scenarios</name>
+            <comments>It is to test the corner scenarios of linear regression.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>linregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.lin_noobservation_oi</value><value>madlibtestdata.lin_noobservation_wi</value><value>madlibtestdata.lin_singleobservation_oi</value><value>madlibtestdata.lin_singleobservation_wi</value><value>madlibtestdata.lin_redundantobservations_oi</value><value>madlibtestdata.lin_redundantobservations_wi</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>dependent_varname</name>
+                    <value>y</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>independent_varname</name>
+                    <value>x</value>
+                </list_parameter>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>linear_regression_negative_dependent_varname</name>
+            <comments>It is to test the negative scenarios of linear regression.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>linregr</name>
+                <list_parameter>
+                    <name>dependent_varname</name>
+                    <value>non_existing_column</value><value>EMPTY</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.lin_Concrete_wi</value>
+                    </parameter>
+                    <parameter>
+                         <name>independent_varname</name>
+                         <value>x</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>linear_regression_negative_independent_varname</name>
+            <comments>It is to test the negative scenarios of linear regression.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>linregr</name>
+                <list_parameter>
+                    <name>independent_varname</name>
+                    <value>non_existing_column</value><value>EMPTY</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.lin_Concrete_wi</value>
+                    </parameter>
+                    <parameter>
+                         <name>dependent_varname</name>
+                         <value>y</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>linear_regression_ctas</name>
+            <comments>It is to test basic functionalities of linear regression with create table as.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>ctas_linregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.lin_Concrete_oi</value><value>madlibtestdata.lin_Concrete_wi</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>table_name</name>
+                        <value>madlibtestresult.lin_Concrete_ctas</value>
+                    </parameter>
+                    <parameter>
+                        <name>dependent_varname</name>
+                        <value>y</value>
+                    </parameter>
+                    <parameter>
+                        <name>independent_varname</name>
+                        <value>x</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>linear_regression_group_by</name>
+            <comments>It is to test basic functionalities of linear regression with group by.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>group_by_linregr</name>
+                <list_parameter>
+                    <name>table_name</name>
+                    <value>madlibtestdata.lin_communities_oi_agg</value><value>madlibtestdata.lin_communities_wi_agg</value>
+                </list_parameter>
+            </method>
+        </test_suite>
+
+    </multi_test_suites>
+</test_suites>

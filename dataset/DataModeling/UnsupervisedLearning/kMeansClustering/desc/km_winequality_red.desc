@@ -1,0 +1,12 @@
+fixed_acidity  float8
+volatile_acidity float8
+citric_acid  float8
+residual_sugar  float8
+chlorides  float8
+free_sulfur_dioxide  float8
+total_sulfur_dioxide  float8
+density  float8
+pH  float8
+sulphates  float8
+alcohol  float8
+class TEXT

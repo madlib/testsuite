@@ -1,0 +1,20 @@
+cmd : "./conv_logregr.py -s -t <table> -o <sql> -d <data> -D <desc>"
+sql : "./loginit.sql"
+tables :
+    - id : log_breast_cancer_wisconsin
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data" 
+          desc : "./desc/log_breast_cancer_wisconsin.desc"
+    - id : log_ticdata2000
+      args :
+          data : "http://archive.ics.uci.edu/ml/databases/tic/ticdata2000.txt"
+          desc : "./desc/log_ticdata2000.desc"
+    - id : log_wdbc
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data"
+          desc : "./desc/log_wdbc.desc"
+    - id : log_wpbc
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wpbc.data"
+          desc : "./desc/log_wpbc.desc"
+

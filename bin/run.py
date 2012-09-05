@@ -4,18 +4,32 @@
 Most functions start with 'python run.py [-i][-g][-s]'"""
 import glob
 import os
-import sys
+import sys, subprocess
 from datetime import datetime
 from optparse import OptionParser
 
-import utility
- 
+
 TestCaseDir     = '../testcase/'
 TestMataDir     = '../bootstrap/'
 GeneratorSrcDir = '../src/generator/'
 AnalyticsTool   = '../testspec/metadata/analyticstool.xml'
 ReportDir       = '../report/'
 ScheduleDir     = '../schedule/'
+LoadingDir      = '../testspec/dataset/'
+SrcDir          = '../src/'
+TestConfig      = '../testspec/metadata/testconfig.xml'
+
+sys.path.append(SrcDir)
+from generator.argparse import ArgumentParser
+from generator.test_config import Configer
+
+test_cfg = Configer(TestConfig)
+test_cfg.testconfig()
+
+sys.path.append(LoadingDir)
+from loader.loadingManager import loadingManager
+import utility
+
 
 def getList(filename):
     """Parse file and return a list of non-empty lines"""
@@ -24,23 +38,17 @@ def getList(filename):
 def generateReport(psql_cmd, environ, run_id, platform):
     """generate test result report
     
-    Select * from benchmark.testreport where runid = {run_id};  
-    Select * from benchmark.detailtestreport where runid = {run_id};  
     """
     CWD = os.getcwd()
     date_str = datetime.today().strftime('%Y%m%d%H%M%S')
-    testreport_sql = "select * from benchmark.testreport where runid = %s ;" % run_id
-    testreport_filename = ReportDir + platform + '_' + date_str + '_' + run_id + '_test.report'
-    copyToFile(psql_cmd, environ, testreport_sql, os.path.join(CWD, testreport_filename))  
-    detailreport_sql = "select * from benchmark.detailtestreport where runid = %s ;" % run_id
-    detailreport_filename = ReportDir + platform + '_' + date_str + '_' + run_id + '_detail.report'
-    copyToFile(psql_cmd, environ, detailreport_sql, os.path.join(CWD, detailreport_filename))
+
+    summaryreport_sql = "select 'Test Suite Name|' || suitename || '|Test Case Name|' || itemname || '|Test Detail|' || testresult || ' - ' || perf_status || ' (' || elapsedtime || '.00 ms)' || '|Test Status|' || testresult AS MADlib_Test_Report FROM benchmark.summaryreport where runid = %s ;" % run_id
+    summaryreport_filename = ReportDir + platform + '_' + run_id + '_summary.report'
+    copyToFile(psql_cmd, environ, summaryreport_sql, os.path.join(CWD, summaryreport_filename))
 
 def copyToFile(psql_cmd, environ, sql, filename):
     """generate test result report
     
-    Select * from benchmark.testreport where runid = {run_id};
-    Select * from benchmark.detailtestreport where runid = {run_id};
     param sql as select, but we need to create as temp table to store 
         those data and copy to file 
     """
@@ -50,7 +58,6 @@ def copyToFile(psql_cmd, environ, sql, filename):
 
 def main():
     """Change the options, del -c -S -t -r. Modify -s. i.e. python run.py -s map.yaml"""
-    sys.path.append(GeneratorSrcDir)
     use = """usage: ./run.py --loaddata --gencase --init 
                 --schedule map_file
                 --genreport run_id
@@ -60,20 +67,23 @@ def main():
         --gencase  or -g for short, to generate test cases
         --genreport or -G for short, to generate test report by run_id
     """
-    parser = OptionParser(usage=use)
-    parser.add_option("-i", "--init"        , action="store_true"   , default = False)
-    parser.add_option("-G", "--genreport"   , action="store"        , type="string")
-    parser.add_option("-g", "--gencase"     , action="store_true"   , dest="gencase"    , default = False)
-    parser.add_option("-l", "--loaddata"    , action="store_true"   , dest="loaddata"   , default = False)
-    parser.add_option("-s", "--schedule"         , action="store"        , type="string"     , dest="schedule")
-    (options, _) = parser.parse_args()
+    parser = ArgumentParser(description=use)
+    parser.add_argument("-i", "--initbenchmark", action='store_true', help = "Initial benchmark db.")
 
-    if not options.schedule and not options.genreport and not options.init and not options.loaddata and not options.gencase:
-        print use
-   
+    parser.add_argument("-g", "--gencase", action='store_true', help = "Generate cases.")
+    parser.add_argument("-d", "--debug", action = 'store_true', help ="Debug model will generate all sql for each case, it take a long time.")
+
+    parser.add_argument("-l", "--forceload", action='store_true', help = "Drop db, reconvert and reload all tables set in config.yaml and tables.yaml.")
+    parser.add_argument("-L", "--smartload", action='store_true', help = "Load modules by config.yaml, tables.yaml and -m. If table exists in db, do nothing.")
+    parser.add_argument("-m", "--module", nargs = "*", help = "Modules selected to load. For exapme: 'run.py -Lm Dec Ran' means only load decisition tree and random forest.")
+
+    parser.add_argument("-s", "--schedule", help = "Set schedule file and run.")
+
+    options = parser.parse_args()
+
     psql_cmd = utility.getResultDBPsqlCMD()
     environ = os.environ
-    import execute_case
+    import generator.execute_case
     if options.schedule:
         map_file = options.schedule
         plans = utility.parserMap(map_file)
@@ -97,22 +107,18 @@ def main():
                 isUnique = True
             else:
                 isUnique = False
-            cases = utility.parserCasesFromFile(filename, plan['skip'], isList, isUnique)
-            #key method to send sql to database.
-            executor = execute_case.TestCaseExecutor(cases, plan['platform'])
-            executor.executeCase(TestCaseDir, AnalyticsTool, run_id)
+
+            version = utility.runCases(filename, plan['skip'], isList, isUnique, plan['platform'], TestCaseDir, AnalyticsTool, run_id)
+
             utility.runSQL(psql_cmd, TestMataDir + 'post.sql', environ)
             generateReport(psql_cmd, environ, run_id, plan['platform'])
-            version = executor.version
-            #version = executor.madlibVersion(plan['platform'])
-            insert_testinfo_sql = "insert into benchmark.testinfo (runid,cases_count,platform,madlib_version) values('"+\
-                run_id+"','"+str(len(cases))+"','"+plan['platform']+"','"+version+"');"
-            utility.runSQL(psql_cmd, insert_testinfo_sql , environ, False)
 
     #load data set to all databases to test
-    if options.loaddata:
-        os.system('python ./load.py')
-    if options.init:
+    if options.forceload:
+        loading_manager = loadingManager('..', 'madlibtestdata')
+        loading_manager.do(options.module, False, True, True)
+
+    if options.initbenchmark:
         #initialization
         utility.runSQL(psql_cmd, TestMataDir + 'init.sql', environ)
         utility.runSQL(psql_cmd, TestMataDir + 'init_cases.sql', environ)
@@ -127,13 +133,23 @@ def main():
     if options.gencase:
         #initialization
         utility.runSQL(psql_cmd, TestMataDir + 'init_cases.sql', environ)
+        utility.runSQL(psql_cmd, TestMataDir + 'resultbaseline.sql', environ)
         #generate new cases
-        os.system('cd ../src/generator/ && python ./gen_testcase.py')
+        if options.debug:
+            os.system('cd ../src/generator/ && python ./gen_testcase.py debug')
+        else:
+            os.system('cd ../src/generator/ && python ./gen_testcase.py')
         utility.runSQL(psql_cmd, TestMataDir + '/analyticstool.sql', environ)
+        psql_cmd = utility.getResultDBPsqlCMD(onErrorStop = False)
+        print psql_cmd
+        utility.runSQL(psql_cmd, TestMataDir + 'algorithmspec.sql', environ, onErrorStop = False)
+
         for sqlfile in glob.glob('../testcase/*.sql'):
             utility.runSQL(psql_cmd, sqlfile, environ)
-    if options.genreport:
-        generateReport(psql_cmd, environ, options.genreport, 'all')
+
+    if options.smartload:
+        loading_manager = loadingManager('..', 'madlibtestdata')
+        loading_manager.do(options.module, False, False, False)
 
 if __name__ == '__main__':
     main()

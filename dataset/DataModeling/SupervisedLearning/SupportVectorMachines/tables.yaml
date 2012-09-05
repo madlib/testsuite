@@ -1,0 +1,138 @@
+cmd : "python svm.py -t <table> -d <sql> -s <sourfile> -D <dimension>"
+tables :
+    - id : svm_abalone
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/abalone" 
+          dimension : "8"
+    - id : svm_bodyfat
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/bodyfat"
+          dimension : "14"
+    - id : svm_cadata
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata"
+          dimension : "8"
+    - id : svm_cpusmall
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cpusmall"
+          dimension : "12"
+    - id : svm_elog
+      skip : all
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/log1p.E2006.train.bz2"
+          dimension : "4272227"
+    - id : svm_elog_test
+      skip : all
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/log1p.E2006.test.bz2"
+          dimension : "4272227"
+    - id : svm_etfidf
+      skip : all
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/E2006.train.bz2"
+          dimension : "150360"
+    - id : svm_etfidf_test
+      skip : all
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/E2006.train.bz2"
+          dimension : "150360"
+    - id : svm_unite
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/eunite2001"
+          dimension : "16"
+    - id : svm_unite_test
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/eunite2001.t"
+          dimension : "16"
+    - id : svm_housing
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/housing"
+          dimension : "13"
+    - id : svm_mg
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/mg"
+          dimension : "6"
+    - id : svm_mpg
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/mpg"
+          dimension : "7"
+    - id : svm_pyrim
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/pyrim"
+          dimension : "27"
+    - id : svm_space
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/space_ga"
+          dimension : "6"
+    - id : svm_triazines
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/triazines"
+          dimension : "60"
+    - id : svm_yp
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/YearPredictionMSD.bz2"
+          dimension : "90"
+    - id : svm_yp_test
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/YearPredictionMSD.t.bz2"
+          dimension : "90"
+    - id : svm_a9a
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/a9a"
+          dimension : "123"
+    - id : svm_a9a_test
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/a9a.t"
+          dimension : "123"
+    - id : svm_rcv1_binary
+      skip : all
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_train.binary.bz2"
+          dimension : "47236"
+    - id : svm_rcv1_binary_test
+      skip : all
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_test.binary.bz2" 
+          dimension : "47236"
+    - id : svm_epsilon
+      skip : all
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/epsilon_normalized.bz2" 
+          dimension : "2000"
+    - id : svm_epsilon_test
+      skip : all
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/epsilon_normalized.t.bz2" 
+          dimension : "2000"
+    - id : svm_recordlink
+      cmd : "python RecordLinkageCPDS_fm.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/00210/donation.zip"
+    - id : svm_realsim
+      skip : all
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/real-sim.bz2"
+          dimension : "20958"
+    - id : svm_ijcnn
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/ijcnn1.bz2"
+          dimension : "22"
+    - id : svm_ijcnn_test
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/ijcnn1.t.bz2"
+          dimension : "22"
+    - id : svm_splice
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/splice" 
+          dimension : "60"
+    - id : svm_splice_test
+      args :
+          sourfile : "http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/splice.t"
+          dimension : "60"
+    - id : svm_url
+      skip : all
+      cmd : "python URLReputationDS2_fm.py -t <table> -d <sql> -s <sourfile> -D <dimension> -w <date>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/url/url_svmlight.tar.gz"
+          dimension : "3231961"
+          date : "1" 

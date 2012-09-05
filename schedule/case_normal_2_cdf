@@ -1,0 +1,32 @@
+# TestSuite Name : normal_2_cdf_feature_test_x
+# normal_2_cdf
+# Start TestSuite ==========
+normal_2_cdf_feature_test_x_0_0
+normal_2_cdf_feature_test_x_0_1
+normal_2_cdf_feature_test_x_0_2
+normal_2_cdf_feature_test_x_0_3
+normal_2_cdf_feature_test_x_0_4
+normal_2_cdf_feature_test_x_0_5
+normal_2_cdf_feature_test_x_0_6
+normal_2_cdf_feature_test_x_0_7
+normal_2_cdf_feature_test_x_0_8
+normal_2_cdf_feature_test_x_0_9
+normal_2_cdf_feature_test_x_0_10
+
+# TestSuite Name : normal_2_cdf_feature_test_mean
+# normal_2_cdf
+# Start TestSuite ==========
+normal_2_cdf_feature_test_mean_0_0
+normal_2_cdf_feature_test_mean_0_1
+normal_2_cdf_feature_test_mean_0_2
+normal_2_cdf_feature_test_mean_0_3
+normal_2_cdf_feature_test_mean_0_4
+normal_2_cdf_feature_test_mean_0_5
+normal_2_cdf_feature_test_mean_0_6
+
+# TestSuite Name : normal_2_cdf_negative_case_mean
+# normal_2_cdf
+# Start TestSuite ==========
+normal_2_cdf_negative_case_mean_0_0
+normal_2_cdf_negative_case_mean_0_1
+

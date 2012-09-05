@@ -1,0 +1,74 @@
+# TestSuite Name : hypergeometric_pmf_feature_test_x
+# hypergeometric_pmf
+# Start TestSuite ==========
+hypergeometric_pmf_feature_test_x_0_0
+hypergeometric_pmf_feature_test_x_0_1
+hypergeometric_pmf_feature_test_x_0_2
+hypergeometric_pmf_feature_test_x_0_3
+
+# TestSuite Name : hypergeometric_pmf_feature_test_r
+# hypergeometric_pmf
+# Start TestSuite ==========
+hypergeometric_pmf_feature_test_r_0_0
+hypergeometric_pmf_feature_test_r_0_1
+hypergeometric_pmf_feature_test_r_0_2
+
+# TestSuite Name : hypergeometric_pmf_feature_test_n
+# hypergeometric_pmf
+# Start TestSuite ==========
+hypergeometric_pmf_feature_test_n_0_0
+hypergeometric_pmf_feature_test_n_0_1
+hypergeometric_pmf_feature_test_n_0_2
+hypergeometric_pmf_feature_test_n_0_3
+
+# TestSuite Name : hypergeometric_pmf_feature_test_nn_1
+# hypergeometric_pmf
+# Start TestSuite ==========
+hypergeometric_pmf_feature_test_nn_1_0_0
+hypergeometric_pmf_feature_test_nn_1_0_1
+
+# TestSuite Name : hypergeometric_pmf_feature_test_nn_2
+# hypergeometric_pmf
+# Start TestSuite ==========
+hypergeometric_pmf_feature_test_nn_2_0_0
+hypergeometric_pmf_feature_test_nn_2_0_1
+hypergeometric_pmf_feature_test_nn_2_0_2
+hypergeometric_pmf_feature_test_nn_2_0_3
+
+# TestSuite Name : hypergeometric_pmf_negative_case_x
+# hypergeometric_pmf
+# Start TestSuite ==========
+hypergeometric_pmf_negative_case_x_0_0
+hypergeometric_pmf_negative_case_x_0_1
+hypergeometric_pmf_negative_case_x_0_2
+
+# TestSuite Name : hypergeometric_pmf_negative_case_r
+# hypergeometric_pmf
+# Start TestSuite ==========
+hypergeometric_pmf_negative_case_r_0_0
+hypergeometric_pmf_negative_case_r_0_1
+hypergeometric_pmf_negative_case_r_0_2
+hypergeometric_pmf_negative_case_r_0_3
+hypergeometric_pmf_negative_case_r_0_4
+hypergeometric_pmf_negative_case_r_0_5
+
+# TestSuite Name : hypergeometric_pmf_negative_case_n
+# hypergeometric_pmf
+# Start TestSuite ==========
+hypergeometric_pmf_negative_case_n_0_0
+hypergeometric_pmf_negative_case_n_0_1
+hypergeometric_pmf_negative_case_n_0_2
+hypergeometric_pmf_negative_case_n_0_3
+hypergeometric_pmf_negative_case_n_0_4
+hypergeometric_pmf_negative_case_n_0_5
+
+# TestSuite Name : hypergeometric_pmf_negative_case_nn
+# hypergeometric_pmf
+# Start TestSuite ==========
+hypergeometric_pmf_negative_case_nn_0_0
+hypergeometric_pmf_negative_case_nn_0_1
+hypergeometric_pmf_negative_case_nn_0_2
+hypergeometric_pmf_negative_case_nn_0_3
+hypergeometric_pmf_negative_case_nn_0_4
+hypergeometric_pmf_negative_case_nn_0_5
+

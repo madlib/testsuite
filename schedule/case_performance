@@ -1,0 +1,46 @@
+# linear regression
+lin_perf_0_0
+lin_perf_0_1
+
+# logistic regression
+logistic_regression_baseline_0_1
+logistic_regression_baseline_0_5
+logistic_regression_baseline_0_9
+logistic_regression_baseline_0_13
+
+# kmeans clustering
+kmeans_cset_baseline_0_8
+kmeans_cset_baseline_0_9
+
+kmeans_plusplus_baseline_0_10
+kmeans_plusplus_maximum_iteration_0_11
+
+kmeans_random_baseline_0_10
+kmeans_random_baseline_0_11
+
+# TestSuit Name : dt_performance_gini
+# DT00: It is to verify score when score table is the same as training table
+# Start TestSuit ==========
+dt_performance_gini_0_0
+dt_performance_gini_0_1
+dt_performance_gini_0_2
+dt_performance_gini_0_3
+dt_performance_gini_0_4
+
+# TestSuit Name : dt_performance_infogain
+# DT00: It is to verify score when score table is the same as training table
+# Start TestSuit ==========
+dt_performance_infogain_0_0
+dt_performance_infogain_0_1
+dt_performance_infogain_0_2
+dt_performance_infogain_0_3
+dt_performance_infogain_0_4
+
+# TestSuit Name : dt_performance_gainratio
+# DT00: It is to verify score when score table is the same as training table
+# Start TestSuit ==========
+dt_performance_gainratio_0_0
+dt_performance_gainratio_0_1
+dt_performance_gainratio_0_2
+dt_performance_gainratio_0_3
+dt_performance_gainratio_0_4

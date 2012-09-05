@@ -1,0 +1,36 @@
+# TestSuite Name : students_t_quantile_feature_test_p
+# students_t_quantile
+# Start TestSuite ==========
+students_t_quantile_feature_test_p_0_0
+students_t_quantile_feature_test_p_0_1
+students_t_quantile_feature_test_p_0_2
+students_t_quantile_feature_test_p_0_3
+students_t_quantile_feature_test_p_0_4
+students_t_quantile_feature_test_p_0_5
+students_t_quantile_feature_test_p_0_6
+
+# TestSuite Name : students_t_quantile_feature_test_df
+# students_t_quantile
+# Start TestSuite ==========
+students_t_quantile_feature_test_df_0_0
+students_t_quantile_feature_test_df_0_1
+students_t_quantile_feature_test_df_0_2
+students_t_quantile_feature_test_df_0_3
+students_t_quantile_feature_test_df_0_4
+
+# TestSuite Name : students_t_quantile_negative_case_p
+# students_t_quantile
+# Start TestSuite ==========
+students_t_quantile_negative_case_p_0_0
+students_t_quantile_negative_case_p_0_1
+students_t_quantile_negative_case_p_0_2
+students_t_quantile_negative_case_p_0_3
+
+# TestSuite Name : students_t_quantile_negative_case_df
+# students_t_quantile
+# Start TestSuite ==========
+students_t_quantile_negative_case_df_0_0
+students_t_quantile_negative_case_df_0_1
+students_t_quantile_negative_case_df_0_2
+students_t_quantile_negative_case_df_0_3
+

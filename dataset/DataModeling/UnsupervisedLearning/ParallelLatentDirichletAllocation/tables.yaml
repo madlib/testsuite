@@ -1,0 +1,21 @@
+cmd : "./convert.sh <data> <table> <sql>"
+tables :
+    - id : plda_20_newsgroups
+      args :
+          data : "http://kdd.ics.uci.edu/databases/20newsgroups/20_newsgroups.tar.gz"
+    - id : plda_mini_20_newsgroups
+      args :
+          data : "http://kdd.ics.uci.edu/databases/20newsgroups/mini_newsgroups.tar.gz"
+    - id : plda_reutersTranscribedSubset
+      args :
+          data : "http://kdd.ics.uci.edu/databases/reuters_transcribed/ReutersTranscribedSubset.zip"
+    - id : plda_reuters21578
+      args :
+          data : "http://kdd.ics.uci.edu/databases/reuters21578/reuters21578.tar.gz"
+    - id : plda_nsf_abs
+      cmd : "./nsf_convert.sh <data1> <data2> <data3> <data4> <table> <sql>"
+      args :
+          data1 : "http://kdd.ics.uci.edu/databases/nsfabs/nsfabs_part1_out.zip"
+          data2 : "http://kdd.ics.uci.edu/databases/nsfabs/nsfabs_part2_out.zip"
+          data3 : "http://kdd.ics.uci.edu/databases/nsfabs/nsfabs_part3_out.zip"
+          data4 : "http://kdd.ics.uci.edu/databases/nsfabs/words.zip"

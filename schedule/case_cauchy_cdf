@@ -1,0 +1,54 @@
+# TestSuite Name : cauchy_cdf_feature_test_x
+# cauchy_cdf
+# Start TestSuite ==========
+cauchy_cdf_feature_test_x_0_0
+cauchy_cdf_feature_test_x_0_1
+cauchy_cdf_feature_test_x_0_2
+cauchy_cdf_feature_test_x_0_3
+cauchy_cdf_feature_test_x_0_4
+cauchy_cdf_feature_test_x_0_5
+cauchy_cdf_feature_test_x_0_6
+cauchy_cdf_feature_test_x_0_7
+cauchy_cdf_feature_test_x_0_8
+cauchy_cdf_feature_test_x_0_9
+cauchy_cdf_feature_test_x_0_10
+cauchy_cdf_feature_test_x_0_11
+cauchy_cdf_feature_test_x_0_12
+cauchy_cdf_feature_test_x_0_13
+cauchy_cdf_feature_test_x_0_14
+
+# TestSuite Name : cauchy_cdf_feature_test_location
+# cauchy_cdf
+# Start TestSuite ==========
+cauchy_cdf_feature_test_location_0_0
+cauchy_cdf_feature_test_location_0_1
+cauchy_cdf_feature_test_location_0_2
+cauchy_cdf_feature_test_location_0_3
+cauchy_cdf_feature_test_location_0_4
+cauchy_cdf_feature_test_location_0_5
+cauchy_cdf_feature_test_location_0_6
+cauchy_cdf_feature_test_location_0_7
+
+# TestSuite Name : cauchy_cdf_feature_test_scale
+# cauchy_cdf
+# Start TestSuite ==========
+cauchy_cdf_feature_test_scale_0_0
+cauchy_cdf_feature_test_scale_0_1
+cauchy_cdf_feature_test_scale_0_2
+cauchy_cdf_feature_test_scale_0_3
+cauchy_cdf_feature_test_scale_0_4
+
+# TestSuite Name : cauchy_cdf_negative_case_location
+# cauchy_cdf
+# Start TestSuite ==========
+cauchy_cdf_negative_case_location_0_0
+cauchy_cdf_negative_case_location_0_1
+
+# TestSuite Name : cauchy_cdf_negative_case_scale
+# cauchy_cdf
+# Start TestSuite ==========
+cauchy_cdf_negative_case_scale_0_0
+cauchy_cdf_negative_case_scale_0_1
+cauchy_cdf_negative_case_scale_0_2
+cauchy_cdf_negative_case_scale_0_3
+

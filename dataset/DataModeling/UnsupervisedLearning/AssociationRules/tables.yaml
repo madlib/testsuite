@@ -1,0 +1,26 @@
+cmd : "python KDD2000.py -t <table> -d <sql> -s <sourfile> -D <dataset>"
+tables :
+    - id : ar_bms_pos
+      args :
+          sourfile : "http://www.sigkdd.org/kddcup/site/2000/files/KDDCup2000.zip"
+          dataset : "pos"
+    - id : ar_bms_webview_2
+      args :
+          sourfile : "http://www.sigkdd.org/kddcup/site/2000/files/KDDCup2000.zip"
+          dataset : "webview"
+    - id : ar_kdd07_movie
+      cmd : "python KDD2007.py -t <table> -d <sql> -s <sourfile>"
+      args : 
+          sourfile : "http://www.sigkdd.org/kddcup/site/2007/files/who_rated_what_2006.txt"
+    - id : ar_adult
+      cmd : "python adult.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data"
+    - id : ar_connect
+      cmd : "python mr_con.py -t <table> -d <sql> -s <sourfile>"
+      args :
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/connect-4/connect-4.data.Z"
+    - id : ar_mushroom
+      cmd : "python mr_con.py -t <table> -d <sql> -s <sourfile>"
+      args : 
+          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.data"

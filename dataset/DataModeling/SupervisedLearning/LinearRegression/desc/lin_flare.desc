@@ -1,0 +1,13 @@
+Code_for_class  text
+Code_for_largest_spot_size      text
+Code for_spot_distribution      text
+Activity        float8
+Evolution       float8
+Previous_24_hour_flare_activity_code    float8
+Historically_complex    float8
+Did_region_become_historically_complex  float8
+Area    float8
+Area_of_the_largest_spot        float8
+C_class_flares_production_by_this_region        text
+M_class_flares_production_by_this_region        text
+class   float8

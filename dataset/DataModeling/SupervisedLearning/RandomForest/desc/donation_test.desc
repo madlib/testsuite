@@ -1,0 +1,12 @@
+id_1		integer
+id_2		integer
+cmp_fname_c1	float8
+cmp_fname_c2	float8
+cmp_lname_c1	float8
+cmp_lname_c2	float8
+cmp_sex		integer
+cmp_bdcmp_bm	integer
+cmp_by		integer
+cmp_plz		integer
+is_match	bool
+class		text

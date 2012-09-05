@@ -1,0 +1,27 @@
+cmd : "./conv_kmeans.py -s -t <table> -o <sql> -d <data> -D <desc>"
+sql : "./kmeansinit.sql"
+tables :
+    - id : km_abalone
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data"
+          desc : "./desc/km_abalone.desc"
+    - id : km_movement_libras
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/libras/movement_libras.data"
+          desc : "./desc/km_movement_libras.desc"
+    - id : km_us_census_1990
+      args :
+          data : "http://archive.ics.uci.edu/ml/databases/census1990/USCensus1990.data.txt"
+          desc : "./desc/km_us_census_1990.desc"
+    - id : km_water_treatment
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/water-treatment/water-treatment.data"
+          desc : "./desc/km_water_treatment.desc"
+    - id : km_wine
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data"
+          desc : "./desc/km_wine.desc"
+    - id : km_winequality_red
+      args :
+          data : "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
+          desc : "./desc/km_winequality_red.desc"

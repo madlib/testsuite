@@ -1,0 +1,9 @@
+parents text 
+has_nurs text
+form text
+children numeric
+housing text 
+finance text 
+social text
+health text
+class text   

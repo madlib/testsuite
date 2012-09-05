@@ -1,0 +1,9 @@
+- lists : list_full_regression
+  skip : skip_knownissues
+  platform : GPDB_4.2.1.0
+  unique : true
+
+- lists : list_full_regression_pg
+  skip : skip_knownissues
+  platform : PGDB_9.1
+  unique : true

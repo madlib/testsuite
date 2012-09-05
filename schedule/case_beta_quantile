@@ -1,0 +1,125 @@
+# TestSuite Name : beta_quantile_feature_test_p_1
+# beta_quantile
+# Start TestSuite ==========
+beta_quantile_feature_test_p_1_0_0
+beta_quantile_feature_test_p_1_0_1
+beta_quantile_feature_test_p_1_0_2
+beta_quantile_feature_test_p_1_0_3
+beta_quantile_feature_test_p_1_0_4
+beta_quantile_feature_test_p_1_0_5
+beta_quantile_feature_test_p_1_0_6
+
+# TestSuite Name : beta_quantile_feature_test_p_2
+# beta_quantile
+# Start TestSuite ==========
+beta_quantile_feature_test_p_2_0_0
+beta_quantile_feature_test_p_2_0_1
+beta_quantile_feature_test_p_2_0_2
+beta_quantile_feature_test_p_2_0_3
+beta_quantile_feature_test_p_2_0_4
+beta_quantile_feature_test_p_2_0_5
+beta_quantile_feature_test_p_2_0_6
+
+# TestSuite Name : beta_quantile_feature_test_p_3
+# beta_quantile
+# Start TestSuite ==========
+beta_quantile_feature_test_p_3_0_0
+beta_quantile_feature_test_p_3_0_1
+beta_quantile_feature_test_p_3_0_2
+beta_quantile_feature_test_p_3_0_3
+beta_quantile_feature_test_p_3_0_4
+beta_quantile_feature_test_p_3_0_5
+beta_quantile_feature_test_p_3_0_6
+
+# TestSuite Name : beta_quantile_feature_test_p_4
+# beta_quantile
+# Start TestSuite ==========
+beta_quantile_feature_test_p_4_0_0
+beta_quantile_feature_test_p_4_0_1
+beta_quantile_feature_test_p_4_0_2
+beta_quantile_feature_test_p_4_0_3
+beta_quantile_feature_test_p_4_0_4
+beta_quantile_feature_test_p_4_0_5
+beta_quantile_feature_test_p_4_0_6
+
+# TestSuite Name : beta_quantile_feature_test_p_5
+# beta_quantile
+# Start TestSuite ==========
+beta_quantile_feature_test_p_5_0_0
+beta_quantile_feature_test_p_5_0_1
+beta_quantile_feature_test_p_5_0_2
+beta_quantile_feature_test_p_5_0_3
+beta_quantile_feature_test_p_5_0_4
+beta_quantile_feature_test_p_5_0_5
+beta_quantile_feature_test_p_5_0_6
+
+# TestSuite Name : beta_quantile_feature_test_alpha_beta
+# beta_quantile
+# Start TestSuite ==========
+beta_quantile_feature_test_alpha_beta_0_0
+beta_quantile_feature_test_alpha_beta_0_1
+beta_quantile_feature_test_alpha_beta_0_2
+beta_quantile_feature_test_alpha_beta_0_3
+beta_quantile_feature_test_alpha_beta_0_4
+beta_quantile_feature_test_alpha_beta_0_5
+beta_quantile_feature_test_alpha_beta_0_6
+beta_quantile_feature_test_alpha_beta_0_7
+beta_quantile_feature_test_alpha_beta_0_8
+beta_quantile_feature_test_alpha_beta_0_9
+beta_quantile_feature_test_alpha_beta_0_10
+beta_quantile_feature_test_alpha_beta_0_11
+beta_quantile_feature_test_alpha_beta_0_12
+beta_quantile_feature_test_alpha_beta_0_13
+beta_quantile_feature_test_alpha_beta_0_14
+beta_quantile_feature_test_alpha_beta_0_15
+beta_quantile_feature_test_alpha_beta_0_16
+beta_quantile_feature_test_alpha_beta_0_17
+beta_quantile_feature_test_alpha_beta_0_18
+beta_quantile_feature_test_alpha_beta_0_19
+beta_quantile_feature_test_alpha_beta_0_20
+beta_quantile_feature_test_alpha_beta_0_21
+beta_quantile_feature_test_alpha_beta_0_22
+beta_quantile_feature_test_alpha_beta_0_23
+beta_quantile_feature_test_alpha_beta_0_24
+beta_quantile_feature_test_alpha_beta_0_25
+beta_quantile_feature_test_alpha_beta_0_26
+beta_quantile_feature_test_alpha_beta_0_27
+beta_quantile_feature_test_alpha_beta_0_28
+beta_quantile_feature_test_alpha_beta_0_29
+beta_quantile_feature_test_alpha_beta_0_30
+beta_quantile_feature_test_alpha_beta_0_31
+beta_quantile_feature_test_alpha_beta_0_32
+beta_quantile_feature_test_alpha_beta_0_33
+beta_quantile_feature_test_alpha_beta_0_34
+beta_quantile_feature_test_alpha_beta_0_35
+beta_quantile_feature_test_alpha_beta_0_36
+beta_quantile_feature_test_alpha_beta_0_37
+beta_quantile_feature_test_alpha_beta_0_38
+beta_quantile_feature_test_alpha_beta_0_39
+beta_quantile_feature_test_alpha_beta_0_40
+beta_quantile_feature_test_alpha_beta_0_41
+
+# TestSuite Name : beta_quantile_negative_case_p
+# beta_quantile
+# Start TestSuite ==========
+beta_quantile_negative_case_p_0_0
+beta_quantile_negative_case_p_0_1
+beta_quantile_negative_case_p_0_2
+beta_quantile_negative_case_p_0_3
+
+# TestSuite Name : beta_quantile_negative_case_alpha
+# beta_quantile
+# Start TestSuite ==========
+beta_quantile_negative_case_alpha_0_0
+beta_quantile_negative_case_alpha_0_1
+beta_quantile_negative_case_alpha_0_2
+beta_quantile_negative_case_alpha_0_3
+
+# TestSuite Name : beta_quantile_negative_case_beta
+# beta_quantile
+# Start TestSuite ==========
+beta_quantile_negative_case_beta_0_0
+beta_quantile_negative_case_beta_0_1
+beta_quantile_negative_case_beta_0_2
+beta_quantile_negative_case_beta_0_3
+
