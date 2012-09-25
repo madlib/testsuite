@@ -1,0 +1,89 @@
+# TestSuite Name : multinomial_logistic_regression_baseline
+# It is to get baseline of multinomial logistic regression against R.
+# Start TestSuite ==========
+multinomial_logistic_regression_baseline_0_1
+multinomial_logistic_regression_baseline_0_3
+multinomial_logistic_regression_baseline_0_4
+
+# TestSuite Name : multinomial_logistic_regression_corner_scenarios
+# Test correctness of multinomial logistic regression with conner scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_corner_scenarios_0_0
+multinomial_logistic_regression_corner_scenarios_0_1
+multinomial_logistic_regression_corner_scenarios_0_2
+
+# TestSuite Name : multinomial_logistic_regression_negative_source_table
+# Test correctness of multinomial logistic regression with boundary values and negative scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_negative_source_table_0_0
+multinomial_logistic_regression_negative_source_table_0_1
+multinomial_logistic_regression_negative_source_table_0_2
+
+# TestSuite Name : multinomial_logistic_regression_negative_dependent_varname
+# Test correctness of multinomial logistic regression with boundary values and negative scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_negative_dependent_varname_0_0
+multinomial_logistic_regression_negative_dependent_varname_0_1
+multinomial_logistic_regression_negative_dependent_varname_0_2
+
+# TestSuite Name : multinomial_logistic_regression_negative_categories_number
+# Test correctness of multinomial logistic regression with boundary values and negative scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_negative_categories_number_0_0
+multinomial_logistic_regression_negative_categories_number_0_1
+multinomial_logistic_regression_negative_categories_number_0_2
+multinomial_logistic_regression_negative_categories_number_0_3
+
+# TestSuite Name : multinomial_logistic_regression_negative_independent_varname
+# Test correctness of multinomial logistic regression with boundary values and negative scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_negative_independent_varname_0_0
+multinomial_logistic_regression_negative_independent_varname_0_1
+multinomial_logistic_regression_negative_independent_varname_0_2
+
+# TestSuite Name : multinomial_logistic_regression_negative_max_iteration
+# Test correctness of multinomial logistic regression with boundary values and negative scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_negative_max_iteration_0_0
+multinomial_logistic_regression_negative_max_iteration_0_1
+multinomial_logistic_regression_negative_max_iteration_0_2
+multinomial_logistic_regression_negative_max_iteration_0_3
+
+# TestSuite Name : multinomial_logistic_regression_negative_optimizer
+# Test correctness of multinomial logistic regression with boundary values and negative scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_negative_optimizer_0_0
+multinomial_logistic_regression_negative_optimizer_0_1
+multinomial_logistic_regression_negative_optimizer_0_2
+
+# TestSuite Name : multinomial_logistic_regression_negative_convergence_threshold
+# Test correctness of multinomial logistic regression with boundary values and negative scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_negative_convergence_threshold_0_0
+multinomial_logistic_regression_negative_convergence_threshold_0_1
+
+# TestSuite Name : multinomial_logistic_regression_negative_commonx_diffy
+# Test correctness of multinomial logistic regression with boundary values and negative scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_negative_commonx_diffy_0_0
+
+# TestSuite Name : multinomial_logistic_regression_negative_incorrect_y
+# Test correctness of multinomial logistic regression with boundary values and negative scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_negative_incorrect_y_0_0
+multinomial_logistic_regression_negative_incorrect_y_0_1
+multinomial_logistic_regression_negative_incorrect_y_0_2
+multinomial_logistic_regression_negative_incorrect_y_0_3
+
+# TestSuite Name : multinomial_logistic_regression_ctas
+# Test correctness of multinomial logistic regression with create table as
+# Start TestSuite ==========
+multinomial_logistic_regression_ctas_0_0
+
+# TestSuite Name : multinomial_logistic_regression_utf8_character
+# Test correctness of multinomial logistic regression with utf-8 delimiters character
+# Start TestSuite ==========
+multinomial_logistic_regression_utf8_character_0_0
+multinomial_logistic_regression_utf8_character_0_1
+multinomial_logistic_regression_utf8_character_0_2
+

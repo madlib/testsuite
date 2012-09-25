@@ -1,0 +1,158 @@
+# TestSuite Name : nb_argmax
+# It is to verify argmax with different datasets
+# Start TestSuite ==========
+nb_argmax_0_0
+nb_argmax_0_1
+nb_argmax_0_2
+nb_argmax_0_3
+
+# TestSuite Name : nb_precompute_views
+# It is to verify precomputed class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_precompute_views_0_0
+nb_precompute_views_0_1
+nb_precompute_views_0_2
+nb_precompute_views_0_3
+nb_precompute_views_0_4
+nb_precompute_views_0_5
+nb_precompute_views_0_6
+nb_precompute_views_0_7
+nb_precompute_views_0_8
+nb_precompute_views_0_9
+nb_precompute_views_0_10
+nb_precompute_views_0_11
+nb_precompute_views_0_12
+
+# TestSuite Name : nb_adhoc_views_0
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_0_0_0
+
+# TestSuite Name : nb_adhoc_views_1
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_1_0_0
+
+# TestSuite Name : nb_adhoc_views_2
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_2_0_0
+
+# TestSuite Name : nb_adhoc_views_3
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_3_0_0
+
+# TestSuite Name : nb_adhoc_views_4
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_4_0_0
+
+# TestSuite Name : nb_adhoc_views_5
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_5_0_0
+
+# TestSuite Name : nb_adhoc_views_6
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_6_0_0
+
+# TestSuite Name : nb_adhoc_views_7
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_7_0_0
+
+# TestSuite Name : nb_adhoc_views_8
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_8_0_0
+
+# TestSuite Name : nb_adhoc_views_9
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_9_0_0
+
+# TestSuite Name : nb_adhoc_views_10
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_10_0_0
+
+# TestSuite Name : nb_adhoc_views_11
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_11_0_0
+
+# TestSuite Name : nb_adhoc_views_12
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_12_0_0
+
+# TestSuite Name : nb_precompute_function
+# It is to verify precomputed class priors and feature probabilities using function as storage
+# Start TestSuite ==========
+nb_precompute_function_0_0
+nb_precompute_function_0_1
+nb_precompute_function_0_2
+nb_precompute_function_0_3
+nb_precompute_function_0_4
+nb_precompute_function_0_5
+nb_precompute_function_0_6
+nb_precompute_function_0_7
+nb_precompute_function_0_8
+nb_precompute_function_0_9
+nb_precompute_function_0_10
+nb_precompute_function_0_11
+nb_precompute_function_0_12
+
+# TestSuite Name : nb_adhoc_function
+# It is to verify ad hoc class priors and feature probabilities using function as storage
+# Start TestSuite ==========
+nb_adhoc_function_0_0
+nb_adhoc_function_0_1
+nb_adhoc_function_0_2
+nb_adhoc_function_0_3
+nb_adhoc_function_0_4
+nb_adhoc_function_0_5
+nb_adhoc_function_0_6
+nb_adhoc_function_0_7
+nb_adhoc_function_0_8
+nb_adhoc_function_0_9
+nb_adhoc_function_0_10
+nb_adhoc_function_0_11
+nb_adhoc_function_0_12
+
+# TestSuite Name : nb_precompute_function_workaround
+# It is to verify precomputed class priors and feature probabilities using function as storage
+# Start TestSuite ==========
+nb_precompute_function_workaround_0_0
+nb_precompute_function_workaround_0_1
+nb_precompute_function_workaround_0_2
+nb_precompute_function_workaround_0_3
+nb_precompute_function_workaround_0_4
+nb_precompute_function_workaround_0_5
+nb_precompute_function_workaround_0_6
+nb_precompute_function_workaround_0_7
+nb_precompute_function_workaround_0_8
+nb_precompute_function_workaround_0_9
+nb_precompute_function_workaround_0_10
+nb_precompute_function_workaround_0_11
+nb_precompute_function_workaround_0_12
+
+# TestSuite Name : nb_adhoc_function_workaround
+# It is to verify ad hoc class priors and feature probabilities using function as storage
+# Start TestSuite ==========
+nb_adhoc_function_workaround_0_0
+nb_adhoc_function_workaround_0_1
+nb_adhoc_function_workaround_0_2
+nb_adhoc_function_workaround_0_3
+nb_adhoc_function_workaround_0_4
+nb_adhoc_function_workaround_0_5
+nb_adhoc_function_workaround_0_6
+nb_adhoc_function_workaround_0_7
+nb_adhoc_function_workaround_0_8
+nb_adhoc_function_workaround_0_9
+nb_adhoc_function_workaround_0_10
+nb_adhoc_function_workaround_0_11
+nb_adhoc_function_workaround_0_12
+

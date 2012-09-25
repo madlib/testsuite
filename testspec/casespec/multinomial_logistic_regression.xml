@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>
+	<!--Define algorithm in algorithmspec.xml-->
+	<algorithm>multinomial_logistic_regression</algorithm>
+
+	<!--Define method in the up algorithm-->
+	<methods>
+	    <method>
+		<name>mlogregr</name>
+		<parameter>
+		    <name>benchmark</name>
+		    <value>TemplateExecutor</value>
+		</parameter>
+	    </method>
+	</methods>
+
+	<!--One baseline test suites-->
+	<test_suite>
+	    <name>multinomial_logistic_regression_baseline</name>
+	    <comments>It is to get baseline of multinomial logistic regression against R.</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+		<list_parameter>
+		    <name>dataset</name>
+		    <value>mlogr_dorothea</value>
+		    <value>mlogr_recordlink</value>
+                    <value>mlogr_p53</value>
+                    <value>mlogr_pokerhand</value>
+                    <value>mlogr_isolet</value>
+		</list_parameter>
+            </method>
+	</test_suite>
+
+	<!--Three correctness test suites-->
+	<test_suite>
+            <name>multinomial_logistic_regression_max_iteration</name>
+            <comments>Test correctness of multinomial logistic regression with different maximum iteration</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>mlogr_dorothea</value>
+                    <value>mlogr_recordlink</value>
+                    <value>mlogr_pems</value>
+                    <value>mlogr_pokerhand</value>
+                    <value>mlogr_isolet</value>
+                </list_parameter>
+		<list_parameter>
+		    <name>max_iteration</name>
+		    <value>10</value>
+                    <value>20</value>
+                    <value>30</value>
+                    <value>50</value>
+		</list_parameter>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>multinomial_logistic_regression_optimizer</name>
+            <comments>Test correctness of multinomial logistic regression with different optimizer</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>mlogr_dorothea</value>
+                    <value>mlogr_recordlink</value>
+                    <value>mlogr_p53</value>
+                    <value>mlogr_pokerhand</value>
+                    <value>mlogr_isolet</value>
+                </list_parameter>
+		<list_parameter>
+		    <name>optimizer</name>
+		    <value>irls</value>
+		    <value>newton</value>
+		    <value>cg</value>
+		</list_parameter>
+            </method>
+        </test_suite>
+
+	<test_suite>
+	    <name>multinomial_logistic_regression_convergence_threshold</name>
+	    <comments>Test correctness of multinomial logistic regression with different convergence threshold</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>mlogr_dorothea</value>
+                    <value>mlogr_recordlink</value>
+                    <value>mlogr_p53</value>
+                    <value>mlogr_pokerhand</value>
+                    <value>mlogr_isolet</value>
+                </list_parameter>
+		<list_parameter>
+                    <name>convergence_threshold</name>
+		    <value>1</value>
+                    <value>0.01</value>
+                    <value>0.001</value>
+                    <value>0.0001</value>
+                    <value>0.00001</value>
+                    <value>0.000001</value>
+		</list_parameter>
+	    </method>
+	</test_suite>
+
+	<!--One corner test case-->
+        <test_suite>
+            <name>multinomial_logistic_regression_corner_scenarios</name>
+	    <comments>Test correctness of multinomial logistic regression with conner scenarios</comments>
+	    <execute_rate>1</execute_rate>
+	    <method>
+		<name>mlogregr</name>
+		<list_parameter>
+                    <name>source_table</name>
+		    <value>madlibtestdata.mlogr_emptyobservation</value>
+		    <value>madlibtestdata.mlogr_singleobservation</value>
+                    <value>madlibtestdata.mlogr_redundantobservations</value>
+		</list_parameter>
+	    </method>
+	</test_suite>
+
+	<!--Negative test case-->
+	<test_suite>
+            <name>multinomial_logistic_regression_negative_source_table</name>
+            <comments>Test correctness of multinomial logistic regression with boundary values and negative scenarios</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+                <list_parameter>
+		    <name>source_table</name>
+                    <value>non_existing_source_table</value>
+                    <value>EMPTY</value>
+                    <value>NULL</value>
+                </list_parameter>
+            </method>
+        </test_suite>
+
+	<test_suite>
+            <name>multinomial_logistic_regression_negative_dependent_varname</name>
+            <comments>Test correctness of multinomial logistic regression with boundary values and negative scenarios</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+                <list_parameter>
+		    <name>dependent_varname</name>
+                    <value>non_existing_dependent_varname</value>
+                    <value>EMPTY</value>
+                    <value>NULL</value>
+                </list_parameter>
+		<parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.mlogr_pokerhand</value>
+                    </parameter>
+                    <parameter>
+                        <name>number_of_categories</name>
+                        <value>10</value>
+                    </parameter>
+		</parameters>
+            </method>
+        </test_suite>
+
+	<test_suite>
+            <name>multinomial_logistic_regression_negative_categories_number</name>
+            <comments>Test correctness of multinomial logistic regression with boundary values and negative scenarios</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+                <list_parameter>
+		    <name>number_of_categories</name>
+                    <value>5</value>
+                    <value>12</value>
+                    <value>-1</value>
+		    <value>0</value>
+                </list_parameter>
+		<parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.mlogr_pokerhand</value>
+                    </parameter>
+		    <parameter>
+                        <name>number_of_categories</name>
+                        <value>10</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>multinomial_logistic_regression_negative_independent_varname</name>
+            <comments>Test correctness of multinomial logistic regression with boundary values and negative scenarios</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+                <list_parameter>
+                    <name>independent_varname</name>
+                    <value>non_existing_independent_varname</value>
+                    <value>EMPTY</value>
+                    <value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.mlogr_pokerhand</value>
+                    </parameter>
+                    <parameter>
+                        <name>number_of_categories</name>
+                        <value>10</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+	<test_suite>
+            <name>multinomial_logistic_regression_negative_max_iteration</name>
+            <comments>Test correctness of multinomial logistic regression with boundary values and negative scenarios</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+                <list_parameter>
+                    <name>max_iteration</name>
+                    <value>-1</value>
+                    <value>0</value>
+                    <value>2147483648</value>
+		    <value>c</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.mlogr_pokerhand</value>
+                    </parameter>
+                    <parameter>
+                        <name>number_of_categories</name>
+                        <value>10</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>multinomial_logistic_regression_negative_optimizer</name>
+            <comments>Test correctness of multinomial logistic regression with boundary values and negative scenarios</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+                <list_parameter>
+                    <name>optimizer</name>
+                    <value>invalid_optimizer</value>
+                    <value>EMPTY</value>
+                    <value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.mlogr_pokerhand</value>
+                    </parameter>
+		    <parameter>
+                        <name>number_of_categories</name>
+                        <value>10</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>multinomial_logistic_regression_negative_convergence_threshold</name>
+            <comments>Test correctness of multinomial logistic regression with boundary values and negative scenarios</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+                <list_parameter>
+                    <name>convergence_threshold</name>
+                    <value>-1</value>
+                    <value>0</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.mlogr_pokerhand</value>
+                    </parameter>
+		    <parameter>
+                        <name>number_of_categories</name>
+                        <value>10</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+	<test_suite>
+	    <name>multinomial_logistic_regression_negative_commonx_diffy</name>
+	    <comments>Test correctness of multinomial logistic regression with boundary values and negative scenarios</comments>
+	    <execute_rate>1</execute_rate>
+	    <method>
+		<name>mlogregr</name>
+                <parameters>
+                    <parameter>
+                        <name>source_table</name>
+                        <value>madlibtestdata.mlogr_commonx_diffy_observations</value>
+                    </parameter>
+                </parameters>
+	    </method>
+	</test_suite>
+	
+        <test_suite>
+            <name>multinomial_logistic_regression_negative_incorrect_y</name>
+            <comments>Test correctness of multinomial logistic regression with boundary values and negative scenarios</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>mlogregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.mlogr_incorrecty_discontinuous_observations</value>
+                    <value>madlibtestdata.mlogr_incorrecty_negative_observations</value>
+		    <value>madlibtestdata.mlogr_incorrecty_nonzero_observations</value>
+                    <value>madlibtestdata.mlogr_incorrecty_decimal_observations</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>number_of_categories</name>
+                        <value>3</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>multinomial_logistic_regression_ctas</name>
+	    <comments>Test correctness of multinomial logistic regression with create table as</comments>
+	    <execute_rate>1</execute_rate>
+	    <method>
+                <name>ctas_mlogregr</name>
+		<list_parameter>
+                    <name>dataset</name>
+		    <value>mlogr_dorothea</value>
+                    <value>mlogr_pokerhand</value>
+		</list_parameter>
+	    </method>
+	</test_suite>
+
+	<test_suite>
+            <name>multinomial_logistic_regression_utf8_character</name>
+	    <comments>Test correctness of multinomial logistic regression with utf-8 delimiters character</comments>
+	    <execute_rate>1</execute_rate>
+	    <method>
+	    	<name>mlogregr</name>
+		<list_parameter>
+                    <name>dataset</name>
+		    <value>mlogr_utf8_table</value>
+                    <value>mlogr_utf8_schema</value>
+                    <value>mlogr_utf8_column</value>
+                </list_parameter>
+	    </method>
+	</test_suite>
+	    
+    </multi_test_suites>
+</test_suites>

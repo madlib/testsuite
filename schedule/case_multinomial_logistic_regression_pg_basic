@@ -1,0 +1,6 @@
+# TestSuite Name : multinomial_logistic_regression_baseline
+# It is to get baseline of multinomial logistic regression against R.
+# Start TestSuite ==========
+multinomial_logistic_regression_baseline_0_1
+multinomial_logistic_regression_baseline_0_3
+multinomial_logistic_regression_baseline_0_4
