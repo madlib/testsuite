@@ -1,0 +1,11 @@
+# TestSuite Name : ar_vdatasets
+# It is to test associate rules on different data sets with support = 0 and confidence = 0.5
+# Start TestSuite ==========
+ar_vdatasets_0_0
+ar_vdatasets_0_1
+ar_vdatasets_0_2
+ar_vdatasets_0_3
+ar_vdatasets_0_4
+ar_vdatasets_0_5
+
+

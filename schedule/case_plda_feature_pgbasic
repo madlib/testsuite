@@ -1,0 +1,10 @@
+# TestSuite Name : plda_basic_functionality_closed_set_test
+# It is to test basic functionality of plda with closed set test.
+# Start TestSuite ==========
+plda_basic_functionality_closed_set_test_0_4
+
+# TestSuite Name : plda_basic_functionality_open_set_test
+# It is to test basic functionality of plda with open set test.
+# Start TestSuite ==========
+plda_basic_functionality_open_set_test_0_1
+

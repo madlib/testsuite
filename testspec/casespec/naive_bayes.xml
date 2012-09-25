@@ -1,0 +1,1094 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>        
+        <algorithm>naive_bayes</algorithm>
+        <methods>
+            <method>         
+                <name>argmax</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>          
+                </parameter>  
+            </method>
+            <method>
+                <name>test_create_nb_prepared_data_tables</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_view</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_fn</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_fn_table</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_fn_revoke</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_fn_revoke_workaround</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+        </methods> 
+
+        <test_suite>
+            <name>nb_argmax</name>
+            <comments>     
+                It is to verify argmax with different datasets
+            </comments>
+            <!-- It indicate max execution times--> 
+            <execute_rate>1</execute_rate>            
+            <method>
+                <name>argmax</name>
+                <list_parameter>
+                    <name>value_column</name>
+                    <value>attributes[1]</value>
+                    <value>attributes[2]</value>
+                </list_parameter> 
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>id_column</name>
+                        <value>id</value>
+                    </parameter>
+                 </parameters>
+                 <tear_down>
+                 </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_precompute_views</name>
+            <comments>
+                It is to verify precomputed class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_prepared_data_tables</name>
+                <list_parameter>
+                    <name>training_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_training</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_view</name>
+                <list_parameter>
+                    <name>classify_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_classify</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view</name>
+                <list_parameter>
+                    <name>classify_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_classify</value>
+                    <value></value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <list_parameter>
+                    <name>classify_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_classify</value>
+                    <value></value>
+                </list_parameter>
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_0</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_recordlink</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_recordlink</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_recordlink</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_recordlink</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_recordlink</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_1</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_pokerhand</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_pokerhand</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_pokerhand</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_pokerhand</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_pokerhand</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_2</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_covtype</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_covtype</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_covtype</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_covtype</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_covtype</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_3</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_miniboo</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_miniboo</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_miniboo</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_miniboo</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_miniboo</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_4</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_adult_withmissing</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_adult_withmissing</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_adult_withmissing</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_adult_withmissing</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_adult_withmissing</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_5</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_6</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_chess</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_chess</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_chess</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_chess</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_chess</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_7</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_german</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_german</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_german</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_german</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_german</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_8</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_dorothea</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_dorothea</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_dorothea</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_dorothea</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_dorothea</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_9</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_p53</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_p53</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_p53</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_p53</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_p53</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_10</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_gisette</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_gisette</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_gisette</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_gisette</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_gisette</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_11</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_url</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_url</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_url</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_url</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_url</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_views_12</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using views as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_extra_values_training</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_extra_values_classify</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_create_nb_probs_view_table</name>
+                <parameters>
+                    <parameter>
+                        <name>training_source</name>
+                        <value>madlibtestdata.nb_extra_values_training</value>
+                    </parameter>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_extra_values_classify</value>
+                    </parameter>
+                 </parameters>
+            </method>
+            <method>
+                <name>test_calculate_accuracy</name>
+                <parameters>
+                    <parameter>
+                        <name>classify_source</name>
+                        <value>madlibtestdata.nb_extra_values_classify</value>
+                    </parameter>
+                 </parameters>
+
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_precompute_function</name>
+            <comments>
+                It is to verify precomputed class priors and feature probabilities using function as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_prepared_data_tables</name>
+                <list_parameter>
+                    <name>training_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_training</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_fn</name>
+                <list_parameter>
+                    <name>num_attrs</name>
+                    <value>9</value>
+                    <value>10</value>
+                    <value>54</value>
+                    <value>50</value>
+                    <value>14</value>
+                    <value>14</value>
+                    <value>6</value>
+                    <value>20</value>
+
+                    <value>100000</value>
+                    <value>5408</value>
+                    <value>5000</value>
+
+                    <value>3231961</value>
+
+                    <value>9000</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_fn_revoke</name>
+                <list_parameter>
+                    <name>classify_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_classify</value>
+                </list_parameter>
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_function</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using function as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_fn_table</name>
+                <list_parameter>
+                    <name>training_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_training</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_fn_revoke</name>
+                <list_parameter>
+                    <name>classify_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_classify</value>
+                </list_parameter>
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_precompute_function_workaround</name>
+            <comments>
+                It is to verify precomputed class priors and feature probabilities using function as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_prepared_data_tables</name>
+                <list_parameter>
+                    <name>training_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_training</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_fn</name>
+                <list_parameter>
+                    <name>num_attrs</name>
+                    <value>9</value>
+                    <value>10</value>
+                    <value>54</value>
+                    <value>50</value>
+                    <value>14</value>
+                    <value>14</value>
+                    <value>6</value>
+                    <value>20</value>
+
+                    <value>100000</value>
+                    <value>5408</value>
+                    <value>5000</value>
+
+                    <value>3231961</value>
+
+                    <value>9000</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_fn_revoke_workaround</name>
+                <list_parameter>
+                    <name>classify_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_classify</value>
+                </list_parameter>
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>nb_adhoc_function_workaround</name>
+            <comments>
+                It is to verify ad hoc class priors and feature probabilities using function as storage
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>test_create_nb_classify_fn_table</name>
+                <list_parameter>
+                    <name>training_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_training</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>test_create_nb_classify_fn_revoke_workaround</name>
+                <list_parameter>
+                    <name>classify_source</name>
+                    <value>madlibtestdata.nb_recordlink</value>
+                    <value>madlibtestdata.nb_pokerhand</value>
+                    <value>madlibtestdata.nb_covtype</value>
+                    <value>madlibtestdata.nb_miniboo</value>
+                    <value>madlibtestdata.nb_adult_withmissing</value>
+                    <value>madlibtestdata.nb_adult_withoutmissing</value>
+                    <value>madlibtestdata.nb_chess</value>
+                    <value>madlibtestdata.nb_german</value>
+
+                    <value>madlibtestdata.nb_dorothea</value>
+                    <value>madlibtestdata.nb_p53</value>
+                    <value>madlibtestdata.nb_gisette</value>
+
+                    <value>madlibtestdata.nb_url</value>
+
+                    <value>madlibtestdata.nb_extra_values_classify</value>
+                </list_parameter>
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+    </multi_test_suites>
+</test_suites>
+

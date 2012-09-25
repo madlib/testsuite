@@ -1,0 +1,84 @@
+# TestSuite Name : svm_cls_linear_ds
+# It is to verify linear classification on different kinds of data sets
+# Start TestSuite ==========
+svm_cls_linear_ds_0_0
+svm_cls_linear_ds_0_1
+svm_cls_linear_ds_0_2
+svm_cls_linear_ds_0_3
+svm_cls_linear_ds_0_4
+svm_cls_linear_ds_0_5
+svm_cls_linear_ds_0_6
+svm_cls_linear_ds_0_7
+svm_cls_linear_ds_0_8
+svm_cls_linear_ds_0_9
+svm_cls_linear_ds_0_10
+svm_cls_linear_ds_0_11
+svm_cls_linear_ds_0_12
+svm_cls_linear_ds_0_13
+svm_cls_linear_ds_0_14
+svm_cls_linear_ds_0_15
+
+# TestSuite Name : svm_cls_dot_ds
+# It is to verify classification using svm_dot on different kinds of data sets
+# Start TestSuite ==========
+svm_cls_dot_ds_0_0
+svm_cls_dot_ds_0_1
+svm_cls_dot_ds_0_2
+svm_cls_dot_ds_0_3
+svm_cls_dot_ds_0_4
+svm_cls_dot_ds_0_5
+svm_cls_dot_ds_0_6
+svm_cls_dot_ds_0_7
+svm_cls_dot_ds_0_8
+svm_cls_dot_ds_0_9
+svm_cls_dot_ds_0_10
+svm_cls_dot_ds_0_11
+svm_cls_dot_ds_0_12
+svm_cls_dot_ds_0_13
+svm_cls_dot_ds_0_14
+svm_cls_dot_ds_0_15
+
+# TestSuite Name : svm_cls_polynomial_ds
+# It is to verify classification using svm_polynomial on different kinds of data sets
+# Start TestSuite ==========
+svm_cls_polynomial_ds_0_0
+svm_cls_polynomial_ds_0_1
+svm_cls_polynomial_ds_0_2
+svm_cls_polynomial_ds_0_3
+svm_cls_polynomial_ds_0_4
+svm_cls_polynomial_ds_0_5
+svm_cls_polynomial_ds_0_6
+svm_cls_polynomial_ds_0_7
+svm_cls_polynomial_ds_0_8
+svm_cls_polynomial_ds_0_9
+svm_cls_polynomial_ds_0_10
+svm_cls_polynomial_ds_0_11
+svm_cls_polynomial_ds_0_12
+svm_cls_polynomial_ds_0_13
+svm_cls_polynomial_ds_0_14
+svm_cls_polynomial_ds_0_15
+
+# TestSuite Name : svm_cls_gaussian_ds_para
+# It is to verify classification using svm_gaussian on different kinds of data sets
+# Start TestSuite ==========
+svm_cls_gaussian_ds_para_0_0
+svm_cls_gaussian_ds_para_0_1
+svm_cls_gaussian_ds_para_0_2
+svm_cls_gaussian_ds_para_0_3
+svm_cls_gaussian_ds_para_0_4
+svm_cls_gaussian_ds_para_0_5
+svm_cls_gaussian_ds_para_0_6
+svm_cls_gaussian_ds_para_0_7
+
+# TestSuite Name : svm_cls_gaussian_ds
+# It is to verify classification using svm_gaussian on different kinds of data sets
+# Start TestSuite ==========
+svm_cls_gaussian_ds_0_0
+svm_cls_gaussian_ds_0_1
+svm_cls_gaussian_ds_0_2
+svm_cls_gaussian_ds_0_3
+svm_cls_gaussian_ds_0_4
+svm_cls_gaussian_ds_0_5
+svm_cls_gaussian_ds_0_6
+svm_cls_gaussian_ds_0_7
+

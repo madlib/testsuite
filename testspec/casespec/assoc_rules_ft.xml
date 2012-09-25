@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>
+        <algorithm>assoc_rules</algorithm>
+        <methods>
+                <method>
+                    <name>assoc_rules</name>
+                    <parameter>
+                        <name>benchmark</name>
+                        <value>TemplateExecutor</value>
+                    </parameter>
+                </method>
+                <method>
+                    <name>assoc_rules_stat</name>
+                    <parameter>
+                        <name>benchmark</name>
+                        <value>TemplateExecutor</value>
+                    </parameter>
+                </method>
+                <method>
+                    <name>assoc_rules_result</name>
+                    <parameter>
+                        <name>benchmark</name>
+                        <value>TemplateExecutor</value>
+                    </parameter>
+                </method>
+        </methods>
+
+        <test_suite>
+            <name>ar_vdatasets</name>
+            <comments>
+                It is to test associate rules on different data sets with support = 0 and confidence = 0.5
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>assoc_rules</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>ar_adult</value>
+                    <value>ar_bms_pos</value>
+                    <value>ar_bms_webview_2</value>
+                    <value>ar_connect</value>
+                    <value>ar_kdd07_movie</value>
+                    <value>ar_mushroom</value>
+                    <value>ar_adult_minsupport</value>
+                 </list_parameter>
+            </method>
+            <method>
+                <name>assoc_rules_result</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>ar_adult</value>
+                    <value>ar_bms_pos</value>
+                    <value>ar_bms_webview_2</value>
+                    <value>ar_connect</value>
+                    <value>ar_kdd07_movie</value>
+                    <value>ar_mushroom</value>
+                    <value>ar_adult_minsupport</value>  
+                </list_parameter>
+            </method>
+            <method>
+                <name>assoc_rules_stat</name>
+                <tear_down>
+                   DROP TABLE IF EXISTS madlibtestresult.assoc_rules;
+                </tear_down>
+            </method>
+        </test_suite>
+
+	<test_suite>
+            <name>ar_cornercase</name>
+            <comments>
+                It is to test corner data sets with support = 1 and confidence = 0.5
+            </comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>assoc_rules</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>ar_empty</value>
+                    <value>ar_nointersetct</value>
+                    <value>ar_identical_tstwo</value>
+                    <value>ar_identical_tsthree</value>
+                    <value>ar_identical_tsten</value>
+                </list_parameter>
+                <parameters>
+                   <parameter>
+                       <name>i_support</name>
+                       <value>1</value>
+                   </parameter>
+                    <parameter>
+                        <name>i_confidence</name>
+                        <value>0.5</value>
+                    </parameter>
+                </parameters>
+            </method>
+            <method>
+                <name>assoc_rules_stat</name>
+                <tear_down>
+                   DROP TABLE IF EXISTS madlibtestresult.assoc_rules;
+                </tear_down>
+            </method> 
+        </test_suite>
+
+
+        <test_suite>
+            <name>ar_vsupport_bms_pos</name>
+            <comments>
+                It is to test associate rules on different support values from 0.007 to 0.009
+            </comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>assoc_rules</name>
+                <list_parameter>
+                        <name>i_support</name>
+                        <value>0.009</value>
+                        <value>0.008</value>
+                        <value>0.007</value>
+               </list_parameter>
+                <parameters>
+                     <parameter>
+                         <name>input_table</name>
+                         <value>madlibtestdata.ar_bms_pos</value>
+                      </parameter>
+                      <parameter>
+                             <name>i_confidence</name>
+                             <value>0.5</value>
+                    </parameter>
+                </parameters>
+            </method>
+            <method>
+                <name>assoc_rules_stat</name>
+                <tear_down>
+                   DROP TABLE IF EXISTS madlibtestresult.assoc_rules;
+                </tear_down>
+            </method>
+        </test_suite>
+        <test_suite>
+            <name>ar_vconf_dsize</name>
+            <comments>
+                It is to test associate rules on different confidence from 0.2 to 0.6
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>assoc_rules</name>
+                <list_parameter>
+                    <name>i_confidence</name>
+                    <value>0.2</value>
+                    <value>0.4</value>
+                    <value>0.6</value>
+                </list_parameter>
+                <parameters>
+                       <parameter>
+                           <name>input_table</name>
+                           <value>madlibtestdata.ar_bms_pos</value>
+                       </parameter>
+                       <parameter>
+                          <name>i_support</name>
+                          <value>0.01</value>
+                       </parameter>
+                </parameters>
+            </method>
+            <method>
+                <name>assoc_rules_stat</name>
+                <tear_down>
+                   DROP TABLE IF EXISTS madlibtestresult.assoc_rules;
+                </tear_down>
+            </method> 
+        </test_suite>
+        <test_suite>
+            <name>ar_negative_i_support</name>
+            <comments>
+                It is to test invalid parameter i_support for assoc_rules
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>assoc_rules</name>
+                <list_parameter>
+                    <name>i_support</name>
+                    <value>NULL</value>
+                    <value>-0.1</value>
+                    <value>1.1</value>
+                    <value>0</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>input_table</name>	
+                        <value>madlibtestdata.ar_example</value>
+                    </parameter>
+		</parameters>
+	    </method>
+	</test_suite>
+
+	<test_suite>
+            <name>ar_negative_i_confidence</name>
+            <comments>
+                It is to test invalid parameter i_confidence for assoc_rules
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>assoc_rules</name>
+                <list_parameter>
+                    <name>i_confidence</name>
+                    <value>NULL</value>
+                    <value>-0.1</value>
+                    <value>1.1</value>
+                    <value>0</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>input_table</name>
+                        <value>madlibtestdata.ar_example</value>
+                    </parameter>
+		</parameters>
+	    </method>
+	</test_suite>
+
+	<test_suite>
+            <name>ar_negative_id_col</name>
+            <comments>
+                It is to test invalid parameter id_col for assoc_rules
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>assoc_rules</name>
+                <list_parameter>
+                    <name>id_col</name>
+                    <value>NULL</value>
+                    <value>ar_not_exist_id</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>input_table</name>
+                        <value>madlibtestdata.ar_example</value>
+                    </parameter>
+		</parameters>
+	    </method>
+	</test_suite>
+
+
+	<test_suite>
+            <name>ar_negative_product_col</name>
+            <comments>
+                It is to test invalid parameter product_col for assoc_rules
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>assoc_rules</name>
+                <list_parameter>
+                    <name>product_col</name>
+                    <value>NULL</value>
+                    <value>ar_not_exist_project</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>input_table</name>
+                        <value>madlibtestdata.ar_example</value>
+                    </parameter>
+		</parameters>
+	    </method>
+	</test_suite>
+
+	<test_suite>
+            <name>ar_negative_input_table</name>
+            <comments>
+                It is to test invalid parameter input_table for assoc_rules
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>assoc_rules</name>
+                <list_parameter>
+                    <name>input_table</name>
+                    <value>NULL</value>
+                    <value>ar_not_exist_table</value>
+                </list_parameter>
+	    </method>
+	</test_suite>
+
+	<test_suite>
+            <name>ar_negative_output_schema</name>
+            <comments>
+                It is to test invalid parameter output_schema for assoc_rules
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>assoc_rules</name>
+                <list_parameter>
+                    <name>output_schema</name>
+                    <value>NULL</value>
+                    <value>ar_not_exist_schema</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>input_table</name>
+                        <value>madlibtestdata.ar_example</value>
+                    </parameter>
+		</parameters>
+	    </method>
+	</test_suite>
+    </multi_test_suites>
+</test_suites>

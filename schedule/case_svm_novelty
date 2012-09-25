@@ -1,0 +1,64 @@
+# TestSuite Name : svm_nd_dot_ds
+# It is to verify novelty using svm_dot on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_dot_ds_0_0
+svm_nd_dot_ds_0_1
+svm_nd_dot_ds_0_2
+svm_nd_dot_ds_0_3
+svm_nd_dot_ds_0_4
+svm_nd_dot_ds_0_5
+svm_nd_dot_ds_0_6
+svm_nd_dot_ds_0_7
+svm_nd_dot_ds_0_8
+svm_nd_dot_ds_0_9
+svm_nd_dot_ds_0_10
+svm_nd_dot_ds_0_11
+svm_nd_dot_ds_0_12
+svm_nd_dot_ds_0_13
+svm_nd_dot_ds_0_14
+svm_nd_dot_ds_0_15
+
+# TestSuite Name : svm_nd_polynomial_ds
+# It is to verify novelty using svm_polynomail on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_polynomial_ds_0_0
+svm_nd_polynomial_ds_0_1
+svm_nd_polynomial_ds_0_2
+svm_nd_polynomial_ds_0_3
+svm_nd_polynomial_ds_0_4
+svm_nd_polynomial_ds_0_5
+svm_nd_polynomial_ds_0_6
+svm_nd_polynomial_ds_0_7
+svm_nd_polynomial_ds_0_8
+svm_nd_polynomial_ds_0_9
+svm_nd_polynomial_ds_0_10
+svm_nd_polynomial_ds_0_11
+svm_nd_polynomial_ds_0_12
+svm_nd_polynomial_ds_0_13
+svm_nd_polynomial_ds_0_14
+svm_nd_polynomial_ds_0_15
+
+# TestSuite Name : svm_nd_gaussian_ds_para
+# It is to verify novelty using svm_gaussian on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_gaussian_ds_para_0_0
+svm_nd_gaussian_ds_para_0_1
+svm_nd_gaussian_ds_para_0_2
+svm_nd_gaussian_ds_para_0_3
+svm_nd_gaussian_ds_para_0_4
+svm_nd_gaussian_ds_para_0_5
+svm_nd_gaussian_ds_para_0_6
+svm_nd_gaussian_ds_para_0_7
+
+# TestSuite Name : svm_nd_gaussian_ds
+# It is to verify novelty using svm_gaussian on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_gaussian_ds_0_0
+svm_nd_gaussian_ds_0_1
+svm_nd_gaussian_ds_0_2
+svm_nd_gaussian_ds_0_3
+svm_nd_gaussian_ds_0_4
+svm_nd_gaussian_ds_0_5
+svm_nd_gaussian_ds_0_6
+svm_nd_gaussian_ds_0_7
+

@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>
+
+       <algorithm>plda</algorithm>
+          <methods>
+              <method>
+                  <name>plda_run</name>
+                  <parameter>
+                      <name>benchmark</name>
+                      <value>TemplateExecutor</value>
+                  </parameter>
+              </method>
+              <method>
+                  <name>plda_label_test_documents</name>
+                  <parameter>
+                      <name>benchmark</name>
+                      <value>TemplateExecutor</value>
+                  </parameter>
+              </method>
+              <method>
+                  <name>plda_stability</name>
+                  <parameter>
+                      <name>benchmark</name>
+                      <value>TemplateExecutor</value>
+                  </parameter>
+              </method>
+              <!--
+              <method>
+                  <name>plda_similarity</name>
+                  <parameter>
+                      <name>benchmark</name>
+                      <value>TemplateExecutor</value>
+                  </parameter>
+              </method>
+              -->
+          </methods>
+
+        <test_suite>
+            <name>plda_stability</name>
+            <comments>None</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>plda_stability</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>plda_stability_reuterstranscribedsubset</value>
+                    <value>plda_stability_20_newsgroups</value>
+                    <value>plda_stability_mini_20_newsgroups</value>
+                    <value>plda_stability_reuters21578</value>
+                    <value>plda_stability_mini_20_newsgroups_open</value>
+                    <value>plda_stability_reuterstranscribedsubset_open</value>
+                    <value>plda_stability_nsf_abs</value>
+                </list_parameter>
+            </method>
+        </test_suite>
+        <!--
+        <test_suite>
+            <name>plda_similarity</name>
+            <comments>None</comments>
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>plda_similarity</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>plda_similarity_reuterstranscribedsubset</value>
+                    <value>plda_similarity_20_newsgroups</value>
+                    <value>plda_similarity_mini_20_newsgroups</value>
+                    <value>plda_similarity_reuters21578</value>
+                    <value>plda_similarity_reuterstranscribedsubset</value>
+                    <value>plda_similarity_mini_20_newsgroups_open</value>
+                    <value>plda_similarity_reuterstranscribedsubset_open</value>
+                    <value>plda_similarity_nsf_abs</value>
+                </list_parameter>
+            </method>
+        </test_suite>
+        -->
+        <test_suite>
+            <name>plda_basic_functionality_closed_set_test</name>
+            <comments>It is to test basic functionality of plda with closed set test.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>plda_run</name>
+		<list_parameter>
+		    <name>dataset</name>
+		    <value>plda_run_20_newsgroups</value>
+		    <value>plda_run_mini_20_newsgroups</value>
+		    <value>plda_run_nsf_abs</value>
+		    <value>plda_run_reuters21578</value>
+		    <value>plda_run_reuterstranscribedsubset</value>
+		</list_parameter>
+            </method>
+            <method>
+                <name>plda_label_test_documents</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>plda_label_20_newsgroups</value>
+		    <value>plda_label_mini_20_newsgroups</value>
+		    <value>plda_label_nsf_abs</value>
+		    <value>plda_label_reuters21578</value>
+		    <value>plda_label_reuterstranscribedsubset</value>
+                </list_parameter>
+                <tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.plda_basic_functionality_data;DROP TABLE IF EXISTS madlibtestresult.plda_basic_functionality_model;DROP TABLE IF EXISTS madlibtestresult.plda_basic_functionality_result;
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>plda_basic_functionality_open_set_test</name>
+            <comments>It is to test basic functionality of plda with open set test.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>plda_run</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>plda_run_20_newsgroups</value>
+                    <value>plda_run_reuters21578</value>
+                </list_parameter>
+            </method>
+            <method>
+                <name>plda_label_test_documents</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>plda_label_mini_20_newsgroups_open</value>
+                    <value>plda_label_reuterstranscribedsubset_open</value>
+                </list_parameter>
+                <tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.plda_basic_functionality_data;DROP TABLE IF EXISTS madlibtestresult.plda_basic_functionality_model;DROP TABLE IF EXISTS madlibtestresult.plda_basic_func
+tionality_result;
+                </tear_down>
+            </method>
+        </test_suite>
+
+    </multi_test_suites>
+</test_suites>

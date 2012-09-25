@@ -1,0 +1,66 @@
+# TestSuite Name : nb_argmax
+# It is to verify argmax with different datasets
+# Start TestSuite ==========
+nb_argmax_0_1
+nb_argmax_0_3
+
+# TestSuite Name : nb_precompute_views
+# It is to verify precomputed class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_precompute_views_0_1
+nb_precompute_views_0_4
+nb_precompute_views_0_10
+nb_precompute_views_0_12
+
+# TestSuite Name : nb_adhoc_views_1
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_1_0_0
+
+# TestSuite Name : nb_adhoc_views_4
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_4_0_0
+
+# TestSuite Name : nb_adhoc_views_10
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_10_0_0
+
+# TestSuite Name : nb_adhoc_views_12
+# It is to verify ad hoc class priors and feature probabilities using views as storage
+# Start TestSuite ==========
+nb_adhoc_views_12_0_0
+
+# TestSuite Name : nb_precompute_function
+# It is to verify precomputed class priors and feature probabilities using function as storage
+# Start TestSuite ==========
+nb_precompute_function_0_1
+nb_precompute_function_0_4
+nb_precompute_function_0_10
+nb_precompute_function_0_12
+
+# TestSuite Name : nb_adhoc_function
+# It is to verify ad hoc class priors and feature probabilities using function as storage
+# Start TestSuite ==========
+nb_adhoc_function_0_1
+nb_adhoc_function_0_4
+nb_adhoc_function_0_10
+nb_adhoc_function_0_12
+
+# TestSuite Name : nb_precompute_function_workaround
+# It is to verify precomputed class priors and feature probabilities using function as storage
+# Start TestSuite ==========
+nb_precompute_function_workaround_0_1
+nb_precompute_function_workaround_0_4
+nb_precompute_function_workaround_0_10
+nb_precompute_function_workaround_0_12
+
+# TestSuite Name : nb_adhoc_function_workaround
+# It is to verify ad hoc class priors and feature probabilities using function as storage
+# Start TestSuite ==========
+nb_adhoc_function_workaround_0_1
+nb_adhoc_function_workaround_0_4
+nb_adhoc_function_workaround_0_10
+nb_adhoc_function_workaround_0_12
+
