@@ -1,5 +1,141 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <datasets>
+    <dataset>
+        <name>mlogr_dorothea</name>
+        <rows>800</rows>
+        <algorithm>
+            <method>
+                <name>mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.mlogr_dorothea</value></parameter>
+            </method>
+        </algorithm>
+        <algorithm>
+            <method>
+                <name>ctas_mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.mlogr_dorothea</value></parameter>
+		<parameter><name>table_name</name><value>madlibtestdata.mlogr_ctas_dorothea</value></parameter>
+            </method>
+        </algorithm>
+    </dataset>
+
+    <dataset>
+        <name>mlogr_recordlink</name>
+        <rows>547932</rows>
+        <algorithm>
+            <method>
+                <name>mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.mlogr_recordlink</value></parameter>
+            </method>
+        </algorithm>
+    </dataset>
+
+    <dataset>
+        <name>mlogr_p53</name>
+        <rows>16772</rows>
+        <algorithm>
+            <method>
+                <name>mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.mlogr_p53</value></parameter>
+            </method>
+        </algorithm>
+    </dataset>
+
+    <dataset>
+        <name>mlogr_url</name>
+        <rows>18182</rows>
+        <algorithm>
+            <method>
+                <name>mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.mlogr_url</value></parameter>
+            </method>
+        </algorithm>
+    </dataset>
+    
+    <dataset>
+        <name>mlogr_pems</name>
+        <rows>440</rows>
+        <algorithm>
+            <method>
+                <name>mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.mlogr_pems</value></parameter>
+                <parameter><name>number_of_categories</name><value>7</value></parameter>
+            </method>
+        </algorithm>
+        <algorithm>
+            <method>
+                <name>ctas_mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.mlogr_pems</value></parameter>
+		<parameter><name>table_name</name><value>madlibtestdata.mlogr_ctas_pems</value></parameter>
+                <parameter><name>number_of_categories</name><value>7</value></parameter>
+            </method>
+        </algorithm>
+    </dataset>
+
+    <dataset>
+        <name>mlogr_pokerhand</name>
+        <rows>25010</rows>
+        <algorithm>
+            <method>
+                <name>mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.mlogr_pokerhand</value></parameter>
+                <parameter><name>number_of_categories</name><value>10</value></parameter>
+            </method>
+        </algorithm>
+        <algorithm>
+            <method>
+                <name>ctas_mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.mlogr_pokerhand</value></parameter>
+		<parameter><name>table_name</name><value>madlibtestdata.mlogr_ctas_pokerhand</value></parameter>
+                <parameter><name>number_of_categories</name><value>10</value></parameter>
+            </method>
+        </algorithm>
+    </dataset>
+
+    <dataset>
+        <name>mlogr_isolet</name>
+        <rows>7797</rows>
+        <algorithm>
+            <method>
+                <name>mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.mlogr_isolet</value></parameter>
+                <parameter><name>number_of_categories</name><value>26</value></parameter>
+            </method>
+        </algorithm>
+    </dataset>
+
+    <dataset>
+        <name>mlogr_utf8_table</name>
+        <rows>6</rows>
+        <algorithm>
+            <method>
+                <name>mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.U&amp;"~!@#$%^*()_+-=:{[}]|,.?/Table"</value></parameter>
+            </method>
+        </algorithm>
+    </dataset>
+
+    <dataset>
+        <name>mlogr_utf8_schema</name>
+        <rows>6</rows>
+        <algorithm>
+            <method>
+                <name>mlogregr</name>
+                <parameter><name>source_table</name><value>U&amp;"~!@#$%^*()_+-=:{[}]|,.?/Schema".testtable</value></parameter>
+            </method>
+        </algorithm>
+    </dataset>
+
+    <dataset>
+        <name>mlogr_utf8_column</name>
+        <rows>6</rows>
+        <algorithm>
+            <method>
+                <name>mlogregr</name>
+                <parameter><name>source_table</name><value>madlibtestdata.testtable</value></parameter>
+                <parameter><name>dependent_varname</name><value>U&amp;"~!@#$%^*()_+-=:{[}]|,.?/Column"</value></parameter>
+            </method>
+        </algorithm>
+    </dataset>
 
 <dataset>
         <name>rf_golf_duplicate</name>
@@ -638,7 +774,7 @@
         <name>rf_train</name>
         <parameter>
           <name>training_table_name</name>
-          <value>madlibtestdata.rf_internet_ads</value>
+          <value>madlibtestdata.rf_internet_ad</value>
         </parameter>
         <parameter>
           <name>result_rf_table_name</name>
@@ -659,7 +795,7 @@
         <name>rf_train</name>
         <parameter>
           <name>training_table_name</name>
-          <value>madlibtestdata.rf_internet_ads</value>
+          <value>madlibtestdata.rf_internet_ad</value>
         </parameter>
         <parameter>
           <name>result_rf_table_name</name>
@@ -674,7 +810,7 @@
         <name>rf_score</name>
         <parameter>
           <name>scoring_table_name</name>
-          <value>madlibtestdata.rf_internet_ads</value>
+          <value>madlibtestdata.rf_internet_ad</value>
         </parameter>
         <parameter>
           <name>rf_table_name</name>
@@ -685,7 +821,7 @@
         <name>rf_classify</name>
         <parameter>
           <name>classification_table_name</name>
-          <value>madlibtestdata.rf_internet_ads</value>
+          <value>madlibtestdata.rf_internet_ad</value>
         </parameter>
         <parameter>
           <name>rf_table_name</name>
@@ -8225,4 +8361,2227 @@
            </method>    
          </algorithm>
 	</dataset>
+<dataset>
+    <name>ar_adult</name>
+    <rows>1257093</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_adult</value>
+        </parameter>
+        <parameter>
+          <name>i_support</name>
+          <value>0.25</value>
+        </parameter>
+        <parameter>
+          <name>i_confidence</name>
+          <value>0.5</value>
+        </parameter>
+      </method>
+      <method>
+        <name>assoc_rules_result</name>
+        <parameter>
+          <name>ar_result_table</name>
+          <value>madlibtestresult.ar_adult_result</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_adult_minsupport</name>
+    <rows>1257093</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_adult</value>
+        </parameter>
+        <parameter>
+          <name>i_support</name>
+          <value>0.01</value>
+        </parameter>
+        <parameter>
+          <name>i_confidence</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+      <method>
+        <name>assoc_rules_result</name>
+        <parameter>
+          <name>ar_result_table</name>
+          <value>madlibtestresult.ar_adult_minsupport_result</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+<dataset>
+    <name>ar_bms_pos</name>
+    <rows>3367020</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_bms_pos</value>
+        </parameter>
+        <parameter>
+          <name>i_support</name>
+          <value>0.01</value>
+        </parameter>
+        <parameter>
+          <name>i_confidence</name>
+          <value>0.5</value>
+        </parameter>
+      </method>
+      <method>
+        <name>assoc_rules_result</name>
+        <parameter>
+          <name>ar_result_table</name>
+          <value>madlibtestresult.ar_bms_pos_result</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_bms_webview_2</name>
+    <rows>358278</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_bms_webview_2</value>
+        </parameter>
+        <parameter>
+          <name>i_support</name>
+          <value>0.008</value>
+        </parameter>
+        <parameter>
+          <name>i_confidence</name>
+          <value>0.5</value>
+        </parameter>
+      </method>
+      <method>
+        <name>assoc_rules_result</name>
+        <parameter>
+          <name>ar_result_table</name>
+          <value>madlibtestresult.ar_bms_webview_2_result</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_connect</name>
+    <rows>2904951</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_connect</value>
+        </parameter>
+        <parameter>
+          <name>i_support</name>
+          <value>0.5</value>
+        </parameter>
+        <parameter>
+          <name>i_confidence</name>
+          <value>0.9</value>
+        </parameter>
+      </method>
+      <method>
+        <name>assoc_rules_result</name>
+        <parameter>
+          <name>ar_result_table</name>
+          <value>madlibtestresult.ar_connect_result</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_entree_chicago_recomm</name>
+    <rows>233379</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_entree_chicago_recomm</value>
+        </parameter>
+        <parameter>
+          <name>i_support</name>
+          <value>0.008</value>
+        </parameter>
+        <parameter>
+          <name>i_confidence</name>
+          <value>0.5</value>
+        </parameter>
+      </method>
+      <method>
+        <name>assoc_rules_result</name>
+        <parameter>
+          <name>ar_result_table</name>
+          <value>madlibtestresult.ar_entree_chicago_recomm_result</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_kdd07_movie</name>
+    <rows>100000</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_kdd07_movie</value>
+        </parameter>
+        <parameter>
+          <name>i_support</name>
+          <value>0.002</value>
+        </parameter>
+        <parameter>
+          <name>i_confidence</name>
+          <value>0.5</value>
+        </parameter>
+      </method>
+      <method>
+        <name>assoc_rules_result</name>
+        <parameter>
+          <name>ar_result_table</name>
+          <value>madlibtestresult.ar_kdd07_movie_result</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_mushroom</name>
+    <rows>186852</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_mushroom</value>
+        </parameter>
+        <parameter>
+          <name>i_support</name>
+          <value>0.3</value>
+        </parameter>
+        <parameter>
+          <name>i_confidence</name>
+          <value>0.8</value>
+        </parameter>
+      </method>
+      <method>
+        <name>assoc_rules_result</name>
+        <parameter>
+          <name>ar_result_table</name>
+          <value>madlibtestresult.ar_mushroom_result</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_adult_vconf</name>
+    <rows>1257093</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_adult</value>
+        </parameter>
+        <parameter>
+          <name>i_support</name>
+          <value>0.2</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_bms_pos_vconf</name>
+    <rows>3367020</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_bms_pos</value>
+        </parameter>
+        <parameter>
+          <name>i_support</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_empty</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_empty</value>
+        </parameter>
+        <parameter>
+          <name>id_col</name>
+          <value>trans_id</value>
+        </parameter>
+        <parameter>
+          <name>product_col</name>
+          <value>product</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_identical_tsten</name>
+    <rows>100000</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_identical_tsten</value>
+        </parameter>
+        <parameter>
+          <name>id_col</name>
+          <value>transaction</value>
+        </parameter>
+        <parameter>
+          <name>product_col</name>
+          <value>productname</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_identical_tstwo</name>
+    <rows>20000</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_identical_tstwo</value>
+        </parameter>
+        <parameter>
+          <name>id_col</name>
+          <value>transaction</value>
+        </parameter>
+        <parameter>
+          <name>product_col</name>
+          <value>item</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_identical_tsthree</name>
+    <rows>30000</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_identical_tsthree</value>
+        </parameter>
+        <parameter>
+          <name>id_col</name>
+          <value>id</value>
+        </parameter>
+        <parameter>
+          <name>product_col</name>
+          <value>product</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>ar_nointersetct</name>
+    <rows>10000</rows>
+    <algorithm>
+      <method>
+        <name>assoc_rules</name>
+        <parameter>
+          <name>input_table</name>
+          <value>madlibtestdata.ar_nointersetct</value>
+        </parameter>
+        <parameter>
+          <name>id_col</name>
+          <value>trans_id</value>
+        </parameter>
+        <parameter>
+          <name>product_col</name>
+          <value>product</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+<dataset>
+    <name>plda_run_20_newsgroups</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_run</name>
+        <parameter>
+          <name>datatable</name>
+          <value>madlibtestdata.plda_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>dicttable</name>
+          <value>madlibtestdata.plda_20_newsgroups_dict</value>
+        </parameter>
+        <parameter>
+          <name>modeltable</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>outputdatatable</name>
+          <value>madlibtestresult.plda_basic_functionality_data</value>
+        </parameter>
+        <parameter>
+          <name>numiter</name>
+          <value>30</value>
+        </parameter>
+        <parameter>
+          <name>numtopics</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>2.50</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_label_20_newsgroups</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_label_test_documents</name>
+        <parameter>
+          <name>test_table</name>
+          <value>madlibtestdata.plda_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>output_table</name>
+          <value>madlibtestresult.plda_basic_functionality_result</value>
+        </parameter>
+        <parameter>
+          <name>model_table</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_20_newsgroups_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>2.50</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_run_mini_20_newsgroups</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_run</name>
+        <parameter>
+          <name>datatable</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>dicttable</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups_dict</value>
+        </parameter>
+        <parameter>
+          <name>modeltable</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>outputdatatable</name>
+          <value>madlibtestresult.plda_basic_functionality_data</value>
+        </parameter>
+        <parameter>
+          <name>numiter</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>numtopics</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>2.50</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_label_mini_20_newsgroups</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_label_test_documents</name>
+        <parameter>
+          <name>test_table</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>output_table</name>
+          <value>madlibtestresult.plda_basic_functionality_result</value>
+        </parameter>
+        <parameter>
+          <name>model_table</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>2.50</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_run_nsf_abs</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_run</name>
+        <parameter>
+          <name>datatable</name>
+          <value>madlibtestdata.plda_nsf_abs</value>
+        </parameter>
+        <parameter>
+          <name>dicttable</name>
+          <value>madlibtestdata.plda_nsf_abs_dict</value>
+        </parameter>
+        <parameter>
+          <name>modeltable</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>outputdatatable</name>
+          <value>madlibtestresult.plda_basic_functionality_data</value>
+        </parameter>
+        <parameter>
+          <name>numiter</name>
+          <value>100</value>
+        </parameter>
+        <parameter>
+          <name>numtopics</name>
+          <value>50</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>1.00</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_label_nsf_abs</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_label_test_documents</name>
+        <parameter>
+          <name>test_table</name>
+          <value>madlibtestdata.plda_nsf_abs</value>
+        </parameter>
+        <parameter>
+          <name>output_table</name>
+          <value>madlibtestresult.plda_basic_functionality_result</value>
+        </parameter>
+        <parameter>
+          <name>model_table</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_nsf_abs_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>50</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>1.00</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_run_reuters21578</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_run</name>
+        <parameter>
+          <name>datatable</name>
+          <value>madlibtestdata.plda_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>dicttable</name>
+          <value>madlibtestdata.plda_reuters21578_dict</value>
+        </parameter>
+        <parameter>
+          <name>modeltable</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>outputdatatable</name>
+          <value>madlibtestresult.plda_basic_functionality_data</value>
+        </parameter>
+        <parameter>
+          <name>numiter</name>
+          <value>25</value>
+        </parameter>
+        <parameter>
+          <name>numtopics</name>
+          <value>100</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>0.5</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_label_reuters21578</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_label_test_documents</name>
+        <parameter>
+          <name>test_table</name>
+          <value>madlibtestdata.plda_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>output_table</name>
+          <value>madlibtestresult.plda_basic_functionality_result</value>
+        </parameter>
+        <parameter>
+          <name>model_table</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_reuters21578_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>100</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>0.5</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_run_reuterstranscribedsubset</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_run</name>
+        <parameter>
+          <name>datatable</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset</value>
+        </parameter>
+        <parameter>
+          <name>dicttable</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset_dict</value>
+        </parameter>
+        <parameter>
+          <name>modeltable</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>outputdatatable</name>
+          <value>madlibtestresult.plda_basic_functionality_data</value>
+        </parameter>
+        <parameter>
+          <name>numiter</name>
+          <value>15</value>
+        </parameter>
+        <parameter>
+          <name>numtopics</name>
+          <value>10</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>5</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_label_reuterstranscribedsubset</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_label_test_documents</name>
+        <parameter>
+          <name>test_table</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset</value>
+        </parameter>
+        <parameter>
+          <name>output_table</name>
+          <value>madlibtestresult.plda_basic_functionality_result</value>
+        </parameter>
+        <parameter>
+          <name>model_table</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>10</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>5</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_label_mini_20_newsgroups_open</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_label_test_documents</name>
+        <parameter>
+          <name>test_table</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>output_table</name>
+          <value>madlibtestresult.plda_basic_functionality_result</value>
+        </parameter>
+        <parameter>
+          <name>model_table</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_20_newsgroups_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>2.5</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_label_reuterstranscribedsubset_open</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_label_test_documents</name>
+        <parameter>
+          <name>test_table</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset</value>
+        </parameter>
+        <parameter>
+          <name>output_table</name>
+          <value>madlibtestresult.plda_basic_functionality_result</value>
+        </parameter>
+        <parameter>
+          <name>model_table</name>
+          <value>madlibtestresult.plda_basic_functionality_model</value>
+        </parameter>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_reuters21578_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>100</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>0.5</value>
+        </parameter>
+        <parameter>
+          <name>eta</name>
+          <value>0.01</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_stability_20_newsgroups</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_stability</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_20_newsgroups_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>2.5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>30</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_20_newsgroups</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_stability_mini_20_newsgroups</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_stability</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>2.5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_stability_reuters21578</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_stability</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_reuters21578_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>100</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>0.5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>25</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_reuters21578</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_stability_nsf_abs</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_stability</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_nsf_abs_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>50</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>1</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_nsf_abs</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_nsf_abs</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_stability_reuterstranscribedsubset</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_stability</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>10</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>15</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_stability_mini_20_newsgroups_open</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_stability</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_20_newsgroups_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>2.5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>30</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_stability_reuterstranscribedsubset_open</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_stability</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_reuters21578_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>100</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>0.5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>25</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+<!--
+  <dataset>
+    <name>plda_similarity_20_newsgroups</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_similarity</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_20_newsgroups_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>2.5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>30</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>glda_w_t_dist_table_name</name>
+          <value>glda_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>glda_d_t_dist_table_name</name>
+          <value>glda_20_newsgroups_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>gplda_w_t_dist_table_name</name>
+          <value>gplda_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>gplda_d_t_dist_table_name</name>
+          <value>gplda_20_newsgroups_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>rlda_d_t_dist_table_name</name>
+          <value>rlda_20_newsgroups_20_newsgroups</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_similarity_mini_20_newsgroups</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_similarity</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>2.5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>30</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>glda_w_t_dist_table_name</name>
+          <value>glda_mini_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>glda_d_t_dist_table_name</name>
+          <value>glda_mini_20_newsgroups_mini_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>gplda_w_t_dist_table_name</name>
+          <value>gplda_mini_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>gplda_d_t_dist_table_name</name>
+          <value>gplda_mini_20_newsgroups_mini_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>rlda_d_t_dist_table_name</name>
+          <value>rlda_mini_20_newsgroups_mini_20_newsgroups</value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_similarity_reuters21578</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_similarity</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_reuters21578_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>100</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>0.5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>25</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>glda_w_t_dist_table_name</name>
+          <value>glda_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>glda_d_t_dist_table_name</name>
+          <value>glda_reuters21578_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>gplda_w_t_dist_table_name</name>
+          <value>gplda_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>gplda_d_t_dist_table_name</name>
+          <value>gplda_reuters21578_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>rlda_d_t_dist_table_name</name>
+          <value>rlda_reuters21578_reuters21578 </value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_similarity_reuterstranscribedsubset</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_similarity</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>10</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>15</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset</value>
+        </parameter>
+        <parameter>
+          <name>glda_w_t_dist_table_name</name>
+          <value>glda_reuterstranscribedsubset</value>
+        </parameter>
+        <parameter>
+          <name>glda_d_t_dist_table_name</name>
+          <value>glda_reuterstranscribedsubset_reuterstranscribedsubset</value>
+        </parameter>
+        <parameter>
+          <name>gplda_w_t_dist_table_name</name>
+          <value>gplda_reuterstranscribedsubset</value>
+        </parameter>
+        <parameter>
+          <name>gplda_d_t_dist_table_name</name>
+          <value>gplda_reuterstranscribedsubset_reuterstranscribedsubset</value>
+        </parameter>
+        <parameter>
+          <name>rlda_d_t_dist_table_name</name>
+          <value>rlda_reuterstranscribedsubset_reuterstranscribedsubset </value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_similarity_nsf_abs</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_similarity</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_nsf_abs_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>50</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>1</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_nsf_abs</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_nsf_abs</value>
+        </parameter>
+        <parameter>
+          <name>glda_w_t_dist_table_name</name>
+          <value>glda_nsf_abs</value>
+        </parameter>
+        <parameter>
+          <name>glda_d_t_dist_table_name</name>
+          <value>glda_nsf_abs_nsf_abs</value>
+        </parameter>
+        <parameter>
+          <name>gplda_w_t_dist_table_name</name>
+          <value>gplda_nsf_abs</value>
+        </parameter>
+        <parameter>
+          <name>gplda_d_t_dist_table_name</name>
+          <value>gplda_nsf_abs_nsf_abs</value>
+        </parameter>
+        <parameter>
+          <name>rlda_d_t_dist_table_name</name>
+          <value>rlda_nsf_abs_nsf_abs </value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_similarity_mini_20_newsgroups_open</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_similarity</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_20_newsgroups_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>20</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>2.5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>30</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_mini_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>glda_w_t_dist_table_name</name>
+          <value>glda_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>glda_d_t_dist_table_name</name>
+          <value>glda_mini_20_newsgroups_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>gplda_w_t_dist_table_name</name>
+          <value>gplda_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>gplda_d_t_dist_table_name</name>
+          <value>gplda_mini_20_newsgroups_20_newsgroups</value>
+        </parameter>
+        <parameter>
+          <name>rlda_d_t_dist_table_name</name>
+          <value>rlda_mini_20_newsgroups_20_newsgroups </value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+  <dataset>
+    <name>plda_similarity_reuterstranscribedsubset_open</name>
+    <rows>0</rows>
+    <algorithm>
+      <method>
+        <name>plda_similarity</name>
+        <parameter>
+          <name>dict_table</name>
+          <value>madlibtestdata.plda_reuters21578_dict</value>
+        </parameter>
+        <parameter>
+          <name>num_topics</name>
+          <value>100</value>
+        </parameter>
+        <parameter>
+          <name>alpha</name>
+          <value>0.5</value>
+        </parameter>
+        <parameter>
+          <name>train_corpus_table</name>
+          <value>madlibtestdata.plda_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>train_num_iter</name>
+          <value>25</value>
+        </parameter>
+        <parameter>
+          <name>test_corpus_table</name>
+          <value>madlibtestdata.plda_reuterstranscribedsubset</value>
+        </parameter>
+        <parameter>
+          <name>glda_w_t_dist_table_name</name>
+          <value>glda_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>glda_d_t_dist_table_name</name>
+          <value>glda_reuterstranscribedsubset_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>gplda_w_t_dist_table_name</name>
+          <value>gplda_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>gplda_d_t_dist_table_name</name>
+          <value>gplda_reuterstranscribedsubset_reuters21578</value>
+        </parameter>
+        <parameter>
+          <name>rlda_d_t_dist_table_name</name>
+          <value>rlda_reuterstranscribedsubset_reuters21578 </value>
+        </parameter>
+      </method>
+    </algorithm>
+  </dataset>
+-->
+
+<dataset>
+<name>svm_a9a</name>
+<rows>48842</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_a9a</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_a9a</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_a9a</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_a9a</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_a9a</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_a9a</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_recordlink</name>
+<rows>5749132</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_recordlink</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_recordlink</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_recordlink</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_recordlink</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_recordlink</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_recordlink</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_abalone</name>
+<rows>4170</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_abalone</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_abalone</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_abalone</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_abalone</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_abalone</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_abalone</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_bodyfat</name>
+<rows>250</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_bodyfat</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_bodyfat</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_bodyfat</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_bodyfat</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_bodyfat</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_bodyfat</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_cadata</name>
+<rows>20640</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_cadata</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_cadata</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_cadata</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_cadata</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_cadata</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_cadata</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_cpusmall</name>
+<rows>8190</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_cpusmall</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_cpusmall</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_cpusmall</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_cpusmall</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_cpusmall</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_cpusmall</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_etfidf</name>
+<rows>19390</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_etfidf</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_etfidf</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_etfidf</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_etfidf</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_etfidf</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_etfidf</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_eunite</name>
+<rows>360</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_eunite</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_eunite</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_eunite</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_eunite</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_eunite</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_housing</name>
+<rows>500</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_housing</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_housing</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_housing</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_housing</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_housing</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_housing</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_mg</name>
+<rows>1380</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_mg</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_mg</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_mg</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_mg</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_mg</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_mg</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_mpg</name>
+<rows>390</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_mpg</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_mpg</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_mpg</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_mpg</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_mpg</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_mpg</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_pyrim</name>
+<rows>70</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_pyrim</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_pyrim</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_pyrim</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_pyrim</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_pyrim</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_pyrim</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_space</name>
+<rows>3100</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_space</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_space</value>
+</parameter>
+</method>
+<method>
+<name>svm_classification</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_space</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_space</value>
+</parameter>
+</method>
+<method>
+<name>svm_novelty_detection</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_space</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_space</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_triazines</name>
+<rows>180</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_triazines</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_triazines</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+<name>svm_yp</name>
+<rows>515340</rows>
+<algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_yp</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_yp</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+<dataset>
+        <name>svm_url</name>
+        <rows>48842</rows>
+        <algorithm>
+                <method>
+                        <name>svm_classification</name>
+                        <parameter>
+                                <name>input_table</name>
+                                <value>madlibtestdata.svm_url</value>
+                        </parameter>
+                        <parameter>
+                                <name>kernel_func</name>
+                                <value>madlibtestdata.svm_gaussian_url</value>
+                        </parameter>
+                </method>
+                <method>
+                        <name>svm_novelty_detection</name>
+                        <parameter>
+                                <name>input_table</name>
+                                <value>madlibtestdata.svm_url_in</value>
+                        </parameter>
+                        <parameter>
+                                <name>kernel_func</name>
+                                <value>madlibtestdata.svm_gaussian_url_in</value>
+                        </parameter>
+                </method>
+        </algorithm>
+</dataset>
+<dataset>
+	<name>svm_a9a</name>
+	<rows>48842</rows>
+	<algorithm>
+		<method>
+			<name>svm_classification</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_a9a</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_a9a</value>
+			</parameter>
+		</method>
+		<method>
+			<name>svm_novelty_detection</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_a9a_in</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_a9a_in</value>
+			</parameter>
+		</method>
+	</algorithm>
+</dataset>
+<dataset>
+	<name>svm_rcv1_binary</name>
+	<rows>697641</rows>
+	<algorithm>
+		<method>
+			<name>svm_classification</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_rcv1_binary</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_rcv1_binary</value>
+			</parameter>
+		</method>
+		<method>
+			<name>svm_novelty_detection</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_rcv1_binary_in</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_rcv1_binary_in</value>
+			</parameter>
+		</method>
+	</algorithm>
+</dataset>
+<dataset>
+	<name>svm_epsilon</name>
+	<rows>500000</rows>
+	<algorithm>
+		<method>
+			<name>svm_classification</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_epsilon</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_epsilon</value>
+			</parameter>
+		</method>
+		<method>
+			<name>svm_novelty_detection</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_epsilon_in</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_epsilon_in</value>
+			</parameter>
+		</method>
+	</algorithm>
+</dataset>
+<dataset>
+	<name>svm_recordlink</name>
+	<rows>5749132</rows>
+	<algorithm>
+		<method>
+			<name>svm_regression</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_recordlink</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_recorklink</value>
+			</parameter>
+		</method>
+		<method>
+			<name>svm_classification</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_recordlink</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_recorklink</value>
+			</parameter>
+		</method>
+		<method>
+			<name>svm_novelty_detection</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_recordlink_in</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_recorklink_in</value>
+			</parameter>
+		</method>
+	</algorithm>
+</dataset>
+<dataset>
+	<name>svm_realsim</name>
+	<rows>72201</rows>
+	<algorithm>
+		<method>
+			<name>svm_classification</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_realsim</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_realsim</value>
+			</parameter>
+		</method>
+		<method>
+			<name>svm_novelty_detection</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_realsim_in</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_realsim_in</value>
+			</parameter>
+		</method>
+	</algorithm>
+</dataset>
+<dataset>
+	<name>svm_ijcnn</name>
+	<rows>141691</rows>
+	<algorithm>
+		<method>
+			<name>svm_classification</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_ijcnn</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_ijcnn</value>
+			</parameter>
+		</method>
+		<method>
+			<name>svm_novelty_detection</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_ijcnn_in</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_ijcnn_in</value>
+			</parameter>
+		</method>
+	</algorithm>
+</dataset>
+<dataset>
+    <name>svm_elog</name>
+    <rows>19200</rows>
+      <algorithm>
+<method>
+<name>svm_regression</name>
+<parameter>
+<name>input_table</name>
+<value>madlibtestdata.svm_elog</value>
+</parameter>
+<parameter>
+<name>kernel_func</name>
+<value>madlibtestdata.svm_gaussian_elog</value>
+</parameter>
+</method>
+</algorithm>
+</dataset>
+
+<dataset>
+	<name>svm_splice</name>
+	<rows>3175</rows>
+	<algorithm>
+		<method>
+			<name>svm_classification</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_splice</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_splice</value>
+			</parameter>
+		</method>
+		<method>
+			<name>svm_novelty_detection</name>
+			<parameter>
+				<name>input_table</name>
+				<value>madlibtestdata.svm_splice_in</value>
+			</parameter>
+			<parameter>
+				<name>kernel_func</name>
+				<value>madlibtestdata.svm_gaussian_splice_in</value>
+			</parameter>
+		</method>
+	</algorithm>
+</dataset>
+
 </datasets>

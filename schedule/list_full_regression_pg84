@@ -1,3 +1,13 @@
+case_multinomial_logistic_regression_pg_full
+
+case_svm_pgfull
+
+case_naive_bayes_pgbasic
+
+case_plda_feature_pgbasic
+case_plda_corner_negative_pgbasic
+
+case_assoc_rules_ft
 case_linear
 case_logistic_full_pg
 case_kmeans_full_pg

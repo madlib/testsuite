@@ -3,12 +3,13 @@ DataModeling :
         DecisionTree : 
         LinearRegression : 
         LogisticRegression : 
-        NaiveBayesClassification : false
+        MultinomialLogisticRegression :
+        NaiveBayesClassification : 
         RandomForest : 
-        SupportVectorMachines : false
+        SupportVectorMachines : 
     UnsupervisedLearning :
         kMeansClustering : 
-        AssociationRules : false
-        ParallelLatentDirichletAllocation : false
+        AssociationRules : 
+        ParallelLatentDirichletAllocation : 
 InferentialStatistics :
     HypothesisTests : 

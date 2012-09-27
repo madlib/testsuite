@@ -9,10 +9,6 @@ kmeans_cset_baseline_0_4
 kmeans_cset_baseline_0_5
 kmeans_cset_baseline_0_6
 kmeans_cset_baseline_0_7
-kmeans_cset_baseline_0_8
-kmeans_cset_baseline_0_9
-kmeans_cset_baseline_0_10
-kmeans_cset_baseline_0_11
 kmeans_cset_baseline_0_12
 kmeans_cset_baseline_0_13
 kmeans_cset_baseline_0_14
@@ -37,10 +33,6 @@ kmeans_plusplus_baseline_0_4
 kmeans_plusplus_baseline_0_5
 kmeans_plusplus_baseline_0_6
 kmeans_plusplus_baseline_0_7
-kmeans_plusplus_baseline_0_8
-kmeans_plusplus_baseline_0_9
-kmeans_plusplus_baseline_0_10
-kmeans_plusplus_baseline_0_11
 kmeans_plusplus_baseline_0_12
 kmeans_plusplus_baseline_0_13
 kmeans_plusplus_baseline_0_14
@@ -65,10 +57,6 @@ kmeans_random_baseline_0_4
 kmeans_random_baseline_0_5
 kmeans_random_baseline_0_6
 kmeans_random_baseline_0_7
-kmeans_random_baseline_0_8
-kmeans_random_baseline_0_9
-kmeans_random_baseline_0_10
-kmeans_random_baseline_0_11
 kmeans_random_baseline_0_12
 kmeans_random_baseline_0_13
 kmeans_random_baseline_0_14
@@ -89,7 +77,6 @@ kmeans_random_baseline_0_23
 # Start TestSuit ==========
 kmeans_cset_gof_disabled_0_0
 kmeans_cset_gof_disabled_0_1
-kmeans_cset_gof_disabled_0_2
 kmeans_cset_gof_disabled_0_3
 kmeans_cset_gof_disabled_0_4
 kmeans_cset_gof_disabled_0_5
@@ -99,7 +86,6 @@ kmeans_cset_gof_disabled_0_5
 # Start TestSuit ==========
 kmeans_plusplus_gof_disabled_0_0
 kmeans_plusplus_gof_disabled_0_1
-kmeans_plusplus_gof_disabled_0_2
 kmeans_plusplus_gof_disabled_0_3
 kmeans_plusplus_gof_disabled_0_4
 kmeans_plusplus_gof_disabled_0_5
@@ -109,7 +95,6 @@ kmeans_plusplus_gof_disabled_0_5
 # Start TestSuit ==========
 kmeans_random_gof_disabled_0_0
 kmeans_random_gof_disabled_0_1
-kmeans_random_gof_disabled_0_2
 kmeans_random_gof_disabled_0_3
 kmeans_random_gof_disabled_0_4
 kmeans_random_gof_disabled_0_5
@@ -128,10 +113,7 @@ kmeans_cset_maximum_iteration_0_4
 kmeans_cset_maximum_iteration_0_5
 kmeans_cset_maximum_iteration_0_6
 kmeans_cset_maximum_iteration_0_7
-kmeans_cset_maximum_iteration_0_8
-kmeans_cset_maximum_iteration_0_9
 kmeans_cset_maximum_iteration_0_10
-kmeans_cset_maximum_iteration_0_11
 kmeans_cset_maximum_iteration_0_12
 kmeans_cset_maximum_iteration_0_13
 kmeans_cset_maximum_iteration_0_14
@@ -156,10 +138,7 @@ kmeans_plusplus_maximum_iteration_0_4
 kmeans_plusplus_maximum_iteration_0_5
 kmeans_plusplus_maximum_iteration_0_6
 kmeans_plusplus_maximum_iteration_0_7
-kmeans_plusplus_maximum_iteration_0_8
-kmeans_plusplus_maximum_iteration_0_9
 kmeans_plusplus_maximum_iteration_0_10
-kmeans_plusplus_maximum_iteration_0_11
 kmeans_plusplus_maximum_iteration_0_12
 kmeans_plusplus_maximum_iteration_0_13
 kmeans_plusplus_maximum_iteration_0_14
@@ -184,10 +163,7 @@ kmeans_random_maximum_iteration_0_4
 kmeans_random_maximum_iteration_0_5
 kmeans_random_maximum_iteration_0_6
 kmeans_random_maximum_iteration_0_7
-kmeans_random_maximum_iteration_0_8
-kmeans_random_maximum_iteration_0_9
 kmeans_random_maximum_iteration_0_10
-kmeans_random_maximum_iteration_0_11
 kmeans_random_maximum_iteration_0_12
 kmeans_random_maximum_iteration_0_13
 kmeans_random_maximum_iteration_0_14

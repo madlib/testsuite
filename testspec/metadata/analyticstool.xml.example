@@ -64,7 +64,6 @@
             <segmentnum>$GP_SEG_NUM_42</segmentnum>
             <master_dir>$GP_MASTER_DATA_DIRECTORY_42</master_dir>
             <env>$GPHOME_42/greenplum_path.sh</env>
-            <sql_source>$MADMARK_HOME_42/dataset/madlibtestdata_GP.sql.gz</sql_source>
         </analytics_tool>
 
         <analytics_tool>
@@ -80,7 +79,6 @@
             <segmentnum>$GP_SEG_NUM_41</segmentnum>
             <master_dir>$GP_MASTER_DATA_DIRECTORY_41</master_dir>
             <env>$GPHOME_41/greenplum_path.sh</env>
-            <sql_source>$MADMARK_HOME_41/dataset/madlibtestdata_GP.sql.gz</sql_source>
         </analytics_tool>	
 
 </analytics_tools>

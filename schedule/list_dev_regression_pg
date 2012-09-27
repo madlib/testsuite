@@ -1,3 +1,12 @@
+case_multinomial_logistic_regression_pg_basic
+
+case_svm_pgbasic
+case_naive_bayes_pgbasic
+
+case_plda_feature_pgbasic
+case_plda_corner_negative_pgbasic
+
+case_assoc_rules_basic_pg
 case_ht_feature
 case_ht_corner
 case_ht_negative

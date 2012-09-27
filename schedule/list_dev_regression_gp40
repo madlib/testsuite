@@ -1,6 +1,15 @@
+case_multinomial_logistic_regression_gp_basic
+
+case_svm_basic
+
+case_naive_bayes
+
+case_plda_feature
+case_plda_corner_negative
+
 case_linear
 case_logistic
-case_kmeans
+case_kmeans_basic
 
 case_bernoulli_cdf
 case_bernoulli_pmf

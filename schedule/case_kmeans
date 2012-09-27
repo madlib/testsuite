@@ -1,6 +1,6 @@
-# TestSuit Name : kmeans_cset_baseline
+# TestSuite Name : kmeans_cset_baseline
 # It is to get baseline of kmeans using predefined centroids against R.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_baseline_0_0
 kmeans_cset_baseline_0_1
 kmeans_cset_baseline_0_2
@@ -26,9 +26,9 @@ kmeans_cset_baseline_0_21
 kmeans_cset_baseline_0_22
 kmeans_cset_baseline_0_23
 
-# TestSuit Name : kmeans_plusplus_baseline
+# TestSuite Name : kmeans_plusplus_baseline
 # It is to get baseline of kmeans using plus plus against R.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_baseline_0_0
 kmeans_plusplus_baseline_0_1
 kmeans_plusplus_baseline_0_2
@@ -54,9 +54,9 @@ kmeans_plusplus_baseline_0_21
 kmeans_plusplus_baseline_0_22
 kmeans_plusplus_baseline_0_23
 
-# TestSuit Name : kmeans_random_baseline
+# TestSuite Name : kmeans_random_baseline
 # It is to get baseline of kmeans using random against R.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_baseline_0_0
 kmeans_random_baseline_0_1
 kmeans_random_baseline_0_2
@@ -82,11 +82,10 @@ kmeans_random_baseline_0_21
 kmeans_random_baseline_0_22
 kmeans_random_baseline_0_23
 
-# Start TestSuit ==========
 
-# TestSuit Name : kmeans_cset_gof_disabled
+# TestSuite Name : kmeans_cset_gof_disabled
 # It is to test kmeans with gof disabled.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_gof_disabled_0_0
 kmeans_cset_gof_disabled_0_1
 kmeans_cset_gof_disabled_0_2
@@ -94,9 +93,9 @@ kmeans_cset_gof_disabled_0_3
 kmeans_cset_gof_disabled_0_4
 kmeans_cset_gof_disabled_0_5
 
-# TestSuit Name : kmeans_plusplus_gof_disabled
+# TestSuite Name : kmeans_plusplus_gof_disabled
 # It is to test kmeans with gof disabled.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_gof_disabled_0_0
 kmeans_plusplus_gof_disabled_0_1
 kmeans_plusplus_gof_disabled_0_2
@@ -104,9 +103,9 @@ kmeans_plusplus_gof_disabled_0_3
 kmeans_plusplus_gof_disabled_0_4
 kmeans_plusplus_gof_disabled_0_5
 
-# TestSuit Name : kmeans_random_gof_disabled
+# TestSuite Name : kmeans_random_gof_disabled
 # It is to test kmeans with gof disabled.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_gof_disabled_0_0
 kmeans_random_gof_disabled_0_1
 kmeans_random_gof_disabled_0_2
@@ -114,12 +113,10 @@ kmeans_random_gof_disabled_0_3
 kmeans_random_gof_disabled_0_4
 kmeans_random_gof_disabled_0_5
 
-# It is to test kmeans with gof disabled.
-# Start TestSuit ==========
 
-# TestSuit Name : kmeans_cset_maximum_iteration
+# TestSuite Name : kmeans_cset_maximum_iteration
 # It is to test kmeans with maximum iteration.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_maximum_iteration_0_0
 kmeans_cset_maximum_iteration_0_1
 kmeans_cset_maximum_iteration_0_2
@@ -145,9 +142,9 @@ kmeans_cset_maximum_iteration_0_21
 kmeans_cset_maximum_iteration_0_22
 kmeans_cset_maximum_iteration_0_23
 
-# TestSuit Name : kmeans_plusplus_maximum_iteration
+# TestSuite Name : kmeans_plusplus_maximum_iteration
 # It is to test kmeans with maximum iteration.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_maximum_iteration_0_0
 kmeans_plusplus_maximum_iteration_0_1
 kmeans_plusplus_maximum_iteration_0_2
@@ -173,9 +170,9 @@ kmeans_plusplus_maximum_iteration_0_21
 kmeans_plusplus_maximum_iteration_0_22
 kmeans_plusplus_maximum_iteration_0_23
 
-# TestSuit Name : kmeans_random_maximum_iteration
+# TestSuite Name : kmeans_random_maximum_iteration
 # It is to test kmeans with maximum iteration.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_maximum_iteration_0_0
 kmeans_random_maximum_iteration_0_1
 kmeans_random_maximum_iteration_0_2
@@ -201,268 +198,224 @@ kmeans_random_maximum_iteration_0_21
 kmeans_random_maximum_iteration_0_22
 kmeans_random_maximum_iteration_0_23
 
-# It is to test kmeans with maximum iteration.
-# Start TestSuit ==========
 
-# TestSuit Name : kmeans_cset_negative_overwrite
+# TestSuite Name : kmeans_cset_negative_overwrite
 # It is to test kmeans with existing output tables.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_overwrite_0_0
 
-# TestSuit Name : kmeans_plusplus_negative_overwrite
+# TestSuite Name : kmeans_plusplus_negative_overwrite
 # It is to test kmeans with existing output tables.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_overwrite_0_0
 
-# TestSuit Name : kmeans_random_negative_overwrite
+# TestSuite Name : kmeans_random_negative_overwrite
 # It is to test kmeans with existing output tables.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_overwrite_0_0
 
-# It is to test kmeans with existing output tables.
-# Start TestSuit ==========
-
-# TestSuit Name : kmeans_cset_negative_src_relation
+# TestSuite Name : kmeans_cset_negative_src_relation
 # It is to test kmeans using negative source relation.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_src_relation_0_0
 kmeans_cset_negative_src_relation_0_1
 
-# TestSuit Name : kmeans_plusplus_negative_src_relation
+# TestSuite Name : kmeans_plusplus_negative_src_relation
 # It is to test kmeans using negative source relation.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_src_relation_0_0
 kmeans_plusplus_negative_src_relation_0_1
 
-# TestSuit Name : kmeans_random_negative_src_relation
+# TestSuite Name : kmeans_random_negative_src_relation
 # It is to test kmeans using negative source relation.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_src_relation_0_0
 kmeans_random_negative_src_relation_0_1
 
-# It is to test kmeans using negative source relation.
-# Start TestSuit ==========
-
-# TestSuit Name : kmeans_cset_negative_src_col_data
+# TestSuite Name : kmeans_cset_negative_src_col_data
 # It is to test kmeans using negative source column data.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_src_col_data_0_0
 kmeans_cset_negative_src_col_data_0_1
 
-# TestSuit Name : kmeans_plusplus_negative_src_col_data
+# TestSuite Name : kmeans_plusplus_negative_src_col_data
 # It is to test kmeans using negative source column data.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_src_col_data_0_0
 kmeans_plusplus_negative_src_col_data_0_1
 
-# TestSuit Name : kmeans_random_negative_src_col_data
+# TestSuite Name : kmeans_random_negative_src_col_data
 # It is to test kmeans using negative source column data.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_src_col_data_0_0
 kmeans_random_negative_src_col_data_0_1
 
-# It is to test kmeans using negative source column data.
-# Start TestSuit ==========
-
-# TestSuit Name : kmeans_cset_negative_src_col_id
+# TestSuite Name : kmeans_cset_negative_src_col_id
 # It is to test kmeans using negative source column id.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_src_col_id_0_0
 kmeans_cset_negative_src_col_id_0_1
 
-# TestSuit Name : kmeans_plusplus_negative_src_col_id
+# TestSuite Name : kmeans_plusplus_negative_src_col_id
 # It is to test kmeans using negative source column id.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_src_col_id_0_0
 kmeans_plusplus_negative_src_col_id_0_1
 
-# TestSuit Name : kmeans_random_negative_src_col_id
+# TestSuite Name : kmeans_random_negative_src_col_id
 # It is to test kmeans using negative source column id.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_src_col_id_0_0
 kmeans_random_negative_src_col_id_0_1
 
-# It is to test kmeans using negative source column id.
-# Start TestSuit ==========
-
-# TestSuit Name : kmeans_cset_negative_dist_metric
+# TestSuite Name : kmeans_cset_negative_dist_metric
 # It is to test kmeans using negative dist metric.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_dist_metric_0_0
 
-# TestSuit Name : kmeans_plusplus_negative_dist_metric
+# TestSuite Name : kmeans_plusplus_negative_dist_metric
 # It is to test kmeans using negative dist metric.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_dist_metric_0_0
 
-# TestSuit Name : kmeans_random_negative_dist_metric
+# TestSuite Name : kmeans_random_negative_dist_metric
 # It is to test kmeans using negative dist metric.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_dist_metric_0_0
 
-# It is to test kmeans using negative dist metric.
-# Start TestSuit ==========
-
-# TestSuit Name : kmeans_plusplus_negative_k
+# TestSuite Name : kmeans_plusplus_negative_k
 # It is to test kmeans using negative k.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_k_0_0
 kmeans_plusplus_negative_k_0_1
 
-# TestSuit Name : kmeans_random_negative_k
+# TestSuite Name : kmeans_random_negative_k
 # It is to test kmeans using negative k.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_k_0_0
 kmeans_random_negative_k_0_1
 
-# TestSuit Name : kmeans_cset_negative_max_iteration
+# TestSuite Name : kmeans_cset_negative_max_iteration
 # It is to test kmeans using negative max iteration.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_max_iteration_0_0
 kmeans_cset_negative_max_iteration_0_1
 
-# TestSuit Name : kmeans_plusplus_negative_max_iteration
+# TestSuite Name : kmeans_plusplus_negative_max_iteration
 # It is to test kmeans using negative max iteration.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_max_iteration_0_0
 kmeans_plusplus_negative_max_iteration_0_1
 
-# TestSuit Name : kmeans_random_negative_max_iteration
+# TestSuite Name : kmeans_random_negative_max_iteration
 # It is to test kmeans using negative max iteration.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_max_iteration_0_0
 kmeans_random_negative_max_iteration_0_1
 
-# It is to test kmeans using negative max iteration.
-# Start TestSuit ==========
-
-# TestSuit Name : kmeans_cset_negative_convergence_threshold
+# TestSuite Name : kmeans_cset_negative_convergence_threshold
 # It is to test kmeans using negative convergence threshold.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_convergence_threshold_0_0
 kmeans_cset_negative_convergence_threshold_0_1
 kmeans_cset_negative_convergence_threshold_0_2
 
-# TestSuit Name : kmeans_plusplus_negative_convergence_threshold
+# TestSuite Name : kmeans_plusplus_negative_convergence_threshold
 # It is to test kmeans using negative convergence threshold.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_convergence_threshold_0_0
 kmeans_plusplus_negative_convergence_threshold_0_1
 kmeans_plusplus_negative_convergence_threshold_0_2
 
-# TestSuit Name : kmeans_random_negative_convergence_threshold
+# TestSuite Name : kmeans_random_negative_convergence_threshold
 # It is to test kmeans using negative convergence threshold.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_convergence_threshold_0_0
 kmeans_random_negative_convergence_threshold_0_1
 kmeans_random_negative_convergence_threshold_0_2
 
-# It is to test kmeans using negative convergence threshold.
-# Start TestSuit ==========
-
-# TestSuit Name : kmeans_cset_negative_gof_switch
+# TestSuite Name : kmeans_cset_negative_gof_switch
 # It is to test kmeans using negative gof switch.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_gof_switch_0_0
 
-# TestSuit Name : kmeans_plusplus_negative_gof_switch
+# TestSuite Name : kmeans_plusplus_negative_gof_switch
 # It is to test kmeans using negative gof switch.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_gof_switch_0_0
 
-# TestSuit Name : kmeans_random_negative_gof_switch
+# TestSuite Name : kmeans_random_negative_gof_switch
 # It is to test kmeans using negative gof switch.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_gof_switch_0_0
 
-# It is to test kmeans using negative gof switch.
-# Start TestSuit ==========
-
-# TestSuit Name : kmeans_cset_negative_out_points
+# TestSuite Name : kmeans_cset_negative_out_points
 # It is to test kmeans using negative out points.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_out_points_0_0
 
-# TestSuit Name : kmeans_plusplus_negative_out_points
+# TestSuite Name : kmeans_plusplus_negative_out_points
 # It is to test kmeans using negative out points.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_out_points_0_0
 
-# TestSuit Name : kmeans_random_negative_out_points
+# TestSuite Name : kmeans_random_negative_out_points
 # It is to test kmeans using negative out points.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_out_points_0_0
 
-# It is to test kmeans using negative out points.
-# Start TestSuit ==========
-
-# TestSuit Name : kmeans_cset_negative_out_centroids
+# TestSuite Name : kmeans_cset_negative_out_centroids
 # It is to test kmeans using negative out centroids.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_out_centroids_0_0
 
-# TestSuit Name : kmeans_plusplus_negative_out_centroids
+# TestSuite Name : kmeans_plusplus_negative_out_centroids
 # It is to test kmeans using negative out centroids.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_out_centroids_0_0
 
-# TestSuit Name : kmeans_random_negative_out_centroids
+# TestSuite Name : kmeans_random_negative_out_centroids
 # It is to test kmeans using negative out centroids.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_out_centroids_0_0
 
-# It is to test kmeans using negative out centroids.
-# Start TestSuit ==========
-
-# TestSuit Name : kmeans_cset_negative_verbosity
+# TestSuite Name : kmeans_cset_negative_verbosity
 # It is to test kmeans using negative verbosity.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_verbosity_0_0
 
-# TestSuit Name : kmeans_plusplus_negative_verbosity
+# TestSuite Name : kmeans_plusplus_negative_verbosity
 # It is to test kmeans using negative verbosity.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_negative_verbosity_0_0
 
-# TestSuit Name : kmeans_random_negative_verbosity
+# TestSuite Name : kmeans_random_negative_verbosity
 # It is to test kmeans using negative verbosity.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_negative_verbosity_0_0
 
-# It is to test kmeans using negative verbosity.
-# Start TestSuit ==========
-
-# It is to test kmeans using negative t1.
-# Start TestSuit ==========
-
-# It is to test kmeans using negative t2.
-# Start TestSuit ==========
-
-# TestSuit Name : kmeans_cset_negative_init_cset_rel
+# TestSuite Name : kmeans_cset_negative_init_cset_rel
 # It is to test kmeans using negative init cset relation.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_init_cset_rel_0_0
 
-# TestSuit Name : kmeans_cset_negative_init_cset_col
+# TestSuite Name : kmeans_cset_negative_init_cset_col
 # It is to test kmeans using negative init cset column.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_negative_init_cset_col_0_0
 
-# TestSuit Name : kmeans_cset_ctas
+# TestSuite Name : kmeans_cset_ctas
 # It is to test kmeans using create table as.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_cset_ctas_0_0
 
-# TestSuit Name : kmeans_plusplus_ctas
+# TestSuite Name : kmeans_plusplus_ctas
 # It is to test kmeans using create table as.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_plusplus_ctas_0_0
 
-# TestSuit Name : kmeans_random_ctas
+# TestSuite Name : kmeans_random_ctas
 # It is to test kmeans using create table as.
-# Start TestSuit ==========
+# Start TestSuite ==========
 kmeans_random_ctas_0_0
-
-# It is to test kmeans using create table as.
-# Start TestSuit ==========
 

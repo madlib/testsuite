@@ -1,6 +1,6 @@
 DROP SCHEMA IF EXISTS benchmark CASCADE;
 CREATE SCHEMA benchmark;
-
+SET SEARCH_PATH = benchmark;
 CREATE TABLE benchmark.testitemseq(id int,  runid int);
 INSERT INTO benchmark.testitemseq VALUES (0, 0);
 

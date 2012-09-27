@@ -13,8 +13,8 @@ Step 02: Install database(s) for test cases execution purpose, multiple GPDBs/PG
                This host will also be used to install MADlib and MADMARK.
 
 Step 03: Download madmark and place the madmark source code in a folder, which will be $MADMARK_HOME
-         For example, download madmark at https://github.com/madlib/testsuite
-
+         For example, download madmark at _https://github.com/madlib/testsuite
+     
 Step 04: Configure test result database in madmark
 
          (1) Run 'cd $MADMARK_HOME/testspec/metadata; cp testconfig.xml.example testconfig.xml'

@@ -14,6 +14,18 @@ AnalyticsTool = '../testspec/metadata/analyticstool.xml'
 PostgresPsql  = '/usr/local/pgsql/bin/psql'
 ScheduleDir   = '../schedule/'
 CaseDir       = '../testcase/'
+CfgSpecPath   = '../testspec/metadata/'
+cfgPath       = '../bootstrap/' 
+GeneratorSrcDir = '../src/generator/'
+sys.path.append(GeneratorSrcDir)
+import execute_case
+import test_config
+import file_path
+import run_sql
+import template_executor
+import read_skipfiles
+
+
 def getList(filename):
     """Parse file and return a list of non-empty lines."""
     return [ l.strip() for l in open(filename).readlines() if l.strip() != '' and l.strip()[0] != '#']
@@ -82,18 +94,11 @@ def __skipCases(cases, skipfilename):
         sys.exit('ERROR: Skip file open failed.')
     return skippedcases
 
-GeneratorSrcDir = '../src/generator/'
 
 def runCases(getfile, skipfile, isList, isUnique, platform, testCaseDir, analyticsTool, run_id):
+ 
 
-    sys.path.append(GeneratorSrcDir)
-    import execute_case
-    import test_config
-    import file_path
-    import run_sql
-    import template_executor
-
-    configer = test_config.Configer('../testspec/metadata/' + file_path.Path.testconfigXml)
+    configer = test_config.Configer( CfgSpecPath + file_path.Path.testconfigXml)
     configer.testconfig()
 
     if isList:
@@ -113,18 +118,23 @@ def runCases(getfile, skipfile, isList, isUnique, platform, testCaseDir, analyti
             sys.exit('ERROR: Skip file missing.')
 
         try:
-            skips = getList(skipfilepath)
+            skips = []
+            skipfileAbspath = os.path.abspath( skipfilepath )
+            sqlfileAbspath  = os.path.abspath( cfgPath +'skipsqlfile.sql' ) 
+            skipfile_reader = read_skipfiles.ReadSkipfiles(skipfileAbspath,sqlfileAbspath)
+            skips = skipfile_reader.getNoRunCases()
         except IOError:
-            sys.exit('ERROR: Skip file open failed.')
+            sys.exit('ERROR: Skip file open failed. ')
+        except Exception,exp:
+            print 'Error when parsing skip_files'
 
         executor.executeStart(analyticsTool)
-
         skippedcases = []
         for case in cases:
             try:
                 skips.index(case)
 
-                f = open('../testcase/'+case+'.case')
+                f = open( CaseDir +case+'.case')
                 lines = f.readlines()
  
                 for line in lines:

@@ -11,9 +11,9 @@ dictfile = open(table + '.dict')
 docfile = open(table + '.madlib')
 
 outfile.write("DROP TABLE IF EXISTS %s_dict;\n" % table)
-outfile.write("CREATE TABLE %s_dict(dict text[]) DISTRIBUTED RANDOMLY;\n" % table)
+outfile.write("CREATE TABLE %s_dict(id int, dict text[]);\n" % table)
 outfile.write("ALTER TABLE %s_dict OWNER TO madlibtester;\n" % table)
-outfile.write("INSERT INTO %s_dict VALUES(ARRAY[%s]);\n" % (table, dictfile.readline()))
+outfile.write("INSERT INTO %s_dict VALUES(1, ARRAY[%s]);\n" % (table, dictfile.readline()))
 
 dictfile.close()
 

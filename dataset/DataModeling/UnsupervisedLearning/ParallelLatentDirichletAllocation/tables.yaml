@@ -1,4 +1,5 @@
 cmd : "./convert.sh <data> <table> <sql>"
+sql : "./vplda_functions.sql"
 tables :
     - id : plda_20_newsgroups
       args :

@@ -1,4 +1,5 @@
 cmd : "python KDD2000.py -t <table> -d <sql> -s <sourfile> -D <dataset>"
+sql : "./arinit.sql"
 tables :
     - id : ar_bms_pos
       args :

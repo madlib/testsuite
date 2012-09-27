@@ -1,6 +1,23 @@
+############################### Comments #######################################
+#    Each jira should begin with the tag "HEAD" and the label "END" indicates the end of a jira.
+#    Every jira should conform with below format: 
+#    Get rid of the double quotes when using this demo
+#    ## "HEAD" ###
+#    ## JiraId: XXX ###     (Note: must)
+#    ## Type    : 0 ###       (Note: optonal The value should be 0(fix version is current release and need to run), 
+#                                                            1(fix version is current release and no need to run),
+#                                                            2(fix version is master) 
+#    ## Des     : XXXX   ###   (Note: optional) 
+#    CaseName
+#    ## "END" ### 
+####################################################################
+
 ###### Kmeans Clustering ######
 
-### MADLIB-359 ###
+### HEAD ###
+### JiraId: MADLIB-359 ###
+### Des: Negative and zero convergence threshold is accepted by kmeans clustering ####
+### Type: 1 ###
 kmeans_cset_negative_convergence_threshold_0_0
 kmeans_cset_negative_convergence_threshold_0_1
 kmeans_cset_negative_convergence_threshold_0_2
@@ -10,42 +27,42 @@ kmeans_plusplus_negative_convergence_threshold_0_2
 kmeans_random_negative_convergence_threshold_0_0
 kmeans_random_negative_convergence_threshold_0_1
 kmeans_random_negative_convergence_threshold_0_2
+### END ###
 
-### MADLIB-361 ###
+### HEAD ###
+### JiraId: MADLIB-361 ###
+### Des: Negative and zero max iteration number is accepted by kmeans ###
+### Type: 1 ###
 kmeans_cset_negative_max_iteration_0_0
 kmeans_cset_negative_max_iteration_0_1
 kmeans_plusplus_negative_max_iteration_0_0
 kmeans_plusplus_negative_max_iteration_0_1
 kmeans_random_negative_max_iteration_0_0
 kmeans_random_negative_max_iteration_0_1
+### END ###
 
-
-########MADLIB-517##########
+### HEAD ###
+### JiraId: MADLIB-574 ##########
+### Type: 1 ####
+### Des: Logistic regression is generating different result on breast_cancer_wisconsin dataset which is from UCI repository ###
 logistic_regression_baseline_0_8
+### END ###
 
-########MADLIB-496##########
-rf_gainratio_dataset_0_3
-rf_infogain_dataset_0_3
-rf_gini_dataset_0_3
-
-########MADLIB-483#############
-rf_gini_dataset_0_9
-rf_gini_dataset_0_10
-rf_infogain_dataset_0_9
-rf_infogain_dataset_0_10
-rf_gainratio_dataset_0_9
-rf_gainratio_dataset_0_10
-
+#################Association Rules########################
+### HEAD ###
+### JiraId: MADLIB-646 ######
+### Des: Write our own array_agg for keep the left/right of the generated association rules ###
+### Type: 2 ###
+ar_vdatasets_0_6
+### END ###
 
 ###### Distribution Functions ######
 
-######## PG error message is without source code file name while GP has ########
-non_central_f_quantile_feature_test_df1_0_0
-
-######## MADLIB-563 ########
+### HEAD ###
+### JiraId: MADLIB-525 ###
+### Des: Fixing bugs in boost probability functions ###
+### Type: 2 ###
 non_central_f_quantile_feature_test_df2_0_0
-
-######## MADLIB-549 ########
 beta_cdf_negative_case_alpha_0_3
 beta_cdf_negative_case_beta_0_3
 beta_pdf_negative_case_alpha_0_3
@@ -88,3 +105,476 @@ poisson_quantile_negative_case_mean_0_3
 students_t_cdf_negative_case_df_0_3
 students_t_pdf_negative_case_df_0_3
 students_t_quantile_negative_case_df_0_3
+### END ###
+
+
+###### PLDA ######
+
+### HEAD ###
+### JiraId: MADLIB-450 ###
+### Type: 2 ###
+### Des: invalid memory alloc error in plda_run ###
+plda_stability_0_1
+plda_stability_0_3
+plda_stability_0_4
+plda_stability_0_5
+plda_basic_functionality_closed_set_test_0_0
+plda_basic_functionality_closed_set_test_0_3
+plda_basic_functionality_open_set_test_0_0
+plda_basic_functionality_open_set_test_0_1
+### run more than 1 hour
+plda_stability_0_2
+### END ###
+
+
+### HEAD ###
+### JiraId: MADLIB-453 ###
+### Type: 2 ###
+### Des: error messages with invalid corpus form need to improved ###
+plda_basic_functionality_closed_set_test_0_2
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-455 ###
+### Type: 2 ###
+### Des: "UnboundLocalError: local variable "new_table_id" referenced before assignment" error with negative or zero iteration number ###
+plda_run_negative_numiter_0_0
+plda_run_negative_numiter_0_1
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-456 ###
+### Type: 2 ###
+### Des: overflow error in plda_run with negative or zero number of topics ###
+plda_run_negative_numtopics_0_0
+plda_run_negative_numtopics_0_1
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-657 ###
+### Type: 2 ###
+### Des: Handling of empty corpus in plda training phase need to be improved ###
+plda_run_empty_test_table_0_0
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-658 ###
+### Type: 2 ###
+### Des: Need to add error handling of incorrect data Type for dictionary in plda training and classification phases ###
+plda_run_negative_column_dict_dataType_dicttable_0_0
+plda_label_negative_column_dict_dataType_dict_table_0_0
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-659 ###
+### Type: 2 ###
+### Des: Need to add domain check for alpha and eta in plda training and classification phases ###
+plda_run_negative_alpha_0_0
+plda_run_negative_alpha_0_1
+plda_run_negative_eta_0_0
+plda_run_negative_eta_0_1
+plda_label_negative_alpha_0_0
+plda_label_negative_eta_0_0
+### END ###
+
+
+###### Naive Bayes Classification ###
+### HEAD ###
+### JiraId: MADLIB-523 ###
+### Type: 1 ###
+### Des: missing value in one view produced by Naive Bayes Classifier ###
+nb_adhoc_function_workaround_0_0
+nb_adhoc_function_workaround_0_12
+nb_precompute_function_workaround_0_0
+nb_precompute_function_workaround_0_12
+nb_adhoc_views_12_0_0
+nb_precompute_views_0_12
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-679 ###
+### Type: 1 ###
+### Des: NB result is different between GP and PG ###
+nb_precompute_views_0_4
+nb_precompute_function_workaround_0_4
+nb_adhoc_views_4_0_0
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-650 ###
+### Type: 2 ###
+### Des: "No space left on device" in prepare phase of Naive Bayes Classfication ###
+nb_adhoc_views_11_0_0
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-612 ###
+### Type: 2 ###
+### Des: "function cannot execute on segment" when access Naive Bayes result functions ###
+nb_precompute_function_0_0
+nb_precompute_function_0_1
+nb_precompute_function_0_2
+nb_precompute_function_0_3
+nb_precompute_function_0_4
+nb_precompute_function_0_5
+nb_precompute_function_0_6
+nb_precompute_function_0_7
+nb_precompute_function_0_8
+nb_precompute_function_0_9
+nb_precompute_function_0_10
+nb_precompute_function_0_11
+nb_precompute_function_0_12
+nb_adhoc_function_0_0
+nb_adhoc_function_0_1
+nb_adhoc_function_0_2
+nb_adhoc_function_0_3
+nb_adhoc_function_0_4
+nb_adhoc_function_0_5
+nb_adhoc_function_0_6
+nb_adhoc_function_0_7
+nb_adhoc_function_0_9
+nb_adhoc_function_0_10
+nb_adhoc_function_0_11
+nb_adhoc_function_0_12
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-660 ###
+### Type: 2 ###
+### Des: Performance of Naive Bayes Classification on large dataset need to be improved ###
+nb_precompute_function_workaround_0_11
+nb_adhoc_function_workaround_0_11
+nb_precompute_views_0_11
+nb_precompute_views_0_8
+nb_adhoc_views_8_0_0
+nb_adhoc_function_0_8
+nb_precompute_function_workaround_0_8
+nb_adhoc_function_workaround_0_8
+### END ###
+
+
+######################################Support Vector Machines#################################
+### HEAD ###
+### JiraId: MADLIB-690 ###
+### Des: SVM regression: Parallel model will be failed if there is no data on some segments in score function ####
+### Type: 1 ###
+svm_reg_dot_ds_0_10
+svm_reg_polynomial_ds_0_10
+svm_reg_gaussian_ds_para_0_10
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-613 ###
+### Type: 2 ###
+### Des: SVM Performance: Data set YearPredictionMSD can not return result in limited time ###
+svm_reg_dot_ds_0_13
+svm_reg_dot_ds_0_27
+svm_reg_polynomial_ds_0_27
+svm_reg_polynomial_ds_0_13
+svm_reg_gaussian_ds_0_13
+svm_reg_gaussian_ds_para_0_13
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-617 ###
+### Type: 2 ###
+### Des: SVM Regression: Accurancy should be improved for some data sets ###
+#svm_reg_dot_ds_0_1
+#svm_reg_dot_ds_0_15
+#svm_reg_dot_ds_0_9
+#svm_reg_dot_ds_0_23
+#svm_reg_polynomial_ds_0_3
+#svm_reg_polynomial_ds_0_17
+#svm_reg_polynomial_ds_0_7
+#svm_reg_polynomial_ds_0_21
+#svm_reg_polynomial_ds_0_1
+#svm_reg_polynomial_ds_0_15
+#svm_reg_polynomial_ds_0_9
+#svm_reg_polynomial_ds_0_23
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-616 ###
+### Type: 2 ###
+### Des: SVM Regression Performance : Several data sets handling is much slower than libsvm ###
+svm_reg_dot_ds_0_16
+svm_reg_dot_ds_0_2
+svm_reg_dot_ds_0_19
+svm_reg_dot_ds_0_5
+
+svm_reg_polynomial_ds_0_16
+svm_reg_polynomial_ds_0_2
+svm_reg_polynomial_ds_0_19
+svm_reg_polynomial_ds_0_5
+svm_reg_polynomial_ds_0_11
+svm_reg_polynomial_ds_0_25
+
+svm_reg_gaussian_ds_para_0_3
+svm_reg_gaussian_ds_0_3
+svm_reg_gaussian_ds_para_0_5
+svm_reg_gaussian_ds_0_5
+
+svm_reg_gaussian_ds_0_2
+svm_reg_polynomial_ds_0_17
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-655 ###
+### Type: 2 ###
+### Des: SVM Classification: MADlib has worse score than libsvm on data set splice ###
+svm_cls_linear_ds_0_6
+svm_cls_linear_ds_0_14
+svm_cls_gaussian_ds_0_6
+svm_cls_gaussian_ds_para_0_6
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-656 ###
+### Type: 2 ###
+### Des: SVM Classfication Performance: Classification with Kernel function can improve performance on below datasets ###
+svm_cls_dot_ds_0_1
+svm_cls_dot_ds_0_9
+svm_cls_polynomial_ds_0_1
+svm_cls_polynomial_ds_0_9
+svm_cls_gaussian_ds_0_1
+svm_cls_gaussian_ds_para_0_1
+
+svm_cls_dot_ds_0_7
+svm_cls_dot_ds_0_15
+svm_cls_polynomial_ds_0_7
+svm_cls_polynomial_ds_0_15
+svm_cls_gaussian_ds_0_7
+svm_cls_gaussian_ds_para_0_15
+
+svm_cls_polynomial_ds_0_10
+svm_cls_dot_ds_0_10
+svm_cls_dot_ds_0_12
+svm_cls_gaussian_ds_0_2
+svm_cls_gaussian_ds_0_4
+
+svm_cls_polynomial_ds_0_8
+svm_cls_polynomial_ds_0_12
+
+##############################--data set loader issue ##########################madlibtestdata.svm_epsilon
+svm_cls_polynomial_ds_0_2
+svm_cls_gaussian_ds_para_0_2
+svm_cls_linear_ds_0_10
+svm_cls_dot_ds_0_2
+svm_cls_linear_ds_0_2
+#######################madlibtestdata.svm_rcv1_binary
+svm_cls_linear_ds_0_1
+svm_cls_linear_ds_0_9
+
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-598 ###
+### Type: 2 ###
+### Des: SVM: NULL in "ind" column can not be handled in regression/classification/novelty detection ###
+svm_cls_dot_ds_0_3
+svm_cls_dot_ds_0_11
+svm_cls_polynomial_ds_0_3
+svm_cls_polynomial_ds_0_11
+svm_cls_gaussian_ds_0_3
+svm_cls_gaussian_ds_para_0_3
+
+#svm_nd_dot_ds_0_3
+#svm_nd_dot_ds_0_11
+#svm_nd_polynomial_ds_0_3
+#svm_nd_polynomial_ds_0_11
+#svm_nd_gaussian_ds_0_3
+#svm_nd_gaussian_ds_para_0_3
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-599 ###
+### Type: 2 ###
+### Des: SVM:lsvm_predict can not handle NULL value ###
+svm_cls_linear_ds_0_3
+svm_cls_linear_ds_0_11
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-602 ###
+### Type: 1 ###
+### Des: SVM: invalid memory alloc for large data set ###
+svm_cls_linear_ds_0_7
+svm_cls_linear_ds_0_15
+svm_cls_dot_ds_0_7
+svm_cls_dot_ds_0_15
+svm_cls_polynomial_ds_0_7
+svm_cls_polynomial_ds_0_15
+svm_cls_gaussian_ds_0_7
+svm_cls_gaussian_ds_para_0_7
+
+#svm_nd_dot_ds_0_7
+#svm_nd_dot_ds_0_15
+#svm_nd_polynomial_ds_0_7
+#svm_nd_polynomial_ds_0_15
+#svm_nd_gaussian_ds_0_7
+#svm_nd_gaussian_ds_para_0_7
+
+svm_reg_dot_ds_0_4
+svm_reg_dot_ds_0_18
+svm_reg_polynomial_ds_0_4
+svm_reg_polynomial_ds_0_18
+svm_reg_gaussian_ds_0_4
+svm_reg_gaussian_ds_para_0_4
+### END ###
+
+### HEAD ###
+### JiraId: MADlib-654 ###
+### Type: 2 ###
+### Des: SVM Novelty: Result is incorrect class which is "OUT" ###
+# TestSuite Name : svm_nd_dot_ds
+# It is to verify novelty using svm_dot on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_dot_ds_0_0
+svm_nd_dot_ds_0_1
+svm_nd_dot_ds_0_2
+svm_nd_dot_ds_0_3
+svm_nd_dot_ds_0_4
+svm_nd_dot_ds_0_5
+svm_nd_dot_ds_0_6
+svm_nd_dot_ds_0_7
+svm_nd_dot_ds_0_8
+svm_nd_dot_ds_0_9
+svm_nd_dot_ds_0_10
+svm_nd_dot_ds_0_11
+svm_nd_dot_ds_0_12
+svm_nd_dot_ds_0_13
+svm_nd_dot_ds_0_14
+svm_nd_dot_ds_0_15
+
+# TestSuite Name : svm_nd_polynomial_ds
+# It is to verify novelty using svm_polynomail on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_polynomial_ds_0_0
+svm_nd_polynomial_ds_0_1
+svm_nd_polynomial_ds_0_2
+svm_nd_polynomial_ds_0_3
+svm_nd_polynomial_ds_0_4
+svm_nd_polynomial_ds_0_5
+svm_nd_polynomial_ds_0_6
+svm_nd_polynomial_ds_0_7
+svm_nd_polynomial_ds_0_8
+svm_nd_polynomial_ds_0_9
+svm_nd_polynomial_ds_0_10
+svm_nd_polynomial_ds_0_11
+svm_nd_polynomial_ds_0_12
+svm_nd_polynomial_ds_0_13
+svm_nd_polynomial_ds_0_14
+svm_nd_polynomial_ds_0_15
+
+# TestSuite Name : svm_nd_gaussian_ds_para
+# It is to verify novelty using svm_gaussian on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_gaussian_ds_para_0_0
+svm_nd_gaussian_ds_para_0_1
+svm_nd_gaussian_ds_para_0_2
+svm_nd_gaussian_ds_para_0_3
+svm_nd_gaussian_ds_para_0_4
+svm_nd_gaussian_ds_para_0_5
+svm_nd_gaussian_ds_para_0_6
+svm_nd_gaussian_ds_para_0_7
+
+# TestSuite Name : svm_nd_gaussian_ds
+# It is to verify novelty using svm_gaussian on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_gaussian_ds_0_0
+svm_nd_gaussian_ds_0_1
+svm_nd_gaussian_ds_0_2
+svm_nd_gaussian_ds_0_3
+svm_nd_gaussian_ds_0_4
+svm_nd_gaussian_ds_0_5
+svm_nd_gaussian_ds_0_6
+svm_nd_gaussian_ds_0_7
+### END ###
+
+
+###### Multinomial Logistic Regression ######
+
+### HEAD ###
+### JiraId: MADLIB-665 ###
+### Des: Document limit on independent variables of 65535 in multinomial logistic regression ### 
+### Type: 1 ###
+multinomial_logistic_regression_baseline_0_5
+multinomial_logistic_regression_baseline_0_6
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-667 ###
+### Des: Memory allocation failed in Multinomial Logistic Regression ### 
+### Type: 2 ###
+multinomial_logistic_regression_baseline_0_4
+multinomial_logistic_regression_max_iteration_0_16
+multinomial_logistic_regression_max_iteration_0_17
+multinomial_logistic_regression_max_iteration_0_18
+multinomial_logistic_regression_max_iteration_0_19
+multinomial_logistic_regression_optimizer_0_12
+multinomial_logistic_regression_optimizer_0_13
+multinomial_logistic_regression_optimizer_0_14
+multinomial_logistic_regression_convergence_threshold_0_24
+multinomial_logistic_regression_convergence_threshold_0_25
+multinomial_logistic_regression_convergence_threshold_0_26
+multinomial_logistic_regression_convergence_threshold_0_27
+multinomial_logistic_regression_convergence_threshold_0_28
+multinomial_logistic_regression_convergence_threshold_0_29
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-668 ###
+### Des: Algorithm cannot recognize "cg" as a input for optimizer in Multinomial Logistic Regression ###
+### Type: 2 ###
+multinomial_logistic_regression_optimizer_0_2
+multinomial_logistic_regression_optimizer_0_5
+multinomial_logistic_regression_optimizer_0_8
+multinomial_logistic_regression_optimizer_0_11
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-670 ###
+### Des: Negative Case Error: Decimial categories is runnable which is not match with the documentation ### 
+### Type: 1 ###
+multinomial_logistic_regression_negative_incorrect_y_0_3
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-671 ###
+### Des: Performance of Multinomial Logistic Regression on large datasets need to be improved ### 
+### Type: 2 ###
+multinomial_logistic_regression_baseline_0_2
+multinomial_logistic_regression_max_iteration_0_8
+multinomial_logistic_regression_max_iteration_0_9
+multinomial_logistic_regression_max_iteration_0_10
+multinomial_logistic_regression_max_iteration_0_11
+multinomial_logistic_regression_convergence_threshold_0_12
+multinomial_logistic_regression_convergence_threshold_0_13
+multinomial_logistic_regression_convergence_threshold_0_14
+multinomial_logistic_regression_convergence_threshold_0_15
+multinomial_logistic_regression_convergence_threshold_0_16
+multinomial_logistic_regression_convergence_threshold_0_17
+multinomial_logistic_regression_optimizer_0_6
+multinomial_logistic_regression_optimizer_0_7
+multinomial_logistic_regression_optimizer_0_8
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-674 ###
+### Des: Could not use utf8 character as column name ### 
+### Type: 2 ###
+multinomial_logistic_regression_utf8_character_0_2
+### END ###
+
+
+### HEAD ###
+### JiraId: MADLIB-625 ###
+### Des: QA backlog ### 
+### Type: 2 ###
+######## PG error message is without source code file name while GP has ########
+non_central_f_quantile_feature_test_df1_0_0
+
+### Stability evaluation UDF is not available ###
+plda_stability_0_0
+plda_stability_0_6
+### END ###
