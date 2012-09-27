@@ -30,6 +30,8 @@
                     <value>mlogr_p53</value>
                     <value>mlogr_pokerhand</value>
                     <value>mlogr_isolet</value>
+                    <value>mlogr_url</value>
+                    <value>mlogr_pems</value>
 		</list_parameter>
             </method>
 	</test_suite>
@@ -45,7 +47,7 @@
                     <name>dataset</name>
                     <value>mlogr_dorothea</value>
                     <value>mlogr_recordlink</value>
-                    <value>mlogr_pems</value>
+                    <value>mlogr_p53</value>
                     <value>mlogr_pokerhand</value>
                     <value>mlogr_isolet</value>
                 </list_parameter>
@@ -182,10 +184,6 @@
                     <parameter>
                         <name>source_table</name>
                         <value>madlibtestdata.mlogr_pokerhand</value>
-                    </parameter>
-		    <parameter>
-                        <name>number_of_categories</name>
-                        <value>10</value>
                     </parameter>
                 </parameters>
             </method>

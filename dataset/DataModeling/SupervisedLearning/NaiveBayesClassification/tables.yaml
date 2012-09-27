@@ -1,4 +1,5 @@
 cmd : "python 2t_fm.py -t <table> -d <sql> -s <sourfile>"
+sql : "./nb_test_udf.sql"
 tables :
     - id : nb_extra_values_training
       args :

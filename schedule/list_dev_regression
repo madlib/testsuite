@@ -1,3 +1,16 @@
+case_multinomial_logistic_regression_gp_basic
+
+case_svm_basic
+
+case_naive_bayes
+
+case_plda_feature
+case_plda_corner_negative
+
+#case_error_new
+case_assoc_rules_basic
+case_rf_small
+case_dt_small
 case_ht_feature
 case_ht_corner
 case_ht_negative
@@ -96,8 +109,5 @@ case_weibull_quantile
 
 case_linear
 case_logistic
-case_kmeans
-case_dt_small
-#case_error_new
-case_rf_small
+case_kmeans_basic
 

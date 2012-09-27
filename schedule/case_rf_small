@@ -1,26 +1,36 @@
 rf_gini_dataset_0_0
 rf_gini_dataset_0_1
 rf_gini_dataset_0_2
+rf_gini_dataset_0_3
 rf_gini_dataset_0_4
 rf_gini_dataset_0_5
 rf_gini_dataset_0_6
 rf_gini_dataset_0_7
 rf_gini_dataset_0_8
+#rf_gini_dataset_0_9
+#rf_gini_dataset_0_10
 
 rf_gainratio_dataset_0_0
 rf_gainratio_dataset_0_1
 rf_gainratio_dataset_0_2
+#rf_gainratio_dataset_0_3
 rf_gainratio_dataset_0_4
 rf_gainratio_dataset_0_5
 rf_gainratio_dataset_0_6
 rf_gainratio_dataset_0_7
 rf_gainratio_dataset_0_8
+rf_gainratio_dataset_0_9
+#rf_gainratio_dataset_0_10
+
 
 rf_infogain_dataset_0_0
 rf_infogain_dataset_0_1
 rf_infogain_dataset_0_2
+#rf_infogain_dataset_0_3
 rf_infogain_dataset_0_4
 rf_infogain_dataset_0_5
 rf_infogain_dataset_0_6
 rf_infogain_dataset_0_7
 rf_infogain_dataset_0_8
+#rf_infogain_dataset_0_9
+rf_infogain_dataset_0_10

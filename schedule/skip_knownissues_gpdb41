@@ -1,3 +1,32 @@
+#########################MADLIB-677#########################
+svm_reg_dot_ds_0_10
+svm_reg_polynomial_ds_0_10
+svm_reg_gaussian_ds_para_0_10
+###### Multinomial Logistic Regression ######
+
+### Memory Allocation Failed  ###
+multinomial_logistic_regression_baseline_0_4
+multinomial_logistic_regression_max_iteration_0_16
+multinomial_logistic_regression_max_iteration_0_17
+multinomial_logistic_regression_max_iteration_0_18
+multinomial_logistic_regression_max_iteration_0_19
+multinomial_logistic_regression_optimizer_0_12
+multinomial_logistic_regression_optimizer_0_13
+multinomial_logistic_regression_optimizer_0_14
+multinomial_logistic_regression_convergence_threshold_0_24
+multinomial_logistic_regression_convergence_threshold_0_25
+multinomial_logistic_regression_convergence_threshold_0_26
+multinomial_logistic_regression_convergence_threshold_0_27
+multinomial_logistic_regression_convergence_threshold_0_28
+multinomial_logistic_regression_convergence_threshold_0_29
+
+### Could not recognition of Optimizer
+multinomial_logistic_regression_optimizer_0_2
+multinomial_logistic_regression_optimizer_0_5
+multinomial_logistic_regression_optimizer_0_8
+multinomial_logistic_regression_optimizer_0_11
+
+
 ###### Kmeans Clustering ######
 
 ### MADLIB-359 ###
@@ -20,19 +49,103 @@ kmeans_random_negative_max_iteration_0_0
 kmeans_random_negative_max_iteration_0_1
 
 
+# TestSuite Name : kmeans_canopy_baseline
+# It is to get baseline of kmeans using canopy against R.
+kmeans_canopy_baseline_0_0
+kmeans_canopy_baseline_0_1
+kmeans_canopy_baseline_0_2
+kmeans_canopy_baseline_0_3
+kmeans_canopy_baseline_0_4
+kmeans_canopy_baseline_0_5
+kmeans_canopy_baseline_0_6
+kmeans_canopy_baseline_0_7
+kmeans_canopy_baseline_0_8
+kmeans_canopy_baseline_0_9
+kmeans_canopy_baseline_0_10
+kmeans_canopy_baseline_0_11
+kmeans_canopy_baseline_0_12
+kmeans_canopy_baseline_0_13
+kmeans_canopy_baseline_0_14
+kmeans_canopy_baseline_0_15
+kmeans_canopy_baseline_0_16
+kmeans_canopy_baseline_0_17
+kmeans_canopy_baseline_0_18
+kmeans_canopy_baseline_0_19
+kmeans_canopy_baseline_0_20
+kmeans_canopy_baseline_0_21
+kmeans_canopy_baseline_0_22
+kmeans_canopy_baseline_0_23
+# TestSuite Name : kmeans_canopy_gof_disabled
+kmeans_canopy_gof_disabled_0_0
+kmeans_canopy_gof_disabled_0_1
+kmeans_canopy_gof_disabled_0_2
+kmeans_canopy_gof_disabled_0_3
+kmeans_canopy_gof_disabled_0_4
+kmeans_canopy_gof_disabled_0_5
+# TestSuite Name : kmeans_canopy_maximum_iteration
+kmeans_canopy_maximum_iteration_0_0
+kmeans_canopy_maximum_iteration_0_1
+kmeans_canopy_maximum_iteration_0_2
+kmeans_canopy_maximum_iteration_0_3
+kmeans_canopy_maximum_iteration_0_4
+kmeans_canopy_maximum_iteration_0_5
+kmeans_canopy_maximum_iteration_0_6
+kmeans_canopy_maximum_iteration_0_7
+kmeans_canopy_maximum_iteration_0_8
+kmeans_canopy_maximum_iteration_0_9
+kmeans_canopy_maximum_iteration_0_10
+kmeans_canopy_maximum_iteration_0_11
+kmeans_canopy_maximum_iteration_0_12
+kmeans_canopy_maximum_iteration_0_13
+kmeans_canopy_maximum_iteration_0_14
+kmeans_canopy_maximum_iteration_0_15
+kmeans_canopy_maximum_iteration_0_16
+kmeans_canopy_maximum_iteration_0_17
+kmeans_canopy_maximum_iteration_0_18
+kmeans_canopy_maximum_iteration_0_19
+kmeans_canopy_maximum_iteration_0_20
+kmeans_canopy_maximum_iteration_0_21
+kmeans_canopy_maximum_iteration_0_22
+kmeans_canopy_maximum_iteration_0_23
+# TestSuite Name : kmeans_canopy_negative_overwrite
+kmeans_canopy_negative_overwrite_0_0
+# TestSuite Name : kmeans_canopy_negative_src_relation
+kmeans_canopy_negative_src_relation_0_0
+kmeans_canopy_negative_src_relation_0_1
+# TestSuite Name : kmeans_canopy_negative_src_col_data
+kmeans_canopy_negative_src_col_data_0_0
+kmeans_canopy_negative_src_col_data_0_1
+# TestSuite Name : kmeans_canopy_negative_src_col_id
+kmeans_canopy_negative_src_col_id_0_0
+kmeans_canopy_negative_src_col_id_0_1
+# TestSuite Name : kmeans_canopy_negative_dist_metric
+kmeans_canopy_negative_dist_metric_0_0
+# TestSuite Name : kmeans_canopy_negative_max_iteration
+kmeans_canopy_negative_max_iteration_0_0
+kmeans_canopy_negative_max_iteration_0_1
+# TestSuite Name : kmeans_canopy_negative_convergence_threshold
+kmeans_canopy_negative_convergence_threshold_0_0
+kmeans_canopy_negative_convergence_threshold_0_1
+kmeans_canopy_negative_convergence_threshold_0_2
+# TestSuite Name : kmeans_canopy_negative_gof_switch
+kmeans_canopy_negative_gof_switch_0_0
+# TestSuite Name : kmeans_canopy_negative_out_points
+kmeans_canopy_negative_out_points_0_0
+# TestSuite Name : kmeans_canopy_negative_out_centroids
+kmeans_canopy_negative_out_centroids_0_0
+# TestSuite Name : kmeans_canopy_negative_verbosity
+kmeans_canopy_negative_verbosity_0_0
+# TestSuite Name : kmeans_canopy_negative_t1
+kmeans_canopy_negative_t1_0_0
+# TestSuite Name : kmeans_canopy_negative_t2
+kmeans_canopy_negative_t2_0_0
+# TestSuite Name : kmeans_canopy_ctas
+kmeans_canopy_ctas_0_0
 
-########MADLIB-496##########
-rf_gainratio_dataset_0_3
-rf_infogain_dataset_0_3
-rf_gini_dataset_0_3
+#################Association Rules########################
+#########MADLIB-646##########
+ar_vdatasets_0_6
 
-########MADLIB-483#############
-rf_gini_dataset_0_9
-rf_gini_dataset_0_10
-rf_infogain_dataset_0_9
-rf_infogain_dataset_0_10
-rf_gainratio_dataset_0_9
-rf_gainratio_dataset_0_10
 
 ########MPP-17537#############
 rf_gini_dataset_0_0
@@ -133,3 +246,295 @@ poisson_quantile_negative_case_mean_0_3
 students_t_cdf_negative_case_df_0_3
 students_t_pdf_negative_case_df_0_3
 students_t_quantile_negative_case_df_0_3
+
+
+
+###### PLDA ######
+### Running time is about 1 hour ###
+plda_stability_0_2
+
+### MADLIB-450 ###
+plda_stability_0_1
+plda_stability_0_3
+plda_stability_0_4
+plda_stability_0_5
+plda_basic_functionality_closed_set_test_0_0
+plda_basic_functionality_closed_set_test_0_3
+plda_basic_functionality_open_set_test_0_0
+plda_basic_functionality_open_set_test_0_1
+
+### MADLIB-453 ###
+plda_basic_functionality_closed_set_test_0_2
+
+### MADLIB-455 ###
+plda_run_negative_numiter_0_0
+plda_run_negative_numiter_0_1
+
+### MADLIB-456 ###
+plda_run_negative_numtopics_0_0
+plda_run_negative_numtopics_0_1
+
+### MADLIB-657 ###
+plda_run_empty_test_table_0_0
+
+### MADLIB-658 ###
+plda_run_negative_column_dict_datatype_dicttable_0_0
+plda_label_negative_column_dict_datatype_dict_table_0_0
+
+### MADLIB-659 ###
+plda_run_negative_alpha_0_0
+plda_run_negative_alpha_0_1
+plda_run_negative_eta_0_0
+plda_run_negative_eta_0_1
+plda_label_negative_alpha_0_0
+plda_label_negative_eta_0_0
+
+### Stability evaluation UDF is not available ###
+plda_stability_0_0
+plda_stability_0_6
+
+
+
+###### Naive Bayes Classification ###
+### MADLIB-523 ###
+nb_adhoc_function_workaround_0_0
+nb_adhoc_function_workaround_0_12
+nb_precompute_function_workaround_0_0
+nb_precompute_function_workaround_0_12
+nb_adhoc_views_12_0_0
+nb_precompute_views_0_12
+
+##############MADLIB-679############
+nb_precompute_views_0_4
+nb_precompute_function_workaround_0_4
+nb_adhoc_views_4_0_0
+
+### MADLIB-650 ###
+nb_adhoc_views_11_0_0
+
+### MADLIB-612 ###
+nb_precompute_function_0_0
+nb_precompute_function_0_1
+nb_precompute_function_0_2
+nb_precompute_function_0_3
+nb_precompute_function_0_4
+nb_precompute_function_0_5
+nb_precompute_function_0_6
+nb_precompute_function_0_7
+nb_precompute_function_0_8
+nb_precompute_function_0_9
+nb_precompute_function_0_10
+nb_precompute_function_0_11
+nb_precompute_function_0_12
+nb_adhoc_function_0_0
+nb_adhoc_function_0_1
+nb_adhoc_function_0_2
+nb_adhoc_function_0_3
+nb_adhoc_function_0_4
+nb_adhoc_function_0_5
+nb_adhoc_function_0_6
+nb_adhoc_function_0_7
+nb_adhoc_function_0_9
+nb_adhoc_function_0_10
+nb_adhoc_function_0_11
+nb_adhoc_function_0_12
+
+### MADLIB-660 ###
+nb_precompute_function_workaround_0_11
+nb_adhoc_function_workaround_0_11
+nb_precompute_views_0_11
+
+### Data sets are too large ###
+nb_precompute_views_0_8
+nb_adhoc_views_8_0_0
+nb_adhoc_function_0_8
+nb_precompute_function_workaround_0_8
+nb_adhoc_function_workaround_0_8
+
+######################################Support Vector Machines#################################
+######MADLIB-613######
+svm_reg_dot_ds_0_13
+svm_reg_dot_ds_0_27
+svm_reg_polynomial_ds_0_27
+svm_reg_polynomial_ds_0_13
+svm_reg_gaussian_ds_0_13
+svm_reg_gaussian_ds_para_0_13
+
+################MADLIB-617################
+#svm_reg_dot_ds_0_1
+#svm_reg_dot_ds_0_15
+#svm_reg_dot_ds_0_9
+#svm_reg_dot_ds_0_23
+#svm_reg_polynomial_ds_0_3
+#svm_reg_polynomial_ds_0_17
+#svm_reg_polynomial_ds_0_7
+#svm_reg_polynomial_ds_0_21
+#svm_reg_polynomial_ds_0_1
+#svm_reg_polynomial_ds_0_15
+#svm_reg_polynomial_ds_0_9
+#svm_reg_polynomial_ds_0_23
+
+################MADLIB-616################
+svm_reg_dot_ds_0_16
+svm_reg_dot_ds_0_2
+svm_reg_dot_ds_0_19
+svm_reg_dot_ds_0_5
+
+svm_reg_polynomial_ds_0_16
+svm_reg_polynomial_ds_0_2
+svm_reg_polynomial_ds_0_19
+svm_reg_polynomial_ds_0_5
+svm_reg_polynomial_ds_0_11
+svm_reg_polynomial_ds_0_25
+
+svm_reg_gaussian_ds_para_0_3
+svm_reg_gaussian_ds_0_3
+svm_reg_gaussian_ds_para_0_5
+svm_reg_gaussian_ds_0_5
+
+svm_reg_gaussian_ds_0_2
+svm_reg_polynomial_ds_0_17
+################MADLIB-654################
+svm_cls_linear_ds_0_6
+svm_cls_linear_ds_0_14
+svm_cls_gaussian_ds_0_6
+svm_cls_gaussian_ds_para_0_6
+
+#################MADLIB-656####################
+svm_cls_dot_ds_0_1
+svm_cls_dot_ds_0_9
+svm_cls_polynomial_ds_0_1
+svm_cls_polynomial_ds_0_9
+svm_cls_gaussian_ds_0_1
+svm_cls_gaussian_ds_para_0_1
+
+svm_cls_dot_ds_0_7
+svm_cls_dot_ds_0_15
+svm_cls_polynomial_ds_0_7
+svm_cls_polynomial_ds_0_15
+svm_cls_gaussian_ds_0_7
+svm_cls_gaussian_ds_para_0_15
+
+svm_cls_polynomial_ds_0_10
+svm_cls_dot_ds_0_10
+svm_cls_dot_ds_0_12
+svm_cls_gaussian_ds_0_2
+svm_cls_gaussian_ds_0_4
+
+svm_cls_polynomial_ds_0_8
+svm_cls_polynomial_ds_0_12
+########MADLIB-598##########
+svm_cls_dot_ds_0_3
+svm_cls_dot_ds_0_11
+svm_cls_polynomial_ds_0_3
+svm_cls_polynomial_ds_0_11
+svm_cls_gaussian_ds_0_3
+svm_cls_gaussian_ds_para_0_3
+
+#svm_nd_dot_ds_0_3
+#svm_nd_dot_ds_0_11
+#svm_nd_polynomial_ds_0_3
+#svm_nd_polynomial_ds_0_11
+#svm_nd_gaussian_ds_0_3
+#svm_nd_gaussian_ds_para_0_3
+########MADLIB-599##########
+svm_cls_linear_ds_0_3
+svm_cls_linear_ds_0_11
+##########MADLIB-602##########
+svm_cls_linear_ds_0_7
+svm_cls_linear_ds_0_15
+svm_cls_dot_ds_0_7
+svm_cls_dot_ds_0_15
+svm_cls_polynomial_ds_0_7
+svm_cls_polynomial_ds_0_15
+svm_cls_gaussian_ds_0_7
+svm_cls_gaussian_ds_para_0_7
+
+#svm_nd_dot_ds_0_7
+#svm_nd_dot_ds_0_15
+#svm_nd_polynomial_ds_0_7
+#svm_nd_polynomial_ds_0_15
+#svm_nd_gaussian_ds_0_7
+#svm_nd_gaussian_ds_para_0_7
+
+svm_reg_dot_ds_0_4
+svm_reg_dot_ds_0_18
+svm_reg_polynomial_ds_0_4
+svm_reg_polynomial_ds_0_18
+svm_reg_gaussian_ds_0_4
+svm_reg_gaussian_ds_para_0_4
+
+############# MADlib-654#################################
+# TestSuite Name : svm_nd_dot_ds
+# It is to verify novelty using svm_dot on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_dot_ds_0_0
+svm_nd_dot_ds_0_1
+svm_nd_dot_ds_0_2
+svm_nd_dot_ds_0_3
+svm_nd_dot_ds_0_4
+svm_nd_dot_ds_0_5
+svm_nd_dot_ds_0_6
+svm_nd_dot_ds_0_7
+svm_nd_dot_ds_0_8
+svm_nd_dot_ds_0_9
+svm_nd_dot_ds_0_10
+svm_nd_dot_ds_0_11
+svm_nd_dot_ds_0_12
+svm_nd_dot_ds_0_13
+svm_nd_dot_ds_0_14
+svm_nd_dot_ds_0_15
+
+# TestSuite Name : svm_nd_polynomial_ds
+# It is to verify novelty using svm_polynomail on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_polynomial_ds_0_0
+svm_nd_polynomial_ds_0_1
+svm_nd_polynomial_ds_0_2
+svm_nd_polynomial_ds_0_3
+svm_nd_polynomial_ds_0_4
+svm_nd_polynomial_ds_0_5
+svm_nd_polynomial_ds_0_6
+svm_nd_polynomial_ds_0_7
+svm_nd_polynomial_ds_0_8
+svm_nd_polynomial_ds_0_9
+svm_nd_polynomial_ds_0_10
+svm_nd_polynomial_ds_0_11
+svm_nd_polynomial_ds_0_12
+svm_nd_polynomial_ds_0_13
+svm_nd_polynomial_ds_0_14
+svm_nd_polynomial_ds_0_15
+
+# TestSuite Name : svm_nd_gaussian_ds_para
+# It is to verify novelty using svm_gaussian on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_gaussian_ds_para_0_0
+svm_nd_gaussian_ds_para_0_1
+svm_nd_gaussian_ds_para_0_2
+svm_nd_gaussian_ds_para_0_3
+svm_nd_gaussian_ds_para_0_4
+svm_nd_gaussian_ds_para_0_5
+svm_nd_gaussian_ds_para_0_6
+svm_nd_gaussian_ds_para_0_7
+
+# TestSuite Name : svm_nd_gaussian_ds
+# It is to verify novelty using svm_gaussian on different kinds of data sets
+# Start TestSuite ==========
+svm_nd_gaussian_ds_0_0
+svm_nd_gaussian_ds_0_1
+svm_nd_gaussian_ds_0_2
+svm_nd_gaussian_ds_0_3
+svm_nd_gaussian_ds_0_4
+svm_nd_gaussian_ds_0_5
+svm_nd_gaussian_ds_0_6
+svm_nd_gaussian_ds_0_7
+
+
+##############################--data set loader issue 
+svm_cls_polynomial_ds_0_2
+svm_cls_gaussian_ds_para_0_2
+svm_cls_linear_ds_0_10
+svm_cls_dot_ds_0_2
+svm_cls_linear_ds_0_2
+svm_cls_linear_ds_0_1
+svm_cls_linear_ds_0_9
