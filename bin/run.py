@@ -15,7 +15,6 @@ GeneratorSrcDir = '../src/generator/'
 AnalyticsTool   = '../testspec/metadata/analyticstool.xml'
 ReportDir       = '../report/'
 ScheduleDir     = '../schedule/'
-LoadingDir      = '../testspec/dataset/'
 SrcDir          = '../src/'
 TestConfig      = '../testspec/metadata/testconfig.xml'
 
@@ -26,7 +25,6 @@ from generator.test_config import Configer
 test_cfg = Configer(TestConfig)
 test_cfg.testconfig()
 
-sys.path.append(LoadingDir)
 from loader.loadingManager import loadingManager
 import utility
 
@@ -124,10 +122,11 @@ def main():
             else:
                 isUnique = False
 
-            version = utility.runCases(filename, plan['skip'], isList, isUnique, plan['platform'], TestCaseDir, AnalyticsTool, run_id)
-          
             if plan['skip']:
                 utility.runSQL(psql_cmd, TestMataDir + 'skipsqlfile.sql', environ)
+            
+            version = utility.runCases(filename, plan['skip'], isList, isUnique, plan['platform'], TestCaseDir, AnalyticsTool, run_id)
+            
             utility.runSQL(psql_cmd, TestMataDir + 'post.sql', environ)
             generateReport(psql_cmd, environ, run_id, plan['platform'])
 
