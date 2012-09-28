@@ -394,7 +394,7 @@ SELECT jc.jiraid as jiraid,
 FROM jiras_cases as jc,
              madlib_jiras as j,
              (SELECT algorithmic, casename from testitemresult as tr, testitems as ti
-              WHERE runid =520
+              WHERE runid = (select max(runid) from testitemseq)
                  AND issuccessful IS NULL and tr.itemname = ti.itemname) as tr
 WHERE j.jiraid = jc.jiraid AND tr.casename = jc.casename
 GROUP BY  jc.jiraid, j.jiratype, algorithmic,j.jiradescription;
