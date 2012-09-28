@@ -6,56 +6,42 @@
         <algorithm>kmeans</algorithm>
         <methods>
             <method>
-                <name>kmeans_cset</name>
+                <name>kmeans_new_cset</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
-                <name>kmeans_plusplus</name>
+                <name>kmeans_new_plusplus</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
-                <name>kmeans_random</name>
+                <name>kmeans_new_random</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
-                <name>kmeans_canopy</name>
+                <name>kmeans_new_cset_ctas</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
-                <name>kmeans_cset_ctas</name>
+                <name>kmeans_new_plusplus_ctas</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
-                <name>kmeans_plusplus_ctas</name>
-                <parameter>
-                    <name>benchmark</name>
-                    <value>TemplateExecutor</value>
-                </parameter>
-            </method>
-            <method>
-                <name>kmeans_random_ctas</name>
-                <parameter>
-                    <name>benchmark</name>
-                    <value>TemplateExecutor</value>
-                </parameter>
-            </method>
-            <method>
-                <name>kmeans_canopy_ctas</name>
+                <name>kmeans_new_random_ctas</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
@@ -64,364 +50,103 @@
         </methods>
 
        <test_suite>
-            <name>kmeans_cset_baseline</name>
+            <name>kmeans_new_cset_baseline</name>
             <comments>It is to get baseline of kmeans using predefined centroids against R.</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_cset</name>
+                <name>kmeans_new_cset</name>
                 <list_parameter>
                     <name>dataset</name>
                     <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
                 </list_parameter>
                 <list_parameter>
                     <name>dist_metric</name>
-                    <value>l1norm</value><value>l2norm</value><value>cosine</value><value>tanimoto</value>
+                    <value>dist_norm1</value><value>squared_dist_norm2</value><value>squared_angle</value><value>squared_tanimoto</value>
                 </list_parameter>
-                <parameters>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_cset_baseline_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_cset_baseline_out_centroids</value>
-                    </parameter>
-                </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_baseline_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_baseline_out_centroids;
-                </tear_down>
             </method>
+            <tear_down>
+                 DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_baseline_result;
+            </tear_down>
         </test_suite>
 
-        <test_suite>
-            <name>kmeans_plusplus_baseline</name>
+       <test_suite>
+            <name>kmeans_new_plusplus_baseline</name>
             <comments>It is to get baseline of kmeans using plus plus against R.</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_plusplus</name>
+                <name>kmeans_new_plusplus</name>
                 <list_parameter>
                     <name>dataset</name>
                     <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
                 </list_parameter>
                 <list_parameter>
                     <name>dist_metric</name>
-                    <value>l1norm</value><value>l2norm</value><value>cosine</value><value>tanimoto</value>
+                    <value>dist_norm1</value><value>squared_dist_norm2</value><value>squared_angle</value><value>squared_tanimoto</value>
                 </list_parameter>
                 <parameters>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_plusplus_baseline_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_plusplus_baseline_out_centroids</value>
-                    </parameter>
                     <parameter>
                         <name>k</name>
                         <value>6</value>
                     </parameter>
-                    <parameter>
-                        <name>sample_frac</name>
-                        <value>0.10</value>
-                    </parameter>
                 </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_baseline_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_baseline_out_centroids;
-                </tear_down>
             </method>
         </test_suite>
 
-       <test_suite>
-            <name>kmeans_random_baseline</name>
+        <test_suite>
+            <name>kmeans_new_random_baseline</name>
             <comments>It is to get baseline of kmeans using random against R.</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_random</name>
+                <name>kmeans_new_random</name>
                 <list_parameter>
                     <name>dataset</name>
                     <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
                 </list_parameter>
                 <list_parameter>
                     <name>dist_metric</name>
-                    <value>l1norm</value><value>l2norm</value><value>cosine</value><value>tanimoto</value>
+                    <value>dist_norm1</value><value>squared_dist_norm2</value><value>squared_angle</value><value>squared_tanimoto</value>
                 </list_parameter>
                 <parameters>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_random_baseline_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_random_baseline_out_centroids</value>
-                    </parameter>
                     <parameter>
                         <name>k</name>
                         <value>6</value>
                     </parameter>
                 </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_random_baseline_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_random_baseline_out_centroids;
-                </tear_down>
             </method>
         </test_suite>
 
         <test_suite>
-            <name>kmeans_canopy_baseline</name>
-            <comments>It is to get baseline of kmeans using canopy against R.</comments>
+            <name>kmeans_new_cset_maximum_iteration</name>
+            <comments>It is to test kmeans with maximum iteration.</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_canopy</name>
+                <name>kmeans_new_cset</name>
                 <list_parameter>
                     <name>dataset</name>
                     <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>max_iter</name>
+                    <value>5</value><value>10</value><value>20</value><value>30</value>
                 </list_parameter>
                 <list_parameter>
                     <name>dist_metric</name>
-                    <value>l1norm</value><value>l2norm</value><value>cosine</value><value>tanimoto</value>
+                    <value>dist_norm1</value><value>squared_dist_norm2</value><value>squared_angle</value><value>squared_tanimoto</value>
                 </list_parameter>
-                <parameters>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_canopy_baseline_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_canopy_baseline_out_centroids</value>
-                    </parameter>
-                    <parameter>
-                        <name>t1</name>
-                        <value>NULL</value>
-                    </parameter>
-                    <parameter>
-                        <name>t2</name>
-                        <value>NULL</value>
-                    </parameter>
-                </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_baseline_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_baseline_out_centroids;
-                </tear_down>
             </method>
         </test_suite>
 
         <test_suite>
-            <name>kmeans_cset_gof_disabled</name>
-            <comments>It is to test kmeans with gof disabled.</comments>
-                <!-- It indicate max execution times-->
-                <execute_rate>1</execute_rate>
-            <method>
-                <name>kmeans_cset</name>
-                <list_parameter>
-                    <name>dataset</name>
-                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
-                </list_parameter>
-                <parameters>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_cset_gof_disabled_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_cset_gof_disabled_out_centroids</value>
-                    </parameter>
-                    <parameter>
-                        <name>evaluate</name>
-                        <value>False</value>
-                    </parameter>
-                </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_gof_disabled_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_gof_disabled_out_centroids;
-                </tear_down>
-            </method>
-        </test_suite>
-
-        <test_suite>
-            <name>kmeans_plusplus_gof_disabled</name>
-            <comments>It is to test kmeans with gof disabled.</comments>
-                <!-- It indicate max execution times-->
-                <execute_rate>1</execute_rate>
-            <method>
-                <name>kmeans_plusplus</name>
-                <list_parameter>
-                    <name>dataset</name>
-                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
-                </list_parameter>
-                <parameters>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_plusplus_gof_disabled_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_plusplus_gof_disabled_out_centroids</value>
-                    </parameter>
-                    <parameter>
-                        <name>evaluate</name>
-                        <value>False</value>
-                    </parameter>
-                    <parameter>
-                        <name>k</name>
-                        <value>6</value>
-                    </parameter>
-                    <parameter>
-                        <name>sample_frac</name>
-                        <value>0.10</value>
-                    </parameter>
-                </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_gof_disabled_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_gof_disabled_out_centroids;
-                </tear_down>
-            </method>
-        </test_suite>
-
-       <test_suite>
-            <name>kmeans_random_gof_disabled</name>
-            <comments>It is to test kmeans with gof disabled.</comments>
-                <!-- It indicate max execution times-->
-                <execute_rate>1</execute_rate>
-            <method>
-                <name>kmeans_random</name>
-                <list_parameter>
-                    <name>dataset</name>
-                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
-                </list_parameter>
-                <parameters>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_random_gof_disabled_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_random_gof_disabled_out_centroids</value>
-                    </parameter>
-                    <parameter>
-                        <name>evaluate</name>
-                        <value>False</value>
-                    </parameter>
-                    <parameter>
-                        <name>k</name>
-                        <value>6</value>
-                    </parameter>
-                </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_random_gof_disabled_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_random_gof_disabled_out_centroids;
-                </tear_down>
-            </method>
-        </test_suite>
-
-        <test_suite>
-            <name>kmeans_canopy_gof_disabled</name>
-            <comments>It is to test kmeans with gof disabled.</comments>
-                <!-- It indicate max execution times-->
-                <execute_rate>1</execute_rate>
-            <method>
-                <name>kmeans_canopy</name>
-                <list_parameter>
-                    <name>dataset</name>
-                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
-                </list_parameter>
-                <parameters>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_canopy_gof_disabled_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_canopy_gof_disabled_out_centroids</value>
-                    </parameter>
-                    <parameter>
-                        <name>evaluate</name>
-                        <value>False</value>
-                    </parameter>
-                    <parameter>
-                        <name>t1</name>
-                        <value>NULL</value>
-                    </parameter>
-                    <parameter>
-                        <name>t2</name>
-                        <value>NULL</value>
-                    </parameter>
-                </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_gof_disabled_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_gof_disabled_out_centroids;
-                </tear_down>
-            </method>
-        </test_suite>
-
-        <test_suite>
-            <name>kmeans_cset_maximum_iteration</name>
+            <name>kmeans_new_plusplus_maximum_iteration</name>
             <comments>It is to test kmeans with maximum iteration.</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_cset</name>
+                <name>kmeans_new_plusplus</name>
                 <list_parameter>
                     <name>dataset</name>
                     <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
@@ -432,82 +157,20 @@
                 </list_parameter>
                 <parameters>
                     <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_cset_maximum_iteration_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_cset_maximum_iteration_out_centroids</value>
-                    </parameter>
-                </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_maximum_iteration_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_maximum_iteration_out_centroids;
-                </tear_down>
-            </method>
-        </test_suite>
-
-        <test_suite>
-            <name>kmeans_plusplus_maximum_iteration</name>
-            <comments>It is to test kmeans with maximum iteration.</comments>
-                <!-- It indicate max execution times-->
-                <execute_rate>1</execute_rate>
-            <method>
-                <name>kmeans_plusplus</name>
-                <list_parameter>
-                    <name>dataset</name>
-                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
-                </list_parameter>
-                <list_parameter>
-                    <name>max_iter</name>
-                    <value>5</value><value>10</value><value>20</value><value>30</value>
-                </list_parameter>
-                <parameters>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_plusplus_maximum_iteration_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_plusplus_maximum_iteration_out_centroids</value>
-                    </parameter>
-                    <parameter>
                         <name>k</name>
                         <value>6</value>
                     </parameter>
-                    <parameter>
-                        <name>sample_frac</name>
-                        <value>0.10</value>
-                    </parameter>
                 </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_maximum_iteration_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_maximum_iteration_out_centroids;
-                </tear_down>
             </method>
         </test_suite>
 
-       <test_suite>
-            <name>kmeans_random_maximum_iteration</name>
+         <test_suite>
+            <name>kmeans_new_random_maximum_iteration</name>
             <comments>It is to test kmeans with maximum iteration.</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_random</name>
+                <name>kmeans_new_random</name>
                 <list_parameter>
                     <name>dataset</name>
                     <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
@@ -517,77 +180,11 @@
                     <value>5</value><value>10</value><value>20</value><value>30</value>
                 </list_parameter>
                 <parameters>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_random_maximum_iteration_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_random_maximum_iteration_out_centroids</value>
-                    </parameter>
                     <parameter>
                         <name>k</name>
                         <value>6</value>
                     </parameter>
                 </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_random_maximum_iteration_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_random_maximum_iteration_out_centroids;
-                </tear_down>
-            </method>
-        </test_suite>
-
-        <test_suite>
-            <name>kmeans_canopy_maximum_iteration</name>
-            <comments>It is to test kmeans with maximum iteration.</comments>
-                <!-- It indicate max execution times-->
-                <execute_rate>1</execute_rate>
-            <method>
-                <name>kmeans_canopy</name>
-                <list_parameter>
-                    <name>dataset</name>
-                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
-                </list_parameter>
-                <list_parameter>
-                    <name>max_iter</name>
-                    <value>5</value><value>10</value><value>20</value><value>30</value>
-                </list_parameter>
-                <parameters>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_canopy_maximum_iteration_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_canopy_maximum_iteration_out_centroids</value>
-                    </parameter>
-                    <parameter>
-                        <name>t1</name>
-                        <value>NULL</value>
-                    </parameter>
-                    <parameter>
-                        <name>t2</name>
-                        <value>NULL</value>
-                    </parameter>
-                </parameters>
-                <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_maximum_iteration_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_maximum_iteration_out_centroids;
-                </tear_down>
             </method>
         </test_suite>
 
@@ -2902,36 +2499,20 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_cset_ctas</name>
+            <name>kmeans_new_cset_ctas</name>
             <comments>It is to test kmeans using create table as.</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_cset_ctas</name>
+                <name>kmeans_new_cset_ctas</name>
                 <parameters>
                     <parameter>
                         <name>dataset</name>
                         <value>km_abalone</value>
                     </parameter>
-                    <parameter>
-                        <name>src_col_data</name>
-                        <value>position</value>
-                    </parameter>
-                    <parameter>
-                        <name>src_col_id</name>
-                        <value>pid</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_points</name>
-                        <value>madlibtestresult.kmeans_cset_ctas_out_points</value>
-                    </parameter>
-                    <parameter>
-                        <name>out_centroids</name>
-                        <value>madlibtestresult.kmeans_cset_ctas_out_centroids</value>
-                    </parameter>
                 </parameters>
                 <tear_down>
-                     DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_ctas_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_ctas_out_centroids;
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_new_cset_ctas_abalone;
                 </tear_down>
             </method>
         </test_suite>

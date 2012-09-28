@@ -6425,6 +6425,25 @@
                 </parameter>
            </method>
            <method>
+                <name>kmeans_new_cset</name>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+                <parameter>
+                    <name>init_cset_rel</name>
+                    <value>madlibtestdata.km_abalone_centroids</value>
+                </parameter>
+                <parameter>
+                    <name>init_cset_col</name>
+                    <value>position</value>
+                </parameter>
+           </method>
+           <method>
                 <name>kmeans_plusplus</name>
                 <parameter>
                     <name>src_relation</name>
@@ -6432,10 +6451,32 @@
                 </parameter>
            </method>
            <method>
+                <name>kmeans_new_plusplus</name>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+           </method>
+           <method>
                 <name>kmeans_random</name>
                 <parameter>
                     <name>src_relation</name>
                     <value>madlibtestdata.km_abalone</value>
+                </parameter>
+           </method>
+           <method>
+                <name>kmeans_new_random</name>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
                 </parameter>
            </method>
            <method>
@@ -6465,6 +6506,29 @@
                 </parameter>
            </method>
            <method>
+                <name>kmeans_new_cset_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_cset_ctas_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+                <parameter>
+                    <name>init_cset_rel</name>
+                    <value>madlibtestdata.km_abalone_centroids</value>
+                </parameter>
+                <parameter>
+                    <name>init_cset_col</name>
+                    <value>position</value>
+                </parameter>
+           </method>
+           <method>
                 <name>kmeans_plusplus_ctas</name>
                 <parameter>
                     <name>table_name</name>
@@ -6473,6 +6537,21 @@
                 <parameter>
                     <name>src_relation</name>
                     <value>madlibtestdata.km_abalone</value>
+                </parameter>
+           </method>
+           <method>
+                <name>kmeans_new_plusplus_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_plusplus_ctas_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
                 </parameter>
            </method>
            <method>
@@ -6487,6 +6566,21 @@
                 </parameter>
            </method>
            <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_random_ctas_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+           </method>
+           <method>
                 <name>kmeans_canopy_ctas</name>
                 <parameter>
                     <name>table_name</name>
@@ -6495,6 +6589,17 @@
                 <parameter>
                     <name>src_relation</name>
                     <value>madlibtestdata.km_abalone</value>
+                </parameter>
+           </method>
+           <method>
+                <name>kmeans_new_silhouette</name>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
                 </parameter>
            </method>
         </algorithm>

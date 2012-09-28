@@ -3317,7 +3317,73 @@
             </output_parameter>
          </method>
 
-         <method>        
+         <method>
+            <name>kmeans_new_cset</name>
+            <create>true</create>
+            <template>
+                   SELECT * FROM {madlib_schema}.kmeans
+                        ( {src_relation}     -- rel_source
+                        , {src_col_data}     -- expr_point
+                        , {init_cset_rel}    -- rel_initial_centroids
+                        , {init_cset_col}    -- expr_centroid
+                        , {dist_metric}      -- fn_squared_dist
+                        , {agg_mean}         -- agg_mean
+                        , {max_iter}         -- max_num_iterations
+                        , {conv_threshold}   -- min_frac_reassigned
+                        ) AS q;
+            </template>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>squared_dist_norm2</default>
+            </input_parameter>
+            <input_parameter>
+                <name>agg_mean</name>
+                <type>text</type>
+                <default>avg</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>init_cset_rel</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>init_cset_col</name>
+                <type>text</type>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>objective_fn</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>frac_reassigned</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>num_iterations</name>
+                <type>integer</type>
+            </output_parameter>
+         </method>
+
+         <method>
             <name>kmeans_plusplus</name>
             <create>true</create>
             <template>
@@ -3409,7 +3475,68 @@
                 <type>double precision</type>
             </output_parameter>
          </method>
-         
+
+         <method>
+            <name>kmeans_new_plusplus</name>
+            <create>true</create>
+            <template>
+                   SELECT * FROM {madlib_schema}.kmeanspp
+                        ( {src_relation}     -- rel_source
+                        , {src_col_data}     -- expr_point
+                        , {k}                -- k
+                        , {dist_metric}      -- fn_squared_dist
+                        , {agg_mean}         -- agg_mean
+                        , {max_iter}         -- max_num_iterations
+                        , {conv_threshold}   -- min_frac_reassigned
+                        ) AS q;
+            </template>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>squared_dist_norm2</default>
+            </input_parameter>
+            <input_parameter>
+                <name>agg_mean</name>
+                <type>text</type>
+                <default>avg</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>double precision</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>k</name>
+                <type>smallint</type>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>objective_fn</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>frac_reassigned</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>num_iterations</name>
+                <type>integer</type>
+            </output_parameter>
+         </method>
+
           <method>        
             <name>kmeans_random</name>
             <create>true</create>
@@ -3494,6 +3621,85 @@
             <output_parameter>
                 <name>silhouette</name>
                 <type>double precision</type>
+            </output_parameter>
+         </method>
+
+          <method>
+            <name>kmeans_new_random</name>
+            <create>true</create>
+            <template>
+                   SELECT * FROM {madlib_schema}.kmeans_random
+                        ( {src_relation}     -- rel_source
+                        , {src_col_data}     -- expr_point
+                        , {k}                -- k
+                        , {dist_metric}      -- fn_squared_dist
+                        , {agg_mean}         -- agg_mean
+                        , {max_iter}         -- max_num_iterations
+                        , {conv_threshold}   -- min_frac_reassigned
+                        ) AS q;
+            </template>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>src_col_id</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>out_points</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>out_centroids</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>l2norm</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>evaluate</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>k</name>
+                <type>int</type>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>objective_fn</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>frac_reassigned</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>num_iterations</name>
+                <type>integer</type>
             </output_parameter>
          </method>
 
@@ -3673,6 +3879,76 @@
             <!-- no result arguments for create table as -->
          </method>
 
+          <method>
+            <name>kmeans_new_cset_ctas</name>
+            <template>
+                CREATE TABLE {table_name} AS
+                   SELECT * FROM {madlib_schema}.kmeans
+                        ( {src_relation}     -- rel_source
+                        , {src_col_data}     -- expr_point
+                        , {init_cset_rel}    -- rel_initial_centroids
+                        , {init_cset_col}    -- expr_centroid
+                        , {dist_metric_in_objective} -- fn_squared_dist
+                        , {agg_mean}         -- agg_mean
+                        , {max_iter}         -- max_num_iterations
+                        , {conv_threshold}   -- min_frac_reassigned
+                        ) AS q;
+                SELECT {madlib_schema}.simple_silhouette
+                    ( {src_relation}         -- rel_source
+                    , {src_col_data}         -- expr_point
+                    , (SELECT centroids FROM {table_name}), -- centroids
+                    , {dist_metric}          -- fn_dist
+                    );
+            </template>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>dist_norm2</default>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric_in_objective</name>
+                <type>text</type>
+                <default>squared_dist_norm2</default>
+            </input_parameter>
+            <input_parameter>
+                <name>agg_mean</name>
+                <type>text</type>
+                <default>avg</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>init_cset_rel</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>init_cset_col</name>
+                <type>text</type>
+            </input_parameter>
+            <!-- no result arguments for create table as -->
+         </method>
+
          <method>        
             <name>kmeans_plusplus_ctas</name>
             <template>
@@ -3755,7 +4031,80 @@
             </input_parameter>
             <!-- no result arguments for create table as -->
          </method>
-         
+
+         <method>
+            <name>kmeans_new_plusplus_ctas</name>
+            <template>
+                CREATE TABLE {table_name} AS
+                   SELECT * FROM {madlib_schema}.kmeans_random
+                        ( {src_relation}     -- rel_source
+                        , {src_col_data}     -- expr_point
+                        , {k}                -- k
+                        , {dist_metric}      -- fn_squared_dist
+                        , {agg_mean}         -- agg_mean
+                        , {max_iter}         -- max_num_iterations
+                        , {conv_threshold}   -- min_frac_reassigned
+                        ) AS q;
+                DROP TABLE {table_name};
+            </template>
+            <input_parameter>
+                <name>table_name</name>
+                <type>text</type>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>src_col_id</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>out_points</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>out_centroids</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>l2norm</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>evaluate</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>k</name>
+                <type>int</type>
+            </input_parameter>
+            <!-- no result arguments for create table as -->
+         </method>
+
           <method>        
             <name>kmeans_random_ctas</name>
             <template>
@@ -3788,6 +4137,79 @@
                 <name>src_col_data</name>
                 <type>text</type>   
             </input_parameter>           
+            <input_parameter>
+                <name>src_col_id</name>
+                <type>text</type>
+                <default>NULL</default>
+            </input_parameter>
+            <input_parameter>
+                <name>out_points</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>out_centroids</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>l2norm</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <input_parameter>
+                <name>evaluate</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>verbosity</name>
+                <type>boolean</type>
+                <default>True</default>
+            </input_parameter>
+            <input_parameter>
+                <name>k</name>
+                <type>int</type>
+            </input_parameter>
+            <!-- no result arguments for create table as -->
+         </method>
+
+          <method>
+            <name>kmeans_new_random_ctas</name>
+            <template>
+                CREATE TABLE {table_name} AS
+                   SELECT * FROM {madlib_schema}.kmeans_random
+                        ( {src_relation}     -- rel_source
+                        , {src_col_data}     -- expr_point
+                        , {k}                -- k
+                        , {dist_metric}      -- fn_squared_dist
+                        , {agg_mean}         -- agg_mean
+                        , {max_iter}         -- max_num_iterations
+                        , {conv_threshold}   -- min_frac_reassigned
+                        ) AS q;
+                DROP TABLE {table_name};
+            </template>
+            <input_parameter>
+                <name>table_name </name>
+                <type>text</type>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>
+            </input_parameter>
             <input_parameter>
                 <name>src_col_id</name>
                 <type>text</type>
@@ -3917,7 +4339,41 @@
             <!-- no result arguments for create table as -->
          </method>
      </algorithm>
-    
+
+     <algorithm>
+         <name>kmeans_new_silhouette</name>
+         <method>
+            <name>kmeans_new_cset</name>
+            <create>true</create>
+            <template>
+                   SELECT {madlib_schema}.simple_silhouette
+                        ( {src_relation}   -- rel_source
+                        , {src_col_data}   -- expr_point
+                        , (SELECT centroids FROM {src_result}) -- centroids
+                        , {dist_metric}    -- fn_dist
+                        );
+            </template>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>src_result</name>
+                <type>text</type>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>dist_norm2</default>
+            </input_parameter>
+         </method>
+     </algorithm>
+         
      <algorithm>
          <name>linear_regression</name>
          <method>        
