@@ -389,11 +389,13 @@ CREATE OR REPLACE VIEW skippedcases
 AS
 SELECT jc.jiraid as jiraid, 
        algorithmic, 
-       CASE WHEN j.jiratype = 1 THEN 'V0.5' ELSE 'MASTER' END  AS fixversion, COUNT(*) AS cut
+       CASE WHEN j.jiratype = 1 THEN 'V0.5' ELSE 'MASTER' END  AS fixversion, COUNT(*) AS cnt,
+       j.jiradescription
 FROM jiras_cases as jc,
              madlib_jiras as j,
              (SELECT algorithmic, casename from testitemresult as tr, testitems as ti
-              WHERE runid =(select max(runid) from testitemseq)
+              WHERE runid = (select max(runid) from testitemseq)
                  AND issuccessful IS NULL and tr.itemname = ti.itemname) as tr
 WHERE j.jiraid = jc.jiraid AND tr.casename = jc.casename
-GROUP BY  jc.jiraid, j.jiratype, algorithmic;
+GROUP BY  jc.jiraid, j.jiratype, algorithmic,j.jiradescription;
+

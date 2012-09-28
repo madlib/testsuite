@@ -77,6 +77,8 @@ class ReadSkipfiles:
         jira_tableAttrs = [ "JiraId" , "JiraType", "JiraDescription"]
         mapping_tableAttrs = ["JiraId" , "CaseName"]
         
+        stmt = "DELETE FROM " + self.Jiras_table + ";\nDELETE FROM " + self.Mapping_table + ";\n\n"
+        skipcases_sql.write(stmt)
 
         # fomat the insert stmt
         for (jiraId,jiraType,jiraDes) in self.jiras_list:
