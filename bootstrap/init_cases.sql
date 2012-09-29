@@ -248,7 +248,7 @@ CREATE OR REPLACE VIEW testresultreport AS
       THEN 'FAILED : Evaluation function of random forest decreased: baseline is '::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and runtime is '::text  || ((tr.evaluation_function)::decimal(6,5))::text
 
 
-      WHEN  (trb.itemname like 'svm%'  ) and trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) < 0.0001
+      WHEN  (trb.itemname like 'svm%'  ) and trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) < 0.0000001
       THEN 'FAILED : Evaluation function of support vecotr machines decreased: baseline is '::text  || (trb.evaluation_function)::text  || ' and runtime is '::text  || (tr.evaluation_function)::text
 
       WHEN  (trb.issuccessful = tr.issuccessful AND (trb.itemname like 'kmeans_%' or trb.itemname like 'multinomial_%' 
@@ -271,7 +271,7 @@ CREATE OR REPLACE VIEW testresultreport AS
 
       WHEN (trb.itemname not like 'rf%' AND trb.itemname not like '%cross_validate%'  AND trb.itemname not like 'svm%' AND (trb.evaluation_function IS NOT NULL AND ((trb.evaluation_function - tr.evaluation_function) between -0.0001 and 0.0001)))
           OR ((trb.itemname like 'rf%' OR  trb.itemname like '%cross_validate%' ) AND (trb.evaluation_function IS NOT NULL AND ((tr.evaluation_function / trb.evaluation_function) between 0.7 and 1.3 )))
-           OR ((trb.itemname like 'svm%' ) AND (trb.evaluation_function IS NOT NULL AND ((tr.evaluation_function / trb.evaluation_function) between 0.0001 and 10000 )))   
+           OR ((trb.itemname like 'svm%' ) AND (trb.evaluation_function IS NOT NULL AND ((tr.evaluation_function / trb.evaluation_function) between 0.0000001 and 10000000 )))   
           OR (trb.evaluation_function IS NULL AND trb.result_info = tr.result_info)
       THEN 'PASSED'
 
@@ -282,7 +282,7 @@ CREATE OR REPLACE VIEW testresultreport AS
       WHEN  (trb.itemname like 'rf%' OR  trb.itemname like '%cross_validate%' ) AND trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) > 1.3
       THEN 'PASSED : Evaluation function of random forest increased: baseline is '::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and runtime is '::text  || ((tr.evaluation_function)::decimal(6,5))::text 
 
-      WHEN  (trb.itemname like 'svm%' ) AND trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) > 10000
+      WHEN  (trb.itemname like 'svm%' ) AND trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) > 10000000
       THEN 'PASSED : Evaluation function of svm increased: baseline is '::text  || (trb.evaluation_function)::text  || ' and runtime is '::text  || (tr.evaluation_function)::text 
 
       ELSE 'CASES NEED TO BE INVESTIGATE'
