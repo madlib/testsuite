@@ -122,10 +122,9 @@ def main():
             else:
                 isUnique = False
 
+            version = utility.runCases(filename, plan['skip'], isList, isUnique, plan['platform'], TestCaseDir, AnalyticsTool, run_id)
             if plan['skip']:
                 utility.runSQL(psql_cmd, TestMataDir + 'skipsqlfile.sql', environ)
-            
-            version = utility.runCases(filename, plan['skip'], isList, isUnique, plan['platform'], TestCaseDir, AnalyticsTool, run_id)
             
             utility.runSQL(psql_cmd, TestMataDir + 'post.sql', environ)
             generateReport(psql_cmd, environ, run_id, plan['platform'])
