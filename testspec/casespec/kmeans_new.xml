@@ -62,7 +62,7 @@
                 </list_parameter>
                 <list_parameter>
                     <name>dist_metric</name>
-                    <value>dist_norm1</value><value>squared_dist_norm2</value><value>squared_angle</value><value>squared_tanimoto</value>
+                    <value>madlib.dist_norm1</value><value>madlib.squared_dist_norm2</value><value>madlib.squared_angle</value><value>madlib.squared_tanimoto</value>
                 </list_parameter>
             </method>
             <tear_down>

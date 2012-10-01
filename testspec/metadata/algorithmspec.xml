@@ -3343,12 +3343,12 @@
             <input_parameter>
                 <name>dist_metric</name>
                 <type>text</type>
-                <default>squared_dist_norm2</default>
+                <default>madlib.squared_dist_norm2</default>
             </input_parameter>
             <input_parameter>
                 <name>agg_mean</name>
                 <type>text</type>
-                <default>avg</default>
+                <default>madlib.avg</default>
             </input_parameter>
             <input_parameter>
                 <name>max_iter</name>
@@ -3501,12 +3501,12 @@
             <input_parameter>
                 <name>dist_metric</name>
                 <type>text</type>
-                <default>squared_dist_norm2</default>
+                <default>madlib.squared_dist_norm2</default>
             </input_parameter>
             <input_parameter>
                 <name>agg_mean</name>
                 <type>text</type>
-                <default>avg</default>
+                <default>madlib.avg</default>
             </input_parameter>
             <input_parameter>
                 <name>max_iter</name>
@@ -3882,7 +3882,7 @@
           <method>
             <name>kmeans_new_cset_ctas</name>
             <template>
-                CREATE TABLE {table_name} AS
+                SELECT {madlib_schema}.create_table_as('{table_name}', $$
                    SELECT * FROM {madlib_schema}.kmeans
                         ( {src_relation}     -- rel_source
                         , {src_col_data}     -- expr_point
@@ -3892,11 +3892,12 @@
                         , {agg_mean}         -- agg_mean
                         , {max_iter}         -- max_num_iterations
                         , {conv_threshold}   -- min_frac_reassigned
-                        ) AS q;
+                        ) AS q
+                $$);
                 SELECT {madlib_schema}.simple_silhouette
                     ( {src_relation}         -- rel_source
                     , {src_col_data}         -- expr_point
-                    , (SELECT centroids FROM {table_name}), -- centroids
+                    , (SELECT centroids FROM {table_name}) -- centroids
                     , {dist_metric}          -- fn_dist
                     );
             </template>
@@ -3916,17 +3917,17 @@
             <input_parameter>
                 <name>dist_metric</name>
                 <type>text</type>
-                <default>dist_norm2</default>
+                <default>madlib.dist_norm2</default>
             </input_parameter>
             <input_parameter>
                 <name>dist_metric_in_objective</name>
                 <type>text</type>
-                <default>squared_dist_norm2</default>
+                <default>madlib.squared_dist_norm2</default>
             </input_parameter>
             <input_parameter>
                 <name>agg_mean</name>
                 <type>text</type>
-                <default>avg</default>
+                <default>madlib.avg</default>
             </input_parameter>
             <input_parameter>
                 <name>max_iter</name>
@@ -4369,7 +4370,7 @@
             <input_parameter>
                 <name>dist_metric</name>
                 <type>text</type>
-                <default>dist_norm2</default>
+                <default>madlib.dist_norm2</default>
             </input_parameter>
          </method>
      </algorithm>
