@@ -3888,7 +3888,7 @@
                         , {src_col_data}     -- expr_point
                         , {init_cset_rel}    -- rel_initial_centroids
                         , {init_cset_col}    -- expr_centroid
-                        , {dist_metric_in_objective} -- fn_squared_dist
+                        , ({dist_metrics})[1]-- fn_dist
                         , {agg_mean}         -- agg_mean
                         , {max_iter}         -- max_num_iterations
                         , {conv_threshold}   -- min_frac_reassigned
@@ -3898,7 +3898,7 @@
                     ( {src_relation}         -- rel_source
                     , {src_col_data}         -- expr_point
                     , (SELECT centroids FROM {table_name}) -- centroids
-                    , {dist_metric}          -- fn_dist
+                    , ({dist_metrics})[2]    -- fn_dist
                     );
             </template>
             <input_parameter>
@@ -3915,14 +3915,10 @@
                 <type>text</type>
             </input_parameter>
             <input_parameter>
-                <name>dist_metric</name>
+                <name>dist_metrics</name>
                 <type>text</type>
-                <default>madlib.dist_norm2</default>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric_in_objective</name>
-                <type>text</type>
-                <default>madlib.squared_dist_norm2</default>
+                <quote>false</quote>
+                <default>ARRAY['madlib.squared_dist_norm2','madlib.dist_norm2']</default>
             </input_parameter>
             <input_parameter>
                 <name>agg_mean</name>
@@ -4339,10 +4335,73 @@
             </input_parameter>
             <!-- no result arguments for create table as -->
          </method>
-     </algorithm>
 
-     <algorithm>
-         <name>kmeans_new_silhouette</name>
+         <method>
+            <name>kmeans_new_pp_seeding</name>
+            <create>true</create>
+            <template>
+                   SELECT {madlib_schema}.kmeanspp_seeding
+                        ( {src_relation}   -- rel_source
+                        , {src_col_data}   -- expr_point
+                        , {k}              -- k
+                        , {dist_metric}    -- fn_dist
+                        , {initial_centroids} -- initial_centroids
+                        );
+            </template>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>k</name>
+                <type>smallint</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>madlib.dist_norm2</default>
+            </input_parameter>
+            <input_parameter>
+                <name>initial_centroids</name>
+                <type>double precision[][]</type>
+                <default>NULL</default>
+            </input_parameter>
+         </method>
+
+         <method>
+            <name>kmeans_new_random_seeding</name>
+            <create>true</create>
+            <template>
+                   SELECT {madlib_schema}.kmeans_random_seeding
+                        ( {src_relation}   -- rel_source
+                        , {src_col_data}   -- expr_point
+                        , {k}              -- k
+                        , {initial_centroids} -- initial_centroids
+                        );
+            </template>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>k</name>
+                <type>smallint</type>
+            </input_parameter>
+            <input_parameter>
+                <name>initial_centroids</name>
+                <type>double precision[][]</type>
+                <default>NULL</default>
+            </input_parameter>
+         </method>
+
          <method>
             <name>kmeans_new_cset</name>
             <create>true</create>
