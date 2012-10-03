@@ -3,6 +3,7 @@
 number and different vary parameter combinations
 """
 import os
+import pipes
 
 from xml_parser import *
 from file_path import *
@@ -78,8 +79,10 @@ class TestCase(Parser):
             "'" + self.caseName     + "' ," +\
             "'" + self.algorithm    + "' ," +\
             "'" + method            + "' ," +\
-            "'" + paras             + "' ," +\
-            "'" + varVal            + "' ," +\
+            "$_parasString$" \
+                + paras             + "$_parasString$ ," +\
+            "$_valueString$" \
+                + varVal            + "$_valueString$ ," +\
             "'" + varName           + "' ," +\
             "'" + dataset           + "' ," +\
             str(rownum) + ");"
@@ -155,10 +158,10 @@ class TestCase(Parser):
                     elif "rows" == varName :
                         caseItemRows = varValue
                         caseItemPara.append("--" + varName + " " + \
-                                self.paraHandler.handle(varName, varValue, "var", mtdName))
+                                pipes.quote(self.paraHandler.handle(varName, varValue, "var", mtdName)))
                     else:
                         caseItemPara.append("--" + varName + " " + \
-                                self.paraHandler.handle(varName, varValue, "var", mtdName))
+                                pipes.quote(self.paraHandler.handle(varName, varValue, "var", mtdName)))
 
             except Exception, exp:
                 pass
