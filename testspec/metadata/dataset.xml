@@ -6565,6 +6565,22 @@
                     <value>madlibtestdata.km_abalone</value>
                 </parameter>
            </method>
+            <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_random_ctas_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+           </method>
+
            <method>
                 <name>kmeans_new_random_ctas</name>
                 <parameter>
@@ -6687,6 +6703,18 @@
                 </parameter>
            </method>
            <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_random_ctas_movement_libras</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_movement_libras</value>
+                </parameter>
+           </method>
+
+           <method>
                 <name>kmeans_canopy_ctas</name>
                 <parameter>
                     <name>table_name</name>
@@ -6781,6 +6809,18 @@
                     <value>madlibtestdata.km_us_census_1990</value>
                 </parameter>
            </method>
+            <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_random_ctas_us_census_1990</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_us_census_1990</value>
+                </parameter>
+           </method>
+
            <method>
                 <name>kmeans_canopy_ctas</name>
                 <parameter>
@@ -6876,6 +6916,18 @@
                     <value>madlibtestdata.km_water_treatment</value>
                 </parameter>
            </method>
+                      <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_random_ctas_water_treatment</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_water_treatment</value>
+                </parameter>
+           </method>
+
            <method>
                 <name>kmeans_canopy_ctas</name>
                 <parameter>
@@ -6971,6 +7023,19 @@
                     <value>madlibtestdata.km_wine</value>
                 </parameter>
            </method>
+            
+           <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_random_ctas_wine</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_wine</value>
+                </parameter>
+           </method>
+
            <method>
                 <name>kmeans_canopy_ctas</name>
                 <parameter>
@@ -7066,6 +7131,18 @@
                     <value>madlibtestdata.km_winequality_red</value>
                 </parameter>
            </method>
+          <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_random_ctas_winequality_red</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_winequality_red</value>
+                </parameter>
+           </method>
+
            <method>
                 <name>kmeans_canopy_ctas</name>
                 <parameter>
@@ -7162,6 +7239,22 @@
                 </parameter>
            </method>
            <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_random_ctas_perf_100000_2000</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_perf_100000_2000</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+           </method>
+
+           <method>
                 <name>kmeans_canopy_ctas</name>
                 <parameter>
                     <name>table_name</name>
@@ -7209,6 +7302,14 @@
                 </parameter>
            </method>
            <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_us_census_1990_seg</value>
+                </parameter>
+           </method>
+
+           <method>
                 <name>kmeans_canopy</name>
                 <parameter>
                     <name>src_relation</name>
@@ -7239,6 +7340,13 @@
            </method>
            <method>
                 <name>kmeans_plusplus</name>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_us_census_1990_2458285</value>
+                </parameter>
+           </method>
+           <method>
+                <name>kmeans_random</name>
                 <parameter>
                     <name>src_relation</name>
                     <value>madlibtestdata.km_us_census_1990_2458285</value>

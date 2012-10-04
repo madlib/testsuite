@@ -1,0 +1,2232 @@
+20121002:15:45:15:017747 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Starting gpstart with args: -a -d /Users/iyerr3/greenplum-db-data/master/gpseg-1
+20121002:15:45:15:017747 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Gathering information and validating the environment...
+20121002:15:45:15:017747 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Greenplum Binary Version: 'postgres (Greenplum Database) main build dev'
+20121002:15:45:15:017747 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Greenplum Catalog Version: '201208170'
+20121002:15:45:15:017747 gpstart:useniyerr3mbp:iyerr3-[WARNING]:-postmaster.pid file exists on Master, checking if recovery startup required
+20121002:15:45:15:017747 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Commencing recovery startup checks
+20121002:15:45:15:017747 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Have lock file /tmp/.s.PGSQL.5432 and a process running on port 5432
+20121002:15:45:15:017747 gpstart:useniyerr3mbp:iyerr3-[ERROR]:-gpstart error: Master instance process running
+CREATE SCHEMA
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.dist_norm1 --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_0_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.dist_norm1'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_0_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 5249.76992607, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.562007514414309', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.dist_norm1"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_dist_norm2 --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_1_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_1_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 5064.45598602, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.562060835918376', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_angle --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_2_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_angle'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_2_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4967.82803535, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.568565959863685', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_angle"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_tanimoto --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_3_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_tanimoto'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_3_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4922.37496376, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.573785190436919', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_tanimoto"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.dist_norm1 --table_name madlibtestresult.kmeans_new_random_ctas_movement_libras --src_relation madlibtestdata.km_movement_libras --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_4_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_movement_libras', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_movement_libras'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.dist_norm1'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_movement_libras'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_4_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3692.33298302, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.312806006945921', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_movement_libras", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_movement_libras"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.dist_norm1"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_movement_libras"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_dist_norm2 --table_name madlibtestresult.kmeans_new_random_ctas_movement_libras --src_relation madlibtestdata.km_movement_libras --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_5_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_movement_libras', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_movement_libras'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_movement_libras'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_5_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3406.36491776, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.326223994614176', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_movement_libras", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_movement_libras"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_movement_libras"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_angle --table_name madlibtestresult.kmeans_new_random_ctas_movement_libras --src_relation madlibtestdata.km_movement_libras --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_6_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_movement_libras', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_movement_libras'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_angle'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_movement_libras'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_6_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 2689.38803673, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.308194093073831', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_movement_libras", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_movement_libras"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_angle"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_movement_libras"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_tanimoto --table_name madlibtestresult.kmeans_new_random_ctas_movement_libras --src_relation madlibtestdata.km_movement_libras --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_7_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_movement_libras', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_movement_libras'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_tanimoto'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_movement_libras'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_7_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3124.35793877, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.335681696269395', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_movement_libras", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_movement_libras"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_tanimoto"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_movement_libras"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.dist_norm1 --table_name madlibtestresult.kmeans_new_random_ctas_us_census_1990 --src_relation madlibtestdata.km_us_census_1990 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_8_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_us_census_1990', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_us_census_1990'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.dist_norm1'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_us_census_1990'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_8_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 567113.040924, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.260637820250329', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_us_census_1990", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_us_census_1990"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.dist_norm1"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_us_census_1990"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_dist_norm2 --table_name madlibtestresult.kmeans_new_random_ctas_us_census_1990 --src_relation madlibtestdata.km_us_census_1990 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_9_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_us_census_1990', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_us_census_1990'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_us_census_1990'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_9_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 272662.490845, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+-----------------
+simple_silhouette | 0.48399576503394', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_us_census_1990", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_us_census_1990"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_us_census_1990"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_angle --table_name madlibtestresult.kmeans_new_random_ctas_us_census_1990 --src_relation madlibtestdata.km_us_census_1990 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_10_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_us_census_1990', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_us_census_1990'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_angle'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_us_census_1990'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_10_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 1000492.33603, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.317598819626108', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_us_census_1990", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_us_census_1990"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_angle"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_us_census_1990"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_tanimoto --table_name madlibtestresult.kmeans_new_random_ctas_us_census_1990 --src_relation madlibtestdata.km_us_census_1990 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_11_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_us_census_1990', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_us_census_1990'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_tanimoto'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_us_census_1990'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_11_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 276975.96097, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.483769512788346', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_us_census_1990", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_us_census_1990"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_tanimoto"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_us_census_1990"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.dist_norm1 --table_name madlibtestresult.kmeans_new_random_ctas_water_treatment --src_relation madlibtestdata.km_water_treatment --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_12_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_water_treatment', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_water_treatment'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.dist_norm1'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_water_treatment'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_12_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3330.40499687, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.571261716047751', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_water_treatment", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_water_treatment"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.dist_norm1"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_water_treatment"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_dist_norm2 --table_name madlibtestresult.kmeans_new_random_ctas_water_treatment --src_relation madlibtestdata.km_water_treatment --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_13_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_water_treatment', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_water_treatment'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_water_treatment'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_13_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4483.22582245, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.571595911872827', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_water_treatment", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_water_treatment"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_water_treatment"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_angle --table_name madlibtestresult.kmeans_new_random_ctas_water_treatment --src_relation madlibtestdata.km_water_treatment --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_14_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_water_treatment', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_water_treatment'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_angle'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_water_treatment'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_14_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4045.66192627, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.451487579000847', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_water_treatment", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_water_treatment"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_angle"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_water_treatment"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_tanimoto --table_name madlibtestresult.kmeans_new_random_ctas_water_treatment --src_relation madlibtestdata.km_water_treatment --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_15_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_water_treatment', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_water_treatment'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_tanimoto'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_water_treatment'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_15_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3441.38216972, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.570664467324184', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_water_treatment", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_water_treatment"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_tanimoto"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_water_treatment"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.dist_norm1 --table_name madlibtestresult.kmeans_new_random_ctas_wine --src_relation madlibtestdata.km_wine --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_16_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_wine', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_wine'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.dist_norm1'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_wine'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_16_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3815.15693665, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.647424754895373', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_wine", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_wine"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.dist_norm1"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_wine"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_dist_norm2 --table_name madlibtestresult.kmeans_new_random_ctas_wine --src_relation madlibtestdata.km_wine --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_17_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_wine', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_wine'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_wine'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_17_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3753.47208977, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.634771261067344', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_wine", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_wine"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_wine"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_angle --table_name madlibtestresult.kmeans_new_random_ctas_wine --src_relation madlibtestdata.km_wine --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_18_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_wine', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_wine'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_angle'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_wine'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_18_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3854.46619987, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.595800539459835', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_wine", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_wine"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_angle"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_wine"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_tanimoto --table_name madlibtestresult.kmeans_new_random_ctas_wine --src_relation madlibtestdata.km_wine --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_19_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_wine', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_wine'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_tanimoto'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_wine'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_19_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3274.91307259, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.617928386119282', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_wine", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_wine"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_tanimoto"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_wine"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.dist_norm1 --table_name madlibtestresult.kmeans_new_random_ctas_winequality_red --src_relation madlibtestdata.km_winequality_red --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_20_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_winequality_red', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_winequality_red'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.dist_norm1'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_winequality_red'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_20_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4065.19198418, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.525963428380484', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_winequality_red", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_winequality_red"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.dist_norm1"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_winequality_red"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_dist_norm2 --table_name madlibtestresult.kmeans_new_random_ctas_winequality_red --src_relation madlibtestdata.km_winequality_red --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_21_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_winequality_red', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_winequality_red'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_winequality_red'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_21_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4395.2190876, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+-----------------
+simple_silhouette | 0.52792388818736', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_winequality_red", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_winequality_red"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_winequality_red"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_angle --table_name madlibtestresult.kmeans_new_random_ctas_winequality_red --src_relation madlibtestdata.km_winequality_red --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_22_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_winequality_red', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_winequality_red'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_angle'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_winequality_red'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_22_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4464.0390873, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.465267603720618', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_winequality_red", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_winequality_red"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_angle"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_winequality_red"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --dist_metric_in_objective madlib.squared_tanimoto --table_name madlibtestresult.kmeans_new_random_ctas_winequality_red --src_relation madlibtestdata.km_winequality_red --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_baseline_0_23_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_winequality_red', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_winequality_red'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_tanimoto'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_winequality_red'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_baseline_0_23_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4497.22886086, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.508376579859851', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_winequality_red", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_winequality_red"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_tanimoto"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_winequality_red"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 5 --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_0_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '5'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_0_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 2754.36782837, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.567256661295731', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "5"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 10 --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_1_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '10'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_1_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3228.34897041, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.573833172622125', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "10"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 20 --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_2_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_2_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4905.05695343, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.562060835918376', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 30 --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_3_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '30'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_3_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 6769.97900009, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.562468268594398', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "30"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 5 --table_name madlibtestresult.kmeans_new_random_ctas_movement_libras --src_relation madlibtestdata.km_movement_libras --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_4_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_movement_libras', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_movement_libras'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '5'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_movement_libras'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_4_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 2383.92210007, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.300058315033184', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_movement_libras", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_movement_libras"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "5"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_movement_libras"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 10 --table_name madlibtestresult.kmeans_new_random_ctas_movement_libras --src_relation madlibtestdata.km_movement_libras --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_5_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_movement_libras', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_movement_libras'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '10'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_movement_libras'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_5_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 2868.04389954, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+-----------------
+simple_silhouette | 0.31088845896812', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_movement_libras", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_movement_libras"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "10"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_movement_libras"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 20 --table_name madlibtestresult.kmeans_new_random_ctas_movement_libras --src_relation madlibtestdata.km_movement_libras --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_6_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_movement_libras', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_movement_libras'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_movement_libras'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_6_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3701.50494576, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.326223994614176', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_movement_libras", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_movement_libras"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_movement_libras"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 30 --table_name madlibtestresult.kmeans_new_random_ctas_movement_libras --src_relation madlibtestdata.km_movement_libras --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_7_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_movement_libras', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_movement_libras'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '30'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_movement_libras'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_7_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4609.74693298, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.333316503014434', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_movement_libras", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_movement_libras"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "30"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_movement_libras"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_movement_libras)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 5 --table_name madlibtestresult.kmeans_new_random_ctas_us_census_1990 --src_relation madlibtestdata.km_us_census_1990 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_8_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_us_census_1990', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_us_census_1990'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '5'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_us_census_1990'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_8_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 246216.329098, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+-----------------
+simple_silhouette | 0.48399576503394', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_us_census_1990", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_us_census_1990"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "5"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_us_census_1990"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 10 --table_name madlibtestresult.kmeans_new_random_ctas_us_census_1990 --src_relation madlibtestdata.km_us_census_1990 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_9_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_us_census_1990', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_us_census_1990'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '10'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_us_census_1990'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_9_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 229322.243929, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+-----------------
+simple_silhouette | 0.48399576503394', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_us_census_1990", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_us_census_1990"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "10"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_us_census_1990"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 20 --table_name madlibtestresult.kmeans_new_random_ctas_us_census_1990 --src_relation madlibtestdata.km_us_census_1990 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_10_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_us_census_1990', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_us_census_1990'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_us_census_1990'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_10_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 217132.494211, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+-----------------
+simple_silhouette | 0.48399576503394', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_us_census_1990", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_us_census_1990"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_us_census_1990"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 30 --table_name madlibtestresult.kmeans_new_random_ctas_us_census_1990 --src_relation madlibtestdata.km_us_census_1990 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_11_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_us_census_1990', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_us_census_1990'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '30'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_us_census_1990'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_11_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 193068.783998, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+-----------------
+simple_silhouette | 0.48399576503394', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_us_census_1990", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_us_census_1990"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "30"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_us_census_1990"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_us_census_1990)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 5 --table_name madlibtestresult.kmeans_new_random_ctas_water_treatment --src_relation madlibtestdata.km_water_treatment --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_12_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_water_treatment', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_water_treatment'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '5'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_water_treatment'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_12_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3806.03194237, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.566094915710657', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_water_treatment", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_water_treatment"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "5"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_water_treatment"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 10 --table_name madlibtestresult.kmeans_new_random_ctas_water_treatment --src_relation madlibtestdata.km_water_treatment --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_13_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_water_treatment', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_water_treatment'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '10'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_water_treatment'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_13_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 2945.12486458, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.571830624268027', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_water_treatment", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_water_treatment"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "10"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_water_treatment"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 20 --table_name madlibtestresult.kmeans_new_random_ctas_water_treatment --src_relation madlibtestdata.km_water_treatment --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_14_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_water_treatment', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_water_treatment'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_water_treatment'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_14_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4000.09393692, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.571595911872827', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_water_treatment", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_water_treatment"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_water_treatment"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 30 --table_name madlibtestresult.kmeans_new_random_ctas_water_treatment --src_relation madlibtestdata.km_water_treatment --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_15_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_water_treatment', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_water_treatment'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '30'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_water_treatment'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_15_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 3193.01795959, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.571595911872827', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_water_treatment", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_water_treatment"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "30"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_water_treatment"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_water_treatment)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 5 --table_name madlibtestresult.kmeans_new_random_ctas_wine --src_relation madlibtestdata.km_wine --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_16_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_wine', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_wine'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '5'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_wine'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_16_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 2648.90193939, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.614742020890515', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_wine", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_wine"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "5"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_wine"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 10 --table_name madlibtestresult.kmeans_new_random_ctas_wine --src_relation madlibtestdata.km_wine --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_17_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_wine', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_wine'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '10'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_wine'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_17_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 2846.51684761, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.613065925533018', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_wine", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_wine"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "10"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_wine"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 20 --table_name madlibtestresult.kmeans_new_random_ctas_wine --src_relation madlibtestdata.km_wine --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_18_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_wine', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_wine'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_wine'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_18_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 5405.18093109, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.634771261067344', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_wine", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_wine"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_wine"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 30 --table_name madlibtestresult.kmeans_new_random_ctas_wine --src_relation madlibtestdata.km_wine --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_19_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_wine', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_wine'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '30'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_wine'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_19_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 6198.39215279, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.655065163428617', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_wine", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_wine"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "30"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_wine"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_wine)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 5 --table_name madlibtestresult.kmeans_new_random_ctas_winequality_red --src_relation madlibtestdata.km_winequality_red --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_20_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_winequality_red', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_winequality_red'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '5'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_winequality_red'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_20_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 2884.6809864, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.522665723695382', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_winequality_red", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_winequality_red"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "5"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_winequality_red"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 10 --table_name madlibtestresult.kmeans_new_random_ctas_winequality_red --src_relation madlibtestdata.km_winequality_red --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_21_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_winequality_red', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_winequality_red'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '10'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_winequality_red'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_21_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 6214.13707733, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.524960365169961', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_winequality_red", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_winequality_red"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "10"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_winequality_red"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 20 --table_name madlibtestresult.kmeans_new_random_ctas_winequality_red --src_relation madlibtestdata.km_winequality_red --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_22_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_winequality_red', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_winequality_red'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_winequality_red'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_22_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 5029.7601223, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+-----------------
+simple_silhouette | 0.52792388818736', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_winequality_red", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_winequality_red"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_winequality_red"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --src_col_data position --k 6 --max_iter 30 --table_name madlibtestresult.kmeans_new_random_ctas_winequality_red --src_relation madlibtestdata.km_winequality_red --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_maximum_iteration_0_23_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_winequality_red', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_winequality_red'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '30'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_winequality_red'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_maximum_iteration_0_23_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 4661.05699539, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+-----------------
+simple_silhouette | 0.52792388818736', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_winequality_red", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_winequality_red"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "30"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_winequality_red"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_winequality_red)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --src_col_data position --src_col_id pid --k 6 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_negative_overwrite_0_0_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_negative_overwrite_0_0_kmeans_new_random_ctas_0', 2, 0, 'table', 
+                'GPDB42', 5442.47603416, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.562060835918376', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --src_col_data position --src_col_id pid --k 6 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_negative_overwrite_0_0_kmeans_new_random_ctas_1 -C iyerr3@127.0.0.1:5432/madmark --run_id 2 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+ERROR IN  SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+Connection INFO  iyerr3 None 127.0.0.1 5432 madmark
+psql failed with error ERROR:  relation "kmeans_new_random_ctas_abalone" already exists
+CONTEXT:  SQL statement "CREATE TABLE madlibtestresult.kmeans_new_random_ctas_abalone AS
+        SELECT * FROM (
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                ) AS _madlib_ignore
+        WHERE FALSE
+
+        DISTRIBUTED RANDOMLY"
+PL/pgSQL function "internal_create_table_as" line 13 at execute statement
+.
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_negative_overwrite_0_0_kmeans_new_random_ctas_1', 2, 0, 'table', 
+                'GPDB42', 39.7970676422, False::bool, 'psql failed with error ERROR:  relation "kmeans_new_random_ctas_abalone" already exists
+CONTEXT:  SQL statement "CREATE TABLE madlibtestresult.kmeans_new_random_ctas_abalone AS
+        SELECT * FROM (
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                ) AS _madlib_ignore
+        WHERE FALSE
+        DISTRIBUTED RANDOMLY"
+PL/pgSQL function "internal_create_table_as" line 13 at execute statement
+.', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+----------------------------------------------------              
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+20121002:16:38:49:019546 gpstop:useniyerr3mbp:iyerr3-[INFO]:-Starting gpstop with args: -a -d /Users/iyerr3/greenplum-db-data/master/gpseg-1
+20121002:16:38:49:019546 gpstop:useniyerr3mbp:iyerr3-[INFO]:-Gathering information and validating the environment...
+20121002:16:38:49:019546 gpstop:useniyerr3mbp:iyerr3-[INFO]:-Obtaining Greenplum Master catalog information
+20121002:16:38:49:019546 gpstop:useniyerr3mbp:iyerr3-[INFO]:-Obtaining Segment details from master...
+20121002:16:38:50:019546 gpstop:useniyerr3mbp:iyerr3-[INFO]:-Greenplum Version: 'postgres (Greenplum Database) main build dev'
+20121002:16:38:52:019546 gpstop:useniyerr3mbp:iyerr3-[INFO]:-There are 1 connections to the database
+20121002:16:38:52:019546 gpstop:useniyerr3mbp:iyerr3-[WARNING]:-There are other connections to this instance, shutdown mode smart aborted
+20121002:16:38:52:019546 gpstop:useniyerr3mbp:iyerr3-[WARNING]:-Either remove connections, or use 'gpstop -M fast' or 'gpstop -M immediate'
+20121002:16:38:52:019546 gpstop:useniyerr3mbp:iyerr3-[WARNING]:-See gpstop -? for all options
+20121002:16:38:52:019546 gpstop:useniyerr3mbp:iyerr3-[ERROR]:-gpstop error: Active connections. Aborting shutdown...

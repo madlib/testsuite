@@ -3662,7 +3662,7 @@
             <input_parameter>
                 <name>dist_metric</name>
                 <type>text</type>
-                <default>l2norm</default>
+                <default>madlib.l2norm</default>
             </input_parameter>
             <input_parameter>
                 <name>max_iter</name>
@@ -3670,23 +3670,13 @@
                 <default>20</default>
             </input_parameter>
             <input_parameter>
+                <name>k</name>
+                <type>int</type>
+            </input_parameter>
+            <input_parameter>
                 <name>conv_threshold</name>
                 <type>float</type>
                 <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>int</type>
             </input_parameter>
             <!-- result arguments-->
             <output_parameter>
@@ -4179,23 +4169,29 @@
             <!-- no result arguments for create table as -->
          </method>
 
-          <method>
+        <method>
             <name>kmeans_new_random_ctas</name>
             <template>
-                CREATE TABLE {table_name} AS
+                SELECT {madlib_schema}.create_table_as('{table_name}', $$
                    SELECT * FROM {madlib_schema}.kmeans_random
-                        ( {src_relation}     -- rel_source
-                        , {src_col_data}     -- expr_point
-                        , {k}                -- k
-                        , {dist_metric}      -- fn_squared_dist
-                        , {agg_mean}         -- agg_mean
-                        , {max_iter}         -- max_num_iterations
-                        , {conv_threshold}   -- min_frac_reassigned
-                        ) AS q;
-                DROP TABLE {table_name};
+                        ( {src_relation}             -- rel_source
+                        , {src_col_data}             -- expr_point
+                        , {k}                        -- num_of_centroids
+                        , {dist_metric_in_objective} -- fn_squared_dist
+                        , {agg_mean} -- agg_mean
+                        , {max_iter} -- max_num_iterations
+                        , {conv_threshold} -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT {madlib_schema}.simple_silhouette
+                    ( {src_relation}                        -- rel_source
+                    , {src_col_data}                        -- expr_point
+                    , (SELECT centroids FROM {table_name})  -- centroids
+                    , {dist_metric}                         -- fn_dist
+                    );
             </template>
             <input_parameter>
-                <name>table_name </name>
+                <name>table_name</name>
                 <type>text</type>
                 <quote>false</quote>
             </input_parameter>
@@ -4208,22 +4204,23 @@
                 <type>text</type>
             </input_parameter>
             <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
+                <name>k</name>
+                <type>smallint</type>
             </input_parameter>
             <input_parameter>
                 <name>dist_metric</name>
                 <type>text</type>
-                <default>l2norm</default>
+                <default>madlib.dist_norm2</default>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric_in_objective</name>
+                <type>text</type>
+                <default>madlib.squared_dist_norm2</default>
+            </input_parameter>
+            <input_parameter>
+                <name>agg_mean</name>
+                <type>text</type>
+                <default>madlib.avg</default>
             </input_parameter>
             <input_parameter>
                 <name>max_iter</name>
@@ -4235,23 +4232,8 @@
                 <type>float</type>
                 <default>0.001</default>
             </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>int</type>
-            </input_parameter>
             <!-- no result arguments for create table as -->
          </method>
-
          <method>        
             <name>kmeans_canopy_ctas</name>
             <template>
@@ -4430,6 +4412,39 @@
                 <name>dist_metric</name>
                 <type>text</type>
                 <default>madlib.dist_norm2</default>
+            </input_parameter>
+         </method>
+     </algorithm>
+     <algorithm>
+         <name>kmeans_new_silhouette</name>
+         <method>
+            <name>kmeans_new_cset</name>
+            <create>true</create>
+            <template>
+                   SELECT {madlib_schema}.simple_silhouette
+                        ( {src_relation}   -- rel_source
+                        , {src_col_data}   -- expr_point
+                        , (SELECT centroids FROM {src_result}) -- centroids
+                        , {dist_metric}    -- fn_dist
+                        );
+            </template>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>src_result</name>
+                <type>text</type>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>text</type>
+                <default>dist_norm2</default>
             </input_parameter>
          </method>
      </algorithm>

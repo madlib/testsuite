@@ -1,0 +1,732 @@
+20121002:17:09:25:020165 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Starting gpstart with args: -a -d /Users/iyerr3/greenplum-db-data/master/gpseg-1
+20121002:17:09:25:020165 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Gathering information and validating the environment...
+20121002:17:09:25:020165 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Greenplum Binary Version: 'postgres (Greenplum Database) main build dev'
+20121002:17:09:25:020165 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Greenplum Catalog Version: '201208170'
+20121002:17:09:25:020165 gpstart:useniyerr3mbp:iyerr3-[WARNING]:-postmaster.pid file exists on Master, checking if recovery startup required
+20121002:17:09:25:020165 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Commencing recovery startup checks
+20121002:17:09:25:020165 gpstart:useniyerr3mbp:iyerr3-[INFO]:-Have lock file /tmp/.s.PGSQL.5432 and a process running on port 5432
+20121002:17:09:25:020165 gpstart:useniyerr3mbp:iyerr3-[ERROR]:-gpstart error: Master instance process running
+CREATE SCHEMA
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_col_data position --src_col_id pid --k 6 --src_relation madlibtestdata.invalid_src_relation --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_negative_src_relation_0_0_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.invalid_src_relation'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.invalid_src_relation'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+ERROR IN  SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.invalid_src_relation'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.invalid_src_relation'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+Connection INFO  iyerr3 None 127.0.0.1 5432 madmark
+psql failed with error ERROR:  relation "madlibtestdata.invalid_src_relation" does not exist
+CONTEXT:  PL/pgSQL function "kmeans_random_seeding" line 8 at assignment
+SQL function "kmeans_random" statement 1
+SQL statement "CREATE TABLE madlibtestresult.kmeans_new_random_ctas_abalone AS
+        SELECT * FROM (
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.invalid_src_relation'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                ) AS _madlib_ignore
+        WHERE FALSE
+
+        DISTRIBUTED RANDOMLY"
+PL/pgSQL function "internal_create_table_as" line 13 at execute statement
+.
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_negative_src_relation_0_0_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 276.808977127, False::bool, 'd_src_relation" does not exist
+CONTEXT:  PL/pgSQL function "kmeans_random_seeding" line 8 at assignment
+SQL function "kmeans_random" statement 1
+SQL statement "CREATE TABLE madlibtestresult.kmeans_new_random_ctas_abalone AS
+        SELECT * FROM (
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.invalid_src_relation"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                ) AS _madlib_ignore
+        WHERE FALSE
+        DISTRIBUTED RANDOMLY"
+PL/pgSQL function "internal_create_table_as" line 13 at execute statement
+.', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.invalid_src_relation"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.invalid_src_relation"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_col_data position --src_col_id pid --k 6 --src_relation NULL --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_negative_src_relation_0_1_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( NULL             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( NULL                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_negative_src_relation_0_1_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 924.726009369, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+-
+simple_silhouette | ', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( NULL             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( NULL                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_id pid --k 6 --src_col_data invalid_src_col_data --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_negative_src_col_data_0_0_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'invalid_src_col_data'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'invalid_src_col_data'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+ERROR IN  SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'invalid_src_col_data'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'invalid_src_col_data'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+Connection INFO  iyerr3 None 127.0.0.1 5432 madmark
+psql failed with error ERROR:  plpy.SPIError: column "invalid_src_col_data" does not exist (plpython.c:4648)
+LINE 10:                             invalid_src_col_data AS _point
+                                     ^
+QUERY:  
+            INSERT INTO pg_temp._madlib_kmeans_random_state
+            SELECT
+                1,
+                (
+                SELECT
+                    _state._state || madlib.matrix_agg(_point)
+                FROM (
+                        SELECT
+                            invalid_src_col_data AS _point
+                        FROM
+                            madlibtestdata.km_abalone AS _src
+                        WHERE
+                            random() < CAST(
+                                (6 + 14 + sqrt(196 + 28 * 6))
+                                / (SELECT count(*) FROM madlibtestdata.km_abalone)
+                                AS DOUBLE PRECISION
+                            )
+                        ORDER BY random()
+                        LIMIT 6
+                    ) AS _src,
+                    pg_temp._madlib_kmeans_random_state AS _state
+                WHERE
+                    _state._iteration = 0
+                GROUP BY
+                    _state._state
+                )
+            
+CONTEXT:  Traceback (most recent call last):
+  PL/Python function "internal_compute_kmeans_random_seeding", line 24, in <module>
+    return kmeans_new.compute_kmeans_random_seeding(**globals())
+  PL/Python function "internal_compute_kmeans_random_seeding", line 298, in compute_kmeans_random_seeding
+  PL/Python function "internal_compute_kmeans_random_seeding", line 177, in update
+  PL/Python function "internal_compute_kmeans_random_seeding", line 91, in runSQL
+PL/Python function "internal_compute_kmeans_random_seeding"
+SQL statement "SELECT  ( SELECT madlib.internal_compute_kmeans_random_seeding( '_madlib_kmeans_random_args', '_madlib_kmeans_random_state', textin(regclassout( $1 )),  $2 ) )"
+PL/pgSQL function "kmeans_random_seeding" line 32 at assignment
+SQL function "kmeans_random" statement 1
+SQL statement "CREATE TABLE madlibtestresult.kmeans_new_random_ctas_abalone AS
+        SELECT * FROM (
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'invalid_src_col_data'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                ) AS _madlib_ignore
+        WHERE FALSE
+
+        DISTRIBUTED RANDOMLY"
+PL/pgSQL function "internal_create_table_as" line 13 at execute statement
+.
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_negative_src_col_data_0_0_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 1402.86111832, False::bool, ', textin(regclassout( $1 )),  $2 ) )"
+PL/pgSQL function "kmeans_random_seeding" line 32 at assignment
+SQL function "kmeans_random" statement 1
+SQL statement "CREATE TABLE madlibtestresult.kmeans_new_random_ctas_abalone AS
+        SELECT * FROM (
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "invalid_src_col_data"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                ) AS _madlib_ignore
+        WHERE FALSE
+        DISTRIBUTED RANDOMLY"
+PL/pgSQL function "internal_create_table_as" line 13 at execute statement
+.', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "invalid_src_col_data"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "invalid_src_col_data"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_id pid --k 6 --src_col_data NULL --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_negative_src_col_data_0_1_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , NULL             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , NULL                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_negative_src_col_data_0_1_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 380.502939224, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+-
+simple_silhouette | ', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , NULL             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , NULL                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --dist_metric pid --dist_metric_in_objective madlib.invalid_dist_metric --k 6 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_negative_dist_metric_0_0_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.invalid_dist_metric'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'pid'::text                         -- fn_dist
+                    );
+ERROR IN  SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.invalid_dist_metric'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'pid'::text                         -- fn_dist
+                    );
+Connection INFO  iyerr3 None 127.0.0.1 5432 madmark
+psql failed with error ERROR:  function "madlib.invalid_dist_metric(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist
+CONTEXT:  PL/pgSQL function "kmeans" line 10 at assignment
+SQL function "kmeans_random" statement 1
+SQL statement "CREATE TABLE madlibtestresult.kmeans_new_random_ctas_abalone AS
+        SELECT * FROM (
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.invalid_dist_metric'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                ) AS _madlib_ignore
+        WHERE FALSE
+
+        DISTRIBUTED RANDOMLY"
+PL/pgSQL function "internal_create_table_as" line 13 at execute statement
+.
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_negative_dist_metric_0_0_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 743.343114853, False::bool, 'UBLE PRECISION[], DOUBLE PRECISION[])" does not exist
+CONTEXT:  PL/pgSQL function "kmeans" line 10 at assignment
+SQL function "kmeans_random" statement 1
+SQL statement "CREATE TABLE madlibtestresult.kmeans_new_random_ctas_abalone AS
+        SELECT * FROM (
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.invalid_dist_metric"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                ) AS _madlib_ignore
+        WHERE FALSE
+        DISTRIBUTED RANDOMLY"
+PL/pgSQL function "internal_create_table_as" line 13 at execute statement
+.', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.invalid_dist_metric"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "pid"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --src_col_id pid --k pid --out_points madlibtestresult.kmeans_random_negative_k_out_points --out_centroids madlibtestresult.kmeans_random_negative_k_out_centroids --k -1 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_negative_k_0_0_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '-1'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_negative_k_0_0_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 2615.24200439, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+----
+simple_silhouette | NaN', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "-1"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --src_col_id pid --k pid --out_points madlibtestresult.kmeans_random_negative_k_out_points --out_centroids madlibtestresult.kmeans_random_negative_k_out_centroids --k 0 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_negative_k_0_1_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '0'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_negative_k_0_1_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 2262.21704483, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+----
+simple_silhouette | NaN', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "0"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --k 6 --max_iter -1 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_negative_max_iteration_0_0_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '-1'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_negative_max_iteration_0_0_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 3502.45690346, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.489218680668324', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "-1"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --k 6 --max_iter 0 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_ctas_negative_max_iteration_0_1_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '0'::int -- max_num_iterations
+                        , '0.001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_ctas_negative_max_iteration_0_1_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 1928.26485634, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.489218680668324', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "0"::int -- max_num_iterations
+                        , "0.001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --src_col_id pid --k 6 --conv_threshold -0.0001 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_negative_convergence_threshold_0_0_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '-0.0001'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_negative_convergence_threshold_0_0_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 5325.31189919, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.562060835918376', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "-0.0001"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --src_col_id pid --k 6 --conv_threshold 0 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_negative_convergence_threshold_0_1_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '0'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_negative_convergence_threshold_0_1_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 5380.3730011, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.562060835918376', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "0"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+----------------------------------------------------
+/Users/iyerr3/Work/MADlib/testsuite/src/generator/template_executor.py --method kmeans_new_random_ctas --algorithm kmeans --spec_file /Users/iyerr3/Work/MADlib/testsuite/src/generator/../../testspec/metadata/algorithmspec.xml --benchmark TemplateExecutor --table_name madlibtestresult.kmeans_new_random_ctas_abalone --src_relation madlibtestdata.km_abalone --src_col_data position --src_col_id pid --k 6 --conv_threshold 10000 --iteration_id 0 --logger DbOut --logger_conn iyerr3@127.0.0.1:5432/demotest:benchmark --target_base_name kmeans_new_random_negative_convergence_threshold_0_2_kmeans_new_random_ctas_0 -C iyerr3@127.0.0.1:5432/madmark --run_id 3 --analyticstool GPDB42
+SELECT madlib.create_table_as('madlibtestresult.kmeans_new_random_ctas_abalone', $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( 'madlibtestdata.km_abalone'::text             -- rel_source
+                        , 'position'::text             -- expr_point
+                        , '6'::smallint                        -- num_of_centroids
+                        , 'madlib.squared_dist_norm2'::text -- fn_squared_dist
+                        , 'madlib.avg'::text -- agg_mean
+                        , '20'::int -- max_num_iterations
+                        , '10000'::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( 'madlibtestdata.km_abalone'::text                        -- rel_source
+                    , 'position'::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , 'madlib.dist_norm2'::text                         -- fn_dist
+                    );
+insert into benchmark.testitemresult
+                values( 'kmeans_new_random_negative_convergence_threshold_0_2_kmeans_new_random_ctas_0', 3, 0, 'table', 
+                'GPDB42', 2136.69800758, True::bool, '-[ RECORD 1 ]---+-
+create_table_as | 
+-[ RECORD 1 ]-----+------------------
+simple_silhouette | 0.489218680668324', 'SELECT madlib.create_table_as("madlibtestresult.kmeans_new_random_ctas_abalone", $$
+                   SELECT * FROM madlib.kmeans_random
+                        ( "madlibtestdata.km_abalone"::text             -- rel_source
+                        , "position"::text             -- expr_point
+                        , "6"::smallint                        -- num_of_centroids
+                        , "madlib.squared_dist_norm2"::text -- fn_squared_dist
+                        , "madlib.avg"::text -- agg_mean
+                        , "20"::int -- max_num_iterations
+                        , "10000"::float -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT madlib.simple_silhouette
+                    ( "madlibtestdata.km_abalone"::text                        -- rel_source
+                    , "position"::text                        -- expr_point
+                    , (SELECT centroids FROM madlibtestresult.kmeans_new_random_ctas_abalone)  -- centroids
+                    , "madlib.dist_norm2"::text                         -- fn_dist
+                    );', false::bool);
+              
+DROP TABLE
+20121002:17:09:58:020411 gpstop:useniyerr3mbp:iyerr3-[INFO]:-Starting gpstop with args: -a -d /Users/iyerr3/greenplum-db-data/master/gpseg-1
+20121002:17:09:58:020411 gpstop:useniyerr3mbp:iyerr3-[INFO]:-Gathering information and validating the environment...
+20121002:17:09:58:020411 gpstop:useniyerr3mbp:iyerr3-[INFO]:-Obtaining Greenplum Master catalog information
+20121002:17:09:58:020411 gpstop:useniyerr3mbp:iyerr3-[INFO]:-Obtaining Segment details from master...
+20121002:17:09:59:020411 gpstop:useniyerr3mbp:iyerr3-[INFO]:-Greenplum Version: 'postgres (Greenplum Database) main build dev'
+20121002:17:09:59:020411 gpstop:useniyerr3mbp:iyerr3-[INFO]:-There are 1 connections to the database
+20121002:17:09:59:020411 gpstop:useniyerr3mbp:iyerr3-[WARNING]:-There are other connections to this instance, shutdown mode smart aborted
+20121002:17:09:59:020411 gpstop:useniyerr3mbp:iyerr3-[WARNING]:-Either remove connections, or use 'gpstop -M fast' or 'gpstop -M immediate'
+20121002:17:09:59:020411 gpstop:useniyerr3mbp:iyerr3-[WARNING]:-See gpstop -? for all options
+20121002:17:09:59:020411 gpstop:useniyerr3mbp:iyerr3-[ERROR]:-gpstop error: Active connections. Aborting shutdown...
