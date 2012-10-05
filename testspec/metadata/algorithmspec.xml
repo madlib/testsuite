@@ -1,636 +1,4 @@
 <algorithms>
-
-    <algorithm>
-        <name>multinomial_logistic_regression</name>
-        <method>
-            <name>mlogregr</name>
-            <template>
-                SELECT * FROM
-                    {madlib_schema}.mlogregr (
-                    {source_table}              --source_table
-                    , {dependent_varname}       --dependent_varname
-                    , {number_of_categories}    --number_of_categories
-                    , {independent_varname}     --independent_varname
-                    , {max_iteration}           --max_iteration
-                    , {optimizer}               --optimizer
-                    , {convergence_threshold}   --convergence_threshold
-                )AS q;
-	    </template>
-            <input_parameter>
-                <name>source_table</name>
-                <type>text</type>
-             </input_parameter>
-             <input_parameter>
-                <name>dependent_varname</name>
-                <type>text</type>
-                <default>y</default>
-             </input_parameter>
-             <input_parameter>
-                <name>number_of_categories</name>
-                <type>int</type>
-                <default>2</default>
-             </input_parameter>
-             <input_parameter>
-                <name>independent_varname</name>
-                <type>text</type>
-                <default>x</default>
-             </input_parameter>
-             <input_parameter>
-                <name>max_iteration</name>
-                <type>int</type>
-                <default>20</default>
-             </input_parameter>
-             <input_parameter>
-                <name>optimizer</name>
-                <type>text</type>
-                <default>irls</default>
-             </input_parameter>
-             <input_parameter>
-                <name>convergence_threshold</name>
-                <type>double precision</type>
-                <default>0.0001</default>
-             </input_parameter>
-             
-             <!--Below is output parameters-->
-            <output_parameter>
-                <name>coef</name>
-                <type>double precision[]</type>
-            </output_parameter>
-            <output_parameter>
-                <name>log_likelihood</name>
-                <type>double precision</type>
-            </output_parameter>
-            <output_parameter>
-                <name>std_err</name>
-                <type>double precision[]</type>
-            </output_parameter>
-            <output_parameter>
-                <name>z_stats</name>
-                <type>double precision[]</type>
-            </output_parameter>
-            <output_parameter>
-                <name>p_values</name>
-                <type>double precision[]</type>
-            </output_parameter>
-            <output_parameter>
-                <name>odds_ratios</name>
-                <type>double precision[]</type>
-            </output_parameter>
-            <output_parameter>
-                <name>condition_no</name>
-                <type>double precision[]</type>
-            </output_parameter>
-            <output_parameter>
-                <name>num_iterations</name>
-                <type>int</type>
-            </output_parameter>
-        </method>
-
-        <method>
-            <name>ctas_mlogregr</name>
-            <template>
-                CREATE TABLE {table_name} AS
-                SELECT * FROM
-                    {madlib_schema}.mlogregr (
-                    {source_table}              --source_table
-                    , {dependent_varname}       --dependent_varname
-                    , {number_of_categories}    --number_of_categories
-                    , {independent_varname}     --independent_varname
-                    , {max_iteration}           --max_iteration
-                    , {optimizer}               --optimizer
-                    , {convergence_threshold}   --convergence_threshold
-                );
-                INSERT INTO {table_name}
-                SELECT * FROM
-                    {madlib_schema}.mlogregr (
-                    {source_table}              --source_table
-                    , {dependent_varname}       --dependent_varname
-                    , {number_of_categories}    --number_of_categories
-                    , {independent_varname}     --independent_varname
-                    , {max_iteration}           --max_iteration
-                    , {optimizer}               --optimizer
-                    , {convergence_threshold}   --convergence_threshold
-                );
-                DROP TABLE {table_name};
-            </template>
-	    <input_parameter>
-		<name>table_name</name>
-		<type>text</type>
-                <quote>false</quote>
-	    </input_parameter>
-            <input_parameter>
-                <name>source_table</name>
-                <type>text</type>
-             </input_parameter>
-             <input_parameter>
-                <name>dependent_varname</name>
-                <type>text</type>
-                <default>y</default>
-             </input_parameter>
-             <input_parameter>
-                <name>number_of_categories</name>
-                <type>int</type>
-                <default>2</default>
-             </input_parameter>
-             <input_parameter>
-                <name>independent_varname</name>
-                <type>text</type>
-                <default>x</default>
-             </input_parameter>
-             <input_parameter>
-                <name>max_iteration</name>
-                <type>int</type>
-                <default>20</default>
-             </input_parameter>
-             <input_parameter>
-                <name>optimizer</name>
-                <type>text</type>
-                <default>irls</default>
-             </input_parameter>
-             <input_parameter>
-                <name>convergence_threshold</name>
-                <type>double precision</type>
-                <default>0.0001</default>
-             </input_parameter>
-        </method>
-
-    </algorithm>
-
-    <algorithm>
-    <name>naive_bayes</name>
-
-        <method>
-            <name>argmax</name>
-            <template>
-                   SELECT array_upper({madlib_schema}.argmax
-                        ( {id_column}   --input_table
-                        , {value_column}   --value_column
-                        ), 1)
-                   FROM {source_table};
-            </template>
-            <input_parameter>
-                <name>id_column</name>
-                <type>TEXT</type>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>value_column</name>
-                <type>TEXT</type>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>source_table</name>
-                <type>TEXT</type>
-                <quote>false</quote>
-            </input_parameter>
-            <output_parameter>
-                <name>number_of_maximum</name>
-                <type>INTEGER</type>
-                <quote>false</quote>
-            </output_parameter>
-        </method>
-
-        <method>
-            <name>test_create_nb_prepared_data_tables</name>
-            <template>
-                   SELECT {madlibtestdata_schema}.test_create_nb_prepared_data_tables
-                        ( {training_source}   --training_source
-                        , {training_class_column}   --training_class_column
-                        , {training_attr_column}   --training_attr_column
-                        , {trained_probs_name}   --trained_probs_name
-                        , {trained_priors_name}   --trained_priors_name
-                        );
-            </template>
-            <input_parameter>
-                <name>madlibtestdata_schema</name>
-                <type>TEXT</type>
-                <default>madlibtestdata</default>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>training_source</name>
-                <type>TEXT</type>
-            </input_parameter>
-            <input_parameter>
-                <name>training_class_column</name>
-                <type>TEXT</type>
-                <default>class</default>
-            </input_parameter>
-            <input_parameter>
-                <name>training_attr_column</name>
-                <type>TEXT</type>
-                <default>attributes</default>
-            </input_parameter>
-            <input_parameter>
-                <name>trained_probs_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.trained_probs</default>
-            </input_parameter>
-            <input_parameter>
-                <name>trained_priors_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.trained_priors</default>
-            </input_parameter>
-         </method>
-
-        <method>
-            <name>test_create_nb_classify_view</name>
-            <template>
-                   SELECT {madlibtestdata_schema}.test_create_nb_classify_view
-                        ( {trained_probs_name}   --trained_probs_name
-                        , {trained_priors_name}   --trained_priors_name
-                        , {classify_source}   --classify_source
-                        , {classify_key_column}   --classify_key_column
-                        , {classify_attr_column}   --classify_attr_column
-                        , {classified_result_name}   --classified_result_name
-                        );
-            </template>
-            <input_parameter>
-                <name>madlibtestdata_schema</name>
-                <type>TEXT</type>
-                <default>madlibtestdata</default>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>trained_probs_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.trained_probs</default>
-            </input_parameter>
-            <input_parameter>
-                <name>trained_priors_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.trained_priors</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_source</name>
-                <type>TEXT</type>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_key_column</name>
-                <type>TEXT</type>
-                <default>id</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_attr_column</name>
-                <type>TEXT</type>
-                <default>attributes</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classified_result_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.classified_result</default>
-            </input_parameter>
-         </method>
-
-        <method>
-            <name>test_create_nb_classify_view_table</name>
-            <template>
-                   SELECT {madlibtestdata_schema}.test_create_nb_classify_view_table
-                        ( {training_source}   --training_source
-                        , {training_class_column}   --training_class_column
-                        , {training_attr_column}   --training_attr_column
-                        , {classify_source}   --classify_source
-                        , {classify_key_column}   --classify_key_column
-                        , {classify_attr_column}   --classify_attr_column
-                        , {classified_result_name}   --classified_result_name
-                        );
-            </template>
-            <input_parameter>
-                <name>madlibtestdata_schema</name>
-                <type>TEXT</type>
-                <default>madlibtestdata</default>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>training_source</name>
-                <type>TEXT</type>
-            </input_parameter>
-            <input_parameter>
-                <name>training_class_column</name>
-                <type>TEXT</type>
-                <default>class</default>
-            </input_parameter>
-            <input_parameter>
-                <name>training_attr_column</name>
-                <type>TEXT</type>
-                <default>attributes</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_source</name>
-                <type>TEXT</type>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_key_column</name>
-                <type>TEXT</type>
-                <default>id</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_attr_column</name>
-                <type>TEXT</type>
-                <default>attributes</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classified_result_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.classified_result</default>
-            </input_parameter>
-         </method>
-
-        <method>
-            <name>test_create_nb_probs_view</name>
-            <template>
-                   SELECT {madlibtestdata_schema}.test_create_nb_probs_view
-                        ( {trained_probs_name}   --trained_probs_name
-                        , {trained_priors_name}   --trained_priors_name
-                        , {classify_source}   --classify_source
-                        , {classify_key_column}   --classify_key_column
-                        , {classify_attr_column}   --classify_attr_column
-                        , {classified_probs_name}   --classified_probs_name
-                        );
-            </template>
-            <input_parameter>
-                <name>madlibtestdata_schema</name>
-                <type>TEXT</type>
-                <default>madlibtestdata</default>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>trained_probs_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.trained_probs</default>
-            </input_parameter>
-            <input_parameter>
-                <name>trained_priors_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.trained_priors</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_source</name>
-                <type>TEXT</type>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_key_column</name>
-                <type>TEXT</type>
-                <default>id</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_attr_column</name>
-                <type>TEXT</type>
-                <default>attributes</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classified_probs_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.classified_probs</default>
-            </input_parameter>
-         </method>
-
-        <method>
-            <name>test_create_nb_probs_view_table</name>
-            <template>
-                   SELECT {madlibtestdata_schema}.test_create_nb_probs_view_table
-                        ( {training_source}   --training_source
-                        , {training_class_column}   --training_class_column
-                        , {training_attr_column}   --training_attr_column
-                        , {classify_source}   --classify_source
-                        , {classify_key_column}   --classify_key_column
-                        , {classify_attr_column}   --classify_attr_column
-                        , {classified_probs_name}   --classified_probs_name
-                        );
-            </template>
-            <input_parameter>
-                <name>madlibtestdata_schema</name>
-                <type>TEXT</type>
-                <default>madlibtestdata</default>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>training_source</name>
-                <type>TEXT</type>
-            </input_parameter>
-            <input_parameter>
-                <name>training_class_column</name>
-                <type>TEXT</type>
-                <default>class</default>
-            </input_parameter>
-            <input_parameter>
-                <name>training_attr_column</name>
-                <type>TEXT</type>
-                <default>attributes</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_source</name>
-                <type>TEXT</type>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_key_column</name>
-                <type>TEXT</type>
-                <default>id</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_attr_column</name>
-                <type>TEXT</type>
-                <default>attributes</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classified_probs_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.classified_probs</default>
-            </input_parameter>
-         </method>
-
-        <method>
-            <name>test_create_nb_classify_fn</name>
-            <template>
-                   SELECT {madlibtestdata_schema}.test_create_nb_classify_fn
-                        ( {trained_probs_name}   --trained_probs_name
-                        , {trained_priors_name}   --trained_priors_name
-                        , {num_attrs}   --num_attrs
-                        , {classified_func_name}   --classified_func_name
-                        );
-            </template>
-            <input_parameter>
-                <name>madlibtestdata_schema</name>
-                <type>TEXT</type>
-                <default>madlibtestdata</default>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>trained_probs_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.trained_probs</default>
-            </input_parameter>
-            <input_parameter>
-                <name>trained_priors_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.trained_priors</default>
-            </input_parameter>
-            <input_parameter>
-                <name>num_attrs</name>
-                <type>INTEGER</type>
-            </input_parameter>
-            <input_parameter>
-                <name>classified_func_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.classified_func</default>
-            </input_parameter>
-         </method>
-
-        <method>
-            <name>test_create_nb_classify_fn_table</name>
-            <template>
-                   SELECT {madlibtestdata_schema}.test_create_nb_classify_fn_table
-                        ( {training_source}   --training_source
-                        , {training_class_column}   --training_class_column
-                        , {training_attr_column}   --training_attr_column
-                        , {classified_func_name}   --classified_func_name
-                        );
-            </template>
-            <input_parameter>
-                <name>madlibtestdata_schema</name>
-                <type>TEXT</type>
-                <default>madlibtestdata</default>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>training_source</name>
-                <type>TEXT</type>
-            </input_parameter>
-            <input_parameter>
-                <name>training_class_column</name>
-                <type>TEXT</type>
-                <default>class</default>
-            </input_parameter>
-            <input_parameter>
-                <name>training_attr_column</name>
-                <type>TEXT</type>
-                <default>attributes</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classified_func_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.classified_func</default>
-            </input_parameter>
-         </method>
-
-        <method>
-            <name>test_create_nb_classify_fn_revoke</name>
-            <template>
-                   SELECT {madlibtestdata_schema}.test_create_nb_classify_fn_revoke
-                        ( {classify_source}   --classify_source
-                        , {classify_attr_column}   --classify_attr_column
-                        , {classified_func_name}   --classified_func_name
-                        , {smoothing_factor}   --smoothing_factor
-                        );
-            </template>
-            <input_parameter>
-                <name>madlibtestdata_schema</name>
-                <type>TEXT</type>
-                <default>madlibtestdata</default>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_source</name>
-                <type>TEXT</type>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_attr_column</name>
-                <type>TEXT</type>
-                <default>attributes</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classified_func_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.classified_func</default>
-            </input_parameter>
-            <input_parameter>
-                <name>smoothing_factor</name>
-                <type>FLOAT8</type>
-                <default>1.0</default>
-            </input_parameter>
-         </method>
-
-        <method>
-            <name>test_create_nb_classify_fn_revoke_workaround</name>
-            <template>
-                   SELECT {madlibtestdata_schema}.test_create_nb_classify_fn_revoke_workaround
-                        ( {classify_source}   --classify_source
-                        , {classify_key_column}   --classify_key_column
-                        , {classify_attr_column}   --classify_attr_column
-                        , {classified_func_name}   --classified_func_name
-                        , {smoothing_factor}   --smoothing_factor
-                        );
-            </template>
-            <input_parameter>
-                <name>madlibtestdata_schema</name>
-                <type>TEXT</type>
-                <default>madlibtestdata</default>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_source</name>
-                <type>TEXT</type>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_key_column</name>
-                <type>TEXT</type>
-                <default>id</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_attr_column</name>
-                <type>TEXT</type>
-                <default>attributes</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classified_func_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.classified_func</default>
-            </input_parameter>
-            <input_parameter>
-                <name>smoothing_factor</name>
-                <type>FLOAT8</type>
-                <default>1.0</default>
-            </input_parameter>
-         </method>
-
-        <method>
-            <name>test_calculate_accuracy</name>
-            <template>
-                   SELECT {madlibtestdata_schema}.test_calculate_accuracy
-                        ( {classify_source}   --classify_source
-                        , {classify_key_column}   --classify_key_column
-                        , {classify_class_column}   --classify_class_column
-                        , {classified_result_name}   --classified_result_name
-                        );
-            </template>
-            <input_parameter>
-                <name>madlibtestdata_schema</name>
-                <type>TEXT</type>
-                <default>madlibtestdata</default>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_source</name>
-                <type>TEXT</type>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_key_column</name>
-                <type>TEXT</type>
-                <default>id</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classify_class_column</name>
-                <type>TEXT</type>
-                <default>class</default>
-            </input_parameter>
-            <input_parameter>
-                <name>classified_result_name</name>
-                <type>TEXT</type>
-                <default>madlibtestresult.classified_result</default>
-            </input_parameter>
-         </method>
-    </algorithm>
-
     <algorithm>
         <name>distribution_function</name>
         <method>
@@ -3225,6 +2593,72 @@
     </algorithm>
     <algorithm>
          <name>kmeans</name>
+	<method>        
+            <name>kmeans</name>
+            <create>true</create>
+            <template>
+                   SELECT * FROM {madlib_schema}.kmeans
+                        ( {rel_source}     		-- rel_source
+                        , {expr_point}     		-- expr_point 
+                        , {rel_initial_centroids}       -- rel_initial_centroids
+                        , {expr_centroid}       	-- expr_centroid
+                        , {fn_squared_dist}    		-- fn_squared_dist
+                        , {agg_mean}      		-- agg_mean
+                        , {max_num_iterations}         	-- max_num_iterations
+                        , {min_frac_reassigned}   	-- min_frac_reassigned
+                        ) AS q;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>varchar</type>              
+           </input_parameter>
+           <input_parameter>
+                <name>expr_point</name>
+                <type>varchar</type>   
+            </input_parameter>           
+            <input_parameter>
+                <name>rel_initial_centroids</name>
+                <type>varchar</type>
+            </input_parameter>
+            <input_parameter>
+                <name>expr_centroid</name>
+                <type>varchar</type>
+            </input_parameter>
+            <input_parameter>
+                <name>fn_squared_dist</name>
+                <type>varchar</type>
+                <default>madlib.squared_dist_norm2</default>
+            </input_parameter>
+            <input_parameter>
+                <name>agg_mean</name>
+                <type>varchar</type>
+                <default>madlib.avg</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_num_iterations</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>min_frac_reassigned</name>
+                <type>float</type>
+                <default>0.001</default>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>centroids</name>
+                <type>float[][]</type>
+            </output_parameter>
+            <output_parameter>
+                <name>frac_reassigned</name>
+                <type>float</type>
+            </output_parameter>
+            <output_parameter>
+                <name>num_iterations</name>
+                <type>int</type>
+            </output_parameter>
+         </method>
+
          <method>
             <name>kmeans_cset</name>
             <create>true</create>
@@ -3317,73 +2751,7 @@
             </output_parameter>
          </method>
 
-         <method>
-            <name>kmeans_new_cset</name>
-            <create>true</create>
-            <template>
-                   SELECT * FROM {madlib_schema}.kmeans
-                        ( {src_relation}     -- rel_source
-                        , {src_col_data}     -- expr_point
-                        , {init_cset_rel}    -- rel_initial_centroids
-                        , {init_cset_col}    -- expr_centroid
-                        , {dist_metric}      -- fn_squared_dist
-                        , {agg_mean}         -- agg_mean
-                        , {max_iter}         -- max_num_iterations
-                        , {conv_threshold}   -- min_frac_reassigned
-                        ) AS q;
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>madlib.squared_dist_norm2</default>
-            </input_parameter>
-            <input_parameter>
-                <name>agg_mean</name>
-                <type>text</type>
-                <default>madlib.avg</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>init_cset_rel</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>init_cset_col</name>
-                <type>text</type>
-            </input_parameter>
-            <!-- result arguments-->
-            <output_parameter>
-                <name>objective_fn</name>
-                <type>double precision</type>
-            </output_parameter>
-            <output_parameter>
-                <name>frac_reassigned</name>
-                <type>double precision</type>
-            </output_parameter>
-            <output_parameter>
-                <name>num_iterations</name>
-                <type>integer</type>
-            </output_parameter>
-         </method>
-
-         <method>
+         <method>        
             <name>kmeans_plusplus</name>
             <create>true</create>
             <template>
@@ -3475,68 +2843,7 @@
                 <type>double precision</type>
             </output_parameter>
          </method>
-
-         <method>
-            <name>kmeans_new_plusplus</name>
-            <create>true</create>
-            <template>
-                   SELECT * FROM {madlib_schema}.kmeanspp
-                        ( {src_relation}     -- rel_source
-                        , {src_col_data}     -- expr_point
-                        , {k}                -- k
-                        , {dist_metric}      -- fn_squared_dist
-                        , {agg_mean}         -- agg_mean
-                        , {max_iter}         -- max_num_iterations
-                        , {conv_threshold}   -- min_frac_reassigned
-                        ) AS q;
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>madlib.squared_dist_norm2</default>
-            </input_parameter>
-            <input_parameter>
-                <name>agg_mean</name>
-                <type>text</type>
-                <default>madlib.avg</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>double precision</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>smallint</type>
-            </input_parameter>
-            <!-- result arguments-->
-            <output_parameter>
-                <name>objective_fn</name>
-                <type>double precision</type>
-            </output_parameter>
-            <output_parameter>
-                <name>frac_reassigned</name>
-                <type>double precision</type>
-            </output_parameter>
-            <output_parameter>
-                <name>num_iterations</name>
-                <type>integer</type>
-            </output_parameter>
-         </method>
-
+         
           <method>        
             <name>kmeans_random</name>
             <create>true</create>
@@ -3621,75 +2928,6 @@
             <output_parameter>
                 <name>silhouette</name>
                 <type>double precision</type>
-            </output_parameter>
-         </method>
-
-          <method>
-            <name>kmeans_new_random</name>
-            <create>true</create>
-            <template>
-                   SELECT * FROM {madlib_schema}.kmeans_random
-                        ( {src_relation}     -- rel_source
-                        , {src_col_data}     -- expr_point
-                        , {k}                -- k
-                        , {dist_metric}      -- fn_squared_dist
-                        , {agg_mean}         -- agg_mean
-                        , {max_iter}         -- max_num_iterations
-                        , {conv_threshold}   -- min_frac_reassigned
-                        ) AS q;
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>madlib.l2norm</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>int</type>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <!-- result arguments-->
-            <output_parameter>
-                <name>objective_fn</name>
-                <type>double precision</type>
-            </output_parameter>
-            <output_parameter>
-                <name>frac_reassigned</name>
-                <type>double precision</type>
-            </output_parameter>
-            <output_parameter>
-                <name>num_iterations</name>
-                <type>integer</type>
             </output_parameter>
          </method>
 
@@ -3788,24 +3026,28 @@
          </method>
  
           <method>
-            <name>kmeans_cset_ctas</name>
+            <name>kmeans_new_cset_ctas</name>
+            <create>true</create>
             <template>
-                CREATE TABLE {table_name} AS
-                   SELECT * FROM {madlib_schema}.kmeans_cset
-                        ( {src_relation}     -- src_relation
-                        , {src_col_data}     -- src_col_data 
-                        , {src_col_id}       -- src_col_id
-                        , {out_points}       -- out_points
-                        , {out_centroids}    -- out_centroids
-                        , {dist_metric}      -- dist_metric
-                        , {max_iter}         -- max_iteration
-                        , {conv_threshold}   -- convergence_threshold
-                        , {evaluate}         -- gof_test_switch
-                        , {verbosity}        -- verbosity_switch
-                        , {init_cset_rel}    -- init_cset_rel
-                        , {init_cset_col}    -- init_cset_col
-                        );
-                DROP TABLE {table_name};
+                SELECT {madlib_schema}.create_table_as('{table_name}', $$
+		SELECT * FROM {madlib_schema}.kmeans
+		( {src_relation}     -- rel_source
+ 		, {src_col_data}     -- expr_point
+		, {init_cset_rel}    -- rel_initial_centroids
+		, {init_cset_col}    -- expr_centroid
+		, ({dist_metrics})[1]-- fn_dist
+		, {agg_centroid}         -- agg_centroid
+		, {max_iter}         -- max_num_iterations
+		, {conv_threshold}   -- min_frac_reassigned
+		) AS q  
+		$$);                 
+		    SELECT {madlib_schema}.simple_silhouette
+		    ( {src_relation}         -- rel_source
+		    , {src_col_data}         -- expr_point
+		    , (SELECT centroids FROM {table_name}) -- centroids
+		    , ({dist_metrics})[2]    -- fn_dis
+		    ) as silhouette;
+                <!-- DROP TABLE {table_name}; -->
             </template>
             <input_parameter>
                 <name>table_name </name>
@@ -3814,105 +3056,29 @@
             </input_parameter>
             <input_parameter>
                 <name>src_relation</name>
-                <type>text</type>              
+                <type>varchar</type>              
            </input_parameter>
            <input_parameter>
                 <name>src_col_data</name>
-                <type>text</type>   
+                <type>varchar</type>   
             </input_parameter>           
             <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>l2norm</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
                 <name>init_cset_rel</name>
-                <type>text</type>
+                <type>varchar</type>
             </input_parameter>
             <input_parameter>
                 <name>init_cset_col</name>
-                <type>text</type>
+                <type>varchar</type>
             </input_parameter>
-            <!-- no result arguments for create table as -->
-         </method>
-
-          <method>
-            <name>kmeans_new_cset_ctas</name>
-            <template>
-                SELECT {madlib_schema}.create_table_as('{table_name}', $$
-                   SELECT * FROM {madlib_schema}.kmeans
-                        ( {src_relation}     -- rel_source
-                        , {src_col_data}     -- expr_point
-                        , {init_cset_rel}    -- rel_initial_centroids
-                        , {init_cset_col}    -- expr_centroid
-                        , ({dist_metrics})[1]-- fn_dist
-                        , {agg_mean}         -- agg_mean
-                        , {max_iter}         -- max_num_iterations
-                        , {conv_threshold}   -- min_frac_reassigned
-                        ) AS q
-                $$);
-                SELECT {madlib_schema}.simple_silhouette
-                    ( {src_relation}         -- rel_source
-                    , {src_col_data}         -- expr_point
-                    , (SELECT centroids FROM {table_name}) -- centroids
-                    , ({dist_metrics})[2]    -- fn_dist
-                    );
-            </template>
-            <input_parameter>
-                <name>table_name</name>
-                <type>text</type>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
+	    <input_parameter>
                 <name>dist_metrics</name>
-                <type>text</type>
+                <type>text[]</type>
                 <quote>false</quote>
                 <default>ARRAY['madlib.squared_dist_norm2','madlib.dist_norm2']</default>
             </input_parameter>
-            <input_parameter>
-                <name>agg_mean</name>
-                <type>text</type>
+       	    <input_parameter>
+                <name>agg_centroid</name>
+                <type>varchar</type>
                 <default>madlib.avg</default>
             </input_parameter>
             <input_parameter>
@@ -3925,15 +3091,11 @@
                 <type>float</type>
                 <default>0.001</default>
             </input_parameter>
-            <input_parameter>
-                <name>init_cset_rel</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>init_cset_col</name>
-                <type>text</type>
-            </input_parameter>
             <!-- no result arguments for create table as -->
+	     <output_parameter>
+                <name>silhouette</name>
+                <type>double precision</type>
+            </output_parameter>
          </method>
 
          <method>        
@@ -4018,80 +3180,7 @@
             </input_parameter>
             <!-- no result arguments for create table as -->
          </method>
-
-         <method>
-            <name>kmeans_new_plusplus_ctas</name>
-            <template>
-                CREATE TABLE {table_name} AS
-                   SELECT * FROM {madlib_schema}.kmeans_random
-                        ( {src_relation}     -- rel_source
-                        , {src_col_data}     -- expr_point
-                        , {k}                -- k
-                        , {dist_metric}      -- fn_squared_dist
-                        , {agg_mean}         -- agg_mean
-                        , {max_iter}         -- max_num_iterations
-                        , {conv_threshold}   -- min_frac_reassigned
-                        ) AS q;
-                DROP TABLE {table_name};
-            </template>
-            <input_parameter>
-                <name>table_name</name>
-                <type>text</type>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>l2norm</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>int</type>
-            </input_parameter>
-            <!-- no result arguments for create table as -->
-         </method>
-
+         
           <method>        
             <name>kmeans_random_ctas</name>
             <template>
@@ -4169,71 +3258,6 @@
             <!-- no result arguments for create table as -->
          </method>
 
-        <method>
-            <name>kmeans_new_random_ctas</name>
-            <template>
-                SELECT {madlib_schema}.create_table_as('{table_name}', $$
-                   SELECT * FROM {madlib_schema}.kmeans_random
-                        ( {src_relation}             -- rel_source
-                        , {src_col_data}             -- expr_point
-                        , {k}                        -- num_of_centroids
-                        , {dist_metric_in_objective} -- fn_squared_dist
-                        , {agg_mean} -- agg_mean
-                        , {max_iter} -- max_num_iterations
-                        , {conv_threshold} -- min_frac_reassigned
-                        ) AS q
-                $$);
-                SELECT {madlib_schema}.simple_silhouette
-                    ( {src_relation}                        -- rel_source
-                    , {src_col_data}                        -- expr_point
-                    , (SELECT centroids FROM {table_name})  -- centroids
-                    , {dist_metric}                         -- fn_dist
-                    );
-            </template>
-            <input_parameter>
-                <name>table_name</name>
-                <type>text</type>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>smallint</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>madlib.dist_norm2</default>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric_in_objective</name>
-                <type>text</type>
-                <default>madlib.squared_dist_norm2</default>
-            </input_parameter>
-            <input_parameter>
-                <name>agg_mean</name>
-                <type>text</type>
-                <default>madlib.avg</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <!-- no result arguments for create table as -->
-         </method>
          <method>        
             <name>kmeans_canopy_ctas</name>
             <template>
@@ -4317,138 +3341,8 @@
             </input_parameter>
             <!-- no result arguments for create table as -->
          </method>
-
-         <method>
-            <name>kmeans_new_pp_seeding</name>
-            <create>true</create>
-            <template>
-                   SELECT {madlib_schema}.kmeanspp_seeding
-                        ( {src_relation}   -- rel_source
-                        , {src_col_data}   -- expr_point
-                        , {k}              -- k
-                        , {dist_metric}    -- fn_dist
-                        , {initial_centroids} -- initial_centroids
-                        );
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>smallint</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>madlib.dist_norm2</default>
-            </input_parameter>
-            <input_parameter>
-                <name>initial_centroids</name>
-                <type>double precision[][]</type>
-                <default>NULL</default>
-            </input_parameter>
-         </method>
-
-         <method>
-            <name>kmeans_new_random_seeding</name>
-            <create>true</create>
-            <template>
-                   SELECT {madlib_schema}.kmeans_random_seeding
-                        ( {src_relation}   -- rel_source
-                        , {src_col_data}   -- expr_point
-                        , {k}              -- k
-                        , {initial_centroids} -- initial_centroids
-                        );
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>smallint</type>
-            </input_parameter>
-            <input_parameter>
-                <name>initial_centroids</name>
-                <type>double precision[][]</type>
-                <default>NULL</default>
-            </input_parameter>
-         </method>
-
-         <method>
-            <name>kmeans_new_cset</name>
-            <create>true</create>
-            <template>
-                   SELECT {madlib_schema}.simple_silhouette
-                        ( {src_relation}   -- rel_source
-                        , {src_col_data}   -- expr_point
-                        , (SELECT centroids FROM {src_result}) -- centroids
-                        , {dist_metric}    -- fn_dist
-                        );
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>src_result</name>
-                <type>text</type>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>madlib.dist_norm2</default>
-            </input_parameter>
-         </method>
      </algorithm>
-     <algorithm>
-         <name>kmeans_new_silhouette</name>
-         <method>
-            <name>kmeans_new_cset</name>
-            <create>true</create>
-            <template>
-                   SELECT {madlib_schema}.simple_silhouette
-                        ( {src_relation}   -- rel_source
-                        , {src_col_data}   -- expr_point
-                        , (SELECT centroids FROM {src_result}) -- centroids
-                        , {dist_metric}    -- fn_dist
-                        );
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>src_result</name>
-                <type>text</type>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>dist_norm2</default>
-            </input_parameter>
-         </method>
-     </algorithm>
-         
+    
      <algorithm>
          <name>linear_regression</name>
          <method>        
@@ -5674,85 +4568,58 @@
         </method>
         <method>
             <name>assoc_rules_stat</name>
+            <create>true</create>
             <template>
-                  SELECT  COUNT(DISTINCT array_upper(pre::text[],1)) AS pre_length,
-                          MAX(array_upper(pre::text[],1)) AS max_pre_length,
-                          MIN(array_upper(pre::text[],1)) AS min_pre_length,
-                          COUNT(DISTINCT array_upper(post::text[],1)) AS pre_length,
-                          MAX(array_upper(post::text[],1)) AS max_post_length,
-                          MIN(array_upper(post::text[],1)) AS min_post_length,
-                          MAX(support)::decimal(15,2) as max_support,
-                          MIN(support)::decimal(15,2) as min_support,
-                          MAX(confidence)::decimal(15,2) as max_confidence,
-                          MIN(confidence)::decimal(15,2) as min_confidence,
-                          MAX(lift)::decimal(15,2) as max_lift,
-                          MIN(lift)::decimal(15,2) as min_lift,
-                          MAX(conviction)::decimal(15,2) as max_conviction,
-                          MIN(conviction)::decimal(15,2) as min_conviction
+                  SELECT  COUNT(DISTINCT subset_x::float8[]) AS subsetx,
+                          MAX(support_xy)::decimal(15,2) as max_support_xy,
+                          MIN(support_xy)::decimal(15,2) as min_support_xy,
+                          MAX(confidence_xy)::decimal(15,2) as max_confidence_xy,
+                          MIN(confidence_xy)::decimal(15,2) as min_confidence_xy,
+                          MAX(lift_xy)::decimal(15,2) as max_lift_xy,
+                          MIN(lift_xy)::decimal(15,2) as min_lift_xy,
+                          MAX(conviction_xy)::decimal(15,2) as max_conviction_xy,
+                          MIN(conviction_xy)::decimal(15,2) as min_conviction_xy
                    FROM  madlibtestresult.assoc_rules;
             </template>
             <output_parameter>
-                 <name>pre_length</name>
-                <type>float8</type>
+                <name>subsetx</name>
+                <type>integer</type>
             </output_parameter>
-<output_parameter>
-      <name>max_pre_length</name>
-      <type>float8</type>
-</output_parameter>
-<output_parameter>
-        <name>min_pre_length</name>
-        <type>float8</type>
-</output_parameter>
-
-<output_parameter>
-      <name>post_length</name>
-       <type>float8</type>
-</output_parameter>
-
-<output_parameter>
-      <name>max_post_length</name>
-      <type>float8</type>
-</output_parameter>
-<output_parameter>
-      <name>min_post_length</name>
-       <type>float8</type>
-</output_parameter>
-<output_parameter>
-                <name>max_support</name>
+            <output_parameter>
+                <name>max_support_xy</name>
                 <type>float8</type>
             </output_parameter>
             <output_parameter>
-                <name>min_support</name>
+                <name>min_support_xy</name>
                 <type>float8</type>
             </output_parameter>
             <output_parameter>
-                <name>max_confidence</name>
+                <name>max_confidence_xy</name>
                 <type>float8</type>
             </output_parameter>
             <output_parameter>
-                <name>min_confidence</name>
+                <name>min_confidence_xy</name>
                 <type>float8</type>
             </output_parameter>
             <output_parameter>
-                <name>max_lift</name>
+                <name>max_lift_xy</name>
                 <type>float8</type>
             </output_parameter>
             <output_parameter>
-                <name>min_lift </name>
+                <name>min_lift_xy </name>
                 <type>float8</type>
             </output_parameter>
             <output_parameter>
-                <name>max_conviction</name>
+                <name>max_conviction_xy</name>
                 <type>float8</type>
             </output_parameter>
             <output_parameter>
-                <name>min_conviction</name>
+                <name>min_conviction_xy</name>
                 <type>float8</type>
             </output_parameter>
             </method>
         <method>
             <name>assoc_rules</name>
-            <create>true</create>
             <template>
                 SELECT output_table, total_rules from {madlib_schema}.assoc_rules
                         ({i_support}    --i_support
@@ -5875,7 +4742,6 @@
                 <default>madlibtestdata.plda_test_o</default>
             </input_parameter>
         </method>
-        <!--
         <method>
             <name>plda_similarity</name>
             <template>
@@ -5977,7 +4843,6 @@
                 <default>NULL</default>
             </input_parameter>
         </method>
-      -->
         <method>
             <name>plda_run</name>
             <template>
@@ -6075,430 +4940,41 @@
     </algorithm>
  
     <algorithm>
-    <name>svm_regression</name>
-         <method>        
-            <name>svm_regression</name>
-            <template>
-                   SELECT {madlib_schema}.svm_regression
-                        ( {input_table}     --input_table
-                        , {model_table}    --model_table 
-                        , {parallel}       --parallel
-                        , {kernel_func}    --kernel_func
-                        , {verbose}        --verbose
-                        , {eta}            --eta
-                        , {nu}             --nu
-                        , {slambda}        --slambda
-                   ) AS q;
-            </template>
-            <input_parameter>
-                <name>input_table</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>model_table</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>parallel</name>
-                <type>boolean</type>  
-            </input_parameter>
-            <input_parameter>
-                <name>kernel_func</name>
-                <type>text</type>   
-            </input_parameter>
-            <input_parameter>
-                <name>verbose</name>
-                <type>boolean</type>
-                <default>false</default>
-            </input_parameter>
-            <input_parameter>
-                <name>eta</name>
-                <type>float8</type>   
-                <default>0.1</default>
-            </input_parameter>        
-            <input_parameter>
-                <name>nu</name>
-                <type>float8</type>   
-                <default>0.005</default>
-            </input_parameter>
-            <input_parameter>
-                <name>slambda</name>
-                <type>float8</type>   
-                <default>0.05</default>
-            </input_parameter>
-         </method>
-   <method>        
-            <name>svm_reg_predict_score</name>
+         <name>silhouette</name>
+         <method>
+            <name>simple_silhouette</name>
             <create>true</create>
             <template>
-                   SELECT madlibtestdata.svm_reg_predict_score
-                        ( {model_table}     --model_table 
-                        , {input_table}     --input_table
-                        , {parallel}        --parallel
-                   ) AS score;
+                   SELECT {madlib_schema}.simple_silhouette
+                        ( {src_relation}   -- rel_source
+                        , {src_col_data}   -- expr_point
+                        , (SELECT centroids FROM {src_result}) -- centroids
+                        , {dist_metric}    -- fn_dist
+                        );
             </template>
             <input_parameter>
-                <name>model_table</name>
-                <type>text</type>   
-            </input_parameter> 
-            <input_parameter>
-                <name>input_table</name>
-                <type>text</type>              
+                <name>src_relation</name>
+                <type>varchar</type>
            </input_parameter>
            <input_parameter>
-                <name>parallel</name>
-                <type>boolean</type>  
+                <name>src_col_data</name>
+                <type>varchar</type>
             </input_parameter>
-            <output_parameter>
-                <name>score</name>
-                <type>float8</type>
+            <input_parameter>
+                <name>src_result</name>
+                <type>varchar</type>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metric</name>
+                <type>varchar</type>
+                <default>madlib.dist_norm2</default>
+            </input_parameter>
+	    <output_parameter>
+                <name>silhouette</name>
+                <type>double precision</type>
             </output_parameter>
          </method>
-       
-       <method>        
-            <name>svm_reg_predict_batch_score</name>
-            <create>true</create>
-            <template>
-                   SELECT madlibtestdata.svm_reg_predict_batch_score
-                        ( {model_table}     --model_table 
-                        , {output_table}  --output_table
-                        , {input_table}     --input_table
-                        , {parallel}        --parallel
-                   ) AS score;
-            </template>
-            <input_parameter>
-                <name>model_table</name>
-                <type>text</type>   
-            </input_parameter> 
-          <input_parameter>
-                <name>output_table</name>
-                <type>text</type>  
-            </input_parameter>
-            <input_parameter>
-                <name>input_table</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>parallel</name>
-                <type>boolean</type>  
-            </input_parameter>
-            <output_parameter>
-                <name>score</name>
-                <type>float8</type>
-            </output_parameter>
-         </method>
-
-         <method>        
-            <name>svm_drop_model</name>
-            <template>
-                   SELECT {madlib_schema}.svm_drop_model
-                        ({model_table}     --model_table
-                   ) AS q;
-            </template>
-            <input_parameter>
-                <name>model_table</name>
-                <type>text</type>              
-           </input_parameter>
-         </method>
-   </algorithm>
-
-
-   <algorithm>  
-   <name>svm_classification</name>
-         <method>        
-            <name>lsvm_classification</name>
-            <template>
-                   SELECT {madlib_schema}.lsvm_classification
-                        ( {input_table}     --input_table
-                        , {model_table}    --model_table 
-                        , {parallel}       --parallel
-                        , {verbose}        --verbose
-                        , {eta}            --eta
-                        , {reg}            --reg
-                        
-                   ) AS q;
-            </template>
-            <input_parameter>
-                <name>input_table</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>model_table</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>parallel</name>
-                <type>boolean</type>  
-            </input_parameter>
-            <input_parameter>
-                <name>verbose</name>
-                <type>boolean</type>
-                <default>false</default>
-            </input_parameter>
-            <input_parameter>
-                <name>eta</name>
-                <type>float8</type>   
-                <default>0.1</default>
-            </input_parameter>        
-            <input_parameter>
-                <name>reg</name>
-                <type>float8</type>   
-                <default>0.001</default>
-            </input_parameter>
-         </method>
-         
-          <method>        
-            <name>svm_classification</name>
-            <template>
-                   SELECT {madlib_schema}.svm_classification
-                        ( {input_table}     --input_table
-                        , {model_table}    --model_table 
-                        , {parallel}       --parallel
-                        , {kernel_func}    --kernel_func
-                        , {verbose}        --verbose
-                        , {eta}            --eta
-                        , {nu}             --nu
-                   ) AS q;
-            </template>
-            <input_parameter>
-                <name>input_table</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>model_table</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>parallel</name>
-                <type>boolean</type>  
-            </input_parameter>
-            <input_parameter>
-                <name>kernel_func</name>
-                <type>text</type>   
-            </input_parameter>
-            <input_parameter>
-                <name>verbose</name>
-                <type>boolean</type>
-                <default>false</default>
-            </input_parameter>
-            <input_parameter>
-                <name>eta</name>
-                <type>float8</type>   
-                <default>0.01</default>
-            </input_parameter>        
-            <input_parameter>
-                <name>nu</name>
-                <type>float8</type>   
-                <default>0.005</default>
-            </input_parameter>
-         </method>
-                <method>
-            <name>svm_cls_predict_score</name>
-            <create>true</create>
-            <template>
-                   SELECT madlibtestdata.svm_cls_predict_score
-                        ( {model_table}     --model_table
-                        , {input_table}     --input_table
-                        , {parallel}        --parallel
-                        , {linear}        --linear
-                   ) AS score;
-            </template>
-            <input_parameter>
-                <name>model_table</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>input_table</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>parallel</name>
-                <type>boolean</type>
-            </input_parameter>
-            <input_parameter>
-                <name>linear</name>
-                <type>boolean</type>
-            </input_parameter>
-            <output_parameter>
-                <name>score</name>
-                <type>float8</type>
-            </output_parameter>
-         </method>
-
-       <method>
-            <name>svm_cls_predict_batch_score</name>
-            <create>true</create>
-            <template>
-                   SELECT madlibtestdata.svm_cls_predict_batch_score
-                        ( {model_table}     --model_table 
-                        , {output_table}  --output_table
-                        , {input_table}     --input_table
-                        , {parallel}        --parallel
-                        , {linear}        --linear
-                   ) AS score;
-            </template>
-            <input_parameter>
-                <name>model_table</name>
-                <type>text</type>   
-            </input_parameter> 
-          <input_parameter>
-                <name>output_table</name>
-                <type>text</type>  
-            </input_parameter>
-            <input_parameter>
-                <name>input_table</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>parallel</name>
-                <type>boolean</type>
-            </input_parameter>
-            <input_parameter>
-                <name>linear</name>
-                <type>boolean</type>
-            </input_parameter>
-            <output_parameter>
-                <name>score</name>
-                <type>float8</type>
-            </output_parameter>
-         </method>
-        <method>        
-            <name>svm_drop_model</name>
-            <template>
-                   SELECT {madlib_schema}.svm_drop_model
-                        ({model_table}     --model_table
-                   ) AS q;
-            </template>
-            <input_parameter>
-                <name>model_table</name>
-                <type>text</type>              
-           </input_parameter>
-         </method>
-
      </algorithm>
-   <algorithm>  
-   <name>svm_novelty_detection</name>
-          <method>        
-            <name>svm_novelty_detection</name>
-            <template>
-                   SELECT {madlib_schema}.svm_novelty_detection
-                        ( {input_table}     --input_table
-                        , {model_table}    --model_table 
-                        , {parallel}       --parallel
-                        , {kernel_func}    --kernel_func
-                        , {verbose}        --verbose
-                        , {eta}            --eta
-                        , {nu}             --nu
-                   ) AS q;
-            </template>
-            <input_parameter>
-                <name>input_table</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>model_table</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>parallel</name>
-                <type>boolean</type>  
-            </input_parameter>
-            <input_parameter>
-                <name>kernel_func</name>
-                <type>text</type>   
-            </input_parameter>
-            <input_parameter>
-                <name>verbose</name>
-                <type>boolean</type>
-                <default>false</default>
-            </input_parameter>
-            <input_parameter>
-                <name>eta</name>
-                <type>float8</type>   
-                <default>0.01</default>
-            </input_parameter>        
-            <input_parameter>
-                <name>nu</name>
-                <type>float8</type>   
-                <default>0.005</default>
-            </input_parameter>
-         </method>
-
- <method>        
-            <name>svm_nd_predict_score</name>
-            <create>true</create>
-            <template>
-                   SELECT madlibtestdata.svm_nd_predict_score
-                        ( {model_table}     --model_table 
-                        , {input_table}     --input_table
-                        , {parallel}        --parallel
-                   ) AS score;
-            </template>
-            <input_parameter>
-                <name>model_table</name>
-                <type>text</type>   
-            </input_parameter> 
-            <input_parameter>
-                <name>input_table</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>parallel</name>
-                <type>boolean</type>  
-            </input_parameter>
-            <output_parameter>
-                <name>score</name>
-                <type>float8</type>
-            </output_parameter>
-         </method>
- 
-         <method>        
-            <name>svm_nd_predict_batch_score</name>
-            <create>true</create>
-            <template>
-                   SELECT madlibtestdata.svm_nd_predict_batch_score
-                        ( {model_table}     --model_table 
-                        , {output_table}  --output_table
-                        , {input_table}     --input_table
-                        , {parallel}        --parallel
-                   ) AS score;
-            </template>
-            <input_parameter>
-                <name>model_table</name>
-                <type>text</type>   
-            </input_parameter> 
-          <input_parameter>
-                <name>output_table</name>
-                <type>text</type>  
-            </input_parameter>
-            <input_parameter>
-                <name>input_table</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>parallel</name>
-                <type>boolean</type>  
-            </input_parameter>
-            <output_parameter>
-                <name>score</name>
-                <type>float8</type>
-            </output_parameter>
-         </method>
-                 
-         
-         <method>        
-            <name>svm_drop_model</name>
-            <template>
-                   SELECT {madlib_schema}.svm_drop_model
-                        ({model_table}     --model_table
-                   ) AS q;
-            </template>
-            <input_parameter>
-                <name>model_table</name>
-                <type>text</type>              
-           </input_parameter>
-         </method>
-
-      </algorithm>               
 
 </algorithms>

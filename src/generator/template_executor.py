@@ -224,7 +224,10 @@ class InputParameter(Parser):
         if self.type == 'text' and value == 'EMPTY':
             return "''" #empty string
         else:
-            return "'%s'::%s" % (value, self.type)
+            #return "'%s'::%s" % (value, self.type)
+	    value = value.replace("ARRAY[","{")
+	    value = value.replace("]","}")
+            return "$_valString$%s$_valString$::%s" % (value, self.type)
 
 class Executor:
     """The Template Executor to execute MADLIB invocation.

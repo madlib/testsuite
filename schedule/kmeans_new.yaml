@@ -1,0 +1,2 @@
+- cases : case_kmeans_new
+  platform : GPDB42
