@@ -10,8 +10,6 @@
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
-                </parameter>            
-                    <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
@@ -30,7 +28,7 @@
             </method>
         </methods>
 
-       <test_suite>
+        <test_suite>
             <name>kmeans_new_cset_baseline</name>
             <comments>It is to get baseline of kmeans using predefined centroids against R.</comments>
                 <!-- It indicate max execution times-->
@@ -52,7 +50,7 @@
             </tear_down>
         </test_suite>
 
-       <test_suite>
+        <test_suite>
             <name>kmeans_new_plusplus_baseline</name>
             <comments>It is to get baseline of kmeans using plus plus against R.</comments>
                 <!-- It indicate max execution times-->
@@ -128,6 +126,7 @@
                 </list_parameter>
            </method>
         </test_suite>
+        
         <test_suite>
             <name>kmeans_new_plusplus_maximum_iteration</name>
             <comments>It is to test kmeans with maximum iteration.</comments>
@@ -152,11 +151,11 @@
             </method>
         </test_suite>
 
-         <test_suite>
+        <test_suite>
             <name>kmeans_new_random_ctas_maximum_iteration</name>
             <comments>It is to test kmeans with maximum iteration.</comments>
                 <!-- It indicate max execution times-->
-                <execute_rate> 1 </execute_rate>
+            <execute_rate> 1 </execute_rate>
             <method>
                 <name>kmeans_new_random_ctas</name>
                 <list_parameter>
@@ -866,7 +865,7 @@
                      DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_negative_src_col_id_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_negative_src_col_id_out_centroids;
                 </tear_down>
             </method>
-	</methods>
+	</test_suite>
 
 	<test_suite>
             <name>kmeans_new_cset_ctas_baseline</name>
@@ -884,7 +883,7 @@
                     <value>ARRAY['madlib.dist_norm1','madlib.dist_norm1']</value><value>ARRAY['madlib.squared_dist_norm2','madlib.dist_norm2']</value><value>ARRAY['madlib.dist_angle','madlib.dist_angle']</value><value>ARRAY['madlib.dist_tanimoto','madlib.dist_tanimoto']</value>
                 </list_parameter>
                 <parameters>
-		<parameter>
+		            <parameter>
                         <name>src_col_data</name>
                         <value>position</value>
                     </parameter>
@@ -899,7 +898,6 @@
                 </tear_down>
             </method>
         </test_suite>
-
 
 	<test_suite>
             <name>kmeans_new_cset_ctas_maximum_iteration</name>
@@ -1019,7 +1017,7 @@
                     <value>invalid_src_col_data</value><value>NULL</value>
                 </list_parameter>
                 <parameters>
-		    <parameter>
+		            <parameter>
                         <name>table_name</name>
                         <value>madlibtestresult.kmeans_new_cset_ctas_abalone</value>
                     </parameter>
@@ -1080,6 +1078,42 @@
                 </tear_down>
             </method>
         </test_suite>
+       
+       <test_suite>
+            <name>kmeans_new_random_ctas_negative_dist_metric</name>
+            <comments>It is to test kmeans using negative dist metric.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameters>
+                    <parameter>
+                        <name>table_name</name>
+                        <value>madlibtestresult.kmeans_new_random_ctas_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_relation</name>
+                        <value>madlibtestdata.km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>dist_metrics</name>
+                        <value>ARRAY['invalid_dist_metric','invalid_dist_metric']</value>
+                    </parameter>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                    DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_abalone;
+                </tear_down>
+            </method>
+        </test_suite>
+
 
 	 <test_suite>
             <name>kmeans_new_cset_ctas_negative_max_iteration</name>
@@ -1120,6 +1154,41 @@
             </method>
         </test_suite>
 
+     <test_suite>
+            <name>kmeans_new_random_ctas_negative_max_iteration</name>
+            <comments>It is to test kmeans using negative max iteration.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_new_random_ctas</name>
+                <list_parameter>
+                    <name>max_iter</name>
+                    <value>-1</value><value>0</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                            <name>table_name</name>
+                            <value>madlibtestresult.kmeans_new_random_ctas_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_relation</name>
+                        <value>madlibtestdata.km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                </parameters>
+                <tear_down>    
+        DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_abalone;                
+                </tear_down>
+            </method>
+    </test_suite>
+
 	<test_suite>
             <name>kmeans_new_cset_ctas_negative_convergence_threshold</name>
             <comments>It is to test kmeans using negative convergence threshold.</comments>
@@ -1132,7 +1201,7 @@
                     <value>-0.0001</value><value>0</value><value>10000</value>
                 </list_parameter>
                 <parameters>
-		    <parameter>
+		        <parameter>
                         <name>table_name</name>
                         <value>madlibtestresult.kmeans_new_cset_ctas_abalone</value>
                     </parameter>
@@ -1154,7 +1223,41 @@
                     </parameter>
                 </parameters>
                 <tear_down>
-		DROP TABLE IF EXISTS madlibtestresult.kmeans_new_cset_ctas_abalone;
+		          DROP TABLE IF EXISTS madlibtestresult.kmeans_new_cset_ctas_abalone;
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_new_random_ctas_negative_convergence_threshold</name>
+            <comments>It is to test kmeans using negative convergence threshold.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_new_random_ctas</name>
+                <list_parameter>
+                    <name>conv_threshold</name>
+                    <value>-0.0001</value><value>0</value><value>10000</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>table_name</name>
+                        <value>madlibtestresult.kmeans_new_random_ctas_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_relation</name>
+                        <value>madlibtestdata.km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
                 </tear_down>
             </method>
         </test_suite>
@@ -1229,6 +1332,44 @@
             </method>
         </test_suite>
 	
+       <test_suite>
+        <name>kmeans_new_random_ctas_negative_k</name>
+        <comments>It is to test kmeans using negative k.</comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+        <method>
+            <name>kmeans_new_random_ctas</name>
+            <list_parameter>
+                <name>k</name>
+                <value>-1</value><value>0</value>
+            </list_parameter>
+            <parameters>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_random_ctas_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_abalone</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_id</name>
+                    <value>pid</value>
+                </parameter>
+                <parameter>
+                    <name>k</name>
+                    <value>pid</value>
+                </parameter>
+            </parameters>
+            <tear_down>
+                 DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_abalone;
+            </tear_down>
+        </method>
+    </test_suite>
 
     </multi_test_suites>
 </test_suites>

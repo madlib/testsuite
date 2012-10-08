@@ -194,7 +194,7 @@ kmeans_new_random_ctas_negative_max_iteration_0_1
 # # TestSuite Name : kmeans_new_random_negative_convergence_threshold
 # # It is to test kmeans using negative convergence threshold.
 # # Start TestSuite ==========
-kmeans_new_random_negative_convergence_threshold_0_0
-kmeans_new_random_negative_convergence_threshold_0_1
-kmeans_new_random_negative_convergence_threshold_0_2
+kmeans_new_random_ctas_negative_convergence_threshold_0_0
+kmeans_new_random_ctas_negative_convergence_threshold_0_1
+kmeans_new_random_ctas_negative_convergence_threshold_0_2
 
