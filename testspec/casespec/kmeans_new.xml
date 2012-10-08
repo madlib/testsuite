@@ -11,6 +11,860 @@
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
                 </parameter>            
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>kmeans_new_plusplus_ctas</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+            <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameter>
+                    <name>benchmark</name>
+                    <value>TemplateExecutor</value>
+                </parameter>
+            </method>
+        </methods>
+
+       <test_suite>
+            <name>kmeans_new_cset_baseline</name>
+            <comments>It is to get baseline of kmeans using predefined centroids against R.</comments>
+                <!-- It indicate max execution times-->
+
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_new_cset</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>dist_metric</name>
+                    <value>madlib.dist_norm1</value><value>madlib.squared_dist_norm2</value><value>madlib.squared_angle</value><value>madlib.squared_tanimoto</value>
+                </list_parameter>
+            </method>
+            <tear_down>
+                 DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_baseline_result;
+            </tear_down>
+        </test_suite>
+
+       <test_suite>
+            <name>kmeans_new_plusplus_baseline</name>
+            <comments>It is to get baseline of kmeans using plus plus against R.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_new_plusplus</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>dist_metric</name>
+                    <value>dist_norm1</value><value>squared_dist_norm2</value><value>squared_angle</value><value>squared_tanimoto</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_new_random_ctas_baseline</name>
+            <comments>It is to get baseline of kmeans using random against R.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_new_random_ctas</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>dist_metrics</name>
+                    <value>ARRAY['madlib.dist_norm1','madlib.dist_norm1']</value>
+                    <value>ARRAY['madlib.squared_dist_norm2','madlib.dist_norm2']</value>
+                    <value>ARRAY['madlib.dist_angle','madlib.dist_angle']</value>
+                    <value>ARRAY['madlib.dist_tanimoto','madlib.dist_tanimoto']</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                    DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_abalone; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_movement_libras; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_us_census_1990; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_water_treatment; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_wine; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_winequality_red;
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_new_cset_maximum_iteration</name>
+            <comments>It is to test kmeans with maximum iteration.</comments>
+                <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_new_cset</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>max_iter</name>
+                    <value>5</value><value>10</value><value>20</value><value>30</value>
+                </list_parameter>
+           </method>
+        </test_suite>
+        <test_suite>
+            <name>kmeans_new_plusplus_maximum_iteration</name>
+            <comments>It is to test kmeans with maximum iteration.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_new_plusplus</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>max_iter</name>
+                    <value>5</value><value>10</value><value>20</value><value>30</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                </parameters>
+            </method>
+        </test_suite>
+
+         <test_suite>
+            <name>kmeans_new_random_ctas_maximum_iteration</name>
+            <comments>It is to test kmeans with maximum iteration.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate> 1 </execute_rate>
+            <method>
+                <name>kmeans_new_random_ctas</name>
+                <list_parameter>
+                    <name>dataset</name>
+                    <value>km_abalone</value><value>km_movement_libras</value><value>km_us_census_1990</value><value>km_water_treatment</value><value>km_wine</value><value>km_winequality_red</value>
+                </list_parameter>
+                <list_parameter>
+                    <name>max_iter</name>
+                    <value>5</value><value>10</value><value>20</value><value>30</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>                    
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                </parameters>
+                    <tear_down>
+            DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_abalone; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_movement_libras; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_us_census_1990; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_water_treatment; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_wine; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_winequality_red;
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_cset_negative_overwrite</name>
+            <comments>It is to test kmeans with existing output tables.</comments>
+                <!-- It indicate max execution times--> 
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_cset</name>
+                <parameters>
+                    <parameter>
+                        <name>dataset</name>
+                        <value>km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_cset_negative_overwrite_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_cset_negative_overwrite_out_centroids</value>
+                    </parameter>
+                </parameters>
+            </method>
+
+            <method>
+                <name>kmeans_cset</name>
+                <parameters>
+                    <parameter>
+                        <name>dataset</name>
+                        <value>km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_cset_negative_overwrite_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_cset_negative_overwrite_out_centroids</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_negative_overwrite_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_negative_overwrite_out_centroids;
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_plusplus_negative_overwrite</name>
+            <comments>It is to test kmeans with existing output tables.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_plusplus</name>
+                <parameters>
+                    <parameter>
+                        <name>dataset</name>
+                        <value>km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_plusplus_negative_overwrite_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_plusplus_negative_overwrite_out_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                    <parameter>
+                        <name>sample_frac</name>
+                        <value>0.01</value>
+                    </parameter>
+                </parameters>
+            </method>
+
+            <method>
+                <name>kmeans_plusplus</name>
+                <parameters>
+                    <parameter>
+                        <name>dataset</name>
+                        <value>km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_plusplus_negative_overwrite_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_plusplus_negative_overwrite_out_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                    <parameter>
+                        <name>sample_frac</name>
+                        <value>0.01</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_negative_overwrite_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_negative_overwrite_out_centroids;
+                </tear_down>
+            </method>
+        </test_suite>
+       <test_suite>
+            <name>kmeans_new_random_ctas_negative_overwrite</name>
+            <comments>It is to test kmeans with existing output tables.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+                <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameters>
+                    <parameter>
+                        <name>dataset</name>
+                        <value>km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                </parameters>
+                <!-- Don't perform a tear down since we need the output tables -->
+            </method>
+
+            <method>
+                <name>kmeans_new_random_ctas</name>
+                <parameters>
+                    <parameter>
+                        <name>dataset</name>
+                        <value>km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+            DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_abalone; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_movement_libras; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_us_census_1990; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_water_treatment; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_wine; DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_winequality_red;
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_canopy_negative_overwrite</name>
+            <comments>It is to test kmeans with existing output tables.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_canopy</name>
+                <parameters>
+                    <parameter>
+                        <name>dataset</name>
+                        <value>km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_canopy_negative_overwrite_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_canopy_negative_overwrite_out_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>t1</name>
+                        <value>NULL</value>
+                    </parameter>
+                    <parameter>
+                        <name>t2</name>
+                        <value>NULL</value>
+                    </parameter>
+                </parameters>
+            </method>
+
+            <method>
+                <name>kmeans_canopy</name>
+                <parameters>
+                    <parameter>
+                        <name>dataset</name>
+                        <value>km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_canopy_negative_overwrite_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_canopy_negative_overwrite_out_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>t1</name>
+                        <value>NULL</value>
+                    </parameter>
+                    <parameter>
+                        <name>t2</name>
+                        <value>NULL</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_negative_overwrite_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_negative_overwrite_out_centroids;
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_cset_negative_src_relation</name>
+            <comments>It is to test kmeans using negative source relation.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_cset</name>
+                <list_parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.invalid_src_relation</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_cset_negative_src_relation_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_cset_negative_src_relation_out_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>init_cset_rel</name>
+                        <value>madlibtestdata.km_abalone_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>init_cset_col</name>
+                        <value>position</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_negative_src_relation_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_negative_src_relation_out_centroids;
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_plusplus_negative_src_relation</name>
+            <comments>It is to test kmeans using negative source relation.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_plusplus</name>
+                <list_parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.invalid_src_relation</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_plusplus_negative_src_relation_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_plusplus_negative_src_relation_out_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                    <parameter>
+                        <name>sample_frac</name>
+                        <value>0.01</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_negative_src_relation_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_negative_src_relation_out_centroids;
+                </tear_down>
+            </method>
+        </test_suite>
+
+     <test_suite>
+            <name>kmeans_new_random_ctas_negative_src_relation</name>
+            <comments>It is to test kmeans using negative source relation.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_new_random_ctas</name>
+                <list_parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.invalid_src_relation</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>table_name</name>
+                        <value>madlibtestresult.kmeans_new_random_ctas_abalone</value>
+                    </parameter>
+
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                    DROP TABLE IF EXISTS madlibtestresult.kmeans_new_random_ctas_abalone
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_canopy_negative_src_relation</name>
+            <comments>It is to test kmeans using negative source relation.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_canopy</name>
+                <list_parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.invalid_src_relation</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_canopy_negative_src_relation_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_canopy_negative_src_relation_out_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>t1</name>
+                        <value>NULL</value>
+                    </parameter>
+                    <parameter>
+                        <name>t2</name>
+                        <value>NULL</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_negative_src_relation_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_negative_src_relation_out_centroids;
+                </tear_down>
+            </method>
+        </test_suite>
+
+       <test_suite>
+            <name>kmeans_cset_negative_src_col_data</name>
+            <comments>It is to test kmeans using negative source column data.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_cset</name>
+                <list_parameter>
+                    <name>src_col_data</name>
+                    <value>invalid_src_col_data</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>src_relation</name>
+                        <value>madlibtestdata.km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_cset_negative_src_col_data_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_cset_negative_src_col_data_out_centroids</value>
+                    </parameter>
+                </parameters>
+                    <parameter>
+                        <name>init_cset_rel</name>
+                        <value>madlibtestdata.km_abalone_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>init_cset_col</name>
+                        <value>position</value>
+                    </parameter>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_negative_src_col_data_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_negative_src_col_data_out_centroids;
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_plusplus_negative_src_col_data</name>
+            <comments>It is to test kmeans using negative source column data.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_plusplus</name>
+                <list_parameter>
+                    <name>src_col_data</name>
+                    <value>invalid_src_col_data</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>src_relation</name>
+                        <value>madlibtestdata.km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_plusplus_negative_src_col_data_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_plusplus_negative_src_col_data_out_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                    <parameter>
+                        <name>sample_frac</name>
+                        <value>0.01</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_negative_src_col_data_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_negative_src_col_data_out_centroids;
+                </tear_down>
+            </method>
+        </test_suite>
+       <test_suite>
+            <name>kmeans_new_random_ctas_negative_src_col_data</name>
+            <comments>It is to test kmeans using negative source column data.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_new_random_ctas</name>
+                <list_parameter>
+                    <name>src_col_data</name>
+                    <value>invalid_src_col_data</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>table_name</name>
+                        <value>madlibtestresult.kmeans_new_random_ctas_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_relation</name>
+                        <value>madlibtestdata.km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_canopy_negative_src_col_data</name>
+            <comments>It is to test kmeans using negative source column data.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_canopy</name>
+                <list_parameter>
+                    <name>src_col_data</name>
+                    <value>invalid_src_col_data</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>src_relation</name>
+                        <value>madlibtestdata.km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_id</name>
+                        <value>pid</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_canopy_negative_src_col_data_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_canopy_negative_src_col_data_out_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>t1</name>
+                        <value>NULL</value>
+                    </parameter>
+                    <parameter>
+                        <name>t2</name>
+                        <value>NULL</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_negative_src_col_data_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_canopy_negative_src_col_data_out_centroids;
+                </tear_down>
+            </method>
+        </test_suite>
+
+       <test_suite>
+            <name>kmeans_cset_negative_src_col_id</name>
+            <comments>It is to test kmeans using negative source column id.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_cset</name>
+                <list_parameter>
+                    <name>src_col_id</name>
+                    <value>invalid_src_col_id</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>src_relation</name>
+                        <value>madlibtestdata.km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_cset_negative_src_col_id_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_cset_negative_src_col_id_out_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>init_cset_rel</name>
+                        <value>madlibtestdata.km_abalone_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>init_cset_col</name>
+                        <value>position</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_negative_src_col_id_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_cset_negative_src_col_id_out_centroids;
+                </tear_down>
+            </method>
+        </test_suite>
+
+        <test_suite>
+            <name>kmeans_plusplus_negative_src_col_id</name>
+            <comments>It is to test kmeans using negative source column id.</comments>
+                <!-- It indicate max execution times-->
+                <execute_rate>1</execute_rate>
+            <method>
+                <name>kmeans_plusplus</name>
+                <list_parameter>
+                    <name>src_col_id</name>
+                    <value>invalid_src_col_id</value><value>NULL</value>
+                </list_parameter>
+                <parameters>
+                    <parameter>
+                        <name>src_relation</name>
+                        <value>madlibtestdata.km_abalone</value>
+                    </parameter>
+                    <parameter>
+                        <name>src_col_data</name>
+                        <value>position</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_points</name>
+                        <value>madlibtestresult.kmeans_plusplus_negative_src_col_id_out_points</value>
+                    </parameter>
+                    <parameter>
+                        <name>out_centroids</name>
+                        <value>madlibtestresult.kmeans_plusplus_negative_src_col_id_out_centroids</value>
+                    </parameter>
+                    <parameter>
+                        <name>k</name>
+                        <value>6</value>
+                    </parameter>
+                    <parameter>
+                        <name>sample_frac</name>
+                        <value>0.01</value>
+                    </parameter>
+                </parameters>
+                <tear_down>
+                     DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_negative_src_col_id_out_points;DROP TABLE IF EXISTS madlibtestresult.kmeans_plusplus_negative_src_col_id_out_centroids;
+                </tear_down>
             </method>
 	</methods>
 
@@ -95,12 +949,8 @@
                         <name>src_col_data</name>
                         <value>position</value>
                     </parameter>
-                    <!-- <parameter>
-                        <name>centroids</name>
-                        <value>madlibtestresult.kmeans_new_cset_ctas_negative_overwrite_centroids</value>
-                    </parameter> -->
                 </parameters>
-		<tear_down>
+		        <tear_down>
 		<!-- DROP TABLE IF EXISTS madlibtestresult.kmeans_new_cset_ctas_abalone; -->
                 </tear_down>
             </method>

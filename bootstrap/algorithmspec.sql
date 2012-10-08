@@ -1,0 +1,50 @@
+CREATE TABLE benchmark.kmeans_new_silhouette_kmeans_new_cset(testitemname text, runid int, src_relation text default null ,src_col_data text default null ,src_result text default null ,dist_metric text default null );
+
+CREATE TABLE benchmark.assoc_rules_assoc_rules(testitemname text, runid int, i_support float8 default null ,i_confidence float8 default null ,id_col text default null ,product_col text default null ,input_table text default null ,output_schema text default null ,p_verbose boolean default null ,output_table text default null ,total_rules int default null );
+
+CREATE TABLE benchmark.svm_regression_svm_reg_predict_score(testitemname text, runid int, model_table text default null ,input_table text default null ,parallel boolean default null ,score float8 default null );
+
+CREATE TABLE benchmark.svm_regression_svm_reg_predict_batch_score(testitemname text, runid int, model_table text default null ,output_table text default null ,input_table text default null ,parallel boolean default null ,score float8 default null );
+
+CREATE TABLE benchmark.svm_classification_svm_cls_predict_score(testitemname text, runid int, model_table text default null ,input_table text default null ,parallel boolean default null ,linear boolean default null ,score float8 default null );
+
+CREATE TABLE benchmark.svm_classification_svm_cls_predict_batch_score(testitemname text, runid int, model_table text default null ,output_table text default null ,input_table text default null ,parallel boolean default null ,linear boolean default null ,score float8 default null );
+
+CREATE TABLE benchmark.kmeans_kmeans_cset(testitemname text, runid int, src_relation text default null ,src_col_data text default null ,src_col_id text default null ,out_points text default null ,out_centroids text default null ,dist_metric text default null ,max_iter int default null ,conv_threshold float default null ,evaluate boolean default null ,verbosity boolean default null ,init_cset_rel text default null ,init_cset_col text default null ,point_count bigint default null ,iterations int default null ,cost_func double precision default null ,silhouette double precision default null );
+
+CREATE TABLE benchmark.kmeans_kmeans_new_cset(testitemname text, runid int, src_relation text default null ,src_col_data text default null ,dist_metric text default null ,agg_mean text default null ,max_iter int default null ,conv_threshold float default null ,init_cset_rel text default null ,init_cset_col text default null ,objective_fn double precision default null ,frac_reassigned double precision default null ,num_iterations integer default null );
+
+CREATE TABLE benchmark.kmeans_kmeans_plusplus(testitemname text, runid int, src_relation text default null ,src_col_data text default null ,src_col_id text default null ,out_points text default null ,out_centroids text default null ,dist_metric text default null ,max_iter int default null ,conv_threshold float default null ,evaluate boolean default null ,verbosity boolean default null ,k int default null ,sample_frac float default null ,point_count bigint default null ,iterations int default null ,cost_func double precision default null ,silhouette double precision default null );
+
+CREATE TABLE benchmark.kmeans_kmeans_new_plusplus(testitemname text, runid int, src_relation text default null ,src_col_data text default null ,dist_metric text default null ,agg_mean text default null ,max_iter int default null ,conv_threshold double precision default null ,k smallint default null ,objective_fn double precision default null ,frac_reassigned double precision default null ,num_iterations integer default null );
+
+CREATE TABLE benchmark.kmeans_kmeans_random(testitemname text, runid int, src_relation text default null ,src_col_data text default null ,src_col_id text default null ,out_points text default null ,out_centroids text default null ,dist_metric text default null ,max_iter int default null ,conv_threshold float default null ,evaluate boolean default null ,verbosity boolean default null ,k int default null ,point_count bigint default null ,iterations int default null ,cost_func double precision default null ,silhouette double precision default null );
+
+CREATE TABLE benchmark.kmeans_kmeans_new_random(testitemname text, runid int, src_relation text default null ,src_col_data text default null ,src_col_id text default null ,out_points text default null ,out_centroids text default null ,dist_metric text default null ,max_iter int default null ,k int default null ,conv_threshold float default null ,objective_fn double precision default null ,frac_reassigned double precision default null ,num_iterations integer default null );
+
+CREATE TABLE benchmark.kmeans_kmeans_canopy(testitemname text, runid int, src_relation text default null ,src_col_data text default null ,src_col_id text default null ,out_points text default null ,out_centroids text default null ,dist_metric text default null ,max_iter int default null ,conv_threshold float default null ,evaluate boolean default null ,verbosity boolean default null ,t1 float default null ,t2 float default null ,point_count bigint default null ,iterations int default null ,cost_func double precision default null ,silhouette double precision default null );
+
+CREATE TABLE benchmark.kmeans_kmeans_new_random_ctas(testitemname text, runid int, table_name text default null ,src_relation text default null ,src_col_data text default null ,k smallint default null ,dist_metrics text default null ,dist_metric_in_objective text default null ,agg_mean text default null ,max_iter int default null ,conv_threshold float default null ,silhouette double precision default null );
+
+CREATE TABLE benchmark.kmeans_kmeans_new_pp_seeding(testitemname text, runid int, src_relation text default null ,src_col_data text default null ,k smallint default null ,dist_metric text default null ,initial_centroids double precision[][] default null );
+
+CREATE TABLE benchmark.kmeans_kmeans_new_random_seeding(testitemname text, runid int, src_relation text default null ,src_col_data text default null ,k smallint default null ,initial_centroids double precision[][] default null );
+
+CREATE TABLE benchmark.kmeans_kmeans_new_silhouette_cset(testitemname text, runid int, src_relation text default null ,src_col_data text default null ,src_result text default null ,dist_metric text default null );
+
+CREATE TABLE benchmark.decision_tree_c45_train(testitemname text, runid int, split_criterion_name text default null ,training_table_name text default null ,result_tree_table_name text default null ,validation_table_name text default null ,continuous_feature_names text default null ,feature_col_names text default null ,id_col_name text default null ,class_col_name text default null ,confidence_level float default null ,how2handle_missing_value text default null ,max_tree_depth int default null ,node_prune_threshold float default null ,node_split_threshold float default null ,verbosity int default null ,training_set_size bigint default null ,tree_nodes bigint default null ,tree_depth int default null );
+
+CREATE TABLE benchmark.decision_tree_c45_cross_validate(testitemname text, runid int, split_criterion_name text default null ,training_table_name text default null ,validation_table_name text default null ,continuous_feature_names text default null ,feature_col_names text default null ,id_col_name text default null ,class_col_name text default null ,confidence_level float default null ,how2handle_missing_value text default null ,max_tree_depth int default null ,node_prune_threshold float default null ,node_split_threshold float default null ,verbosity int default null ,subset_number float default null ,avg_score float8 default null );
+
+CREATE TABLE benchmark.decision_tree_c45_score(testitemname text, runid int, dt_table_name text default null ,scoring_table_name text default null ,verbosity int default null ,score float default null );
+
+CREATE TABLE benchmark.svm_novelty_detection_svm_nd_predict_score(testitemname text, runid int, model_table text default null ,input_table text default null ,parallel boolean default null ,score float8 default null );
+
+CREATE TABLE benchmark.svm_novelty_detection_svm_nd_predict_batch_score(testitemname text, runid int, model_table text default null ,output_table text default null ,input_table text default null ,parallel boolean default null ,score float8 default null );
+
+CREATE TABLE benchmark.random_forest_rf_train(testitemname text, runid int, split_criterion_name text default null ,training_table_name text default null ,result_rf_table_name text default null ,number_of_trees int default null ,features_per_node int default null ,sampling_percentage float default null ,continuous_feature_names text default null ,feature_col_names text default null ,id_col_name text default null ,class_col_name text default null ,how2handle_missing_value text default null ,max_tree_depth int default null ,node_prune_threshold float default null ,node_split_threshold float default null ,verbosity int default null ,num_of_samples bigint default null ,num_trees int default null ,num_tree_nodes int default null ,split_criterion text default null );
+
+CREATE TABLE benchmark.random_forest_rf_score(testitemname text, runid int, rf_table_name text default null ,scoring_table_name text default null ,verbosity int default null ,score float default null );
+
+CREATE TABLE benchmark.random_forest_rf_cross_validate(testitemname text, runid int, split_criterion_name text default null ,training_table_name text default null ,number_of_trees int default null ,sampling_percentage float default null ,continuous_feature_names text default null ,feature_col_names text default null ,id_col_name text default null ,class_col_name text default null ,how2handle_missing_value text default null ,max_tree_depth int default null ,node_prune_threshold float default null ,node_split_threshold float default null ,verbosity int default null ,subset_number float8 default null ,avg_score float8 default null );
+

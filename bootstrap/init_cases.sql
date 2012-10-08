@@ -107,7 +107,14 @@ CREATE OR REPLACE VIEW benchmark.testresultreport AS
       WHEN (trb.itemname like 'kmeans_new_%' AND (trb.issuccessful <> tr.issuccessful OR tr.evaluation_function < trb.evaluation_function))
       THEN  'FAILED'
 
+      WHEN (trb.itemname like 'kmeans_new_%' AND trb.issuccessful = tr.issuccessful AND tr.evaluation_function >= trb.evaluation_function)
+       THEN  'PASSED'
+
+      WHEN (trb.itemname like 'kmeans_new_%' AND (trb.issuccessful <> tr.issuccessful OR tr.evaluation_function < trb.evaluation_function))
+       THEN  'FAILED'
+
       ELSE 'CASES NEED TO BE INVESTIGATE'
+      
  END AS testresult,
       tr.resultlocation as platform,
       tr.elapsedtime as runtime,

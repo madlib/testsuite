@@ -61,5 +61,9 @@ SET evaluation_function =
  WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
 WHERE itemname like 'kmeans_new_cset%';
 
--- update benchmark.testitemresult
--- set evaluation_function=substring(substring(result_info from 'simple_silhouette .*') from E'[0-1]+.[0-9]+$')::float where itemname~'kmeans_new_cset.*';
+UPDATE benchmark.testitemresult AS ts
+	SET evaluation_function =
+		(SELECT silhouette
+	  		FROM benchmark.kmeans_kmeans_new_random_ctas AS kmeans
+	  		WHERE kmeans.runid = ts.runid AND kmeans.testitemname = ts.itemname)
+	WHERE itemname like 'kmeans_new_random%';
