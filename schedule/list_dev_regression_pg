@@ -1,111 +1,110 @@
-# case_multinomial_logistic_regression_pg_basic
+case_multinomial_logistic_regression_pg_basic
 
-# case_svm_pgbasic
-# case_naive_bayes_pgbasic
+case_svm_pgbasic
+case_naive_bayes_pgbasic
 
-# case_plda_feature_pgbasic
-# case_plda_corner_negative_pgbasic
+case_plda_feature_pgbasic
+case_plda_corner_negative_pgbasic
 
-# case_assoc_rules_basic_pg
-# case_ht_feature
-# case_ht_corner
-# case_ht_negative
+case_assoc_rules_basic_pg
+case_ht_feature
+case_ht_corner
+case_ht_negative
 
-# case_bernoulli_cdf
-# case_bernoulli_pmf
-# case_bernoulli_quantile
-# case_beta_cdf
-# case_beta_pdf
-# case_beta_quantile
-# case_binomial_cdf
-# case_binomial_pmf
-# case_binomial_quantile
-# case_cauchy_cdf
-# case_cauchy_pdf
-# case_cauchy_quantile
-# case_chi_squared_cdf
-# case_chi_squared_pdf
-# case_chi_squared_quantile
-# case_exponential_cdf
-# case_exponential_pdf
-# case_exponential_quantile
-# case_extreme_value_cdf
-# case_extreme_value_pdf
-# case_extreme_value_quantile
-# case_fisher_f_cdf
-# case_fisher_f_pdf
-# case_fisher_f_quantile
-# case_gamma_cdf
-# case_gamma_pdf
-# case_gamma_quantile
-# case_geometric_cdf
-# case_geometric_pmf
-# case_geometric_quantile
-# case_hypergeometric_cdf
-# case_hypergeometric_pmf
-# case_hypergeometric_quantile
-# case_inverse_gamma_cdf
-# case_inverse_gamma_pdf
-# case_inverse_gamma_quantile
-# case_kolmogorov_cdf
-# case_laplace_cdf
-# case_laplace_pdf
-# case_laplace_quantile
-# case_logistic_cdf
-# case_logistic_pdf
-# case_logistic_quantile
-# case_lognormal_cdf
-# case_lognormal_pdf
-# case_lognormal_quantile
-# case_negative_binomial_cdf
-# case_negative_binomial_pmf
-# case_negative_binomial_quantile
-# case_non_central_beta_cdf
-# case_non_central_beta_pdf
-# case_non_central_beta_quantile
-# case_non_central_chi_squared_cdf
-# case_non_central_chi_squared_pdf
-# case_non_central_chi_squared_quantile
-# case_non_central_f_cdf
-# case_non_central_f_pdf
-# case_non_central_f_quantile
-# case_non_central_t_cdf
-# case_non_central_t_pdf
-# case_non_central_t_quantile
-# case_normal_1_cdf
-# case_normal_1_pdf
-# case_normal_1_quantile
-# case_normal_2_cdf
-# case_normal_2_pdf
-# case_normal_2_quantile
-# case_normal_3_cdf
-# case_normal_3_pdf
-# case_normal_3_quantile
-# case_pareto_cdf
-# case_pareto_pdf
-# case_pareto_quantile
-# case_poisson_cdf
-# case_poisson_pmf
-# case_poisson_quantile
-# case_rayleigh_cdf
-# case_rayleigh_pdf
-# case_rayleigh_quantile
-# case_students_t_cdf
-# case_students_t_pdf
-# case_students_t_quantile
-# case_triangular_cdf
-# case_triangular_pdf
-# case_triangular_quantile
-# case_uniform_cdf
-# case_uniform_pdf
-# case_uniform_quantile
-# case_weibull_cdf
-# case_weibull_pdf
-# case_weibull_quantile
+case_bernoulli_cdf
+case_bernoulli_pmf
+case_bernoulli_quantile
+case_beta_cdf
+case_beta_pdf
+case_beta_quantile
+case_binomial_cdf
+case_binomial_pmf
+case_binomial_quantile
+case_cauchy_cdf
+case_cauchy_pdf
+case_cauchy_quantile
+case_chi_squared_cdf
+case_chi_squared_pdf
+case_chi_squared_quantile
+case_exponential_cdf
+case_exponential_pdf
+case_exponential_quantile
+case_extreme_value_cdf
+case_extreme_value_pdf
+case_extreme_value_quantile
+case_fisher_f_cdf
+case_fisher_f_pdf
+case_fisher_f_quantile
+case_gamma_cdf
+case_gamma_pdf
+case_gamma_quantile
+case_geometric_cdf
+case_geometric_pmf
+case_geometric_quantile
+case_hypergeometric_cdf
+case_hypergeometric_pmf
+case_hypergeometric_quantile
+case_inverse_gamma_cdf
+case_inverse_gamma_pdf
+case_inverse_gamma_quantile
+case_kolmogorov_cdf
+case_laplace_cdf
+case_laplace_pdf
+case_laplace_quantile
+case_logistic_cdf
+case_logistic_pdf
+case_logistic_quantile
+case_lognormal_cdf
+case_lognormal_pdf
+case_lognormal_quantile
+case_negative_binomial_cdf
+case_negative_binomial_pmf
+case_negative_binomial_quantile
+case_non_central_beta_cdf
+case_non_central_beta_pdf
+case_non_central_beta_quantile
+case_non_central_chi_squared_cdf
+case_non_central_chi_squared_pdf
+case_non_central_chi_squared_quantile
+case_non_central_f_cdf
+case_non_central_f_pdf
+case_non_central_f_quantile
+case_non_central_t_cdf
+case_non_central_t_pdf
+case_non_central_t_quantile
+case_normal_1_cdf
+case_normal_1_pdf
+case_normal_1_quantile
+case_normal_2_cdf
+case_normal_2_pdf
+case_normal_2_quantile
+case_normal_3_cdf
+case_normal_3_pdf
+case_normal_3_quantile
+case_pareto_cdf
+case_pareto_pdf
+case_pareto_quantile
+case_poisson_cdf
+case_poisson_pmf
+case_poisson_quantile
+case_rayleigh_cdf
+case_rayleigh_pdf
+case_rayleigh_quantile
+case_students_t_cdf
+case_students_t_pdf
+case_students_t_quantile
+case_triangular_cdf
+case_triangular_pdf
+case_triangular_quantile
+case_uniform_cdf
+case_uniform_pdf
+case_uniform_quantile
+case_weibull_cdf
+case_weibull_pdf
+case_weibull_quantile
 
-# case_linear
-# case_logistic_dev_pg
-# case_kmeans_dev_pg
-# case_dt_pgdev
-# case_rf_pgdev
-case_kmeans_new
+case_linear
+case_logistic_dev_pg
+case_kmeans_dev_pg
+case_dt_pgdev
+case_rf_pgdev
