@@ -501,8 +501,8 @@ multinomial_logistic_regression_baseline_0_4
 ### END ###
 
 ### HEAD ###
-### JiraId: MADLIB-668 ###
-### Des: Algorithm cannot recognize "cg" as a input for optimizer in Multinomial Logistic Regression ###
+### JiraId: MADLIB-701 ###
+### Des: Add "cg" as input for optimizer in Multinomial Logistic Regression  ###
 ### Type: 2 ###
 multinomial_logistic_regression_optimizer_0_2
 multinomial_logistic_regression_optimizer_0_5
@@ -542,4 +542,8 @@ non_central_f_quantile_feature_test_df1_0_0
 ### Stability evaluation UDF is not available ###
 plda_stability_0_0
 plda_stability_0_6
+
+##### UTF8 is not acceptable in the pulse server #####
+multinomial_logistic_regression_utf8_character_0_1
+multinomial_logistic_regression_utf8_character_0_0
 ### END ###

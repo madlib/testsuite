@@ -3,6 +3,7 @@
 -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS madlibtestdata.mlogr_largedim CASCADE;
 create table madlibtestdata.mlogr_largedim(id int, x float8[], y int);
+insert into  madlibtestdata.mlogr_largedim select 0,array_agg(c1),0 from generate_series(1,65536) c1;
 alter table madlibtestdata.mlogr_largedim owner to madlibtester;
 
 -----------------------------------------------------------------------------
