@@ -14,18 +14,6 @@ tables :
       cmd : "python mlogr_p53.py -t <table> -d <sql> -s <sourfile>"
       args :
           sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/p53/p53_old_2010.zip"
-    - id : mlogr_url
-      skip : all
-      cmd : "python mlogr_url.py -t <table> -d <sql> -s <sourfile> -D <dimension> -w <date>"
-      args : 
-          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/url/url_svmlight.tar.gz"
-          dimension : "3231961"
-          date : "0"
-    - id : mlogr_pems
-      skip : all
-      cmd : "python mlogr_pems.py -t <table> -d <sql> -s <sourfile>"
-      args :
-          sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/00204/PEMS-SF.zip"
     - id : mlogr_pokerhand
       cmd : "python mlogr_pokerhand.py -t <table> -d <sql> -s <sourfile1> -S <sourfile2>"
       args :

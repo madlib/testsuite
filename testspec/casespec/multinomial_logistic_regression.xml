@@ -22,7 +22,7 @@
 	    <comments>It is to get baseline of multinomial logistic regression against R.</comments>
             <execute_rate>1</execute_rate>
             <method>
-                <name>mlogregr</name>
+                <name>mlogr_precision_score</name>
 		<list_parameter>
 		    <name>dataset</name>
 		    <value>mlogr_dorothea</value>
@@ -30,8 +30,6 @@
                     <value>mlogr_p53</value>
                     <value>mlogr_pokerhand</value>
                     <value>mlogr_isolet</value>
-                    <value>mlogr_url</value>
-                    <value>mlogr_pems</value>
 		</list_parameter>
             </method>
 	</test_suite>
@@ -45,18 +43,15 @@
                 <name>mlogregr</name>
                 <list_parameter>
                     <name>dataset</name>
-                    <value>mlogr_dorothea</value>
                     <value>mlogr_recordlink</value>
-                    <value>mlogr_p53</value>
                     <value>mlogr_pokerhand</value>
-                    <value>mlogr_isolet</value>
                 </list_parameter>
 		<list_parameter>
 		    <name>max_iteration</name>
-		    <value>10</value>
+		    <value>5</value>
+                    <value>10</value>
+                    <value>15</value>
                     <value>20</value>
-                    <value>30</value>
-                    <value>50</value>
 		</list_parameter>
             </method>
         </test_suite>
@@ -69,11 +64,8 @@
                 <name>mlogregr</name>
                 <list_parameter>
                     <name>dataset</name>
-                    <value>mlogr_dorothea</value>
                     <value>mlogr_recordlink</value>
-                    <value>mlogr_p53</value>
                     <value>mlogr_pokerhand</value>
-                    <value>mlogr_isolet</value>
                 </list_parameter>
 		<list_parameter>
 		    <name>optimizer</name>
@@ -92,11 +84,8 @@
                 <name>mlogregr</name>
                 <list_parameter>
                     <name>dataset</name>
-                    <value>mlogr_dorothea</value>
                     <value>mlogr_recordlink</value>
-                    <value>mlogr_p53</value>
                     <value>mlogr_pokerhand</value>
-                    <value>mlogr_isolet</value>
                 </list_parameter>
 		<list_parameter>
                     <name>convergence_threshold</name>
@@ -127,6 +116,19 @@
 	</test_suite>
 
 	<!--Negative test case-->
+	<test_suite>
+	    <name>multinomial_logistic_regression_negative_dim</name>
+	    <comments>Test correctness of multinomial logistic regression with boundary values and negative scenarios</comments>
+	    <execute_rate>1</execute_rate>
+	    <method>
+		<name>mlogregr</name>
+                <list_parameter>
+                    <name>source_table</name>
+                    <value>madlibtestdata.mlogr_largedim</value>
+                </list_parameter>
+            </method>
+        </test_suite>
+
 	<test_suite>
             <name>multinomial_logistic_regression_negative_source_table</name>
             <comments>Test correctness of multinomial logistic regression with boundary values and negative scenarios</comments>
@@ -180,12 +182,11 @@
                     <value>-1</value>
 		    <value>0</value>
                 </list_parameter>
-		<parameters>
-                    <parameter>
-                        <name>source_table</name>
-                        <value>madlibtestdata.mlogr_pokerhand</value>
-                    </parameter>
-                </parameters>
+		<list_parameter>
+		    <name>source_table</name>
+		    <value>madlibtestdata.mlogr_recordlink</value>
+                    <value>madlibtestdata.mlogr_pokerhand</value>
+		</list_parameter>
             </method>
         </test_suite>
 

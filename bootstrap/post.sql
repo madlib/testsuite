@@ -1,5 +1,14 @@
 SET SEARCH_PATH = benchmark;
 
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT mlogr_precision_socre
+ FROM benchmark.multinomial_logistic_regression_mlogr_precision_score AS scoretbl
+ WHERE scoretbl.runid = ts.runid AND scoretbl.testitemname=ts.itemname)
+WHERE itemname like 'multinomial_logistic_regression%_baseline%';
+
+
 UPDATE benchmark.testitemresult AS ts
 SET evaluation_function =
 (SELECT score

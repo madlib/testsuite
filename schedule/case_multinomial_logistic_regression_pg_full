@@ -3,7 +3,6 @@
 # Start TestSuite ==========
 multinomial_logistic_regression_baseline_0_1
 multinomial_logistic_regression_baseline_0_3
-multinomial_logistic_regression_baseline_0_4
 
 # TestSuite Name : multinomial_logistic_regression_corner_scenarios
 # Test correctness of multinomial logistic regression with conner scenarios
@@ -11,6 +10,11 @@ multinomial_logistic_regression_baseline_0_4
 multinomial_logistic_regression_corner_scenarios_0_0
 multinomial_logistic_regression_corner_scenarios_0_1
 multinomial_logistic_regression_corner_scenarios_0_2
+
+# TestSuite Name : multinomial_logistic_regression_negative_dim
+# Test correctness of multinomial logistic regression with boundary values and negative scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_negative_dim_0_0
 
 # TestSuite Name : multinomial_logistic_regression_negative_source_table
 # Test correctness of multinomial logistic regression with boundary values and negative scenarios
@@ -33,6 +37,10 @@ multinomial_logistic_regression_negative_categories_number_0_0
 multinomial_logistic_regression_negative_categories_number_0_1
 multinomial_logistic_regression_negative_categories_number_0_2
 multinomial_logistic_regression_negative_categories_number_0_3
+multinomial_logistic_regression_negative_categories_number_0_4
+multinomial_logistic_regression_negative_categories_number_0_5
+multinomial_logistic_regression_negative_categories_number_0_6
+multinomial_logistic_regression_negative_categories_number_0_7
 
 # TestSuite Name : multinomial_logistic_regression_negative_independent_varname
 # Test correctness of multinomial logistic regression with boundary values and negative scenarios
@@ -79,6 +87,7 @@ multinomial_logistic_regression_negative_incorrect_y_0_3
 # Test correctness of multinomial logistic regression with create table as
 # Start TestSuite ==========
 multinomial_logistic_regression_ctas_0_0
+multinomial_logistic_regression_ctas_0_1
 
 # TestSuite Name : multinomial_logistic_regression_utf8_character
 # Test correctness of multinomial logistic regression with utf-8 delimiters character

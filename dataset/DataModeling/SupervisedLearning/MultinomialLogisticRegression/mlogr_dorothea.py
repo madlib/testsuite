@@ -54,7 +54,7 @@ def main():
     procRawfile(output, sour_file, label_file, dimension)
     
     
-    output.write("\.")
+    output.write("\. \n")
     output.flush()
     output.close()
     

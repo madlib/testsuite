@@ -67,7 +67,7 @@ def main():
     print("Processing file "+ file)
     procRawfile(output, t_file)
 
-  output.write("\.")
+  output.write("\. \n")
   output.flush()
   output.close()
 

@@ -3,4 +3,10 @@
 # Start TestSuite ==========
 multinomial_logistic_regression_baseline_0_1
 multinomial_logistic_regression_baseline_0_3
-multinomial_logistic_regression_baseline_0_4
+
+# TestSuite Name : multinomial_logistic_regression_corner_scenarios
+# Test correctness of multinomial logistic regression with conner scenarios
+# Start TestSuite ==========
+multinomial_logistic_regression_corner_scenarios_0_0
+multinomial_logistic_regression_corner_scenarios_0_1
+multinomial_logistic_regression_corner_scenarios_0_2

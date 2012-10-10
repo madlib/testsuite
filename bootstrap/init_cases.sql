@@ -317,19 +317,22 @@ CREATE OR REPLACE VIEW summaryreport AS
  END AS testresult_summary,
  CASE WHEN testresult like 'PASSED%' 
  THEN             
-      CASE WHEN itemname like '%c45_clean%' OR basetime < 1000 OR runtime < 1000 OR itemname like 'kmeans_random%'
+      CASE WHEN itemname like '%c45_clean%' OR basetime < 5000 OR runtime < 5000 OR itemname like 'kmeans_random%'
       THEN 'Not justification functions in performance evaluation'
       
-      WHEN (basetime::float8 < 5000 and ((runtime::float8 / basetime::float8) between 0.5 and 2))
-              OR (basetime::float8 >= 5000 and ((runtime::float8 / basetime::float8) between 0.8 and 1.2)) 
+      WHEN (basetime::float8 < 10000 and ((runtime::float8 / basetime::float8) between 0.3 and 3))
+              OR ((basetime::float8 BETWEEN 10000 AND 180000) and ((runtime::float8 / basetime::float8) between 0.7 and 1.3))
+              OR (basetime::float8 >= 120000 and ((runtime::float8 / basetime::float8) between 0.9 and 1.1))
       THEN 'PERFORMANCE No regression: base time is ' || (basetime/1000)::text || ' seconds and run time is ' || (runtime/1000)::text || ' seconds'
        
-       WHEN (basetime::float8 < 5000  and ((runtime::float8 / basetime::float8)  <  0.5 ))
-                OR(basetime::float8 > 5000  and ((runtime::float8 / basetime::float8)  <  0.8 )) 
+       WHEN (basetime::float8 < 10000  and ((runtime::float8 / basetime::float8)  <  0.3 ))
+                OR ((basetime::float8 BETWEEN 10000 AND 180000) and ((runtime::float8 / basetime::float8)  <  0.7 ))
+                OR (basetime::float8 > 180000  and ((runtime::float8 / basetime::float8)  <  0.9 )) 
        THEN 'PERFORMANCE BETTER: base time is ' || (basetime/1000)::text || ' seconds and run time is ' || (runtime/1000)::text || ' seconds'
        
-       WHEN (basetime::float8 < 5000  and ((runtime::float8 / basetime::float8)  > 2 ))
-                OR(basetime::float8 > 5000  and ((runtime::float8 / basetime::float8)  > 1.2)) 
+       WHEN (basetime::float8 < 5000  and ((runtime::float8 / basetime::float8)  > 3 ))
+                OR ((basetime::float8 BETWEEN 10000 AND 180000) and ((runtime::float8 / basetime::float8)  > 1.3))
+                OR (basetime::float8 > 180000  and ((runtime::float8 / basetime::float8)  > 1.1)) 
        THEN 'PERFORMANCE WORSE: base time is ' || (basetime/1000)::text || ' seconds and run time is ' || (runtime/1000)::text || ' seconds'
 
        
@@ -345,25 +348,27 @@ CREATE OR REPLACE VIEW summaryreport AS
 
 
 CREATE OR REPLACE VIEW failedcases as 
-SELECT testresultreport.casename, 
-                 testresultreport.itemname, 
-                 testresultreport.command, 
-                 testresultreport.trresult, 
-                 testresultreport.trbresult
+SELECT casename, 
+       itemname, 
+       command, 
+       trresult, 
+       trbresult,
+       starttimestamp         
 FROM testresultreport
 WHERE runid = ( SELECT max(testitemseq.runid) FROM testitemseq) 
  AND casename IN ( SELECT DISTINCT testresultreport.casename
-                                                                   FROM testresultreport
-                                                                   WHERE testresult  LIKE 'FAILED%'::text 
-                                                                         AND testresultreport.itemname NOT LIKE '%negative%'::text 
-                                                                        AND testresultreport.runid = ( SELECT max(testitemseq.runid)FROM testitemseq ))
-            AND testresultreport.itemname NOT LIKE '%negative%'::text
+                          FROM testresultreport
+                          WHERE testresult  LIKE 'FAILED%'::text 
+                           AND itemname NOT LIKE '%negative%'::text 
+                           AND runid = ( SELECT max(testitemseq.runid)FROM testitemseq ))
+            AND itemname NOT LIKE '%negative%'::text
 UNION 
-SELECT  testresultreport.casename, 
-                 testresultreport.itemname, 
-                 testresultreport.command, 
-                 testresultreport.trresult, 
-                 testresultreport.trbresult
+SELECT  casename, 
+        itemname, 
+        command, 
+        trresult, 
+        trbresult,
+        starttimestamp
    FROM testresultreport
   WHERE runid = ( SELECT max(testitemseq.runid) FROM testitemseq) 
         AND testresult like 'FAILED%'

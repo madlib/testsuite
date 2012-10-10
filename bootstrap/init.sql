@@ -57,24 +57,24 @@ CREATE TABLE benchmark.evaluation_decision_tree(
       featurenum int,
       cotinuousnum int,
       split_critetion text,
-      score float) DISTRIBUTED randomly;
+      score float);
 
 CREATE TABLE benchmark.evaluation_kmeans(
       test_table text,
       test_size int,
       source  text,  --- R, Weka, Mahout
       k_value int,
-      gof float) DISTRIBUTED randomly;
+      gof float);
 
 CREATE TABLE benchmark.evaluation_linear_regression (
 	source text, 
 	datasets text, 
-	coef double precision[]) DISTRIBUTED randomly;
+	coef double precision[]);
 
 CREATE TABLE benchmark.evaluation_logistic_regression (
 	source text, 
 	datasets text, 
-	coef double precision[]) DISTRIBUTED randomly;
+	coef double precision[]);
 
 
 

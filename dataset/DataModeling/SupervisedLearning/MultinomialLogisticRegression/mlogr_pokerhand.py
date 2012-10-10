@@ -50,7 +50,7 @@ def main():
 
       
 
-  output.write("\.")
+  output.write("\. \n")
   output.flush()
   output.close()
   

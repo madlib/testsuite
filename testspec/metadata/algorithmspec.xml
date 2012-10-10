@@ -153,6 +153,60 @@
                 <default>0.0001</default>
              </input_parameter>
         </method>
+<method>
+            <name>mlogr_precision_score</name>
+            <create>true</create>
+            <template>
+                SELECT * FROM
+                    madlibtestdata.mlogr_precision_score (
+                    {source_table}              --source_table
+                    , {dependent_varname}       --dependent_varname
+                    , {number_of_categories}    --number_of_categories
+                    , {independent_varname}     --independent_varname
+                    , {max_iteration}           --max_iteration
+                    , {optimizer}               --optimizer
+                    , {convergence_threshold}   --convergence_threshold
+                )AS mlogr_precision_socre;
+            </template>
+            <input_parameter>
+                <name>source_table</name>
+                <type>text</type>
+             </input_parameter>
+             <input_parameter>
+                <name>dependent_varname</name>
+                <type>text</type>
+                <default>y</default>
+             </input_parameter>
+             <input_parameter>
+                <name>number_of_categories</name>
+                <type>int</type>
+                <default>2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>independent_varname</name>
+                <type>text</type>
+                <default>x</default>
+             </input_parameter>
+             <input_parameter>
+                <name>max_iteration</name>
+                <type>int</type>
+                <default>20</default>
+             </input_parameter>
+             <input_parameter>
+                <name>optimizer</name>
+                <type>text</type>
+                <default>irls</default>
+             </input_parameter>
+             <input_parameter>
+                <name>convergence_threshold</name>
+                <type>double precision</type>
+                <default>0.0001</default>
+            </input_parameter>
+            <output_parameter>
+                <name>mlogr_precision_socre</name>
+                <type>float8</type>
+            </output_parameter>
+        </method>
 
     </algorithm>
 

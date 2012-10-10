@@ -117,17 +117,22 @@ class dbManager:
         stmts.append('CREATE USER %s WITH CREATEDB'%username)
         add_user.run_sql_stmts('source %s'%conf['env'], stmts, hostname, port, dbtemplate, superuser)
 
-        # 2. Create database with non super user
+        # 2. Create database non super user
         stmts = []
         stmts.append('CREATE DATABASE %s '%dbname)
-        add_user.run_sql_stmts('source %s'%conf['env'], stmts, hostname, port, dbtemplate, username)
+        add_user.run_sql_stmts('source %s'%conf['env'], stmts, hostname, port, dbtemplate, superuser)
+        
+        # 3. Change database owner to non super user
+        stmts = []
+        stmts.append('ALTER DATABASE %s OWNER TO %s'%(dbname,username) )
+        add_user.run_sql_stmts('source %s'%conf['env'], stmts, hostname, port, dbtemplate, superuser)
 
-        # 3. Create schema with non super user and created database
+        # 4. Create schema with non super user and created database
         stmts = []
         stmts.append('CREATE SCHEMA %s'%ResultSchema)
         add_user.run_sql_stmts('source %s'%conf['env'], stmts, hostname, port, dbname, username)
 
-        # 4. Create schema to store test data
+        # 5. Create schema to store test data
         stmts = []
         stmts.append('CREATE SCHEMA %s'%DataSchema)
         add_user.run_sql_stmts('source %s'%conf['env'], stmts, hostname, port, dbname, username)
