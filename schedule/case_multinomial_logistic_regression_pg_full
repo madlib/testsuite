@@ -67,7 +67,6 @@ multinomial_logistic_regression_negative_optimizer_0_2
 # TestSuite Name : multinomial_logistic_regression_negative_convergence_threshold
 # Test correctness of multinomial logistic regression with boundary values and negative scenarios
 # Start TestSuite ==========
-multinomial_logistic_regression_negative_convergence_threshold_0_0
 multinomial_logistic_regression_negative_convergence_threshold_0_1
 
 # TestSuite Name : multinomial_logistic_regression_negative_commonx_diffy
@@ -86,7 +85,6 @@ multinomial_logistic_regression_negative_incorrect_y_0_3
 # TestSuite Name : multinomial_logistic_regression_ctas
 # Test correctness of multinomial logistic regression with create table as
 # Start TestSuite ==========
-multinomial_logistic_regression_ctas_0_0
 multinomial_logistic_regression_ctas_0_1
 
 # TestSuite Name : multinomial_logistic_regression_utf8_character

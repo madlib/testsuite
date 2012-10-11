@@ -161,8 +161,8 @@ plda_run_empty_test_table_0_0
 ### JiraId: MADLIB-658 ###
 ### Type: 2 ###
 ### Des: Need to add error handling of incorrect data Type for dictionary in plda training and classification phases ###
-plda_run_negative_column_dict_dataType_dicttable_0_0
-plda_label_negative_column_dict_dataType_dict_table_0_0
+plda_run_negative_column_dict_datatype_dicttable_0_0
+plda_label_negative_column_dict_datatype_dict_table_0_0
 ### END ###
 
 ### HEAD ###

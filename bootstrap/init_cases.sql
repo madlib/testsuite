@@ -45,7 +45,7 @@ CREATE TABLE jiras_cases(
         casename varchar(150)); 
 
 
-CREATE OR REPLACE VIEW testresultreport AS
+EATE OR REPLACE VIEW testresultreport AS
 (SELECT runid, ti.algorithmic as suitename, ti.casename,
  CASE WHEN trb.itemname IS NOT NULL
       THEN trb.itemname
@@ -62,7 +62,6 @@ CREATE OR REPLACE VIEW testresultreport AS
       WHEN tr.itemname IS NULL OR ti.itemname IS NULL
       THEN 'FAILED : NO RESULT OR REMOVE CASES'
 
-
       WHEN tr.itemname like 'svm_%predict_score%' and resultlocation like 'PG%'
          THEN CASE WHEN tr.issuccessful = trb.issuccessful OR tr.result_info like '%ERROR:  IndexError: list index out of range%'  THEN 'PASSED'
                    ELSE 'FAILED'         
@@ -73,159 +72,62 @@ CREATE OR REPLACE VIEW testresultreport AS
 
       WHEN  trb.evaluation_function = 0 AND tr.evaluation_function = 0 
       THEN 'PASSED'
-
-
-
-      WHEN tr.itemname in ('plda_label_negative_column_contents_datatype_test_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%column "contents" is of type integer[] but expression is of type text[]%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_column_contents_name_test_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%column "contents" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_column_dict_name_dict_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%column "dict" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_column_gcounts_datatype_model_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "madlibtestdata.plda_invalid_column_gcounts_datatype_model" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_column_gcounts_name_model_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "madlibtestdata.plda_invalid_column_gcounts_name_model" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_column_id_datatype_test_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%column "id" is of type integer but expression is of type text%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_column_id_name_test_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%column "id" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_column_iternum_datatype_model_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "madlibtestdata.plda_invalid_column_iternum_datatype_model" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_column_iternum_name_model_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "madlibtestdata.plda_invalid_column_iternum_name_model" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_column_tcounts_datatype_model_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "madlibtestdata.plda_invalid_column_tcounts_datatype_model" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_column_tcounts_name_model_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "madlibtestdata.plda_invalid_column_tcounts_name_model" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_existing_out_labeling_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "plda_existing_out_labeling" already exists%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_name_dict_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "madlibtestdata.plda_invalid_name_dict" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_name_model_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "madlibtestdata.plda_invalid_name_model" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_label_negative_name_test_table_0_0_plda_label_test_documents_1')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "madlibtestdata.plda_invalid_name_corpus" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_run_empty_dict_table_0_0_plda_run_0')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%error: dictionary table is not of the expected form%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_run_negative_column_dict_name_dicttable_0_0_plda_run_0')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%column "dict" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_run_negative_column_id_datatype_datatable_0_0_plda_run_0')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%column "id" is of type integer but expression is of type text%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_run_negative_column_id_name_datatable_0_0_plda_run_0')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%column "id" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_run_negative_culumn_contents_datatype_datatable_0_0_plda_run_0')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%column "contents" is of type integer[] but expression is of type text[]%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_run_negative_culumn_contents_name_datatable_0_0_plda_run_0')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%column "contents" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_run_negative_existing_modeltable_0_0_plda_run_0')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "plda_existing_out_model" already exists%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_run_negative_existing_outputdatatable_0_0_plda_run_0')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "plda_existing_out_corpus" already exists%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_run_negative_name_datatable_0_0_plda_run_0')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "madlibtestdata.plda_invalid_name_corpus" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
-
-      WHEN tr.itemname in ('plda_run_negative_name_dicttable_0_0_plda_run_0')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%relation "madlibtestdata.plda_invalid_name_dict" does not exist%'
-               THEN 'PASSED'
-               ELSE 'FAILED'
-               END
       
+  WHEN tr.itemname in ('plda_label_negative_column_contents_datatype_test_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_column_contents_name_test_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_column_dict_name_dict_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_column_gcounts_datatype_model_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_column_gcounts_name_model_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_column_id_datatype_test_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_column_id_name_test_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_column_iternum_datatype_model_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_column_iternum_name_model_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_column_tcounts_datatype_model_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_column_tcounts_name_model_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_existing_out_labeling_0_0_plda_label_test_documents_1',
+               'plda_label_negative_name_dict_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_name_model_table_0_0_plda_label_test_documents_1',
+               'plda_label_negative_name_test_table_0_0_plda_label_test_documents_1',
+               'plda_run_empty_dict_table_0_0_plda_run_0',
+               'plda_run_negative_column_dict_name_dicttable_0_0_plda_run_0',
+               'plda_run_negative_column_id_datatype_datatable_0_0_plda_run_0',
+               'plda_run_negative_column_id_name_datatable_0_0_plda_run_0',
+               'plda_run_negative_culumn_contents_datatype_datatable_0_0_plda_run_0',
+               'plda_run_negative_culumn_contents_name_datatable_0_0_plda_run_0',
+               'plda_run_negative_existing_modeltable_0_0_plda_run_0',
+               'plda_run_negative_existing_outputdatatable_0_0_plda_run_0',
+               'plda_run_negative_name_datatable_0_0_plda_run_0',
+               'plda_run_negative_name_dicttable_0_0_plda_run_0')
+        THEN CASE WHEN tr.issuccessful = false AND (
+                                                   tr.result_info LIKE '%column "contents" is of type integer[] but expression is of type text[]%' 
+                        OR tr.result_info like '%column "contents" does not exist%'
+                        OR tr.result_info like '%column "dict" does not exist%'
+                        OR tr.result_info like '%relation "madlibtestdata.plda_invalid_column_gcounts_datatype_model" does not exist%'
+                        OR tr.result_info like '%relation "madlibtestdata.plda_invalid_column_gcounts_name_model" does not exist%'
+                        OR tr.result_info like '%column "id" is of type integer but expression is of type text%'
+                        OR tr.result_info like '%column "id" does not exist%'
+                        OR tr.result_info like '%relation "madlibtestdata.plda_invalid_column_iternum_datatype_model" does not exist%'
+                        OR tr.result_info like '%relation "madlibtestdata.plda_invalid_column_iternum_name_model" does not exist%'
+                        OR tr.result_info like '%relation "madlibtestdata.plda_invalid_column_tcounts_datatype_model" does not exist%'
+                        OR tr.result_info like '%relation "madlibtestdata.plda_invalid_column_tcounts_name_model" does not exist%'
+                        OR tr.result_info like '%relation "plda_existing_out_labeling" already exists%'
+                        OR tr.result_info like '%relation "madlibtestdata.plda_invalid_name_dict" does not exist%'
+                        OR tr.result_info like '%relation "madlibtestdata.plda_invalid_name_model" does not exist%'
+                        OR tr.result_info like '%relation "madlibtestdata.plda_invalid_name_corpus" does not exist%'
+                        OR tr.result_info like '%error: dictionary table is not of the expected form%'
+                        OR tr.result_info like '%column "dict" does not exist%' 
+                        OR tr.result_info like '%column "id" is of type integer but expression is of type text%' 
+                        OR tr.result_info like '%column "id" does not exist%'
+                        OR tr.result_info like '%column "contents" is of type integer[] but expression is of type text[]%' 
+                        OR tr.result_info like '%column "contents" does not exist%' 
+                        OR tr.result_info like '%relation "plda_existing_out_model" already exists%' 
+                        OR tr.result_info like '%relation "plda_existing_out_corpus" already exists%' 
+                        OR tr.result_info like '%relation "madlibtestdata.plda_invalid_name_corpus" does not exist%' 
+                        OR tr.result_info like '%relation "madlibtestdata.plda_invalid_name_dict" does not exist%')
+           THEN 'PASSED'
+        ELSE 'FAILED'
+        END
+
       WHEN tr.itemname in (
                             'nb_precompute_views_0_0_test_create_nb_prepared_data_tables_0',
                             'nb_precompute_views_0_4_test_create_nb_prepared_data_tables_0',
@@ -241,10 +143,11 @@ CREATE OR REPLACE VIEW testresultreport AS
                   ELSE 'FAILED'
                   END
 
-      WHEN  trb.itemname not like 'rf%' AND trb.itemname not like '%cross_validate%' and trb.itemname not like 'svm%' and trb.evaluation_function IS NOT NULL AND (trb.evaluation_function - tr.evaluation_function) > 0.0001
+      WHEN  trb.itemname not like 'rf%' AND trb.itemname not like '%cross_validate%' AND trb.itemname not like 'svm%' AND trb.itemname not like 'multinomia%' 
+          AND  trb.evaluation_function IS NOT NULL AND (trb.evaluation_function - tr.evaluation_function) > 0.0001
       THEN 'FAILED : Evaluation function such as score, gof decreased: baseline is '::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and runtime is '::text  || ((tr.evaluation_function)::decimal(6,5))::text
 
-      WHEN  (trb.itemname like 'rf%'  OR  trb.itemname like '%cross_validate%' ) and trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) < 0.7
+      WHEN  (trb.itemname like 'rf%'  OR  trb.itemname like '%cross_validate%' OR trb.itemname  like 'multinomia%') and trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) < 0.7
       THEN 'FAILED : Evaluation function of random forest decreased: baseline is '::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and runtime is '::text  || ((tr.evaluation_function)::decimal(6,5))::text
 
 
@@ -269,17 +172,17 @@ CREATE OR REPLACE VIEW testresultreport AS
       WHEN  trb.evaluation_function IS NULL AND trb.result_info <> tr.result_info
       THEN 'FAILED : Expected result not matched'
 
-      WHEN (trb.itemname not like 'rf%' AND trb.itemname not like '%cross_validate%'  AND trb.itemname not like 'svm%' AND (trb.evaluation_function IS NOT NULL AND ((trb.evaluation_function - tr.evaluation_function) between -0.0001 and 0.0001)))
-          OR ((trb.itemname like 'rf%' OR  trb.itemname like '%cross_validate%' ) AND (trb.evaluation_function IS NOT NULL AND ((tr.evaluation_function / trb.evaluation_function) between 0.7 and 1.3 )))
+      WHEN (trb.itemname not like 'rf%' AND trb.itemname not like '%cross_validate%'  AND trb.itemname not like 'svm%'  AND trb.itemname not like 'multinomia%' AND (trb.evaluation_function IS NOT NULL AND ((trb.evaluation_function - tr.evaluation_function) between -0.0001 and 0.0001)))
+          OR ((trb.itemname like 'rf%' OR  trb.itemname like '%cross_validate%' OR trb.itemname  like 'multinomia%') AND (trb.evaluation_function IS NOT NULL AND ((tr.evaluation_function / trb.evaluation_function) between 0.7 and 1.3 )))
            OR ((trb.itemname like 'svm%' ) AND (trb.evaluation_function IS NOT NULL AND ((tr.evaluation_function / trb.evaluation_function) between 0.0000001 and 10000000 )))   
           OR (trb.evaluation_function IS NULL AND trb.result_info = tr.result_info)
       THEN 'PASSED'
 
 
-      WHEN  trb.itemname not like 'rf%' AND trb.itemname not like '%cross_validate%' AND trb.itemname not like 'svm%' AND trb.evaluation_function IS NOT NULL AND (trb.evaluation_function - tr.evaluation_function) < 0.0001
+      WHEN  trb.itemname not like 'rf%' AND trb.itemname not like '%cross_validate%' AND trb.itemname not like 'svm%'  AND trb.itemname not like 'multinomia%' AND trb.evaluation_function IS NOT NULL AND (trb.evaluation_function - tr.evaluation_function) < 0.0001
       THEN 'PASSED : Evaluation function such as score, gof increased: baseline is '::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and runtime is '::text  || ((tr.evaluation_function)::decimal(6,5))::text 
 
-      WHEN  (trb.itemname like 'rf%' OR  trb.itemname like '%cross_validate%' ) AND trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) > 1.3
+      WHEN  (trb.itemname like 'rf%' OR  trb.itemname like '%cross_validate%' OR trb.itemname  like 'multinomia%') AND trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) > 1.3
       THEN 'PASSED : Evaluation function of random forest increased: baseline is '::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and runtime is '::text  || ((tr.evaluation_function)::decimal(6,5))::text 
 
       WHEN  (trb.itemname like 'svm%' ) AND trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) > 10000000
@@ -303,6 +206,7 @@ CREATE OR REPLACE VIEW testresultreport AS
       ON tr.itemname = ti.itemname
  
 ORDER BY runid);
+
 
 
 CREATE OR REPLACE VIEW summaryreport AS
@@ -369,10 +273,10 @@ SELECT  casename,
         trresult, 
         trbresult,
         starttimestamp
-   FROM testresultreport
+  FROM testresultreport
   WHERE runid = ( SELECT max(testitemseq.runid) FROM testitemseq) 
         AND testresult like 'FAILED%'
-        AND testresultreport.itemname  NOT LIKE '%negative%'::text;
+        AND testresultreport.itemname LIKE '%negative%'::text;
 
 
 CREATE OR REPLACE VIEW featuretestsummary 

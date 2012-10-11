@@ -106,7 +106,7 @@ insert into madlibtestdata.U&"~!@#$%^*()_+-=:{[}]|,.?/Table" values(1,'{1,3,4}',
 -----------------------------------------------------------------------------
 --create schema
 create schema U&"~!@#$%^*()_+-=:{[}]|,.?/Schema";
-grant usage on schema U&"~!@#$%^*()_+-=:{[}]|,.?/Schema" TO madlibtester;
+alter schema U&"~!@#$%^*()_+-=:{[}]|,.?/Schema" owner TO madlibtester;
 
 DROP TABLE IF EXISTS U&"~!@#$%^*()_+-=:{[}]|,.?/Schema".testtable CASCADE;
 create table U&"~!@#$%^*()_+-=:{[}]|,.?/Schema".testtable(id int, x float8[], y int);
@@ -164,7 +164,7 @@ return max_category
 $$ LANGUAGE plpythonu;
 
 
-CREATE OR REPLACE FUNCTION madlibtestdata.mlogr_precision_score(source_table TEXT, dependent_varname TEXT, number_of_categories TEXT, independent_varname TEXT, max_iteration INT, optimizer TEXT,convergence_threshold FLOAT8)
+CREATE OR REPLACE FUNCTION madlibtestdata.mlogr_precision_score(source_table TEXT, dependent_varname TEXT, number_of_categories INT, independent_varname TEXT, max_iteration INT, optimizer TEXT,convergence_threshold FLOAT8)
 RETURNS FLOAT8 as $$
 strSql= "select coef from madlib.mlogregr('%s', '%s', '%s', '%s', '%s', '%s', '%s');" % (source_table, dependent_varname, number_of_categories, independent_varname, max_iteration, optimizer, convergence_threshold)
 CACHE_LIMIT = 2000;
@@ -216,5 +216,5 @@ return float(num_correct) / float(num_correct + num_false)
 
 $$ LANGUAGE plpythonu;
 
-ALTER FUNCTION madlibtestdata.mlogr_precision_score(source_table TEXT, dependent_varname TEXT, number_of_categories TEXT, independent_varname TEXT, max_iteration INT, optimizer TEXT,convergence_threshold FLOAT8) OWNER TO madlibtester;
+ALTER FUNCTION madlibtestdata.mlogr_precision_score(source_table TEXT, dependent_varname TEXT, number_of_categories INT, independent_varname TEXT, max_iteration INT, optimizer TEXT,convergence_threshold FLOAT8) OWNER TO madlibtester;
 ALTER FUNCTION madlibtestdata.mlogr_get_category(list_x TEXT, list_coef TEXT) OWNER TO madlibtester;
