@@ -299,7 +299,11 @@ AS
 SELECT COUNT(*) AS failedcases,
        jc.jiraid as jiraid, 
        algorithmic, 
-       CASE WHEN j.jiratype = 1 THEN 'V0.5' ELSE 'MASTER' END  AS fixversion, 
+       CASE WHEN j.jiratype = 1 THEN 'V0.5' 
+            WHEN j.jiratype = 2 THEN 'MASTER'
+            WHEN j.jiratype = 999 THEN 'QA Backlog'
+            WHEN j.jiratype = 1000 THEN 'GPDB'
+           ELSE 'ERROR TYPE' END  AS fixversion, 
        j.jiradescription
 FROM jiras_cases as jc,
              madlib_jiras as j,

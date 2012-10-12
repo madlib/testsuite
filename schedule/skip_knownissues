@@ -517,7 +517,7 @@ multinomial_logistic_regression_baseline_0_2
 
 ### HEAD ###
 ### JiraId: MADLIB-673 ###
-### Des: For dataset with two categories, It's runnable when we input bigger number for categories ###
+### Des: For dataset with two categories, It''s runnable when we input bigger number for categories ###
 ### Type: 2 ###
 multinomial_logistic_regression_negative_categories_number_0_0
 multinomial_logistic_regression_negative_categories_number_0_2
