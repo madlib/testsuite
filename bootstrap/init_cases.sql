@@ -45,7 +45,7 @@ CREATE TABLE jiras_cases(
         casename varchar(150)); 
 
 
-EATE OR REPLACE VIEW testresultreport AS
+CREATE OR REPLACE VIEW testresultreport AS
 (SELECT runid, ti.algorithmic as suitename, ti.casename,
  CASE WHEN trb.itemname IS NOT NULL
       THEN trb.itemname
