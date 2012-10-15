@@ -39,8 +39,6 @@ def generateReport(psql_cmd, environ, run_id, platform):
     """generate test result report
     
     """
-    CWD = os.getcwd()
-    date_str = datetime.today().strftime('%Y%m%d%H%M%S')
     reportDir = os.path.abspath(ReportDir) + '/'
     gen_report.generate_report(psql_cmd, environ, run_id, platform, reportDir)
 

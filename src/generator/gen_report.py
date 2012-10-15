@@ -42,7 +42,7 @@ class ReportGenerator:
         PerfermanceSummaryreport_filename = self.ReportDir + self.platform + '_' + self.run_id + '_PerfermanceSummary.report'
         copyToFile(self.psql_cmd, self.environ, PerfermanceSummaryreport_sql, os.path.join(self.CWD, PerfermanceSummaryreport_filename))
 
-        FeaturetestSummaryreport_sql = "SELECT suitename, testresult_summary, count AS number FROM benchmark.featuretestsummary ORDER BY suitename, testresult_summary;"
+        FeaturetestSummaryreport_sql = "SELECT suitename, testresult, count AS number FROM benchmark.featuretestsummary ORDER BY suitename, testresult;"
         FeaturetestSummaryreport_filename = self.ReportDir + self.platform + '_' + self.run_id + '_FeaturetestSummary.report'
         copyToFile(self.psql_cmd, self.environ, FeaturetestSummaryreport_sql, os.path.join(self.CWD, FeaturetestSummaryreport_filename))
 

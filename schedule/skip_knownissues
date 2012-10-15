@@ -535,7 +535,7 @@ multinomial_logistic_regression_utf8_character_0_2
 ### HEAD ###
 ### JiraId: MADLIB-625 ###
 ### Des: QA backlog ### 
-### Type: 2 ###
+### Type: 999 ###
 ######## PG error message is without source code file name while GP has ########
 non_central_f_quantile_feature_test_df1_0_0
 
