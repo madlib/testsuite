@@ -28,6 +28,8 @@ test_cfg.testconfig()
 from loader.loadingManager import loadingManager
 import utility
 
+sys.path.append('../src/generator/')
+import gen_report
 
 def getList(filename):
     """Parse file and return a list of non-empty lines"""
@@ -39,26 +41,9 @@ def generateReport(psql_cmd, environ, run_id, platform):
     """
     CWD = os.getcwd()
     date_str = datetime.today().strftime('%Y%m%d%H%M%S')
+    reportDir = os.path.abspath(ReportDir) + '/'
+    gen_report.generate_report(psql_cmd, environ, run_id, platform, reportDir)
 
-    summaryreport_sql = "SELECT 'Test Suite Name|' || suitename || '|Test Case Name|' || itemname || '|Test Detail|' || testresult || ' - ' || perf_status || ' (' || elapsedtime || '.00 ms)' || '|Test Status|' || testresult AS MADlib_Test_Report FROM benchmark.summaryreport where runid = %s ;" % run_id
-    summaryreport_filename = ReportDir + platform + '_' + run_id + '_summary.report'
-    copyToFile(psql_cmd, environ, summaryreport_sql, os.path.join(CWD, summaryreport_filename))
-     
-    FailedCasesreport_sql = "SELECT DISTINCT casename FROM benchmark.failedcases;" 
-    FailedCasesreport_filename = ReportDir + platform + '_' + run_id + '_FailedCases.report' 
-    copyToFile(psql_cmd, environ, FailedCasesreport_sql, os.path.join(CWD, FailedCasesreport_filename))
-
-    PerfermanceSummaryreport_sql = "SELECT suitename, perfstatus, count AS Number FROM benchmark.perfermancesummary;"
-    PerfermanceSummaryreport_filename = ReportDir + platform + '_' + run_id + '_PerfermanceSummary.report'
-    copyToFile(psql_cmd, environ, PerfermanceSummaryreport_sql, os.path.join(CWD, PerfermanceSummaryreport_filename))
-
-    FeaturetestSummaryreport_sql = "SELECT suitename, testresult_summary, count AS number FROM benchmark.featuretestsummary ORDER BY suitename, testresult_summary;"
-    FeaturetestSummaryreport_filename = ReportDir + platform + '_' + run_id + '_FeaturetestSummary.report'
-    copyToFile(psql_cmd, environ, FeaturetestSummaryreport_sql, os.path.join(CWD, FeaturetestSummaryreport_filename))
-
-    skippedcasesreport_sql = "SELECT  *  FROM benchmark.skippedcases ORDER BY fixversion DESC;"
-    skippedcasesreport_filename = ReportDir + platform + '_' + run_id + '_skippedcases.report' 
-    copyToFile(psql_cmd, environ, skippedcasesreport_sql, os.path.join(CWD, skippedcasesreport_filename))
 
 def copyToFile(psql_cmd, environ, sql, filename):
     """generate test result report
@@ -69,6 +54,7 @@ def copyToFile(psql_cmd, environ, sql, filename):
     out = utility.runSQL(psql_cmd, sql, environ, False)
     f = open(filename, 'w')
     f.write(out)
+    f.close()
 
 def main():
     """Change the options, del -c -S -t -r. Modify -s. i.e. python run.py -s map.yaml"""

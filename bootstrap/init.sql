@@ -141,3 +141,26 @@ INSERT INTO benchmark.evaluation_logistic_regression values ('R', 'madlibtestdat
 INSERT INTO benchmark.evaluation_logistic_regression values ('R', 'madlibtestdata.log_wpbc', array[-0.07867,-4.75085,-0.55311,0.18325,0.03192,274.63990,-18.78740,-26.18040,-26.14847,48.69332,-262.71936,-24.10346,-5.68894,5.02708,-0.05901,518.33296,223.84631,-198.58071,-348.60039,208.51486,298.48135,4.19352,0.47164,-0.32056,-0.01126,-37.29096,-27.22491,26.41491,-11.17975,-30.60805,83.95447]::double precision[]);
 INSERT INTO benchmark.evaluation_logistic_regression values ('R', 'madlibtestdata.log_redundantobservations', array[23.57,-70.70]::double precision[]);
 
+
+CREATE OR REPLACE FUNCTION gen_failedreport(path text ,schema text)
+  RETURNS integer
+AS $$
+rv = plpy.execute("SELECT * FROM %s.failedcases ORDER BY casename, starttimestamp"% schema)
+casename = ""
+report_num = 0
+for row in rv:
+  if str(row["casename"]) != casename:
+    casename =  str(row["casename"])
+    report_num = report_num + 1
+    if "fh" in dir():
+      fh.close()
+      fh = open(path + str(row["casename"]), 'w')
+      fh.write('-' * 50 + "\nCasename:" + str(row["casename"]) + '\n' + '-' * 50 + '\n\n\n')
+    else:
+      fh = open(path + str(row["casename"]), 'w')
+      fh.write('-' * 50 + "\nCasename:" + str(row["casename"]) + '\n' + '-' * 50 + '\n\n\n')
+  stmt =  "Itemname:" + str(row["itemname"]) + "\nQuery:\n" + str(row["command"]) + '\n'
+  stmt = stmt + "ExecutionResult:\n" + str(row["trresult"]) + "\nExpectedResult:\n" + str(row["trbresult"]) + '\n\n\n'
+  fh.write(stmt)
+return report_num
+$$ LANGUAGE plpythonu;

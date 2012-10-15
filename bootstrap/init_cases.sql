@@ -208,17 +208,24 @@ CREATE OR REPLACE VIEW testresultreport AS
 ORDER BY runid);
 
 
-
-CREATE OR REPLACE VIEW summaryreport AS
-(SELECT runid, suitename, itemname, testresult,
-  CASE WHEN testresult like 'PASSED%' 
+ CREATE OR REPLACE VIEW  summaryreport AS 
+(SELECT runid, suitename, casename, platform,
+        CASE WHEN bool_and(testresult like 'PASSED%')
               THEN 'PASSED'
-              WHEN   testresult like 'FAILED%' 
+              WHEN  bool_or(testresult like 'FAILED%')
               THEN  'FAILED'
-              WHEN  testresult in('SKIPPED', 'NEW CASES') 
+              WHEN  bool_and (testresult in('SKIPPED', 'NEW CASES'))
               THEN 'SKIPPED'
               ELSE 'ERROR'
- END AS testresult_summary,
+        END AS testresult,
+        sum(runtime) as elapsedtime,
+        min(starttimestamp) as starttimestamp
+FROM testresultreport
+GROUP BY runid, suitename, casename, platform);
+
+
+CREATE OR REPLACE VIEW performancedetailreport AS
+(SELECT runid, suitename, casename, itemname, testresult,
  CASE WHEN testresult like 'PASSED%' 
  THEN             
       CASE WHEN itemname like '%c45_clean%' OR basetime < 5000 OR runtime < 5000 OR itemname like 'kmeans_random%'
@@ -281,15 +288,15 @@ SELECT  casename,
 
 CREATE OR REPLACE VIEW featuretestsummary 
 AS 
-SELECT suitename, testresult_summary, count(*)
+SELECT suitename, testresult, count(*)
 FROM summaryreport
 WHERE runid = (SELECT MAX(runid) from testitemseq)
-GROUP BY  suitename, testresult_summary;
+GROUP BY  suitename, testresult;
 
 CREATE OR REPLACE VIEW perfermancesummary 
 AS 
 SELECT suitename, substr(perf_status, 1, position(':' in perf_status) -1) as perfstatus, count(*)
-FROM summaryreport
+FROM performancedetailreport
 WHERE runid = (SELECT MAX(runid) from testitemseq)
 AND   position(':' in perf_status) > 0
 GROUP BY  suitename, substr(perf_status, 1, position(':' in perf_status) -1);
