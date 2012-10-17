@@ -41,12 +41,6 @@ kmeans_random_negative_max_iteration_0_0
 kmeans_random_negative_max_iteration_0_1
 ### END ###
 
-### HEAD ###
-### JiraId: MADLIB-574 ##########
-### Type: 1 ####
-### Des: Logistic regression is generating different result on breast_cancer_wisconsin dataset which is from UCI repository ###
-logistic_regression_baseline_0_8
-### END ###
 
 #################Association Rules########################
 ### HEAD ###
@@ -394,33 +388,6 @@ svm_cls_linear_ds_0_3
 svm_cls_linear_ds_0_11
 ### END ###
 
-### HEAD ###
-### JiraId: MADLIB-602 ###
-### Type: 1 ###
-### Des: SVM: invalid memory alloc for large data set ###
-svm_cls_linear_ds_0_7
-svm_cls_linear_ds_0_15
-svm_cls_dot_ds_0_7
-svm_cls_dot_ds_0_15
-svm_cls_polynomial_ds_0_7
-svm_cls_polynomial_ds_0_15
-svm_cls_gaussian_ds_0_7
-svm_cls_gaussian_ds_para_0_7
-
-#svm_nd_dot_ds_0_7
-#svm_nd_dot_ds_0_15
-#svm_nd_polynomial_ds_0_7
-#svm_nd_polynomial_ds_0_15
-#svm_nd_gaussian_ds_0_7
-#svm_nd_gaussian_ds_para_0_7
-
-svm_reg_dot_ds_0_4
-svm_reg_dot_ds_0_18
-svm_reg_polynomial_ds_0_4
-svm_reg_polynomial_ds_0_18
-svm_reg_gaussian_ds_0_4
-svm_reg_gaussian_ds_para_0_4
-### END ###
 
 ### HEAD ###
 ### JiraId: MADlib-654 ###
@@ -601,3 +568,14 @@ rf_gini_cross_validate_0_4
 rf_gini_cross_validate_0_5
 ### END ###
 
+### HEAD ###
+### JiraId: MPP-12635###
+### Des: ERROR: function cannot execute on segment because it issues a non-SELECT statement ###
+### Type: 1000 ###
+linear_regression_ctas_0_0_ctas_linregr_0
+linear_regression_ctas_0_1_ctas_linregr_0
+logistic_regression_ctas_0_0_ctas_logregr_0
+logistic_regression_ctas_0_1_ctas_logregr_0
+multinomial_logistic_regression_ctas_0_0_ctas_mlogregr_0
+multinomial_logistic_regression_ctas_0_1_ctas_mlogregr_0
+### END ###

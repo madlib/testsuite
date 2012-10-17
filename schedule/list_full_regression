@@ -1,8 +1,8 @@
-case_multinomial_logistic_regression_gp_full
-
 case_svm_regression
 case_svm_novelty
 case_svm_classification
+
+case_multinomial_logistic_regression_gp_full
 
 case_naive_bayes
 

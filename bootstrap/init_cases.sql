@@ -133,7 +133,7 @@ CREATE OR REPLACE VIEW testresultreport AS
                             'nb_precompute_views_0_4_test_create_nb_prepared_data_tables_0',
                             'nb_precompute_function_workaround_0_0_test_create_nb_prepared_data_tables_0',
                             'nb_precompute_function_workaround_0_4_test_create_nb_prepared_data_tables_0')
-          THEN CASE WHEN tr.issuccessful = false AND tr.result_info LIKE '%column "value" contains null values%' 
+          THEN CASE WHEN tr.issuccessful = false AND (tr.result_info LIKE '%column "value" contains null values%'  OR tr.result_info like '%line 19 at execute statement%')
                THEN 'PASSED'
                ELSE 'FAILED'
                END

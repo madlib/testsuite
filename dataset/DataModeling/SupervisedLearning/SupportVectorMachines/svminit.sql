@@ -4,6 +4,11 @@ CREATE language PLPYTHONU;
 --postload.sql--
 set search_path = madlibtestdata;
 
+create table svm_largedim(id int, ind float8[], label float8);
+insert into  svm_largedim select 1,array_agg(c1),1 from generate_series(1,102401) c1;
+insert into  svm_largedim select 2,array_agg(c1),-1 from generate_series(1,102401) c1;
+alter table svm_largedim owner to madlibtester;
+
 create table svm_a9a_in as select * from svm_a9a where label = 1;
 create table svm_a9a_out as select * from svm_a9a where label = -1;
 
@@ -25,8 +30,8 @@ create table svm_ijcnn_out as select * from svm_ijcnn where label = -1;
 create table svm_splice_in as select * from svm_splice where label = 1;
 create table svm_splice_out as select * from svm_splice where label = -1;
 
-create table svm_url_in as select * from svm_url where label = 1;
-create table svm_url_out as select * from svm_url where label = -1;
+create table svm_largedim_in as select * from svm_largedim where label = 1;
+create table svm_largedim_out as select * from svm_largedim where label = -1;
 
 
 alter table svm_a9a_in owner to madlibtester;

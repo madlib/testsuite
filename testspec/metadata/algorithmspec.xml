@@ -649,6 +649,7 @@
 
         <method>
             <name>test_calculate_accuracy</name>
+            <create>true</create>
             <template>
                    SELECT {madlibtestdata_schema}.test_calculate_accuracy
                         ( {classify_source}   --classify_source
@@ -682,6 +683,10 @@
                 <type>TEXT</type>
                 <default>madlibtestresult.classified_result</default>
             </input_parameter>
+            <output_parameter>
+                <name>accuracye</name>
+                <type>DECIMAL(16,6)</type>
+            </output_parameter>
          </method>
     </algorithm>
 
