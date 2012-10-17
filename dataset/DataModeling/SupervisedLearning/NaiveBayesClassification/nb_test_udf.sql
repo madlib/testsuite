@@ -248,12 +248,12 @@ CREATE OR REPLACE FUNCTION madlibtestdata.test_calculate_accuracy( classify_sour
                                                                    classify_key_column TEXT,
                                                                    classify_class_column TEXT,
                                                                    classified_result_name TEXT)
-RETURNS DECIMAL(16,6) AS $$
+RETURNS DECIMAL(16,3) AS $$
 DECLARE
     stmt        TEXT;
     correct     INT :=0;
     total       INT :=0;
-    accuracy    DECIMAL(16,6) :=0.0;
+    accuracy    DECIMAL(16,3) :=0.0;
 BEGIN
     stmt = 'SELECT count(*) FROM ' || classify_source || ';';
     RAISE INFO '%', stmt;
