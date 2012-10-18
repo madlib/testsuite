@@ -508,4 +508,42 @@ plda_stability_0_6
 ##### UTF8 is not acceptable in the pulse server #####
 multinomial_logistic_regression_utf8_character_0_1
 multinomial_logistic_regression_utf8_character_0_0
+
+#########array_agg is not supported in GPDB 4.0 #################
+multinomial_logistic_regression_negative_dim_0_0
+svm_cls_linear_ds_0_7
+svm_cls_linear_ds_0_15
+svm_cls_dot_ds_0_7
+svm_cls_dot_ds_0_15
+svm_cls_polynomial_ds_0_7
+svm_cls_polynomial_ds_0_15
+svm_cls_gaussian_ds_0_7
+svm_cls_gaussian_ds_para_0_7
+
+#svm_nd_dot_ds_0_7
+#svm_nd_dot_ds_0_15
+#svm_nd_polynomial_ds_0_7
+#svm_nd_polynomial_ds_0_15
+#svm_nd_gaussian_ds_0_7
+#svm_nd_gaussian_ds_para_0_7
+
+svm_reg_dot_ds_0_4
+svm_reg_dot_ds_0_18
+svm_reg_polynomial_ds_0_4
+svm_reg_polynomial_ds_0_18
+svm_reg_gaussian_ds_0_4
+svm_reg_gaussian_ds_para_0_4
+
+### END ###
+
+### HEAD ###
+### JiraId: MPP-12635###
+### Des: ERROR: function cannot execute on segment because it issues a non-SELECT statement ###
+### Type: 1000 ###
+linear_regression_ctas_0_0_ctas_linregr_0
+linear_regression_ctas_0_1_ctas_linregr_0
+logistic_regression_ctas_0_0_ctas_logregr_0
+logistic_regression_ctas_0_1_ctas_logregr_0
+multinomial_logistic_regression_ctas_0_0_ctas_mlogregr_0
+multinomial_logistic_regression_ctas_0_1_ctas_mlogregr_0
 ### END ###

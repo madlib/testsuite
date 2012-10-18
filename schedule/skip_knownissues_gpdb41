@@ -255,6 +255,7 @@ nb_adhoc_function_workaround_0_8
 svm_reg_dot_ds_0_10
 svm_reg_polynomial_ds_0_10
 svm_reg_gaussian_ds_para_0_10
+svm_cls_linear_ds_0_7
 ### END ###
 
 ### HEAD ###
@@ -333,12 +334,6 @@ svm_cls_polynomial_ds_0_9
 svm_cls_gaussian_ds_0_1
 svm_cls_gaussian_ds_para_0_1
 
-svm_cls_dot_ds_0_7
-svm_cls_dot_ds_0_15
-svm_cls_polynomial_ds_0_7
-svm_cls_polynomial_ds_0_15
-svm_cls_gaussian_ds_0_7
-svm_cls_gaussian_ds_para_0_15
 
 svm_cls_polynomial_ds_0_10
 svm_cls_dot_ds_0_10

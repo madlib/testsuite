@@ -10339,22 +10339,22 @@
                         <name>svm_classification</name>
                         <parameter>
                                 <name>input_table</name>
-                                <value>madlibtestdata.svm_url</value>
+                                <value>madlibtestdata.svm_largedim</value>
                         </parameter>
                         <parameter>
                                 <name>kernel_func</name>
-                                <value>madlibtestdata.svm_gaussian_url</value>
+                                <value>madlibtestdata.svm_gaussian_largedim</value>
                         </parameter>
                 </method>
                 <method>
                         <name>svm_novelty_detection</name>
                         <parameter>
                                 <name>input_table</name>
-                                <value>madlibtestdata.svm_url_in</value>
+                                <value>madlibtestdata.svm_largedim_in</value>
                         </parameter>
                         <parameter>
                                 <name>kernel_func</name>
-                                <value>madlibtestdata.svm_gaussian_url_in</value>
+                                <value>madlibtestdata.svm_gaussian_largedim_in</value>
                         </parameter>
                 </method>
         </algorithm>
@@ -10546,11 +10546,11 @@
 <name>svm_regression</name>
 <parameter>
 <name>input_table</name>
-<value>madlibtestdata.svm_elog</value>
+<value>madlibtestdata.svm_largedim</value>
 </parameter>
 <parameter>
 <name>kernel_func</name>
-<value>madlibtestdata.svm_gaussian_elog</value>
+<value>madlibtestdata.svm_largedim_elog</value>
 </parameter>
 </method>
 </algorithm>

@@ -55,8 +55,8 @@ alter table svm_ijcnn_out owner to madlibtester;
 alter table svm_splice_in owner to madlibtester;
 alter table svm_splice_out owner to madlibtester;
 
-alter table svm_url_in owner to madlibtester;
-alter table svm_url_out owner to madlibtester;
+alter table svm_largedim_in owner to madlibtester;
+alter table svm_largedim_out owner to madlibtester;
 
 --classification.sql--
 set search_path = madlibtestdata;
@@ -165,13 +165,13 @@ $$ language PLPGSQL;
 
 ALTER FUNCTION madlibtestdata.svm_gaussian_cpusmall(FLOAT[],FLOAT[]) OWNER TO madlibtester;
 
-CREATE OR REPLACE FUNCTION madlibtestdata.svm_gaussian_elog(FLOAT[],FLOAT[]) RETURNS FLOAT AS $$
+CREATE OR REPLACE FUNCTION madlibtestdata.svm_gaussian_largedim(FLOAT[],FLOAT[]) RETURNS FLOAT AS $$
 BEGIN
          RETURN madlib.svm_gaussian($1,$2,1/4272227);
 END
 $$ language PLPGSQL;
 
-ALTER FUNCTION madlibtestdata.svm_gaussian_elog(FLOAT[],FLOAT[]) OWNER TO madlibtester;
+ALTER FUNCTION madlibtestdata.svm_gaussian_largedim(FLOAT[],FLOAT[]) OWNER TO madlibtester;
 
 CREATE OR REPLACE FUNCTION madlibtestdata.svm_gaussian_etfidf(FLOAT[],FLOAT[]) RETURNS FLOAT AS $$
 BEGIN  
@@ -301,13 +301,13 @@ $$ language PLPGSQL;
 
 ALTER FUNCTION madlibtestdata.svm_gaussian_splice(FLOAT[],FLOAT[]) OWNER TO madlibtester;
 
-CREATE OR REPLACE FUNCTION madlibtestdata.svm_gaussian_url(FLOAT[],FLOAT[]) RETURNS FLOAT AS $$
+CREATE OR REPLACE FUNCTION madlibtestdata.svm_gaussian_largedim(FLOAT[],FLOAT[]) RETURNS FLOAT AS $$
 BEGIN
 	    RETURN madlib.svm_gaussian($1,$2,1/3231961);
 END
 $$ language PLPGSQL;
 
-ALTER FUNCTION madlibtestdata.svm_gaussian_url(FLOAT[],FLOAT[]) OWNER TO madlibtester;
+ALTER FUNCTION madlibtestdata.svm_gaussian_largedim(FLOAT[],FLOAT[]) OWNER TO madlibtester;
 
 CREATE OR REPLACE FUNCTION madlibtestdata.svm_gaussian_a9a_in(FLOAT[],FLOAT[]) RETURNS FLOAT AS $$
 BEGIN
@@ -365,13 +365,13 @@ $$ language PLPGSQL;
 
 ALTER FUNCTION madlibtestdata.svm_gaussian_splice_in(FLOAT[],FLOAT[]) OWNER TO madlibtester;
 
-CREATE OR REPLACE FUNCTION madlibtestdata.svm_gaussian_url_in(FLOAT[],FLOAT[]) RETURNS FLOAT AS $$
+CREATE OR REPLACE FUNCTION madlibtestdata.svm_gaussian_largedim_in(FLOAT[],FLOAT[]) RETURNS FLOAT AS $$
 BEGIN
 	     RETURN madlib.svm_gaussian($1,$2,1/3231961);
 END
 $$ language PLPGSQL;
 
-ALTER FUNCTION madlibtestdata.svm_gaussian_url_in(FLOAT[],FLOAT[]) OWNER TO madlibtester;
+ALTER FUNCTION madlibtestdata.svm_gaussian_largedim_in(FLOAT[],FLOAT[]) OWNER TO madlibtester;
 
 --novelty.sql--
 SET SEARCH_PATH = madlibtestdata;
