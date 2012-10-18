@@ -14,7 +14,6 @@ case_ht_negative
 
 case_linear
 case_logistic_full_pg
-case_kmeans_full_pg
 case_dt_pgfull
 case_rf_pgfull
 

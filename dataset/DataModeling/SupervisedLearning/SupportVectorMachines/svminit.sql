@@ -68,7 +68,10 @@ fetchy="SELECT ind, label from %s order by id limit 1;" % (input_table)
 plpy.info(fetchy)
 point_value = plpy.execute(fetchy)
 y = point_value[0]["label"]
-x_point_str = ",".join(map(str, point_value[0]["ind"]))
+x_point_str = str(point_value[0]["ind"])
+plpy.info(str(x_point_str))
+x_point_str  = x_point_str.replace('[','{')
+x_point_str  = x_point_str.replace(']','}')
 x_point_str  = x_point_str.replace('None','Null')
 plpy.info(str(y)) 
 plpy.info(str(x_point_str)) 
@@ -76,14 +79,14 @@ plpy.info(str(x_point_str))
 #### fetch fx ###################
 if parallel:
     if linear:
-        predict_sql = "SELECT  prediction  FROM madlib.lsvm_predict_combo ('%s', '{%s}') where model = 'avg' ;" % (model_table, x_point_str)
+        predict_sql = "SELECT  prediction  FROM madlib.lsvm_predict_combo ('%s', '%s') where model = 'avg' ;" % (model_table, x_point_str)
     else:
-        predict_sql = "SELECT  prediction  FROM madlib.svm_predict_combo ('%s', '{%s}') where model = 'avg' ;" % (model_table, x_point_str)
+        predict_sql = "SELECT  prediction  FROM madlib.svm_predict_combo ('%s', '%s') where model = 'avg' ;" % (model_table, x_point_str)
 else: 
     if linear:
-        predict_sql = "SELECT madlib.lsvm_predict ('%s', '{%s}') as prediction;" % (model_table, x_point_str) 
+        predict_sql = "SELECT madlib.lsvm_predict ('%s', '%s') as prediction;" % (model_table, x_point_str) 
     else:
-        predict_sql = "SELECT madlib.svm_predict ('%s', '{%s}') as prediction;" % (model_table, x_point_str) 
+        predict_sql = "SELECT madlib.svm_predict ('%s', '%s') as prediction;" % (model_table, x_point_str) 
 plpy.info(predict_sql)
 fx_values = plpy.execute(predict_sql)
 fx = fx_values[0]["prediction"]
@@ -380,16 +383,19 @@ fetchy="SELECT ind, label from %s order by id limit 1;" % (input_table)
 plpy.info(fetchy)
 point_value = plpy.execute(fetchy)
 y = point_value[0]["label"]
-x_point_str = ",".join(map(str, point_value[0]["ind"]))
+x_point_str = str(point_value[0]["ind"])
+plpy.info(str(x_point_str))
+x_point_str  = x_point_str.replace('[','{')
+x_point_str  = x_point_str.replace(']','}')
 x_point_str  = x_point_str.replace('None','Null')
 plpy.info(str(y)) 
 plpy.info(str(x_point_str)) 
    
 #### fetch fx ###################
 if parallel:
-    predict_sql = "SELECT  prediction FROM madlib.svm_predict_combo ('%s', '{%s}') where model = 'avg' ;" % (model_table, x_point_str)
+    predict_sql = "SELECT  prediction FROM madlib.svm_predict_combo ('%s', '%s') where model = 'avg' ;" % (model_table, x_point_str)
 else: 
-    predict_sql = "SELECT madlib.svm_predict ('%s', '{%s}') as prediction;" % (model_table, x_point_str) 
+    predict_sql = "SELECT madlib.svm_predict ('%s', '%s') as prediction;" % (model_table, x_point_str) 
 plpy.info(predict_sql)
 fx_values = plpy.execute(predict_sql)
 fx = fx_values[0]["prediction"]
@@ -434,16 +440,19 @@ fetchy="SELECT ind, label from %s order by id limit 1;" % (input_table)
 plpy.info(fetchy)
 point_value = plpy.execute(fetchy)
 y = point_value[0]["label"]
-x_point_str = ",".join(map(str, point_value[0]["ind"]))
+x_point_str = str(point_value[0]["ind"])
+plpy.info(str(x_point_str))
+x_point_str  = x_point_str.replace('[','{')
+x_point_str  = x_point_str.replace(']','}')
 x_point_str  = x_point_str.replace('None','Null')
 plpy.info(str(y)) 
 plpy.info(str(x_point_str)) 
    
 #### fetch fx ###################
 if parallel:
-    predict_sql = "SELECT  prediction FROM madlib.svm_predict_combo ('%s', '{%s}') where model = 'avg' ;" % (model_table, x_point_str)
+    predict_sql = "SELECT  prediction FROM madlib.svm_predict_combo ('%s', '%s') where model = 'avg' ;" % (model_table, x_point_str)
 else: 
-    predict_sql = "SELECT madlib.svm_predict ('%s', '{%s}') as prediction;" % (model_table, x_point_str) 
+    predict_sql = "SELECT madlib.svm_predict ('%s', '%s') as prediction;" % (model_table, x_point_str) 
 plpy.info(predict_sql)
 fx_values = plpy.execute(predict_sql)
 fx = fx_values[0]["prediction"]

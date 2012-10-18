@@ -109,5 +109,4 @@ case_weibull_quantile
 
 case_linear
 case_logistic
-case_kmeans_basic
 

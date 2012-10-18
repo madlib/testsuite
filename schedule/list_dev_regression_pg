@@ -105,6 +105,5 @@ case_weibull_quantile
 
 case_linear
 case_logistic_dev_pg
-case_kmeans_dev_pg
 case_dt_pgdev
 case_rf_pgdev
