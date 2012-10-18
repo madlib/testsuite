@@ -9,7 +9,6 @@ case_plda_corner_negative
 
 case_linear
 case_logistic
-case_kmeans_basic
 
 case_bernoulli_cdf
 case_bernoulli_pmf
