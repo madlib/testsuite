@@ -301,13 +301,6 @@ $$ language PLPGSQL;
 
 ALTER FUNCTION madlibtestdata.svm_gaussian_splice(FLOAT[],FLOAT[]) OWNER TO madlibtester;
 
-CREATE OR REPLACE FUNCTION madlibtestdata.svm_gaussian_largedim(FLOAT[],FLOAT[]) RETURNS FLOAT AS $$
-BEGIN
-	    RETURN madlib.svm_gaussian($1,$2,1/3231961);
-END
-$$ language PLPGSQL;
-
-ALTER FUNCTION madlibtestdata.svm_gaussian_largedim(FLOAT[],FLOAT[]) OWNER TO madlibtester;
 
 CREATE OR REPLACE FUNCTION madlibtestdata.svm_gaussian_a9a_in(FLOAT[],FLOAT[]) RETURNS FLOAT AS $$
 BEGIN

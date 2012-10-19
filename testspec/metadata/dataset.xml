@@ -10332,7 +10332,7 @@
 </algorithm>
 </dataset>
 <dataset>
-        <name>svm_url</name>
+        <name>svm_largedim</name>
         <rows>48842</rows>
         <algorithm>
                 <method>
@@ -10356,6 +10356,17 @@
                                 <name>kernel_func</name>
                                 <value>madlibtestdata.svm_gaussian_largedim_in</value>
                         </parameter>
+                </method>
+                <method>
+                      <name>svm_regression</name>
+                      <parameter>
+                               <name>input_table</name>
+                               <value>madlibtestdata.svm_largedim</value>
+                      </parameter>
+                      <parameter>
+                              <name>kernel_func</name>
+                              <value>madlibtestdata.svm_largedim_elog</value>
+                      </parameter>
                 </method>
         </algorithm>
 </dataset>
@@ -10537,23 +10548,6 @@
 			</parameter>
 		</method>
 	</algorithm>
-</dataset>
-<dataset>
-    <name>svm_elog</name>
-    <rows>19200</rows>
-      <algorithm>
-<method>
-<name>svm_regression</name>
-<parameter>
-<name>input_table</name>
-<value>madlibtestdata.svm_largedim</value>
-</parameter>
-<parameter>
-<name>kernel_func</name>
-<value>madlibtestdata.svm_largedim_elog</value>
-</parameter>
-</method>
-</algorithm>
 </dataset>
 
 <dataset>

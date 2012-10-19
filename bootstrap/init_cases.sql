@@ -293,7 +293,7 @@ FROM summaryreport
 WHERE runid = (SELECT MAX(runid) from testitemseq)
 GROUP BY  suitename, testresult;
 
-CREATE OR REPLACE VIEW perfermancesummary 
+CREATE OR REPLACE VIEW performancesummary 
 AS 
 SELECT suitename, substr(perf_status, 1, position(':' in perf_status) -1) as perfstatus, count(*)
 FROM performancedetailreport
