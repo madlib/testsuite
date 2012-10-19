@@ -63,7 +63,7 @@ CREATE OR REPLACE VIEW testresultreport AS
       THEN 'FAILED : NO RESULT OR REMOVE CASES'
 
       WHEN tr.itemname like 'svm_%predict_score%' and resultlocation like 'PG%'
-         THEN CASE WHEN tr.issuccessful = trb.issuccessful OR tr.result_info like '%ERROR:  IndexError: list index out of range%'  THEN 'PASSED'
+         THEN CASE WHEN tr.issuccessful = trb.issuccessful OR tr.result_info like '%IndexError: list index out of range%'  THEN 'PASSED'
                    ELSE 'FAILED'         
               END  
 

@@ -192,6 +192,7 @@ nb_precompute_views_0_12
 nb_precompute_views_0_4
 nb_precompute_function_workaround_0_4
 nb_adhoc_views_4_0_0
+nb_adhoc_views_0_0_0
 ### END ###
 
 ### HEAD ###
@@ -567,10 +568,10 @@ rf_gini_cross_validate_0_5
 ### JiraId: MPP-12635###
 ### Des: ERROR: function cannot execute on segment because it issues a non-SELECT statement ###
 ### Type: 1000 ###
-linear_regression_ctas_0_0_ctas_linregr_0
-linear_regression_ctas_0_1_ctas_linregr_0
-logistic_regression_ctas_0_0_ctas_logregr_0
-logistic_regression_ctas_0_1_ctas_logregr_0
+linear_regression_ctas_0_0
+linear_regression_ctas_0_1
+logistic_regression_ctas_0_0
+logistic_regression_ctas_0_1
 multinomial_logistic_regression_ctas_0_0
 multinomial_logistic_regression_ctas_0_1
 ### END ###
