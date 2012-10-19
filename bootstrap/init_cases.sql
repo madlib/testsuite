@@ -137,7 +137,17 @@ CREATE OR REPLACE VIEW testresultreport AS
                THEN 'PASSED'
                ELSE 'FAILED'
                END
- 
+
+      WHEN  (tr.itemname like 'svm_cls_dot_ds_0_7%' OR tr.itemname like 'svm_cls_dot_ds_0_15%' OR tr.itemname like 'svm_cls_polynomial_ds_0_7%'
+          OR tr.itemname like 'svm_cls_polynomial_ds_0_15%' OR tr.itemname like 'svm_cls_gaussian_ds_0_7%' OR tr.itemname like 'svm_cls_gaussian_ds_para_0_7%'
+          OR tr.itemname like 'svm_reg_dot_ds_0_4%' OR tr.itemname like 'svm_reg_dot_ds_0_18%' OR tr.itemname like 'svm_reg_polynomial_ds_0_4%'
+          OR tr.itemname like 'svm_reg_polynomial_ds_0_18%' OR tr.itemname like 'svm_reg_gaussian_ds_0_4%' OR tr.itemname like 'svm_reg_gaussian_ds_para_0_4%')
+          AND tr.itemname not like 'svm_%_3'
+          THEN CASE WHEN tr.issuccessful = false AND (tr.result_info LIKE '%the maximum number of features is 102400%'  OR tr.result_info like '%does not exist%')
+               THEN 'PASSED'
+               ELSE 'FAILED'
+               END
+
       WHEN (trb.evaluation_function = 0 AND tr.evaluation_function <> 0) or (trb.evaluation_function <> 0 AND tr.evaluation_function = 0) 
       THEN  CASE WHEN trb.itemname like 'svm_%predict_score%'  THEN 'PASSED'
                   ELSE 'FAILED'
