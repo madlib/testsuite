@@ -47,7 +47,7 @@ class ReportGenerator:
         copyToFile(self.psql_cmd, self.environ, FeaturetestSummaryreport_sql, os.path.join(self.CWD, FeaturetestSummaryreport_filename))
 
     def gen_skippedcasesreport(self):
-        skippedcasesreport_sql = "SELECT  *  FROM benchmark.skippedcases ORDER BY fixversion,algorithmic DESC;"
+        skippedcasesreport_sql = "SELECT  *  FROM benchmark.skippedcases ORDER BY fixversion DESC,algorithmic;"
         skippedcasesreport_filename = self.ReportDir + self.platform + '_' + self.run_id + '_skippedcases.report'
         copyToFile(self.psql_cmd, self.environ, skippedcasesreport_sql, os.path.join(self.CWD, skippedcasesreport_filename))
     

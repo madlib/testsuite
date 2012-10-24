@@ -1,0 +1,61 @@
+# TestSuite Name : ar_vdatasets
+# It is to test associate rules on different data sets with support = 0 and confidence = 0.5
+# Start TestSuite ==========
+ar_vdatasets_0_0
+ar_vdatasets_0_1
+ar_vdatasets_0_2
+ar_vdatasets_0_3
+ar_vdatasets_0_4
+ar_vdatasets_0_5
+ar_vdatasets_0_6
+
+# TestSuite Name : ar_cornercase
+# It is to test corner data sets with support = 1 and confidence = 0.5
+# Start TestSuite ==========
+ar_cornercase_0_0
+ar_cornercase_0_1
+ar_cornercase_0_2
+ar_cornercase_0_3
+ar_cornercase_0_4
+
+
+# TestSuite Name : ar_negative_i_support
+# It is to test invalid parameter i_support for assoc_rules
+# Start TestSuite ==========
+ar_negative_i_support_0_0
+ar_negative_i_support_0_1
+ar_negative_i_support_0_2
+ar_negative_i_support_0_3
+
+# TestSuite Name : ar_negative_i_confidence
+# It is to test invalid parameter i_confidence for assoc_rules
+# Start TestSuite ==========
+ar_negative_i_confidence_0_0
+ar_negative_i_confidence_0_1
+ar_negative_i_confidence_0_2
+ar_negative_i_confidence_0_3
+
+# TestSuite Name : ar_negative_id_col
+# It is to test invalid parameter id_col for assoc_rules
+# Start TestSuite ==========
+ar_negative_id_col_0_0
+ar_negative_id_col_0_1
+
+# TestSuite Name : ar_negative_product_col
+# It is to test invalid parameter product_col for assoc_rules
+# Start TestSuite ==========
+ar_negative_product_col_0_0
+ar_negative_product_col_0_1
+
+# TestSuite Name : ar_negative_input_table
+# It is to test invalid parameter input_table for assoc_rules
+# Start TestSuite ==========
+ar_negative_input_table_0_0
+ar_negative_input_table_0_1
+
+# TestSuite Name : ar_negative_output_schema
+# It is to test invalid parameter output_schema for assoc_rules
+# Start TestSuite ==========
+ar_negative_output_schema_0_0
+ar_negative_output_schema_0_1
+

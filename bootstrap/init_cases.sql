@@ -63,7 +63,7 @@ CREATE OR REPLACE VIEW testresultreport AS
       THEN 'FAILED : NO RESULT OR REMOVE CASES'
 
       WHEN tr.itemname like 'svm_%predict_score%' and resultlocation like 'PG%'
-         THEN CASE WHEN tr.issuccessful = trb.issuccessful OR tr.result_info like '%IndexError: list index out of range%'  THEN 'PASSED'
+         THEN CASE WHEN tr.issuccessful = trb.issuccessful OR tr.result_info like '%list index out of range%'  THEN 'PASSED'
                    ELSE 'FAILED'         
               END  
 
@@ -143,7 +143,8 @@ CREATE OR REPLACE VIEW testresultreport AS
           OR tr.itemname like 'svm_reg_dot_ds_0_4%' OR tr.itemname like 'svm_reg_dot_ds_0_18%' OR tr.itemname like 'svm_reg_polynomial_ds_0_4%'
           OR tr.itemname like 'svm_reg_polynomial_ds_0_18%' OR tr.itemname like 'svm_reg_gaussian_ds_0_4%' OR tr.itemname like 'svm_reg_gaussian_ds_para_0_4%')
           AND tr.itemname not like 'svm_%_3'
-          THEN CASE WHEN tr.issuccessful = false AND (tr.result_info LIKE '%the maximum number of features is 102400%'  OR tr.result_info like '%does not exist%')
+          THEN CASE WHEN (tr.itemname not like '%0' AND tr.issuccessful = false) 
+                      OR (tr.itemname like '%0' AND tr.result_info LIKE '%the maximum number of features is 102400%')
                THEN 'PASSED'
                ELSE 'FAILED'
                END
