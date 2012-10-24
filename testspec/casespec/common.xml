@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<test_suites>
+    <test_type>feature</test_type>
+    <multi_test_suites>
+        <algorithm>common</algorithm>
+        <methods>
+                <method>
+                    <name>platform_tmptbl</name>
+                    <parameter>
+                        <name>benchmark</name>
+                        <value>TemplateExecutor</value>
+                    </parameter>
+                </method>
+        </methods>
+
+        <test_suite>
+            <name>platform_tmptbl_plpgsql</name>
+            <comments>
+                It is to test temporary tables in plpgsql for different platforms especially for PG92 MADLIB685
+            </comments>
+            <!-- It indicate max execution times-->
+            <execute_rate>1</execute_rate>
+            <method>
+                <name>platform_tmptbl</name>
+            </method>
+        </test_suite>
+    </multi_test_suites>
+</test_suites>

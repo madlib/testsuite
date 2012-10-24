@@ -1,4 +1,14 @@
 <algorithms>
+    <algorithm>
+    <name>common</name>
+       <method>
+            <name>platform_tmptbl</name>
+            <template>
+                   CREATE temp TABLE platform_tmptest(a int);
+                   SELECT madlibtestdata.platform_test('platform_tmptest');
+            </template>
+         </method>
+    </algorithm>
 
     <algorithm>
         <name>multinomial_logistic_regression</name>

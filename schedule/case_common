@@ -1,0 +1,5 @@
+# TestSuite Name : platform_tmptbl_plpgsql
+# It is to test temporary tables in plpgsql for different platforms especially for PG92 MADLIB685
+# Start TestSuite ==========
+platform_tmptbl_plpgsql_0_0
+

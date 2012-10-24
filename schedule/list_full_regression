@@ -1,3 +1,4 @@
+case_common
 case_svm_regression
 case_svm_novelty
 case_svm_classification
