@@ -181,18 +181,19 @@ nb_adhoc_function_workaround_0_0
 nb_adhoc_function_workaround_0_12
 nb_precompute_function_workaround_0_0
 nb_precompute_function_workaround_0_12
-nb_adhoc_views_12_0_0
-nb_precompute_views_0_12
+nb_precompute_views_0_4
+nb_precompute_function_workaround_0_4
+nb_adhoc_views_4_0_0
 ### END ###
 
 ### HEAD ###
 ### JiraId: MADLIB-679 ###
 ### Type: 1 ###
 ### Des: NB result is different between GP and PG ###
-nb_precompute_views_0_4
-nb_precompute_function_workaround_0_4
-nb_adhoc_views_4_0_0
+nb_precompute_views_0_12
+nb_adhoc_views_12_0_0
 ### END ###
+
 
 ### HEAD ###
 ### JiraId: MADLIB-650 ###

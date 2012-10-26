@@ -19,6 +19,7 @@ SET default_with_oids = false;
 -- Name: testitemresultbaseline; Type: TABLE; Schema: benchmark; Owner: maduser; Tablespace: 
 --
 
+
 --
 -- Data for Name: testitemresultbaseline; Type: TABLE DATA; Schema: benchmark; Owner: maduser
 --
@@ -6685,6 +6686,7 @@ svm_reg_polynomial_ds_0_10_svm_reg_predict_batch_score_2	svm_regression	svm_reg_
 svm_reg_gaussian_ds_para_0_10_svm_reg_predict_batch_score_2	svm_regression	svm_reg_predict_batch_score	7730	0.0536822690115	t	-[ RECORD 1 ]----------\nscore | 0.0536822690115	\N
 svm_reg_polynomial_ds_0_10_svm_reg_predict_score_1	svm_regression	svm_reg_predict_score	485	5.5399532954700001e-05	t	-[ RECORD 1 ]------------\nscore | 5.53995329547e-05	\N
 svm_reg_gaussian_ds_para_0_10_svm_reg_predict_score_1	svm_regression	svm_reg_predict_score	540	0.010441622840300001	t	-[ RECORD 1 ]----------\nscore | 0.0104416228403	\N
+platform_tmptbl_plpgsql_0_0_platform_tmptbl_0	common	platform_tmptbl	119	\N	t	-[ RECORD 1 ]-+---\nplatform_test | OK	\N
 \.
 
 
