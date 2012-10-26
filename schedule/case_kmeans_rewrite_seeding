@@ -1,0 +1,99 @@
+# TestSuite Name : kmeans_rewrite_kmeanspp_seeding_default
+# Test kmeanspp_seeding with default fn_dist and initial_centroids
+# Start TestSuite ==========
+kmeans_rewrite_kmeanspp_seeding_default_0_0
+kmeans_rewrite_kmeanspp_seeding_default_0_1
+kmeans_rewrite_kmeanspp_seeding_default_0_2
+kmeans_rewrite_kmeanspp_seeding_default_0_3
+kmeans_rewrite_kmeanspp_seeding_default_0_4
+kmeans_rewrite_kmeanspp_seeding_default_0_5
+
+# TestSuite Name : kmeans_rewrite_kmeanspp_seeding_fndist
+# Test kmeanspp_seeding with different fn_dist functions including user-defined functions
+# Start TestSuite ==========
+kmeans_rewrite_kmeanspp_seeding_fndist_0_0
+kmeans_rewrite_kmeanspp_seeding_fndist_0_1
+kmeans_rewrite_kmeanspp_seeding_fndist_0_2
+kmeans_rewrite_kmeanspp_seeding_fndist_0_3
+kmeans_rewrite_kmeanspp_seeding_fndist_0_4
+
+# TestSuite Name : kmeans_rewrite_kmeanspp_seeding_initialcentroids
+# Test kmeanspp_seeding with different initial centroids
+# Start TestSuite ==========
+kmeans_rewrite_kmeanspp_seeding_initialcentroids_0_0
+kmeans_rewrite_kmeanspp_seeding_initialcentroids_0_1
+
+# TestSuite Name : kmeans_rewrite_kmeanspp_seeding_negative_relsource
+# Test kmeanspp_seeding with invalid rel_source
+# Start TestSuite ==========
+kmeans_rewrite_kmeanspp_seeding_negative_relsource_0_0
+kmeans_rewrite_kmeanspp_seeding_negative_relsource_0_1
+
+# TestSuite Name : kmeans_rewrite_kmeanspp_seeding_negative_exprpoint
+# Test kmeanspp_seeding with invalid expr_point
+# Start TestSuite ==========
+kmeans_rewrite_kmeanspp_seeding_negative_exprpoint_0_0
+kmeans_rewrite_kmeanspp_seeding_negative_exprpoint_0_1
+
+# TestSuite Name : kmeans_rewrite_kmeanspp_seeding_negative_k
+# Test kmeanspp_seeding with invalid k
+# Start TestSuite ==========
+kmeans_rewrite_kmeanspp_seeding_negative_k_0_0
+kmeans_rewrite_kmeanspp_seeding_negative_k_0_1
+kmeans_rewrite_kmeanspp_seeding_negative_k_0_2
+
+# TestSuite Name : kmeans_rewrite_kmeanspp_seeding_negative_fndist
+# Test kmeanspp_seeding with invalid fn_dist
+# Start TestSuite ==========
+kmeans_rewrite_kmeanspp_seeding_negative_fndist_0_0
+kmeans_rewrite_kmeanspp_seeding_negative_fndist_0_1
+kmeans_rewrite_kmeanspp_seeding_negative_fndist_0_2
+kmeans_rewrite_kmeanspp_seeding_negative_fndist_0_3
+
+# TestSuite Name : kmeans_rewrite_kmeanspp_seeding_negative_initialcentroids
+# Test kmeanspp_seeding with invalid initial_centroids
+# Start TestSuite ==========
+kmeans_rewrite_kmeanspp_seeding_negative_initialcentroids_0_0
+kmeans_rewrite_kmeanspp_seeding_negative_initialcentroids_0_1
+
+# TestSuite Name : kmeans_rewrite_kmeans_random_seeding_default
+# Test kmeans_random_seeding with default initial_centroids
+# Start TestSuite ==========
+kmeans_rewrite_kmeans_random_seeding_default_0_0
+kmeans_rewrite_kmeans_random_seeding_default_0_1
+kmeans_rewrite_kmeans_random_seeding_default_0_2
+kmeans_rewrite_kmeans_random_seeding_default_0_3
+kmeans_rewrite_kmeans_random_seeding_default_0_4
+kmeans_rewrite_kmeans_random_seeding_default_0_5
+
+# TestSuite Name : kmeans_rewrite_kmeans_random_seeding_initialcentroids
+# Test kmeans_random_seeding with different initial_centroids
+# Start TestSuite ==========
+kmeans_rewrite_kmeans_random_seeding_initialcentroids_0_0
+kmeans_rewrite_kmeans_random_seeding_initialcentroids_0_1
+
+# TestSuite Name : kmeans_rewrite_kmeans_random_seeding_negative_relsource
+# Test kmeans_random_seeding with invalid rel_source
+# Start TestSuite ==========
+kmeans_rewrite_kmeans_random_seeding_negative_relsource_0_0
+kmeans_rewrite_kmeans_random_seeding_negative_relsource_0_1
+
+# TestSuite Name : kmeans_rewrite_kmeans_random_seeding_negative_exprpoint
+# Test kmeans_random_seeding with invalid expr_point
+# Start TestSuite ==========
+kmeans_rewrite_kmeans_random_seeding_negative_exprpoint_0_0
+kmeans_rewrite_kmeans_random_seeding_negative_exprpoint_0_1
+
+# TestSuite Name : kmeans_rewrite_kmeans_random_seeding_negative_k
+# Test kmeans_random_seeding with invalid k
+# Start TestSuite ==========
+kmeans_rewrite_kmeans_random_seeding_negative_k_0_0
+kmeans_rewrite_kmeans_random_seeding_negative_k_0_1
+kmeans_rewrite_kmeans_random_seeding_negative_k_0_2
+
+# TestSuite Name : kmeans_rewrite_kmeans_random_seeding_negative_initialcentroids
+# Test kmeans_random_seeding with invalid initial_centroids
+# Start TestSuite ==========
+kmeans_rewrite_kmeans_random_seeding_negative_initialcentroids_0_0
+kmeans_rewrite_kmeans_random_seeding_negative_initialcentroids_0_1
+

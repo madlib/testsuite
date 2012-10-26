@@ -1,4 +1,1230 @@
 <algorithms>
+
+    <algorithm>
+        <name>kmeans_rewrite</name>
+
+        <method>
+            <name>kmeans_rewrite_kmeanspp_seeding_default</name>
+            <create>true</create>
+            <template>
+                SELECT array_upper(t.kmeanspp_seeding, 1) FROM
+                    (SELECT {madlib_schema}.kmeanspp_seeding(
+                          {rel_source}            -- rel_source
+                        , {expr_point}            -- expr_point
+                        , {k}                     -- k
+                    ) ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>num_centroids</name>
+                <type>INT4</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeanspp_seeding_default_fndist</name>
+            <create>true</create>
+            <template>
+                SELECT array_upper(t.kmeanspp_seeding, 1) FROM
+                    (SELECT {madlib_schema}.kmeanspp_seeding(
+                          {rel_source}            -- rel_source
+                        , {expr_point}            -- expr_point
+                        , {k}                     -- k
+                        , {fn_dist}               -- fn_dist
+                    ) ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist</name>
+                <type>TEXT</type>
+                <default>madlib.squared_dist_norm2</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>num_centroids</name>
+                <type>INT4</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeanspp_seeding_default_fndist_initialcentroids</name>
+            <create>true</create>
+            <template>
+                SELECT array_upper(t.kmeanspp_seeding, 1) FROM
+                    (SELECT {madlib_schema}.kmeanspp_seeding(
+                          {rel_source}            -- rel_source
+                        , {expr_point}            -- expr_point
+                        , {k}                     -- k
+                        , {fn_dist}               -- fn_dist
+                        , {initial_centroids}     -- initial_centroids
+                    ) ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist</name>
+                <type>TEXT</type>
+                <default>madlib.squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>initial_centroids</name>
+                <type>FLOAT8[][]</type>
+                <default>NULL</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>num_centroids</name>
+                <type>INT4</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeans_random_seeding_default</name>
+            <create>true</create>
+            <template>
+                SELECT array_upper(t.kmeans_random_seeding, 1) FROM
+                    (SELECT {madlib_schema}.kmeans_random_seeding(
+                          {rel_source}            -- rel_source
+                        , {expr_point}            -- expr_point
+                        , {k}                     -- k
+                    ) ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>num_centroids</name>
+                <type>INT4</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeans_random_seeding_default_initialcentroids</name>
+            <create>true</create>
+            <template>
+                SELECT array_upper(t.kmeans_random_seeding, 1) FROM
+                    (SELECT {madlib_schema}.kmeans_random_seeding(
+                          {rel_source}            -- rel_source
+                        , {expr_point}            -- expr_point
+                        , {k}                     -- k
+                        , {initial_centroids}     -- initial_centroids
+                    ) ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>initial_centroids</name>
+                <type>FLOAT8[][]</type>
+                <default>NULL</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>num_centroids</name>
+                <type>INT4</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeans_default</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeans(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {initial_centroids}       -- initial_centroids
+                              ) ).centroids::FLOAT8[][]
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>initial_centroids</name>
+                <type>FLOAT8[][]</type>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeans_default_fndist</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeans(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {initial_centroids}       -- initial_centroids
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>initial_centroids</name>
+                <type>FLOAT8[][]</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeans(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {initial_centroids}       -- initial_centroids
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>initial_centroids</name>
+                <type>FLOAT8[][]</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeans(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {initial_centroids}       -- initial_centroids
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                                , {max_num_iterations}      -- max_num_iterations
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>initial_centroids</name>
+                <type>FLOAT8[][]</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <input_parameter>
+                <name>max_num_iterations</name>
+                <type>INT4</type>
+                <default>20</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeans(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {initial_centroids}       -- initial_centroids
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                                , {max_num_iterations}      -- max_num_iterations
+                                , {min_frac_reassigned}     -- min_frac_reassigned
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>initial_centroids</name>
+                <type>FLOAT8[][]</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <input_parameter>
+                <name>max_num_iterations</name>
+                <type>INT4</type>
+                <default>20</default>
+             </input_parameter>
+             <input_parameter>
+                <name>min_frac_reassigned</name>
+                <type>FLOAT8</type>
+                <default>0.001</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeans(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , (SELECT centroids FROM {rel_centroids})::FLOAT8[][]
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                                , {max_num_iterations}      -- max_num_iterations
+                                , {min_frac_reassigned}     -- min_frac_reassigned
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+            <input_parameter>
+                <name>rel_centroids</name>
+                <type>TEXT</type>
+                <quote>false</quote>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <input_parameter>
+                <name>max_num_iterations</name>
+                <type>INT4</type>
+                <default>20</default>
+             </input_parameter>
+             <input_parameter>
+                <name>min_frac_reassigned</name>
+                <type>FLOAT8</type>
+                <default>0.001</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeans_getsilhouette</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , (SELECT ({result_column}).centroids::FLOAT8[][] FROM madlibtestresult.centroids LIMIT 1)
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS q;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>result_column</name>
+                <type>TEXT</type>
+                <quote>false</quote>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeans_ctas</name>
+            <template>
+                CREATE TABLE madlibtestresult.centroids AS
+                      SELECT {madlib_schema}.kmeans(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {initial_centroids}       -- initial_centroids
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                                , {max_num_iterations}      -- max_num_iterations
+                                , {min_frac_reassigned}     -- min_frac_reassigned
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>initial_centroids</name>
+                <type>FLOAT8[][]</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <input_parameter>
+                <name>max_num_iterations</name>
+                <type>INT4</type>
+                <default>20</default>
+             </input_parameter>
+             <input_parameter>
+                <name>min_frac_reassigned</name>
+                <type>FLOAT8</type>
+                <default>0.001</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeanspp_default</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeanspp(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k 
+                              ) ).centroids::FLOAT8[][]
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeanspp_default_fndist</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeanspp(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeanspp(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeanspp(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                                , {max_num_iterations}      -- max_num_iterations
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <input_parameter>
+                <name>max_num_iterations</name>
+                <type>INT4</type>
+                <default>20</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter_minfrac</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeanspp(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                                , {max_num_iterations}      -- max_num_iterations
+                                , {min_frac_reassigned}     -- min_frac_reassigned
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <input_parameter>
+                <name>max_num_iterations</name>
+                <type>INT4</type>
+                <default>20</default>
+             </input_parameter>
+             <input_parameter>
+                <name>min_frac_reassigned</name>
+                <type>FLOAT8</type>
+                <default>0.001</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeanspp_ctas</name>
+            <create>true</create>
+            <template>
+                CREATE TABLE madlibtestresult.centroids AS
+                      SELECT {madlib_schema}.kmeanspp(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                                , {max_num_iterations}      -- max_num_iterations
+                                , {min_frac_reassigned}     -- min_frac_reassigned
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <input_parameter>
+                <name>max_num_iterations</name>
+                <type>INT4</type>
+                <default>20</default>
+             </input_parameter>
+             <input_parameter>
+                <name>min_frac_reassigned</name>
+                <type>FLOAT8</type>
+                <default>0.001</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeansrandom_default</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeans_random(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k 
+                              ) ).centroids::FLOAT8[][]
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeansrandom_default_fndist</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeans_random(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeansrandom_default_fndist_aggcentroid</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeans_random(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeansrandom_default_fndist_aggcentroid_maxiter</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeans_random(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                                , {max_num_iterations}      -- max_num_iterations
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <input_parameter>
+                <name>max_num_iterations</name>
+                <type>INT4</type>
+                <default>20</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeansrandom_default_fndist_aggcentroid_maxiter_minfrac</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.simple_silhouette(
+                          {rel_source}                      -- rel_source
+                        , {expr_point}                      -- expr_point
+                        , ({madlib_schema}.kmeans_random(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                                , {max_num_iterations}      -- max_num_iterations
+                                , {min_frac_reassigned}     -- min_frac_reassigned
+                              ) ).centroids::FLOAT8[][]
+                        , {fn_dist_silhouette}              -- fn_dist_silhouette
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <input_parameter>
+                <name>max_num_iterations</name>
+                <type>INT4</type>
+                <default>20</default>
+             </input_parameter>
+             <input_parameter>
+                <name>min_frac_reassigned</name>
+                <type>FLOAT8</type>
+                <default>0.001</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+
+        <method>
+            <name>kmeans_rewrite_kmeansrandom_ctas</name>
+            <template>
+                CREATE TABLE madlibtestresult.centroids AS
+                      SELECT {madlib_schema}.kmeans_random(
+                                  {rel_source}              -- rel_source
+                                , {expr_point}              -- expr_point
+                                , {k}                       -- k
+                                , {fn_dist_kmeans}          -- fn_dist_kmeans
+                                , {agg_centroid}            -- agg_centroid
+                                , {max_num_iterations}      -- max_num_iterations
+                                , {min_frac_reassigned}     -- min_frac_reassigned
+                      ) AS t;
+            </template>
+            <input_parameter>
+                <name>rel_source</name>
+                <type>TEXT</type>
+             </input_parameter>
+             <input_parameter>
+                <name>expr_point</name>
+                <type>TEXT</type>
+                <default>position</default>
+             </input_parameter>
+             <input_parameter>
+                <name>k</name>
+                <type>INT2</type>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_kmeans</name>
+                <type>TEXT</type>
+                <default>squared_dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>fn_dist_silhouette</name>
+                <type>TEXT</type>
+                <default>dist_norm2</default>
+             </input_parameter>
+             <input_parameter>
+                <name>agg_centroid</name>
+                <type>TEXT</type>
+                <default>avg</default>
+             </input_parameter>
+             <input_parameter>
+                <name>max_num_iterations</name>
+                <type>INT4</type>
+                <default>20</default>
+             </input_parameter>
+             <input_parameter>
+                <name>min_frac_reassigned</name>
+                <type>FLOAT8</type>
+                <default>0.001</default>
+             </input_parameter>
+             <!-- Output parameters -->
+            <output_parameter>
+                <name>simple_silhouette</name>
+                <type>FLOAT8</type>
+            </output_parameter>
+        </method>
+    </algorithm>
+
     <algorithm>
     <name>common</name>
        <method>

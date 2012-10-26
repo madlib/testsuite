@@ -1,0 +1,96 @@
+# TestSuite Name : kmeans_rewrite_kmeansrandom_default_1abalone
+# Test kmeans random with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_default_1abalone_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_default_2movementlibras
+# Test kmeans random with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_default_2movementlibras_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_default_3uscensus1990
+# Test kmeans random with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_default_3uscensus1990_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_default_4watertreatment
+# Test kmeans random with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_default_4watertreatment_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_default_5wine
+# Test kmeans random with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_default_5wine_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_default_6winequalityred
+# Test kmeans random with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_default_6winequalityred_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_k
+# Test kmeans random with different k
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_k_0_0
+kmeans_rewrite_kmeansrandom_k_0_1
+kmeans_rewrite_kmeansrandom_k_0_2
+kmeans_rewrite_kmeansrandom_k_0_3
+kmeans_rewrite_kmeansrandom_k_0_4
+kmeans_rewrite_kmeansrandom_k_0_5
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_fndist_1distnorm1
+# Test kmeans random with different fn_dist
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_fndist_1distnorm1_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_fndist_2distangle
+# Test kmeans random with different fn_dist
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_fndist_2distangle_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_fndist_3disttanimoto
+# Test kmeans random with different fn_dist
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_fndist_3disttanimoto_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_fndist_4distuserdefined
+# Test kmeans random with different fn_dist
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_fndist_4distuserdefined_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_aggcentroid_normalizedavg
+# Test kmeans random with different agg_centroid
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_aggcentroid_normalizedavg_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_aggcentroid_userdefined
+# Test kmeans random with user defined agg_centroid
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_aggcentroid_userdefined_0_0
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_maxnumiterations
+# Test kmeans random with different max_num_iterations
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_maxnumiterations_0_0
+kmeans_rewrite_kmeansrandom_maxnumiterations_0_1
+kmeans_rewrite_kmeansrandom_maxnumiterations_0_2
+kmeans_rewrite_kmeansrandom_maxnumiterations_0_3
+kmeans_rewrite_kmeansrandom_maxnumiterations_0_4
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_minfracreassigned
+# Test kmeans random with different min_frac_reassigned
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_minfracreassigned_0_0
+kmeans_rewrite_kmeansrandom_minfracreassigned_0_1
+kmeans_rewrite_kmeansrandom_minfracreassigned_0_2
+kmeans_rewrite_kmeansrandom_minfracreassigned_0_3
+kmeans_rewrite_kmeansrandom_minfracreassigned_0_4
+kmeans_rewrite_kmeansrandom_minfracreassigned_0_5
+kmeans_rewrite_kmeansrandom_minfracreassigned_0_6
+kmeans_rewrite_kmeansrandom_minfracreassigned_0_7
+
+# TestSuite Name : kmeans_rewrite_kmeansrandom_ctas
+# Test kmeans random with create table as
+# Start TestSuite ==========
+kmeans_rewrite_kmeansrandom_ctas_0_0
+
