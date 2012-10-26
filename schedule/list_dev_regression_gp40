@@ -1,3 +1,8 @@
+case_kmeans_rewrite_seeding
+case_kmeans_rewrite_kmeans
+case_kmeans_rewrite_kmeanspp
+case_kmeans_rewrite_kmeansrandom
+
 case_common
 case_multinomial_logistic_regression_gp_basic
 
