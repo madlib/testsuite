@@ -26,12 +26,12 @@ tables :
           data : "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
           desc : "./desc/km_winequality_red.desc"
     - id : km_p53
-      skip : pg
+      skip : all
       cmd : "python p53_fm.py -t <table> -d <sql> -s <sourfile>"
       args :
           sourfile : "http://archive.ics.uci.edu/ml/machine-learning-databases/p53/p53_old_2010.zip"
     - id : km_tfidf3
-      skip : pg
+      skip : all
     - id : km_centroids
 
 
