@@ -1,60 +1,60 @@
-# TestSuite Name : kmeans_rewrite_kmeanspp_perf_norm1
+# TestSuite Name : km_pp_perf_norm1
 # Test performance of kmeans plusplus with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_perf_norm1_0_0
-kmeans_rewrite_kmeanspp_perf_norm1_0_1
-kmeans_rewrite_kmeanspp_perf_norm1_0_2
-kmeans_rewrite_kmeanspp_perf_norm1_0_3
-kmeans_rewrite_kmeanspp_perf_norm1_0_4
-kmeans_rewrite_kmeanspp_perf_norm1_0_5
-kmeans_rewrite_kmeanspp_perf_norm1_0_6
-kmeans_rewrite_kmeanspp_perf_norm1_0_7
-kmeans_rewrite_kmeanspp_perf_norm1_0_8
-kmeans_rewrite_kmeanspp_perf_norm1_0_9
-kmeans_rewrite_kmeanspp_perf_norm1_0_10
+km_pp_perf_norm1_0_0
+km_pp_perf_norm1_0_1
+km_pp_perf_norm1_0_2
+km_pp_perf_norm1_0_3
+km_pp_perf_norm1_0_4
+km_pp_perf_norm1_0_5
+km_pp_perf_norm1_0_6
+km_pp_perf_norm1_0_7
+km_pp_perf_norm1_0_8
+km_pp_perf_norm1_0_9
+km_pp_perf_norm1_0_10
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_perf_norm2
+# TestSuite Name : km_pp_perf_norm2
 # Test performance of kmeans plusplus with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_perf_norm2_0_0
-kmeans_rewrite_kmeanspp_perf_norm2_0_1
-kmeans_rewrite_kmeanspp_perf_norm2_0_2
-kmeans_rewrite_kmeanspp_perf_norm2_0_3
-kmeans_rewrite_kmeanspp_perf_norm2_0_4
-kmeans_rewrite_kmeanspp_perf_norm2_0_5
-kmeans_rewrite_kmeanspp_perf_norm2_0_6
-kmeans_rewrite_kmeanspp_perf_norm2_0_7
-kmeans_rewrite_kmeanspp_perf_norm2_0_8
-kmeans_rewrite_kmeanspp_perf_norm2_0_9
-kmeans_rewrite_kmeanspp_perf_norm2_0_10
+km_pp_perf_norm2_0_0
+km_pp_perf_norm2_0_1
+km_pp_perf_norm2_0_2
+km_pp_perf_norm2_0_3
+km_pp_perf_norm2_0_4
+km_pp_perf_norm2_0_5
+km_pp_perf_norm2_0_6
+km_pp_perf_norm2_0_7
+km_pp_perf_norm2_0_8
+km_pp_perf_norm2_0_9
+km_pp_perf_norm2_0_10
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_perf_angle
+# TestSuite Name : km_pp_perf_angle
 # Test performance of kmeans plusplus with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_perf_angle_0_0
-kmeans_rewrite_kmeanspp_perf_angle_0_1
-kmeans_rewrite_kmeanspp_perf_angle_0_2
-kmeans_rewrite_kmeanspp_perf_angle_0_3
-kmeans_rewrite_kmeanspp_perf_angle_0_4
-kmeans_rewrite_kmeanspp_perf_angle_0_5
-kmeans_rewrite_kmeanspp_perf_angle_0_6
-kmeans_rewrite_kmeanspp_perf_angle_0_7
-kmeans_rewrite_kmeanspp_perf_angle_0_8
-kmeans_rewrite_kmeanspp_perf_angle_0_9
-kmeans_rewrite_kmeanspp_perf_angle_0_10
+km_pp_perf_angle_0_0
+km_pp_perf_angle_0_1
+km_pp_perf_angle_0_2
+km_pp_perf_angle_0_3
+km_pp_perf_angle_0_4
+km_pp_perf_angle_0_5
+km_pp_perf_angle_0_6
+km_pp_perf_angle_0_7
+km_pp_perf_angle_0_8
+km_pp_perf_angle_0_9
+km_pp_perf_angle_0_10
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_perf_tanimoto
+# TestSuite Name : km_pp_perf_tanimoto
 # Test performance of kmeans plusplus with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_perf_tanimoto_0_0
-kmeans_rewrite_kmeanspp_perf_tanimoto_0_1
-kmeans_rewrite_kmeanspp_perf_tanimoto_0_2
-kmeans_rewrite_kmeanspp_perf_tanimoto_0_3
-kmeans_rewrite_kmeanspp_perf_tanimoto_0_4
-kmeans_rewrite_kmeanspp_perf_tanimoto_0_5
-kmeans_rewrite_kmeanspp_perf_tanimoto_0_6
-kmeans_rewrite_kmeanspp_perf_tanimoto_0_7
-kmeans_rewrite_kmeanspp_perf_tanimoto_0_8
-kmeans_rewrite_kmeanspp_perf_tanimoto_0_9
-kmeans_rewrite_kmeanspp_perf_tanimoto_0_10
+km_pp_perf_tanimoto_0_0
+km_pp_perf_tanimoto_0_1
+km_pp_perf_tanimoto_0_2
+km_pp_perf_tanimoto_0_3
+km_pp_perf_tanimoto_0_4
+km_pp_perf_tanimoto_0_5
+km_pp_perf_tanimoto_0_6
+km_pp_perf_tanimoto_0_7
+km_pp_perf_tanimoto_0_8
+km_pp_perf_tanimoto_0_9
+km_pp_perf_tanimoto_0_10
 

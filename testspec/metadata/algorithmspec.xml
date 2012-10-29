@@ -4,7 +4,7 @@
         <name>kmeans_rewrite</name>
 
         <method>
-            <name>kmeans_rewrite_kmeanspp_seeding_default</name>
+            <name>km_pp_seeding_default</name>
             <create>true</create>
             <template>
                 SELECT array_upper(t.kmeanspp_seeding, 1) FROM
@@ -35,7 +35,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeanspp_seeding_default_fndist</name>
+            <name>km_pp_seeding_default_fndist</name>
             <create>true</create>
             <template>
                 SELECT array_upper(t.kmeanspp_seeding, 1) FROM
@@ -72,7 +72,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeanspp_seeding_default_fndist_initialcentroids</name>
+            <name>km_pp_seeding_default_fndist_initialcentroids</name>
             <create>true</create>
             <template>
                 SELECT array_upper(t.kmeanspp_seeding, 1) FROM
@@ -115,7 +115,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeans_random_seeding_default</name>
+            <name>km_random_seeding_default</name>
             <create>true</create>
             <template>
                 SELECT array_upper(t.kmeans_random_seeding, 1) FROM
@@ -146,7 +146,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeans_random_seeding_default_initialcentroids</name>
+            <name>km_random_seeding_default_initialcentroids</name>
             <create>true</create>
             <template>
                 SELECT array_upper(t.kmeans_random_seeding, 1) FROM
@@ -183,7 +183,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeans_default</name>
+            <name>km_default</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -217,7 +217,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeans_default_fndist</name>
+            <name>km_default_fndist</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -263,7 +263,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid</name>
+            <name>km_default_fndist_aggcentroid</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -315,7 +315,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter</name>
+            <name>km_default_fndist_aggcentroid_maxiter</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -373,7 +373,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac</name>
+            <name>km_default_fndist_aggcentroid_maxiter_minfrac</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -437,7 +437,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+            <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -502,7 +502,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeans_getsilhouette</name>
+            <name>km_getsilhouette</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -539,7 +539,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeans_ctas</name>
+            <name>km_ctas</name>
             <template>
                 CREATE TABLE madlibtestresult.centroids AS
                       SELECT {madlib_schema}.kmeans(
@@ -598,7 +598,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeanspp_default</name>
+            <name>km_pp_default</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -632,7 +632,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeanspp_default_fndist</name>
+            <name>km_pp_default_fndist</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -678,7 +678,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid</name>
+            <name>km_pp_default_fndist_aggcentroid</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -730,7 +730,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter</name>
+            <name>km_pp_default_fndist_aggcentroid_maxiter</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -788,7 +788,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter_minfrac</name>
+            <name>km_pp_default_fndist_aggcentroid_maxiter_minfrac</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -852,8 +852,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeanspp_ctas</name>
-            <create>true</create>
+            <name>km_pp_ctas</name>
             <template>
                 CREATE TABLE madlibtestresult.centroids AS
                       SELECT {madlib_schema}.kmeanspp(
@@ -912,7 +911,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeansrandom_default</name>
+            <name>km_random_default</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -946,7 +945,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeansrandom_default_fndist</name>
+            <name>km_random_default_fndist</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -992,7 +991,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeansrandom_default_fndist_aggcentroid</name>
+            <name>km_random_default_fndist_aggcentroid</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -1044,7 +1043,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeansrandom_default_fndist_aggcentroid_maxiter</name>
+            <name>km_random_default_fndist_aggcentroid_maxiter</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -1102,7 +1101,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeansrandom_default_fndist_aggcentroid_maxiter_minfrac</name>
+            <name>km_random_default_fndist_aggcentroid_maxiter_minfrac</name>
             <create>true</create>
             <template>
                 SELECT {madlib_schema}.simple_silhouette(
@@ -1166,7 +1165,7 @@
         </method>
 
         <method>
-            <name>kmeans_rewrite_kmeansrandom_ctas</name>
+            <name>km_random_ctas</name>
             <template>
                 CREATE TABLE madlibtestresult.centroids AS
                       SELECT {madlib_schema}.kmeans_random(
@@ -4510,1009 +4509,7 @@
                    <type>float8</type>
              </output_parameter>
         </method>
-
-
     </algorithm>
-    <algorithm>
-         <name>kmeans</name>
-         <method>
-            <name>kmeans_cset</name>
-            <create>true</create>
-            <template>
-                   SELECT * FROM {madlib_schema}.kmeans_cset
-                        ( {src_relation}     -- src_relation
-                        , {src_col_data}     -- src_col_data 
-                        , {src_col_id}       -- src_col_id
-                        , {out_points}       -- out_points
-                        , {out_centroids}    -- out_centroids
-                        , {dist_metric}      -- dist_metric
-                        , {max_iter}         -- max_iteration
-                        , {conv_threshold}   -- convergence_threshold
-                        , {evaluate}         -- gof_test_switch
-                        , {verbosity}        -- verbosity_switch
-                        , {init_cset_rel}    -- init_cset_rel
-                        , {init_cset_col}    -- init_cset_col
-                        ) AS q;
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>l2norm</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>init_cset_rel</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>init_cset_col</name>
-                <type>text</type>
-            </input_parameter>
-            <!-- result arguments-->
-            <output_parameter>
-                <name>point_count</name>
-                <type>bigint</type>
-            </output_parameter>
-            <output_parameter>
-                <name>iterations</name>
-                <type>int</type>
-            </output_parameter>
-            <output_parameter>
-                <name>cost_func</name>
-                <type>double precision</type>
-            </output_parameter>
-            <output_parameter>
-                <name>silhouette</name>
-                <type>double precision</type>
-            </output_parameter>
-         </method>
-
-         <method>        
-            <name>kmeans_plusplus</name>
-            <create>true</create>
-            <template>
-                   SELECT * FROM {madlib_schema}.kmeans_plusplus
-                        ( {src_relation}     -- src_relation
-                        , {src_col_data}     -- src_col_data 
-                        , {src_col_id}       -- src_col_id
-                        , {out_points}       -- out_points
-                        , {out_centroids}    -- out_centroids
-                        , {dist_metric}      -- dist_metric
-                        , {max_iter}         -- max_iteration
-                        , {conv_threshold}   -- convergence_threshold
-                        , {evaluate}         -- gof_test_switch
-                        , {verbosity}        -- verbosity_mode
-                        , {k}                -- number_of_centroids
-                        , {sample_frac}      -- sample_fraction
-                        ) AS q;
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>l2norm</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>int</type>
-            </input_parameter>
-            <input_parameter>
-                <name>sample_frac</name>
-                <type>float</type>
-                <default>0.01</default>
-            </input_parameter>
-            <!-- result arguments-->
-            <output_parameter>
-                <name>point_count</name>
-                <type>bigint</type>
-            </output_parameter>
-            <output_parameter>
-                <name>iterations</name>
-                <type>int</type>
-            </output_parameter>
-            <output_parameter>
-                <name>cost_func</name>
-                <type>double precision</type>
-            </output_parameter>
-            <output_parameter>
-                <name>silhouette</name>
-                <type>double precision</type>
-            </output_parameter>
-         </method>
-         
-          <method>        
-            <name>kmeans_random</name>
-            <create>true</create>
-            <template>
-                   SELECT * FROM {madlib_schema}.kmeans_random
-                        ( {src_relation}     -- src_relation
-                        , {src_col_data}     -- src_col_data 
-                        , {src_col_id}       -- src_col_id
-                        , {out_points}       -- out_points
-                        , {out_centroids}    -- out_centroids
-                        , {dist_metric}      -- dist_metric
-                        , {max_iter}         -- max_iteration
-                        , {conv_threshold}   -- convergence_threshold
-                        , {evaluate}         -- gof_test_switch
-                        , {verbosity}        -- verbosity_mode
-                        , {k}                -- number_of_centroids
-                        ) AS q;
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>l2norm</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>int</type>
-            </input_parameter>
-            <!-- result arguments-->
-            <output_parameter>
-                <name>point_count</name>
-                <type>bigint</type>
-            </output_parameter>
-            <output_parameter>
-                <name>iterations</name>
-                <type>int</type>
-            </output_parameter>
-            <output_parameter>
-                <name>cost_func</name>
-                <type>double precision</type>
-            </output_parameter>
-            <output_parameter>
-                <name>silhouette</name>
-                <type>double precision</type>
-            </output_parameter>
-         </method>
-
-         <method>        
-            <name>kmeans_canopy</name>
-            <create>true</create>
-            <template>
-                   SELECT * FROM {madlib_schema}.kmeans_canopy
-                        ( {src_relation}     -- src_relation
-                        , {src_col_data}     -- src_col_data 
-                        , {src_col_id}       -- src_col_id
-                        , {out_points}       -- out_points
-                        , {out_centroids}    -- out_centroids
-                        , {dist_metric}      -- dist_metric
-                        , {max_iter}         -- max_iteration
-                        , {conv_threshold}   -- convergence_threshold
-                        , {evaluate}         -- gof_test_switch
-                        , {verbosity}        -- verbosity_mode
-                        , {t1}               -- lower_seeding_threshold
-                        , {t2}               -- upper_seeding_threshold
-                        ) AS q;
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>l2norm</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>t1</name>
-                <type>float</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>t2</name>
-                <type>float</type>
-                <default>NULL</default>
-            </input_parameter>
-            <!-- result arguments-->
-            <output_parameter>
-                <name>point_count</name>
-                <type>bigint</type>
-            </output_parameter>
-            <output_parameter>
-                <name>iterations</name>
-                <type>int</type>
-            </output_parameter>
-            <output_parameter>
-                <name>cost_func</name>
-                <type>double precision</type>
-            </output_parameter>
-            <output_parameter>
-                <name>silhouette</name>
-                <type>double precision</type>
-            </output_parameter>
-         </method>
- 
-          <method>
-            <name>kmeans_cset_ctas</name>
-            <template>
-                CREATE TABLE {table_name} AS
-                   SELECT * FROM {madlib_schema}.kmeans_cset
-                        ( {src_relation}     -- src_relation
-                        , {src_col_data}     -- src_col_data 
-                        , {src_col_id}       -- src_col_id
-                        , {out_points}       -- out_points
-                        , {out_centroids}    -- out_centroids
-                        , {dist_metric}      -- dist_metric
-                        , {max_iter}         -- max_iteration
-                        , {conv_threshold}   -- convergence_threshold
-                        , {evaluate}         -- gof_test_switch
-                        , {verbosity}        -- verbosity_switch
-                        , {init_cset_rel}    -- init_cset_rel
-                        , {init_cset_col}    -- init_cset_col
-                        );
-                DROP TABLE {table_name};
-            </template>
-            <input_parameter>
-                <name>table_name </name>
-                <type>text</type>
-                <quote>false</quote>              
-            </input_parameter>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>l2norm</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>init_cset_rel</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>init_cset_col</name>
-                <type>text</type>
-            </input_parameter>
-            <!-- no result arguments for create table as -->
-         </method>
-
-         <method>        
-            <name>kmeans_plusplus_ctas</name>
-            <template>
-                CREATE TABLE {table_name} AS
-                   SELECT * FROM {madlib_schema}.kmeans_plusplus
-                        ( {src_relation}     -- src_relation
-                        , {src_col_data}     -- src_col_data 
-                        , {src_col_id}       -- src_col_id
-                        , {out_points}       -- out_points
-                        , {out_centroids}    -- out_centroids
-                        , {dist_metric}      -- dist_metric
-                        , {max_iter}         -- max_iteration
-                        , {conv_threshold}   -- convergence_threshold
-                        , {evaluate}         -- gof_test_switch
-                        , {verbosity}        -- verbosity_mode
-                        , {k}                -- number_of_centroids
-                        , {sample_frac}      -- sample_fraction
-                        );
-                DROP TABLE {table_name};
-            </template>
-            <input_parameter>
-                <name>table_name </name>
-                <type>text</type>
-                <quote>false</quote>              
-            </input_parameter>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>l2norm</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>int</type>
-            </input_parameter>
-            <input_parameter>
-                <name>sample_frac</name>
-                <type>float</type>
-                <default>0.01</default>
-            </input_parameter>
-            <!-- no result arguments for create table as -->
-         </method>
-         
-          <method>        
-            <name>kmeans_random_ctas</name>
-            <template>
-                CREATE TABLE {table_name} AS
-                   SELECT * FROM {madlib_schema}.kmeans_random
-                        ( {src_relation}     -- src_relation
-                        , {src_col_data}     -- src_col_data 
-                        , {src_col_id}       -- src_col_id
-                        , {out_points}       -- out_points
-                        , {out_centroids}    -- out_centroids
-                        , {dist_metric}      -- dist_metric
-                        , {max_iter}         -- max_iteration
-                        , {conv_threshold}   -- convergence_threshold
-                        , {evaluate}         -- gof_test_switch
-                        , {verbosity}        -- verbosity_mode
-                        , {k}                -- number_of_centroids
-                        );
-                DROP TABLE {table_name};
-            </template>
-            <input_parameter>
-                <name>table_name </name>
-                <type>text</type>
-                <quote>false</quote>              
-            </input_parameter>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>l2norm</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>int</type>
-            </input_parameter>
-            <!-- no result arguments for create table as -->
-         </method>
-
-         <method>        
-            <name>kmeans_canopy_ctas</name>
-            <template>
-                CREATE TABLE {table_name} AS
-                   SELECT * FROM {madlib_schema}.kmeans_canopy
-                        ( {src_relation}     -- src_relation
-                        , {src_col_data}     -- src_col_data 
-                        , {src_col_id}       -- src_col_id
-                        , {out_points}       -- out_points
-                        , {out_centroids}    -- out_centroids
-                        , {dist_metric}      -- dist_metric
-                        , {max_iter}         -- max_iteration
-                        , {conv_threshold}   -- convergence_threshold
-                        , {evaluate}         -- gof_test_switch
-                        , {verbosity}        -- verbosity_mode
-                        , {t1}               -- lower_seeding_threshold
-                        , {t2}               -- upper_seeding_threshold
-                        );
-                DROP TABLE {table_name};
-            </template>
-            <input_parameter>
-                <name>table_name </name>
-                <type>text</type>
-                <quote>false</quote>              
-            </input_parameter>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>src_col_id</name>
-                <type>text</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>out_points</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>out_centroids</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>l2norm</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <input_parameter>
-                <name>evaluate</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>verbosity</name>
-                <type>boolean</type>
-                <default>True</default>
-            </input_parameter>
-            <input_parameter>
-                <name>t1</name>
-                <type>float</type>
-                <default>NULL</default>
-            </input_parameter>
-            <input_parameter>
-                <name>t2</name>
-                <type>float</type>
-                <default>NULL</default>
-            </input_parameter>
-            <!-- no result arguments for create table as -->
-         </method>
-         <method>
-            <name>simple_silhouette</name>
-            <create>true</create>
-            <template>
-                   SELECT {madlib_schema}.simple_silhouette
-                        ( {src_relation}   -- rel_source
-                        , {src_col_data}   -- expr_point
-                        , (SELECT centroids FROM {src_result}) -- centroids
-                        , {dist_metric}    -- fn_dist
-                        );
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>varchar</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>varchar</type>
-            </input_parameter>
-            <input_parameter>
-                <name>src_result</name>
-                <type>varchar</type>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>varchar</type>
-                <default>madlib.dist_norm2</default>
-            </input_parameter>
-	    <output_parameter>
-                <name>silhouette</name>
-                <type>double precision</type>
-            </output_parameter>
-         </method>
-
-         <method>
-            <name>kmeans_new_cset</name>
-            <create>true</create>
-            <template>
-                   SELECT {madlib_schema}.simple_silhouette
-                        ( {src_relation}   -- rel_source
-                        , {src_col_data}   -- expr_point
-                        , (SELECT centroids FROM {src_result}) -- centroids
-                        , {dist_metric}    -- fn_dist
-                        );
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>src_result</name>
-                <type>text</type>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>dist_norm2</default>
-            </input_parameter>
-         </method>
-
-
-         <method>
-            <name>kmeans_new_silhouette_cset</name>
-            <create>true</create>
-            <template>
-                   SELECT {madlib_schema}.simple_silhouette
-                        ( {src_relation}   -- rel_source
-                        , {src_col_data}   -- expr_point
-                        , (SELECT centroids FROM {src_result}) -- centroids
-                        , {dist_metric}    -- fn_dist
-                        );
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>src_result</name>
-                <type>text</type>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>madlib.dist_norm2</default>
-            </input_parameter>
-         </method>
-
-       <method>
-            <name>kmeans_new_random_seeding</name>
-            <create>true</create>
-            <template>
-                   SELECT {madlib_schema}.kmeans_random_seeding
-                        ( {src_relation}   -- rel_source
-                        , {src_col_data}   -- expr_point
-                        , {k}              -- k
-                        , {initial_centroids} -- initial_centroids
-                        );
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>smallint</type>
-            </input_parameter>
-            <input_parameter>
-                <name>initial_centroids</name>
-                <type>double precision[][]</type>
-                <default>NULL</default>
-            </input_parameter>
-         </method>
-
- <method>
-            <name>kmeans_new_pp_seeding</name>
-            <create>true</create>
-            <template>
-                   SELECT {madlib_schema}.kmeanspp_seeding
-                        ( {src_relation}   -- rel_source
-                        , {src_col_data}   -- expr_point
-                        , {k}              -- k
-                        , {dist_metric}    -- fn_dist
-                        , {initial_centroids} -- initial_centroids
-                        );
-            </template>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>smallint</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric</name>
-                <type>text</type>
-                <default>madlib.dist_norm2</default>
-            </input_parameter>
-            <input_parameter>
-                <name>initial_centroids</name>
-                <type>double precision[][]</type>
-                <default>NULL</default>
-            </input_parameter>
-         </method>
- <method>
-            <name>kmeans_new_random_ctas</name>
-            <create>true</create>
-            <template>
-                SELECT {madlib_schema}.create_table_as('{table_name}', $$
-                   SELECT * FROM {madlib_schema}.kmeans_random
-                        ( {src_relation}             -- rel_source
-                        , {src_col_data}             -- expr_point
-                        , {k}                        -- num_of_centroids
-                        , ({dist_metrics})[1]        -- fn_dist
-                        , {agg_mean} -- agg_mean
-                        , {max_iter} -- max_num_iterations
-                        , {conv_threshold} -- min_frac_reassigned
-                        ) AS q
-                $$);
-                SELECT {madlib_schema}.simple_silhouette
-                    ( {src_relation}                        -- rel_source
-                    , {src_col_data}                        -- expr_point
-                    , (SELECT centroids FROM {table_name})  -- centroids
-                    , ({dist_metrics})[2]                   -- fn_dist
-                    ) AS silhouette;
-            </template>
-            <input_parameter>
-                <name>table_name</name>
-                <type>text</type>
-                <quote>false</quote>
-            </input_parameter>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>text</type>
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>text</type>
-            </input_parameter>
-            <input_parameter>
-                <name>k</name>
-                <type>smallint</type>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metrics</name>
-                <type>text</type>
-                <quote>false</quote>
-                <default>ARRAY['madlib.squared_dist_norm2','madlib.dist_norm2']</default>
-            </input_parameter>
-            <input_parameter>
-                <name>dist_metric_in_objective</name>
-                <type>text</type>
-                <default>madlib.squared_dist_norm2</default>
-            </input_parameter>
-            <input_parameter>
-                <name>agg_mean</name>
-                <type>text</type>
-                <default>madlib.avg</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <!-- no result arguments for create table as -->
-            <output_parameter>
-                <name>silhouette</name>
-                <type>double precision</type>
-            </output_parameter>
-         </method>
-<method>
-            <name>kmeans_new_cset_ctas</name>
-            <create>true</create>
-            <template>
-                SELECT {madlib_schema}.create_table_as('{table_name}', $$
-            		SELECT * FROM {madlib_schema}.kmeans
-            		( {src_relation}     -- rel_source
-             		, {src_col_data}     -- expr_point
-            		, {init_cset_rel}    -- rel_initial_centroids
-            		, {init_cset_col}    -- expr_centroid
-            		, ({dist_metrics})[1]-- fn_dist
-            		, {agg_centroid}         -- agg_centroid
-            		, {max_iter}         -- max_num_iterations
-            		, {conv_threshold}   -- min_frac_reassigned
-            		) AS q  
-            $$);                 
-		    SELECT {madlib_schema}.simple_silhouette
-		    ( {src_relation}         -- rel_source
-		    , {src_col_data}         -- expr_point
-		    , (SELECT centroids FROM {table_name}) -- centroids
-		    , ({dist_metrics})[2]    -- fn_dis
-		    ) as silhouette;
-                <!-- DROP TABLE {table_name}; -->
-            </template>
-            <input_parameter>
-                <name>table_name </name>
-                <type>text</type>
-                <quote>false</quote>              
-            </input_parameter>
-            <input_parameter>
-                <name>src_relation</name>
-                <type>varchar</type>              
-           </input_parameter>
-           <input_parameter>
-                <name>src_col_data</name>
-                <type>varchar</type>   
-            </input_parameter>           
-            <input_parameter>
-                <name>init_cset_rel</name>
-                <type>varchar</type>
-            </input_parameter>
-            <input_parameter>
-                <name>init_cset_col</name>
-                <type>varchar</type>
-            </input_parameter>
-	    <input_parameter>
-                <name>dist_metrics</name>
-                <type>text[]</type>
-                <quote>false</quote>
-                <default>ARRAY['madlib.squared_dist_norm2','madlib.dist_norm2']</default>
-            </input_parameter>
-       	    <input_parameter>
-                <name>agg_centroid</name>
-                <type>varchar</type>
-                <default>madlib.avg</default>
-            </input_parameter>
-            <input_parameter>
-                <name>max_iter</name>
-                <type>int</type>
-                <default>20</default>
-            </input_parameter>
-            <input_parameter>
-                <name>conv_threshold</name>
-                <type>float</type>
-                <default>0.001</default>
-            </input_parameter>
-            <!-- no result arguments for create table as -->
-	     <output_parameter>
-                <name>silhouette</name>
-                <type>double precision</type>
-            </output_parameter>
-         </method>
-     </algorithm>
     
      <algorithm>
          <name>linear_regression</name>

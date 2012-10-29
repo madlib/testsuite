@@ -86,45 +86,158 @@ SET evaluation_function =
  WHERE dts.runid = ts.runid AND dts.testitemname=ts.itemname)
 WHERE itemname like 'dt%' and itemname not like '%cross_validate%';
 
+
 UPDATE benchmark.testitemresult AS ts
 SET evaluation_function =
-(SELECT silhouette
- FROM benchmark.kmeans_kmeans_cset AS kmeans
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_random_seeding_default AS kmeans
  WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
 WHERE itemname like 'kmeans%';
 
 UPDATE benchmark.testitemresult AS ts
 SET evaluation_function =
-(SELECT silhouette
- FROM benchmark.kmeans_kmeans_plusplus AS kmeans
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_random_seeding_default_initialcentroids AS kmeans
  WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
 WHERE itemname like 'kmeans%';
 
 UPDATE benchmark.testitemresult AS ts
 SET evaluation_function =
-(SELECT silhouette
- FROM benchmark.kmeans_kmeans_random AS kmeans
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_pp_seeding_default AS kmeans
  WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
 WHERE itemname like 'kmeans%';
 
 UPDATE benchmark.testitemresult AS ts
 SET evaluation_function =
-(SELECT silhouette
- FROM benchmark.kmeans_kmeans_canopy AS kmeans
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_pp_seeding_default_fndist AS kmeans
  WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
 WHERE itemname like 'kmeans%';
 
 UPDATE benchmark.testitemresult AS ts
 SET evaluation_function =
-(SELECT silhouette
- FROM benchmark.kmeans_kmeans_new_cset_ctas AS kmeans
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_pp_seeding_default_fndist_initialcentroids AS kmeans
  WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
-WHERE itemname like 'kmeans_new_cset%';
+WHERE itemname like 'kmeans%';
 
 UPDATE benchmark.testitemresult AS ts
-        SET evaluation_function =
-                (SELECT silhouette
-                        FROM benchmark.kmeans_kmeans_new_random_ctas AS kmeans
-                        WHERE kmeans.runid = ts.runid AND kmeans.testitemname = ts.itemname)
-        WHERE itemname like 'kmeans_new_random%';
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_getsilhouette AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_default AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_default_fndist AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_default_fndist_aggcentroid AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_default_fndist_aggcentroid_maxiter AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_default_fndist_aggcentroid_maxiter_minfrac AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_default_fndist_aggcentroid_maxiter_minfrac_ce AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_pp_default AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_pp_default_fndist AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_pp_default_fndist_aggcentroid AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_pp_default_fndist_aggcentroid_maxiter AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_pp_default_fndist_aggcentroid_maxiter_minfrac AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_random_default AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_random_default_fndist AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_random_default_fndist_aggcentroid AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_random_default_fndist_aggcentroid_maxiter AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
+
+UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT simple_silhouette
+ FROM benchmark.kmeans_rewrite_km_random_default_fndist_aggcentroid_maxiter_min AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans%';
 

@@ -6,49 +6,49 @@
         <algorithm>kmeans_rewrite</algorithm>
         <methods>
             <method>
-                <name>kmeans_rewrite_kmeans_default</name>
+                <name>km_default</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist</name>
+                <name>km_default_fndist</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid</name>
+                <name>km_default_fndist_aggcentroid</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter</name>
+                <name>km_default_fndist_aggcentroid_maxiter</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
-                <name>kmeans_rewrite_kmeans_ctas</name>
+                <name>km_ctas</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
                 </parameter>
             </method>
             <method>
-                <name>kmeans_rewrite_kmeans_getsilhouette</name>
+                <name>km_getsilhouette</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>
@@ -58,12 +58,12 @@
         </methods>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_default_1abalone</name>
+            <name>km_default_1abalone</name>
             <comments>Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default</name>
+                <name>km_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -84,12 +84,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_default_2movementlibras</name>
+            <name>km_default_2movementlibras</name>
             <comments>Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default</name>
+                <name>km_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -110,12 +110,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_default_3uscensus1990</name>
+            <name>km_default_3uscensus1990</name>
             <comments>Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default</name>
+                <name>km_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -136,12 +136,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_default_4watertreatment</name>
+            <name>km_default_4watertreatment</name>
             <comments>Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default</name>
+                <name>km_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -162,12 +162,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_default_5wine</name>
+            <name>km_default_5wine</name>
             <comments>Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default</name>
+                <name>km_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -188,12 +188,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_default_6winequalityred</name>
+            <name>km_default_6winequalityred</name>
             <comments>Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default</name>
+                <name>km_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -214,12 +214,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_initialcentroids</name>
+            <name>km_initialcentroids</name>
             <comments>Test kmeans Lloyd heuristic with different initial_centroids</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default</name>
+                <name>km_default</name>
                 <list_parameter>
                     <name>initial_centroids</name>
                     <value>ARRAY[ARRAY[4,1,2,0,0,1,3,2,2,0,0,3,0,3,3,0,1,0,0,0,0,0,0,1,4,0,2,0,2,0,1,4,1,2,2,0,2,0,2,1,2,2,0,0,0,1,1,0,2,10,0,4,0,1,0,1,0,0,0,1,0,1,1,1,0,10,1,0]]</value>
@@ -245,12 +245,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_fndist_1distnorm1</name>
+            <name>km_fndist_1distnorm1</name>
             <comments>Test kmeans Lloyd heuristic with different fn_dist</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist</name>
+                <name>km_default_fndist</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -279,12 +279,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_fndist_2distangle</name>
+            <name>km_fndist_2distangle</name>
             <comments>Test kmeans Lloyd heuristic with different fn_dist</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist</name>
+                <name>km_default_fndist</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -313,12 +313,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_fndist_3disttanimoto</name>
+            <name>km_fndist_3disttanimoto</name>
             <comments>Test kmeans Lloyd heuristic with different fn_dist</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist</name>
+                <name>km_default_fndist</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -347,12 +347,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_fndist_4distuserdefined</name>
+            <name>km_fndist_4distuserdefined</name>
             <comments>Test kmeans Lloyd heuristic with different fn_dist</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist</name>
+                <name>km_default_fndist</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -381,12 +381,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_aggcentroid_normalizedavg</name>
+            <name>km_aggcentroid_normalizedavg</name>
             <comments>Test kmeans Lloyd heuristic with different agg_centroid</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid</name>
+                <name>km_default_fndist_aggcentroid</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -419,12 +419,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_aggcentroid_userdefined</name>
+            <name>km_aggcentroid_userdefined</name>
             <comments>Test kmeans Lloyd heuristic with user defined agg_centroid</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid</name>
+                <name>km_default_fndist_aggcentroid</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -448,7 +448,7 @@
                     </parameter>
                     <parameter>
                         <name>agg_centroid</name>
-                        <value>madlibtestdata.median</value>
+                        <value>madlibtestdata.array_avg_agg</value>
                     </parameter>
                 </parameters>
                 <tear_down>
@@ -457,12 +457,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_maxnumiterations</name>
+            <name>km_maxnumiterations</name>
             <comments>Test kmeans Lloyd heuristic with different max_num_iterations</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter</name>
+                <name>km_default_fndist_aggcentroid_maxiter</name>
                 <list_parameter>
                     <name>max_num_iterations</name>
                     <value>1</value>
@@ -503,12 +503,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_minfracreassigned</name>
+            <name>km_minfracreassigned</name>
             <comments>Test kmeans Lloyd heuristic with different min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac</name>
                 <list_parameter>
                     <name>min_frac_reassigned</name>
                     <value>1</value>
@@ -556,12 +556,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_ctas</name>
+            <name>km_ctas</name>
             <comments>Test kmeans Lloyd heuristic with create table as</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_ctas</name>
+                <name>km_ctas</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -597,7 +597,7 @@
             </method>
 
             <method>
-                <name>kmeans_rewrite_kmeans_getsilhouette</name>
+                <name>km_getsilhouette</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>

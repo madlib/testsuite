@@ -6,7 +6,7 @@
         <algorithm>kmeans_rewrite</algorithm>
         <methods>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter_minfrac</name>
+                <name>km_pp_default_fndist_aggcentroid_maxiter_minfrac</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
@@ -15,12 +15,12 @@
         </methods>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_perf_norm1</name>
+            <name>km_pp_perf_norm1</name>
             <comments>Test performance of kmeans plusplus with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter_minfrac</name>
+                <name>km_pp_default_fndist_aggcentroid_maxiter_minfrac</name>
                 <list_parameter>
                     <name>rel_source</name>
                     <value>madlibtestdata.km_us_census_1990</value>
@@ -71,12 +71,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_perf_norm2</name>
+            <name>km_pp_perf_norm2</name>
             <comments>Test performance of kmeans plusplus with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter_minfrac</name>
+                <name>km_pp_default_fndist_aggcentroid_maxiter_minfrac</name>
                 <list_parameter>
                     <name>rel_source</name>
                     <value>madlibtestdata.km_us_census_1990</value>
@@ -127,12 +127,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_perf_angle</name>
+            <name>km_pp_perf_angle</name>
             <comments>Test performance of kmeans plusplus with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter_minfrac</name>
+                <name>km_pp_default_fndist_aggcentroid_maxiter_minfrac</name>
                 <list_parameter>
                     <name>rel_source</name>
                     <value>madlibtestdata.km_us_census_1990</value>
@@ -183,12 +183,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_perf_tanimoto</name>
+            <name>km_pp_perf_tanimoto</name>
             <comments>Test performance of kmeans plusplus with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter_minfrac</name>
+                <name>km_pp_default_fndist_aggcentroid_maxiter_minfrac</name>
                 <list_parameter>
                     <name>rel_source</name>
                     <value>madlibtestdata.km_us_census_1990</value>

@@ -6,49 +6,49 @@
         <algorithm>kmeans_rewrite</algorithm>
         <methods>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default</name>
+                <name>km_pp_default</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
                 </parameter>            
             </method>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist</name>
+                <name>km_pp_default_fndist</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
                 </parameter>            
             </method>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid</name>
+                <name>km_pp_default_fndist_aggcentroid</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
                 </parameter> 
             </method>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter</name>
+                <name>km_pp_default_fndist_aggcentroid_maxiter</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
                 </parameter> 
             </method>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter_minfrac</name>
+                <name>km_pp_default_fndist_aggcentroid_maxiter_minfrac</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
                 </parameter> 
             </method>
             <method>
-                <name>kmeans_rewrite_kmeanspp_ctas</name>
+                <name>km_pp_ctas</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
                 </parameter> 
             </method>
             <method>
-                <name>kmeans_rewrite_kmeans_getsilhouette</name>
+                <name>km_getsilhouette</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
@@ -57,12 +57,12 @@
         </methods>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_default_1abalone</name>
+            <name>km_pp_default_1abalone</name>
             <comments>Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default</name>
+                <name>km_pp_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -83,12 +83,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_default_2movementlibras</name>
+            <name>km_pp_default_2movementlibras</name>
             <comments>Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default</name>
+                <name>km_pp_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -109,12 +109,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_default_3uscensus1990</name>
+            <name>km_pp_default_3uscensus1990</name>
             <comments>Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default</name>
+                <name>km_pp_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -135,12 +135,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_default_4watertreatment</name>
+            <name>km_pp_default_4watertreatment</name>
             <comments>Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default</name>
+                <name>km_pp_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -161,12 +161,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_default_5wine</name>
+            <name>km_pp_default_5wine</name>
             <comments>Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default</name>
+                <name>km_pp_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -187,12 +187,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_default_6winequalityred</name>
+            <name>km_pp_default_6winequalityred</name>
             <comments>Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default</name>
+                <name>km_pp_default</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -213,12 +213,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_k</name>
+            <name>km_pp_k</name>
             <comments>Test kmeans plusplus with different k</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default</name>
+                <name>km_pp_default</name>
                 <list_parameter>
                     <name>k</name>
                     <value>1</value>
@@ -244,12 +244,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_fndist_1distnorm1</name>
+            <name>km_pp_fndist_1distnorm1</name>
             <comments>Test kmeans plusplus with different fn_dist</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist</name>
+                <name>km_pp_default_fndist</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -278,12 +278,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_fndist_2distangle</name>
+            <name>km_pp_fndist_2distangle</name>
             <comments>Test kmeans plusplus with different fn_dist</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist</name>
+                <name>km_pp_default_fndist</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -312,12 +312,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_fndist_3disttanimoto</name>
+            <name>km_pp_fndist_3disttanimoto</name>
             <comments>Test kmeans plusplus with different fn_dist</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist</name>
+                <name>km_pp_default_fndist</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -346,12 +346,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_fndist_4distuserdefined</name>
+            <name>km_pp_fndist_4distuserdefined</name>
             <comments>Test kmeans plusplus with different fn_dist</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist</name>
+                <name>km_pp_default_fndist</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -380,12 +380,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_aggcentroid_normalizedavg</name>
+            <name>km_pp_aggcentroid_normalizedavg</name>
             <comments>Test kmeans plusplus with different agg_centroid</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid</name>
+                <name>km_pp_default_fndist_aggcentroid</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -418,12 +418,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_aggcentroid_userdefined</name>
+            <name>km_pp_aggcentroid_userdefined</name>
             <comments>Test kmeans plusplus with user defined agg_centroid</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid</name>
+                <name>km_pp_default_fndist_aggcentroid</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -447,7 +447,7 @@
                     </parameter>
                     <parameter>
                         <name>agg_centroid</name>
-                        <value>madlibtestdata.median</value>
+                        <value>madlibtestdata.array_avg_agg</value>
                     </parameter>
                 </parameters>
                 <tear_down>
@@ -456,12 +456,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_maxnumiterations</name>
+            <name>km_pp_maxnumiterations</name>
             <comments>Test kmeans plusplus with different max_num_iterations</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter</name>
+                <name>km_pp_default_fndist_aggcentroid_maxiter</name>
                 <list_parameter>
                     <name>max_num_iterations</name>
                     <value>1</value>
@@ -502,12 +502,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_minfracreassigned</name>
+            <name>km_pp_minfracreassigned</name>
             <comments>Test kmeans plusplus with different min_frac_reassigned</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_default_fndist_aggcentroid_maxiter_minfrac</name>
+                <name>km_pp_default_fndist_aggcentroid_maxiter_minfrac</name>
                 <list_parameter>
                     <name>min_frac_reassigned</name>
                     <value>1</value>
@@ -555,12 +555,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_ctas</name>
+            <name>km_pp_ctas</name>
             <comments>Test kmeans plusplus with create table as</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_ctas</name>
+                <name>km_pp_ctas</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -596,7 +596,7 @@
             </method>
 
             <method>
-                <name>kmeans_rewrite_kmeans_getsilhouette</name>
+                <name>km_getsilhouette</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>

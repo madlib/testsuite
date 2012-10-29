@@ -6,35 +6,35 @@
         <algorithm>kmeans_rewrite</algorithm>
         <methods>
             <method>
-                <name>kmeans_rewrite_kmeanspp_seeding_default</name>
+                <name>km_pp_seeding_default</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
                 </parameter>            
             </method>
             <method>
-                <name>kmeans_rewrite_kmeanspp_seeding_default_fndist</name>
+                <name>km_pp_seeding_default_fndist</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
                 </parameter>            
             </method>
             <method>
-                <name>kmeans_rewrite_kmeanspp_seeding_default_fndist_initialcentroids</name>
+                <name>km_pp_seeding_default_fndist_initialcentroids</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
                 </parameter> 
             </method>
             <method>
-                <name>kmeans_rewrite_kmeans_random_seeding_default</name>
+                <name>km_random_seeding_default</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
                 </parameter>            
             </method>
             <method>
-                <name>kmeans_rewrite_kmeans_random_seeding_default_initialcentroids</name>
+                <name>km_random_seeding_default_initialcentroids</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
@@ -43,12 +43,12 @@
         </methods>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_seeding_default</name>
+            <name>km_pp_seeding_default</name>
             <comments>Test kmeanspp_seeding with default fn_dist and initial_centroids</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_seeding_default</name>
+                <name>km_pp_seeding_default</name>
                 <list_parameter>
                     <name>rel_source</name>
                     <value>madlibtestdata.km_abalone</value>
@@ -74,12 +74,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_seeding_fndist</name>
+            <name>km_pp_seeding_fndist</name>
             <comments>Test kmeanspp_seeding with different fn_dist functions including user-defined functions</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_seeding_default_fndist</name>
+                <name>km_pp_seeding_default_fndist</name>
                 <list_parameter>
                     <name>fn_dist</name>
                     <value>madlib.dist_norm1</value>
@@ -108,12 +108,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_seeding_initialcentroids</name>
+            <name>km_pp_seeding_initialcentroids</name>
             <comments>Test kmeanspp_seeding with different initial centroids</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_seeding_default_fndist_initialcentroids</name>
+                <name>km_pp_seeding_default_fndist_initialcentroids</name>
                 <list_parameter>
                     <name>initial_centroids</name>
                     <value>ARRAY[ARRAY[4,1,2,0,0,1,3,2,2,0,0,3,0,3,3,0,1,0,0,0,0,0,0,1,4,0,2,0,2,0,1,4,1,2,2,0,2,0,2,1,2,2,0,0,0,1,1,0,2,10,0,4,0,1,0,1,0,0,0,1,0,1,1,1,0,10,1,0]]</value>
@@ -143,12 +143,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_seeding_negative_relsource</name>
+            <name>km_pp_seeding_negative_relsource</name>
             <comments>Test kmeanspp_seeding with invalid rel_source</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_seeding_default_fndist_initialcentroids</name>
+                <name>km_pp_seeding_default_fndist_initialcentroids</name>
                 <list_parameter>
                     <name>rel_source</name>
                     <value>non_existing_schema.km_us_census_1990</value>
@@ -178,12 +178,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_seeding_negative_exprpoint</name>
+            <name>km_pp_seeding_negative_exprpoint</name>
             <comments>Test kmeanspp_seeding with invalid expr_point</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_seeding_default_fndist_initialcentroids</name>
+                <name>km_pp_seeding_default_fndist_initialcentroids</name>
                 <list_parameter>
                     <name>expr_point</name>
                     <value>non_existing_column</value>
@@ -213,12 +213,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_seeding_negative_k</name>
+            <name>km_pp_seeding_negative_k</name>
             <comments>Test kmeanspp_seeding with invalid k</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_seeding_default_fndist_initialcentroids</name>
+                <name>km_pp_seeding_default_fndist_initialcentroids</name>
                 <list_parameter>
                     <name>k</name>
                     <value>-1</value>
@@ -249,12 +249,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_seeding_negative_fndist</name>
+            <name>km_pp_seeding_negative_fndist</name>
             <comments>Test kmeanspp_seeding with invalid fn_dist</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_seeding_default_fndist_initialcentroids</name>
+                <name>km_pp_seeding_default_fndist_initialcentroids</name>
                 <list_parameter>
                     <name>fn_dist</name>
                     <value>non_existing_schema.squared_dist_norm2</value>
@@ -286,12 +286,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeanspp_seeding_negative_initialcentroids</name>
+            <name>km_pp_seeding_negative_initialcentroids</name>
             <comments>Test kmeanspp_seeding with invalid initial_centroids</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeanspp_seeding_default_fndist_initialcentroids</name>
+                <name>km_pp_seeding_default_fndist_initialcentroids</name>
                 <list_parameter>
                     <name>initial_centroids</name>
                     <value>ARRAY[ARRAY[4,1,2,0,0,1,3]]</value>
@@ -321,12 +321,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_random_seeding_default</name>
+            <name>km_random_seeding_default</name>
             <comments>Test kmeans_random_seeding with default initial_centroids</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_random_seeding_default</name>
+                <name>km_random_seeding_default</name>
                 <list_parameter>
                     <name>rel_source</name>
                     <value>madlibtestdata.km_abalone</value>
@@ -352,12 +352,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_random_seeding_initialcentroids</name>
+            <name>km_random_seeding_initialcentroids</name>
             <comments>Test kmeans_random_seeding with different initial_centroids</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_random_seeding_default_initialcentroids</name>
+                <name>km_random_seeding_default_initialcentroids</name>
                 <list_parameter>
                     <name>initial_centroids</name>
                     <value>ARRAY[ARRAY[4,1,2,0,0,1,3,2,2,0,0,3,0,3,3,0,1,0,0,0,0,0,0,1,4,0,2,0,2,0,1,4,1,2,2,0,2,0,2,1,2,2,0,0,0,1,1,0,2,10,0,4,0,1,0,1,0,0,0,1,0,1,1,1,0,10,1,0]]</value>
@@ -383,12 +383,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_random_seeding_negative_relsource</name>
+            <name>km_random_seeding_negative_relsource</name>
             <comments>Test kmeans_random_seeding with invalid rel_source</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_random_seeding_default_initialcentroids</name>
+                <name>km_random_seeding_default_initialcentroids</name>
                 <list_parameter>
                     <name>rel_source</name>
                     <value>non_existing_schema.km_us_census_1990</value>
@@ -414,12 +414,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_random_seeding_negative_exprpoint</name>
+            <name>km_random_seeding_negative_exprpoint</name>
             <comments>Test kmeans_random_seeding with invalid expr_point</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_random_seeding_default_initialcentroids</name>
+                <name>km_random_seeding_default_initialcentroids</name>
                 <list_parameter>
                     <name>expr_point</name>
                     <value>non_existing_column</value>
@@ -445,12 +445,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_random_seeding_negative_k</name>
+            <name>km_random_seeding_negative_k</name>
             <comments>Test kmeans_random_seeding with invalid k</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_random_seeding_default_initialcentroids</name>
+                <name>km_random_seeding_default_initialcentroids</name>
                 <list_parameter>
                     <name>k</name>
                     <value>-1</value>
@@ -477,12 +477,12 @@
         </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_random_seeding_negative_initialcentroids</name>
+            <name>km_random_seeding_negative_initialcentroids</name>
             <comments>Test kmeans_random_seeding with invalid initial_centroids</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_random_seeding_default_initialcentroids</name>
+                <name>km_random_seeding_default_initialcentroids</name>
                 <list_parameter>
                     <name>initial_centroids</name>
                     <value>ARRAY[ARRAY[4,1,2,0,0,1,3]]</value>

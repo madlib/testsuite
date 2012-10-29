@@ -6,7 +6,7 @@
         <algorithm>kmeans_rewrite</algorithm>
         <methods>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameter>
                     <name>benchmark</name>
                     <value>TemplateExecutor</value>          
@@ -15,12 +15,12 @@
         </methods>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm1_0</name>
+            <name>km_perf_norm1_0</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -61,12 +61,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm1_1</name>
+            <name>km_perf_norm1_1</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -107,12 +107,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm1_2</name>
+            <name>km_perf_norm1_2</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -153,12 +153,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm1_3</name>
+            <name>km_perf_norm1_3</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -199,12 +199,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm1_4</name>
+            <name>km_perf_norm1_4</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -245,12 +245,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm1_5</name>
+            <name>km_perf_norm1_5</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -291,12 +291,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm1_6</name>
+            <name>km_perf_norm1_6</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -337,12 +337,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm1_7</name>
+            <name>km_perf_norm1_7</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -383,12 +383,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm1_8</name>
+            <name>km_perf_norm1_8</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -429,12 +429,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm1_9</name>
+            <name>km_perf_norm1_9</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -475,12 +475,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm1_10</name>
+            <name>km_perf_norm1_10</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm1 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -521,12 +521,12 @@
        </test_suite>
         
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm2_0</name>
+            <name>km_perf_norm2_0</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -567,12 +567,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm2_1</name>
+            <name>km_perf_norm2_1</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -613,12 +613,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm2_2</name>
+            <name>km_perf_norm2_2</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -659,12 +659,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm2_3</name>
+            <name>km_perf_norm2_3</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -705,12 +705,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm2_4</name>
+            <name>km_perf_norm2_4</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -751,12 +751,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm2_5</name>
+            <name>km_perf_norm2_5</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -797,12 +797,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm2_6</name>
+            <name>km_perf_norm2_6</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -843,12 +843,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm2_7</name>
+            <name>km_perf_norm2_7</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -889,12 +889,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm2_8</name>
+            <name>km_perf_norm2_8</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -935,12 +935,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm2_9</name>
+            <name>km_perf_norm2_9</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -981,12 +981,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_norm2_10</name>
+            <name>km_perf_norm2_10</name>
             <comments>Test performance of kmeans Lloyd heuristic with norm2 distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1027,12 +1027,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_angle_0</name>
+            <name>km_perf_angle_0</name>
             <comments>Test performance of kmeans Lloyd heuristic with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1073,12 +1073,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_angle_1</name>
+            <name>km_perf_angle_1</name>
             <comments>Test performance of kmeans Lloyd heuristic with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1119,12 +1119,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_angle_2</name>
+            <name>km_perf_angle_2</name>
             <comments>Test performance of kmeans Lloyd heuristic with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1165,12 +1165,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_angle_3</name>
+            <name>km_perf_angle_3</name>
             <comments>Test performance of kmeans Lloyd heuristic with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1211,12 +1211,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_angle_4</name>
+            <name>km_perf_angle_4</name>
             <comments>Test performance of kmeans Lloyd heuristic with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1257,12 +1257,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_angle_5</name>
+            <name>km_perf_angle_5</name>
             <comments>Test performance of kmeans Lloyd heuristic with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1303,12 +1303,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_angle_6</name>
+            <name>km_perf_angle_6</name>
             <comments>Test performance of kmeans Lloyd heuristic with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1349,12 +1349,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_angle_7</name>
+            <name>km_perf_angle_7</name>
             <comments>Test performance of kmeans Lloyd heuristic with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1395,12 +1395,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_angle_8</name>
+            <name>km_perf_angle_8</name>
             <comments>Test performance of kmeans Lloyd heuristic with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1441,12 +1441,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_angle_9</name>
+            <name>km_perf_angle_9</name>
             <comments>Test performance of kmeans Lloyd heuristic with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1487,12 +1487,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_angle_10</name>
+            <name>km_perf_angle_10</name>
             <comments>Test performance of kmeans Lloyd heuristic with angle distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1533,12 +1533,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_tanimoto_0</name>
+            <name>km_perf_tanimoto_0</name>
             <comments>Test performance of kmeans Lloyd heuristic with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1579,12 +1579,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_tanimoto_1</name>
+            <name>km_perf_tanimoto_1</name>
             <comments>Test performance of kmeans Lloyd heuristic with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1625,12 +1625,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_tanimoto_2</name>
+            <name>km_perf_tanimoto_2</name>
             <comments>Test performance of kmeans Lloyd heuristic with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1671,12 +1671,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_tanimoto_3</name>
+            <name>km_perf_tanimoto_3</name>
             <comments>Test performance of kmeans Lloyd heuristic with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1717,12 +1717,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_tanimoto_4</name>
+            <name>km_perf_tanimoto_4</name>
             <comments>Test performance of kmeans Lloyd heuristic with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1763,12 +1763,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_tanimoto_5</name>
+            <name>km_perf_tanimoto_5</name>
             <comments>Test performance of kmeans Lloyd heuristic with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1809,12 +1809,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_tanimoto_6</name>
+            <name>km_perf_tanimoto_6</name>
             <comments>Test performance of kmeans Lloyd heuristic with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1855,12 +1855,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_tanimoto_7</name>
+            <name>km_perf_tanimoto_7</name>
             <comments>Test performance of kmeans Lloyd heuristic with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1901,12 +1901,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_tanimoto_8</name>
+            <name>km_perf_tanimoto_8</name>
             <comments>Test performance of kmeans Lloyd heuristic with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1947,12 +1947,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_tanimoto_9</name>
+            <name>km_perf_tanimoto_9</name>
             <comments>Test performance of kmeans Lloyd heuristic with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>
@@ -1993,12 +1993,12 @@
        </test_suite>
 
        <test_suite>
-            <name>kmeans_rewrite_kmeans_perf_tanimoto_10</name>
+            <name>km_perf_tanimoto_10</name>
             <comments>Test performance of kmeans Lloyd heuristic with tanimoto distance function</comments>
                 <!-- It indicate max execution times-->
                 <execute_rate>1</execute_rate>
             <method>
-                <name>kmeans_rewrite_kmeans_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
+                <name>km_default_fndist_aggcentroid_maxiter_minfrac_centroidstables</name>
                 <parameters>
                     <parameter>
                         <name>rel_source</name>

@@ -1,96 +1,96 @@
-# TestSuite Name : kmeans_rewrite_kmeanspp_default_1abalone
+# TestSuite Name : km_pp_default_1abalone
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_default_1abalone_0_0
+km_pp_default_1abalone_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_default_2movementlibras
+# TestSuite Name : km_pp_default_2movementlibras
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_default_2movementlibras_0_0
+km_pp_default_2movementlibras_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_default_3uscensus1990
+# TestSuite Name : km_pp_default_3uscensus1990
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_default_3uscensus1990_0_0
+km_pp_default_3uscensus1990_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_default_4watertreatment
+# TestSuite Name : km_pp_default_4watertreatment
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_default_4watertreatment_0_0
+km_pp_default_4watertreatment_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_default_5wine
+# TestSuite Name : km_pp_default_5wine
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_default_5wine_0_0
+km_pp_default_5wine_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_default_6winequalityred
+# TestSuite Name : km_pp_default_6winequalityred
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_default_6winequalityred_0_0
+km_pp_default_6winequalityred_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_k
+# TestSuite Name : km_pp_k
 # Test kmeans plusplus with different k
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_k_0_0
-kmeans_rewrite_kmeanspp_k_0_1
-kmeans_rewrite_kmeanspp_k_0_2
-kmeans_rewrite_kmeanspp_k_0_3
-kmeans_rewrite_kmeanspp_k_0_4
-kmeans_rewrite_kmeanspp_k_0_5
+km_pp_k_0_0
+km_pp_k_0_1
+km_pp_k_0_2
+km_pp_k_0_3
+km_pp_k_0_4
+km_pp_k_0_5
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_fndist_1distnorm1
+# TestSuite Name : km_pp_fndist_1distnorm1
 # Test kmeans plusplus with different fn_dist
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_fndist_1distnorm1_0_0
+km_pp_fndist_1distnorm1_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_fndist_2distangle
+# TestSuite Name : km_pp_fndist_2distangle
 # Test kmeans plusplus with different fn_dist
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_fndist_2distangle_0_0
+km_pp_fndist_2distangle_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_fndist_3disttanimoto
+# TestSuite Name : km_pp_fndist_3disttanimoto
 # Test kmeans plusplus with different fn_dist
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_fndist_3disttanimoto_0_0
+km_pp_fndist_3disttanimoto_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_fndist_4distuserdefined
+# TestSuite Name : km_pp_fndist_4distuserdefined
 # Test kmeans plusplus with different fn_dist
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_fndist_4distuserdefined_0_0
+km_pp_fndist_4distuserdefined_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_aggcentroid_normalizedavg
+# TestSuite Name : km_pp_aggcentroid_normalizedavg
 # Test kmeans plusplus with different agg_centroid
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_aggcentroid_normalizedavg_0_0
+km_pp_aggcentroid_normalizedavg_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_aggcentroid_userdefined
+# TestSuite Name : km_pp_aggcentroid_userdefined
 # Test kmeans plusplus with user defined agg_centroid
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_aggcentroid_userdefined_0_0
+km_pp_aggcentroid_userdefined_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_maxnumiterations
+# TestSuite Name : km_pp_maxnumiterations
 # Test kmeans plusplus with different max_num_iterations
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_maxnumiterations_0_0
-kmeans_rewrite_kmeanspp_maxnumiterations_0_1
-kmeans_rewrite_kmeanspp_maxnumiterations_0_2
-kmeans_rewrite_kmeanspp_maxnumiterations_0_3
-kmeans_rewrite_kmeanspp_maxnumiterations_0_4
+km_pp_maxnumiterations_0_0
+km_pp_maxnumiterations_0_1
+km_pp_maxnumiterations_0_2
+km_pp_maxnumiterations_0_3
+km_pp_maxnumiterations_0_4
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_minfracreassigned
+# TestSuite Name : km_pp_minfracreassigned
 # Test kmeans plusplus with different min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_minfracreassigned_0_0
-kmeans_rewrite_kmeanspp_minfracreassigned_0_1
-kmeans_rewrite_kmeanspp_minfracreassigned_0_2
-kmeans_rewrite_kmeanspp_minfracreassigned_0_3
-kmeans_rewrite_kmeanspp_minfracreassigned_0_4
-kmeans_rewrite_kmeanspp_minfracreassigned_0_5
-kmeans_rewrite_kmeanspp_minfracreassigned_0_6
-kmeans_rewrite_kmeanspp_minfracreassigned_0_7
+km_pp_minfracreassigned_0_0
+km_pp_minfracreassigned_0_1
+km_pp_minfracreassigned_0_2
+km_pp_minfracreassigned_0_3
+km_pp_minfracreassigned_0_4
+km_pp_minfracreassigned_0_5
+km_pp_minfracreassigned_0_6
+km_pp_minfracreassigned_0_7
 
-# TestSuite Name : kmeans_rewrite_kmeanspp_ctas
+# TestSuite Name : km_pp_ctas
 # Test kmeans plusplus with create table as
 # Start TestSuite ==========
-kmeans_rewrite_kmeanspp_ctas_0_0
+km_pp_ctas_0_0
 

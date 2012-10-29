@@ -1,96 +1,96 @@
-# TestSuite Name : kmeans_rewrite_kmeans_default_1abalone
+# TestSuite Name : km_default_1abalone
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_default_1abalone_0_0
+km_default_1abalone_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_default_2movementlibras
+# TestSuite Name : km_default_2movementlibras
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_default_2movementlibras_0_0
+km_default_2movementlibras_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_default_3uscensus1990
+# TestSuite Name : km_default_3uscensus1990
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_default_3uscensus1990_0_0
+km_default_3uscensus1990_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_default_4watertreatment
+# TestSuite Name : km_default_4watertreatment
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_default_4watertreatment_0_0
+km_default_4watertreatment_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_default_5wine
+# TestSuite Name : km_default_5wine
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_default_5wine_0_0
+km_default_5wine_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_default_6winequalityred
+# TestSuite Name : km_default_6winequalityred
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_default_6winequalityred_0_0
+km_default_6winequalityred_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_initialcentroids
+# TestSuite Name : km_initialcentroids
 # Test kmeans Lloyd heuristic with different initial_centroids
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_initialcentroids_0_0
-kmeans_rewrite_kmeans_initialcentroids_0_1
-kmeans_rewrite_kmeans_initialcentroids_0_2
-kmeans_rewrite_kmeans_initialcentroids_0_3
-kmeans_rewrite_kmeans_initialcentroids_0_4
-kmeans_rewrite_kmeans_initialcentroids_0_5
+km_initialcentroids_0_0
+km_initialcentroids_0_1
+km_initialcentroids_0_2
+km_initialcentroids_0_3
+km_initialcentroids_0_4
+km_initialcentroids_0_5
 
-# TestSuite Name : kmeans_rewrite_kmeans_fndist_1distnorm1
+# TestSuite Name : km_fndist_1distnorm1
 # Test kmeans Lloyd heuristic with different fn_dist
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_fndist_1distnorm1_0_0
+km_fndist_1distnorm1_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_fndist_2distangle
+# TestSuite Name : km_fndist_2distangle
 # Test kmeans Lloyd heuristic with different fn_dist
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_fndist_2distangle_0_0
+km_fndist_2distangle_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_fndist_3disttanimoto
+# TestSuite Name : km_fndist_3disttanimoto
 # Test kmeans Lloyd heuristic with different fn_dist
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_fndist_3disttanimoto_0_0
+km_fndist_3disttanimoto_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_fndist_4distuserdefined
+# TestSuite Name : km_fndist_4distuserdefined
 # Test kmeans Lloyd heuristic with different fn_dist
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_fndist_4distuserdefined_0_0
+km_fndist_4distuserdefined_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_aggcentroid_normalizedavg
+# TestSuite Name : km_aggcentroid_normalizedavg
 # Test kmeans Lloyd heuristic with different agg_centroid
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_aggcentroid_normalizedavg_0_0
+km_aggcentroid_normalizedavg_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_aggcentroid_userdefined
+# TestSuite Name : km_aggcentroid_userdefined
 # Test kmeans Lloyd heuristic with user defined agg_centroid
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_aggcentroid_userdefined_0_0
+km_aggcentroid_userdefined_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_maxnumiterations
+# TestSuite Name : km_maxnumiterations
 # Test kmeans Lloyd heuristic with different max_num_iterations
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_maxnumiterations_0_0
-kmeans_rewrite_kmeans_maxnumiterations_0_1
-kmeans_rewrite_kmeans_maxnumiterations_0_2
-kmeans_rewrite_kmeans_maxnumiterations_0_3
-kmeans_rewrite_kmeans_maxnumiterations_0_4
+km_maxnumiterations_0_0
+km_maxnumiterations_0_1
+km_maxnumiterations_0_2
+km_maxnumiterations_0_3
+km_maxnumiterations_0_4
 
-# TestSuite Name : kmeans_rewrite_kmeans_minfracreassigned
+# TestSuite Name : km_minfracreassigned
 # Test kmeans Lloyd heuristic with different min_frac_reassigned
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_minfracreassigned_0_0
-kmeans_rewrite_kmeans_minfracreassigned_0_1
-kmeans_rewrite_kmeans_minfracreassigned_0_2
-kmeans_rewrite_kmeans_minfracreassigned_0_3
-kmeans_rewrite_kmeans_minfracreassigned_0_4
-kmeans_rewrite_kmeans_minfracreassigned_0_5
-kmeans_rewrite_kmeans_minfracreassigned_0_6
-kmeans_rewrite_kmeans_minfracreassigned_0_7
+km_minfracreassigned_0_0
+km_minfracreassigned_0_1
+km_minfracreassigned_0_2
+km_minfracreassigned_0_3
+km_minfracreassigned_0_4
+km_minfracreassigned_0_5
+km_minfracreassigned_0_6
+km_minfracreassigned_0_7
 
-# TestSuite Name : kmeans_rewrite_kmeans_ctas
+# TestSuite Name : km_ctas
 # Test kmeans Lloyd heuristic with create table as
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_ctas_0_0
+km_ctas_0_0
 

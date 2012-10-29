@@ -1,220 +1,220 @@
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm1_0
+# TestSuite Name : km_perf_norm1_0
 # Test performance of kmeans Lloyd heuristic with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm1_0_0_0
+km_perf_norm1_0_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm1_1
+# TestSuite Name : km_perf_norm1_1
 # Test performance of kmeans Lloyd heuristic with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm1_1_0_0
+km_perf_norm1_1_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm1_2
+# TestSuite Name : km_perf_norm1_2
 # Test performance of kmeans Lloyd heuristic with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm1_2_0_0
+km_perf_norm1_2_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm1_3
+# TestSuite Name : km_perf_norm1_3
 # Test performance of kmeans Lloyd heuristic with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm1_3_0_0
+km_perf_norm1_3_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm1_4
+# TestSuite Name : km_perf_norm1_4
 # Test performance of kmeans Lloyd heuristic with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm1_4_0_0
+km_perf_norm1_4_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm1_5
+# TestSuite Name : km_perf_norm1_5
 # Test performance of kmeans Lloyd heuristic with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm1_5_0_0
+km_perf_norm1_5_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm1_6
+# TestSuite Name : km_perf_norm1_6
 # Test performance of kmeans Lloyd heuristic with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm1_6_0_0
+km_perf_norm1_6_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm1_7
+# TestSuite Name : km_perf_norm1_7
 # Test performance of kmeans Lloyd heuristic with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm1_7_0_0
+km_perf_norm1_7_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm1_8
+# TestSuite Name : km_perf_norm1_8
 # Test performance of kmeans Lloyd heuristic with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm1_8_0_0
+km_perf_norm1_8_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm1_9
+# TestSuite Name : km_perf_norm1_9
 # Test performance of kmeans Lloyd heuristic with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm1_9_0_0
+km_perf_norm1_9_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm1_10
+# TestSuite Name : km_perf_norm1_10
 # Test performance of kmeans Lloyd heuristic with norm1 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm1_10_0_0
+km_perf_norm1_10_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm2_0
+# TestSuite Name : km_perf_norm2_0
 # Test performance of kmeans Lloyd heuristic with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm2_0_0_0
+km_perf_norm2_0_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm2_1
+# TestSuite Name : km_perf_norm2_1
 # Test performance of kmeans Lloyd heuristic with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm2_1_0_0
+km_perf_norm2_1_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm2_2
+# TestSuite Name : km_perf_norm2_2
 # Test performance of kmeans Lloyd heuristic with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm2_2_0_0
+km_perf_norm2_2_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm2_3
+# TestSuite Name : km_perf_norm2_3
 # Test performance of kmeans Lloyd heuristic with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm2_3_0_0
+km_perf_norm2_3_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm2_4
+# TestSuite Name : km_perf_norm2_4
 # Test performance of kmeans Lloyd heuristic with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm2_4_0_0
+km_perf_norm2_4_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm2_5
+# TestSuite Name : km_perf_norm2_5
 # Test performance of kmeans Lloyd heuristic with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm2_5_0_0
+km_perf_norm2_5_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm2_6
+# TestSuite Name : km_perf_norm2_6
 # Test performance of kmeans Lloyd heuristic with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm2_6_0_0
+km_perf_norm2_6_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm2_7
+# TestSuite Name : km_perf_norm2_7
 # Test performance of kmeans Lloyd heuristic with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm2_7_0_0
+km_perf_norm2_7_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm2_8
+# TestSuite Name : km_perf_norm2_8
 # Test performance of kmeans Lloyd heuristic with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm2_8_0_0
+km_perf_norm2_8_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm2_9
+# TestSuite Name : km_perf_norm2_9
 # Test performance of kmeans Lloyd heuristic with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm2_9_0_0
+km_perf_norm2_9_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_norm2_10
+# TestSuite Name : km_perf_norm2_10
 # Test performance of kmeans Lloyd heuristic with norm2 distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_norm2_10_0_0
+km_perf_norm2_10_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_angle_0
+# TestSuite Name : km_perf_angle_0
 # Test performance of kmeans Lloyd heuristic with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_angle_0_0_0
+km_perf_angle_0_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_angle_1
+# TestSuite Name : km_perf_angle_1
 # Test performance of kmeans Lloyd heuristic with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_angle_1_0_0
+km_perf_angle_1_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_angle_2
+# TestSuite Name : km_perf_angle_2
 # Test performance of kmeans Lloyd heuristic with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_angle_2_0_0
+km_perf_angle_2_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_angle_3
+# TestSuite Name : km_perf_angle_3
 # Test performance of kmeans Lloyd heuristic with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_angle_3_0_0
+km_perf_angle_3_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_angle_4
+# TestSuite Name : km_perf_angle_4
 # Test performance of kmeans Lloyd heuristic with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_angle_4_0_0
+km_perf_angle_4_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_angle_5
+# TestSuite Name : km_perf_angle_5
 # Test performance of kmeans Lloyd heuristic with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_angle_5_0_0
+km_perf_angle_5_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_angle_6
+# TestSuite Name : km_perf_angle_6
 # Test performance of kmeans Lloyd heuristic with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_angle_6_0_0
+km_perf_angle_6_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_angle_7
+# TestSuite Name : km_perf_angle_7
 # Test performance of kmeans Lloyd heuristic with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_angle_7_0_0
+km_perf_angle_7_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_angle_8
+# TestSuite Name : km_perf_angle_8
 # Test performance of kmeans Lloyd heuristic with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_angle_8_0_0
+km_perf_angle_8_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_angle_9
+# TestSuite Name : km_perf_angle_9
 # Test performance of kmeans Lloyd heuristic with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_angle_9_0_0
+km_perf_angle_9_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_angle_10
+# TestSuite Name : km_perf_angle_10
 # Test performance of kmeans Lloyd heuristic with angle distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_angle_10_0_0
+km_perf_angle_10_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_tanimoto_0
+# TestSuite Name : km_perf_tanimoto_0
 # Test performance of kmeans Lloyd heuristic with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_tanimoto_0_0_0
+km_perf_tanimoto_0_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_tanimoto_1
+# TestSuite Name : km_perf_tanimoto_1
 # Test performance of kmeans Lloyd heuristic with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_tanimoto_1_0_0
+km_perf_tanimoto_1_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_tanimoto_2
+# TestSuite Name : km_perf_tanimoto_2
 # Test performance of kmeans Lloyd heuristic with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_tanimoto_2_0_0
+km_perf_tanimoto_2_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_tanimoto_3
+# TestSuite Name : km_perf_tanimoto_3
 # Test performance of kmeans Lloyd heuristic with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_tanimoto_3_0_0
+km_perf_tanimoto_3_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_tanimoto_4
+# TestSuite Name : km_perf_tanimoto_4
 # Test performance of kmeans Lloyd heuristic with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_tanimoto_4_0_0
+km_perf_tanimoto_4_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_tanimoto_5
+# TestSuite Name : km_perf_tanimoto_5
 # Test performance of kmeans Lloyd heuristic with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_tanimoto_5_0_0
+km_perf_tanimoto_5_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_tanimoto_6
+# TestSuite Name : km_perf_tanimoto_6
 # Test performance of kmeans Lloyd heuristic with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_tanimoto_6_0_0
+km_perf_tanimoto_6_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_tanimoto_7
+# TestSuite Name : km_perf_tanimoto_7
 # Test performance of kmeans Lloyd heuristic with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_tanimoto_7_0_0
+km_perf_tanimoto_7_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_tanimoto_8
+# TestSuite Name : km_perf_tanimoto_8
 # Test performance of kmeans Lloyd heuristic with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_tanimoto_8_0_0
+km_perf_tanimoto_8_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_tanimoto_9
+# TestSuite Name : km_perf_tanimoto_9
 # Test performance of kmeans Lloyd heuristic with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_tanimoto_9_0_0
+km_perf_tanimoto_9_0_0
 
-# TestSuite Name : kmeans_rewrite_kmeans_perf_tanimoto_10
+# TestSuite Name : km_perf_tanimoto_10
 # Test performance of kmeans Lloyd heuristic with tanimoto distance function
 # Start TestSuite ==========
-kmeans_rewrite_kmeans_perf_tanimoto_10_0_0
+km_perf_tanimoto_10_0_0
 

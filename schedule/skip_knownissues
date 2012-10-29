@@ -14,32 +14,6 @@
 
 ###### Kmeans Clustering ######
 
-### HEAD ###
-### JiraId: MADLIB-359 ###
-### Des: Negative and zero convergence threshold is accepted by kmeans clustering ####
-### Type: 1 ###
-kmeans_cset_negative_convergence_threshold_0_0
-kmeans_cset_negative_convergence_threshold_0_1
-kmeans_cset_negative_convergence_threshold_0_2
-kmeans_plusplus_negative_convergence_threshold_0_0
-kmeans_plusplus_negative_convergence_threshold_0_1
-kmeans_plusplus_negative_convergence_threshold_0_2
-kmeans_random_negative_convergence_threshold_0_0
-kmeans_random_negative_convergence_threshold_0_1
-kmeans_random_negative_convergence_threshold_0_2
-### END ###
-
-### HEAD ###
-### JiraId: MADLIB-361 ###
-### Des: Negative and zero max iteration number is accepted by kmeans ###
-### Type: 1 ###
-kmeans_cset_negative_max_iteration_0_0
-kmeans_cset_negative_max_iteration_0_1
-kmeans_plusplus_negative_max_iteration_0_0
-kmeans_plusplus_negative_max_iteration_0_1
-kmeans_random_negative_max_iteration_0_0
-kmeans_random_negative_max_iteration_0_1
-### END ###
 
 
 #################Association Rules########################
@@ -190,9 +164,8 @@ nb_adhoc_views_4_0_0
 ### JiraId: MADLIB-679 ###
 ### Type: 1 ###
 ### Des: NB result is different between GP and PG ###
-nb_precompute_views_0_4
-nb_precompute_function_workaround_0_4
-nb_adhoc_views_4_0_0
+nb_precompute_views_0_12
+nb_adhoc_views_12_0_0
 ### END ###
 
 ### HEAD ###
