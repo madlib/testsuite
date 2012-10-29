@@ -13,7 +13,14 @@
 ####################################################################
 
 ###### Kmeans Clustering ######
-
+### HEAD ###
+### JiraId: NA ######
+### Des: long running kmeans with user-defined aggreate centroid function ###
+### Type: 2 ###
+km_aggcentroid_userdefined_0_0
+km_pp_aggcentroid_userdefined_0_0
+km_random_aggcentroid_userdefined_0_0
+### END ###
 
 
 #################Association Rules########################

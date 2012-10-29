@@ -72,6 +72,50 @@ CREATE OR REPLACE VIEW testresultreport AS
 
       WHEN  trb.evaluation_function = 0 AND tr.evaluation_function = 0 
       THEN 'PASSED'
+
+      WHEN tr.itemname in ('km_pp_seeding_negative_relsource_0_0_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_pp_seeding_negative_fndist_0_0_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_random_seeding_negative_relsource_0_0_km_random_seeding_default_initialcentroids_0',
+                           'km_pp_seeding_negative_relsource_0_1_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_random_seeding_negative_relsource_0_1_km_random_seeding_default_initialcentroids_0',
+                           'km_pp_seeding_negative_exprpoint_0_0_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_pp_seeding_negative_exprpoint_0_1_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_random_seeding_negative_exprpoint_0_0_km_random_seeding_default_initialcentroids_0',
+                           'km_random_seeding_negative_exprpoint_0_1_km_random_seeding_default_initialcentroids_0',
+                           'km_pp_seeding_negative_k_0_1_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_pp_seeding_negative_k_0_2_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_pp_seeding_negative_initialcentroids_0_1_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_random_seeding_negative_k_0_0_km_random_seeding_default_initialcentroids_0',
+                           'km_random_seeding_negative_k_0_1_km_random_seeding_default_initialcentroids_0',
+                           'km_random_seeding_negative_k_0_2_km_random_seeding_default_initialcentroids_0',
+                           'km_pp_seeding_negative_fndist_0_1_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_pp_seeding_negative_fndist_0_2_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_pp_seeding_negative_fndist_0_3_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_pp_seeding_negative_initialcentroids_0_0_km_pp_seeding_default_fndist_initialcentroids_0',
+                           'km_random_seeding_negative_initialcentroids_0_0_km_random_seeding_default_initialcentroids_0',
+                           'km_random_seeding_negative_initialcentroids_0_1_km_random_seeding_default_initialcentroids_0')
+        THEN CASE WHEN tr.issuccessful = false and
+                             (tr.result_info like '%relation "madlibtestdata.non_existing_table" does not exist%'
+                           or tr.result_info like '%schema "non_existing_schema" does not exist%'
+                           or tr.result_info like '%_src%'
+                           or tr.result_info like '%malformed array literal%'
+                           or tr.result_info like '%function "madlib.non_existing_squared_dist_func(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%'
+                           or tr.result_info like '%function "madlibtestdata.squared_dist_invalid_signature_datatype(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%'
+                           or tr.result_info like '%function "madlibtestdata.squared_dist_invalid_signature_numparam(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%'
+                           or tr.result_info like '%Eigen%'
+                           or tr.result_info like '%cannot concatenate incompatible arrays%'
+                           or tr.result_info like '%invalid input syntax for type double precision%')
+                  THEN 'PASSED'
+                  ELSE 'FAILED'
+                  END
+
+        WHEN tr.itemname like 'km_%' and tr.itemname not like '%negative%'
+        THEN CASE WHEN tr.issuccessful = false
+                  THEN 'FAILED'
+                  ELSE 'PASSED'
+                  END
+           
+
       
   WHEN tr.itemname in ('plda_label_negative_column_contents_datatype_test_table_0_0_plda_label_test_documents_1',
                'plda_label_negative_column_contents_name_test_table_0_0_plda_label_test_documents_1',
