@@ -97,6 +97,7 @@ CREATE OR REPLACE VIEW testresultreport AS
         THEN CASE WHEN tr.issuccessful = false and
                              (tr.result_info like '%relation "madlibtestdata.non_existing_table" does not exist%'
                            or tr.result_info like '%schema "non_existing_schema" does not exist%'
+                           or tr.result_info like '%column "non_existing_column" does not exist%'
                            or tr.result_info like '%_src%'
                            or tr.result_info like '%malformed array literal%'
                            or tr.result_info like '%function "madlib.non_existing_squared_dist_func(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%'
@@ -111,10 +112,27 @@ CREATE OR REPLACE VIEW testresultreport AS
 
         WHEN tr.itemname like 'km_%' and tr.itemname not like '%negative%'
         THEN CASE WHEN tr.issuccessful = false
-                  THEN 'FAILED'
-                  ELSE 'PASSED'
-                  END
-           
+                  THEN
+                       CASE WHEN tr.itemname = 'km_default_4watertreatment_0_0_km_default_0' and tr.result_info like '%At least one initial centroid has non-finite values%'
+                            THEN 'PASSED'
+                            ELSE 'FAILED'
+                            END
+                  WHEN trb.evaluation_function IS NOT NULL
+                       THEN
+                           CASE WHEN tr.evaluation_function IS NULL
+                                THEN 'FAILED'
+                                WHEN tr.evaluation_function='NaN' and trb.evaluation_function='NaN'
+                                THEN 'PASSED'
+                                WHEN (trb.evaluation_function - tr.evaluation_function) > 0.2
+                                THEN 'FAILED : silhouette decreased: baseline is:'::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and actual value is '::text || ((tr.evaluation_function)::decimal(6,5))::text
+                                WHEN (tr.evaluation_function - trb.evaluation_function) > 0.2
+                                THEN 'PASSED: silhouette increased: baseline is:'::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and actual value is '::text || ((tr.evaluation_function)::decimal(6,5))::text
+                                ELSE 'PASSED'
+                           END
+                  WHEN tr.result_info = trb.result_info
+                       THEN 'PASSED'
+                  ELSE 'FAILED'
+               END
 
       
   WHEN tr.itemname in ('plda_label_negative_column_contents_datatype_test_table_0_0_plda_label_test_documents_1',
@@ -203,7 +221,7 @@ CREATE OR REPLACE VIEW testresultreport AS
       THEN 'FAILED : Evaluation function such as score, gof decreased: baseline is '::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and runtime is '::text  || ((tr.evaluation_function)::decimal(6,5))::text
 
       WHEN  (trb.itemname like 'rf%'  OR  trb.itemname like '%cross_validate%' OR trb.itemname  like 'multinomia%') and trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) < 0.7
-      THEN 'FAILED : Evaluation function of random forest decreased: baseline is '::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and runtime is '::text  || ((tr.evaluation_function)::decimal(6,5))::text
+      THEN 'FAILED : Evaluation function decreased: baseline is '::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and runtime is '::text  || ((tr.evaluation_function)::decimal(6,5))::text
 
 
       WHEN  (trb.itemname like 'svm%'  ) and trb.evaluation_function IS NOT NULL AND (tr.evaluation_function / trb.evaluation_function) < 0.0000001

@@ -13,14 +13,6 @@
 ####################################################################
 
 ###### Kmeans Clustering ######
-### HEAD ###
-### JiraId: NA ######
-### Des: long running kmeans with user-defined aggreate centroid function ###
-### Type: 2 ###
-km_aggcentroid_userdefined_0_0
-km_pp_aggcentroid_userdefined_0_0
-km_random_aggcentroid_userdefined_0_0
-### END ###
 
 
 #################Association Rules########################
@@ -480,4 +472,9 @@ plda_stability_0_6
 ##### UTF8 is not acceptable in the pulse server #####
 multinomial_logistic_regression_utf8_character_0_1
 multinomial_logistic_regression_utf8_character_0_0
+
+###### long running kmeans with user-defined aggreate centroid function #####
+km_aggcentroid_userdefined_0_0
+km_pp_aggcentroid_userdefined_0_0
+km_random_aggcentroid_userdefined_0_0
 ### END ###

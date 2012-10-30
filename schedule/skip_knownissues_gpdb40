@@ -498,6 +498,11 @@ svm_reg_polynomial_ds_0_18
 svm_reg_gaussian_ds_0_4
 svm_reg_gaussian_ds_para_0_4
 
+###### long running kmeans with user-defined aggreate centroid function #####
+km_aggcentroid_userdefined_0_0
+km_pp_aggcentroid_userdefined_0_0
+km_random_aggcentroid_userdefined_0_0
+
 ### END ###
 
 ### HEAD ###

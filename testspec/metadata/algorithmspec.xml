@@ -7,7 +7,7 @@
             <name>km_pp_seeding_default</name>
             <create>true</create>
             <template>
-                SELECT array_upper(t.kmeanspp_seeding, 1) FROM
+                SELECT array_upper(t.kmeanspp_seeding, 1) AS num_centroids FROM
                     (SELECT {madlib_schema}.kmeanspp_seeding(
                           {rel_source}            -- rel_source
                         , {expr_point}            -- expr_point
@@ -25,7 +25,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <!-- Output parameters -->
             <output_parameter>
@@ -38,7 +38,7 @@
             <name>km_pp_seeding_default_fndist</name>
             <create>true</create>
             <template>
-                SELECT array_upper(t.kmeanspp_seeding, 1) FROM
+                SELECT array_upper(t.kmeanspp_seeding, 1) AS num_centroids FROM
                     (SELECT {madlib_schema}.kmeanspp_seeding(
                           {rel_source}            -- rel_source
                         , {expr_point}            -- expr_point
@@ -57,7 +57,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist</name>
@@ -75,7 +75,7 @@
             <name>km_pp_seeding_default_fndist_initialcentroids</name>
             <create>true</create>
             <template>
-                SELECT array_upper(t.kmeanspp_seeding, 1) FROM
+                SELECT array_upper(t.kmeanspp_seeding, 1) AS num_centroids FROM
                     (SELECT {madlib_schema}.kmeanspp_seeding(
                           {rel_source}            -- rel_source
                         , {expr_point}            -- expr_point
@@ -95,7 +95,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist</name>
@@ -118,7 +118,7 @@
             <name>km_random_seeding_default</name>
             <create>true</create>
             <template>
-                SELECT array_upper(t.kmeans_random_seeding, 1) FROM
+                SELECT array_upper(t.kmeans_random_seeding, 1) AS num_centroids FROM
                     (SELECT {madlib_schema}.kmeans_random_seeding(
                           {rel_source}            -- rel_source
                         , {expr_point}            -- expr_point
@@ -136,7 +136,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <!-- Output parameters -->
             <output_parameter>
@@ -149,7 +149,7 @@
             <name>km_random_seeding_default_initialcentroids</name>
             <create>true</create>
             <template>
-                SELECT array_upper(t.kmeans_random_seeding, 1) FROM
+                SELECT array_upper(t.kmeans_random_seeding, 1) AS num_centroids FROM
                     (SELECT {madlib_schema}.kmeans_random_seeding(
                           {rel_source}            -- rel_source
                         , {expr_point}            -- expr_point
@@ -168,7 +168,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>initial_centroids</name>
@@ -194,7 +194,7 @@
                                 , {expr_point}              -- expr_point
                                 , {initial_centroids}       -- initial_centroids
                               ) ).centroids::FLOAT8[][]
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -230,7 +230,7 @@
                                 , {fn_dist_kmeans}          -- fn_dist_kmeans
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -277,7 +277,7 @@
                                 , {agg_centroid}            -- agg_centroid
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -330,7 +330,7 @@
                                 , {max_num_iterations}      -- max_num_iterations
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -389,7 +389,7 @@
                                 , {min_frac_reassigned}     -- min_frac_reassigned
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -453,7 +453,7 @@
                                 , {min_frac_reassigned}     -- min_frac_reassigned
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -510,7 +510,7 @@
                         , {expr_point}                      -- expr_point
                         , (SELECT ({result_column}).centroids::FLOAT8[][] FROM madlibtestresult.centroids LIMIT 1)
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS q;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -609,7 +609,7 @@
                                 , {expr_point}              -- expr_point
                                 , {k}                       -- k 
                               ) ).centroids::FLOAT8[][]
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -622,7 +622,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <!-- Output parameters -->
             <output_parameter>
@@ -645,7 +645,7 @@
                                 , {fn_dist_kmeans}          -- fn_dist_kmeans
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -658,7 +658,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist_kmeans</name>
@@ -692,7 +692,7 @@
                                 , {agg_centroid}            -- agg_centroid
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -705,7 +705,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist_kmeans</name>
@@ -745,7 +745,7 @@
                                 , {max_num_iterations}      -- max_num_iterations
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -758,7 +758,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist_kmeans</name>
@@ -804,7 +804,7 @@
                                 , {min_frac_reassigned}     -- min_frac_reassigned
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -817,7 +817,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist_kmeans</name>
@@ -876,7 +876,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist_kmeans</name>
@@ -922,7 +922,7 @@
                                 , {expr_point}              -- expr_point
                                 , {k}                       -- k 
                               ) ).centroids::FLOAT8[][]
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -935,7 +935,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <!-- Output parameters -->
             <output_parameter>
@@ -958,7 +958,7 @@
                                 , {fn_dist_kmeans}          -- fn_dist_kmeans
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -971,7 +971,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist_kmeans</name>
@@ -1005,7 +1005,7 @@
                                 , {agg_centroid}            -- agg_centroid
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -1018,7 +1018,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist_kmeans</name>
@@ -1058,7 +1058,7 @@
                                 , {max_num_iterations}      -- max_num_iterations
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -1071,7 +1071,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist_kmeans</name>
@@ -1117,7 +1117,7 @@
                                 , {min_frac_reassigned}     -- min_frac_reassigned
                               ) ).centroids::FLOAT8[][]
                         , {fn_dist_silhouette}              -- fn_dist_silhouette
-                      ) AS t;
+                      ) AS simple_silhouette;
             </template>
             <input_parameter>
                 <name>rel_source</name>
@@ -1130,7 +1130,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist_kmeans</name>
@@ -1189,7 +1189,7 @@
              </input_parameter>
              <input_parameter>
                 <name>k</name>
-                <type>INT2</type>
+                <type>INT4</type>
              </input_parameter>
              <input_parameter>
                 <name>fn_dist_kmeans</name>
