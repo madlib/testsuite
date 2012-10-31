@@ -94,3 +94,36 @@ km_pp_minfracreassigned_0_7
 # Start TestSuite ==========
 km_pp_ctas_0_0
 
+# TestSuite Name : km_pp_svec
+# Test kmeans plusplus with sparse vector as input
+# Start TestSuite ==========
+km_pp_svec_0_0
+
+# TestSuite Name : km_pp_int
+# Test kmeans plusplus with sparse int as input
+# Start TestSuite ==========
+km_pp_int_0_0
+
+# TestSuite Name : km_pp_noninfinite
+# Test kmeans plusplus with noninfinite as input
+# Start TestSuite ==========
+km_pp_noninfinite_0_0
+km_pp_noninfinite_0_1
+
+# TestSuite Name : km_pp_negative_noninfinite
+# Test kmeans plusplus with invalid noninfinite as input
+# Start TestSuite ==========
+km_pp_negative_noninfinite_0_0
+km_pp_negative_noninfinite_0_1
+
+# TestSuite Name : km_pp_negative_maxiter
+# Test kmeans plusplus with invalid maximum iteration number
+# Start TestSuite ==========
+km_pp_negative_maxiter_0_0
+
+# TestSuite Name : km_pp_negative_minfrac
+# Test kmeans plusplus with invalid minimum fraction of reassigned centroids
+# Start TestSuite ==========
+km_pp_negative_minfrac_0_0
+km_pp_negative_minfrac_0_1
+

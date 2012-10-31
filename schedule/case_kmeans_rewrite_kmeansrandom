@@ -94,3 +94,36 @@ km_random_minfracreassigned_0_7
 # Start TestSuite ==========
 km_random_ctas_0_0
 
+# TestSuite Name : km_random_svec
+# Test kmeans random with sparse vector as input
+# Start TestSuite ==========
+km_random_svec_0_0
+
+# TestSuite Name : km_random_int
+# Test kmeans random with int as input
+# Start TestSuite ==========
+km_random_int_0_0
+
+# TestSuite Name : km_random_noninfinite
+# Test kmeans random with noninfinite as input
+# Start TestSuite ==========
+km_random_noninfinite_0_0
+km_random_noninfinite_0_1
+
+# TestSuite Name : km_random_negative_noninfinite
+# Test kmeans random with invalid noninfinite as input
+# Start TestSuite ==========
+km_random_negative_noninfinite_0_0
+km_random_negative_noninfinite_0_1
+
+# TestSuite Name : km_random_negative_maxiter
+# Test kmeans random with invalid maximum iteration number
+# Start TestSuite ==========
+km_random_negative_maxiter_0_0
+
+# TestSuite Name : km_random_negative_minfrac
+# Test kmeans random with invalid minimum fraction of reassigned centroids
+# Start TestSuite ==========
+km_random_negative_minfrac_0_0
+km_random_negative_minfrac_0_1
+

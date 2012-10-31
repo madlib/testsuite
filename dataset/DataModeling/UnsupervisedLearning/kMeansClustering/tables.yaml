@@ -33,5 +33,5 @@ tables :
     - id : km_tfidf3
       skip : all
     - id : km_centroids
-
+    - id : km_corner
 

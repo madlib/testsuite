@@ -94,3 +94,40 @@ km_minfracreassigned_0_7
 # Start TestSuite ==========
 km_ctas_0_0
 
+# TestSuite Name : km_svec
+# Test kmeans Lloyd heuristic with sparse vector as input
+# Start TestSuite ==========
+km_svec_0_0
+
+# TestSuite Name : km_int
+# Test kmeans Lloyd heuristic with int as input
+# Start TestSuite ==========
+km_int_0_0
+
+# TestSuite Name : km_nonfinite_1artificaldata
+# Test kmeans Lloyd heuristic with nonfinite input
+# Start TestSuite ==========
+km_nonfinite_1artificaldata_0_0
+
+# TestSuite Name : km_nonfinite_2water_treatment_noninfinite
+# Test kmeans Lloyd heuristic with nonfinite input
+# Start TestSuite ==========
+km_nonfinite_2water_treatment_noninfinite_0_0
+
+# TestSuite Name : km_negative_nonfinite
+# Test kmeans Lloyd heuristic with invalid nonfinite input
+# Start TestSuite ==========
+km_negative_nonfinite_0_0
+km_negative_nonfinite_0_1
+
+# TestSuite Name : km_negative_maxiter
+# Test kmeans Lloyd heuristic with invalid maximum iteration number
+# Start TestSuite ==========
+km_negative_maxiter_0_0
+
+# TestSuite Name : km_negative_minfrac
+# Test kmeans Lloyd heuristic with invalid minimum fraction of reassigned centroids
+# Start TestSuite ==========
+km_negative_minfrac_0_0
+km_negative_minfrac_0_1
+
