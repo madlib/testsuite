@@ -147,19 +147,6 @@ plda_label_negative_eta_0_0
 
 ###### Naive Bayes Classification ###
 ### HEAD ###
-### JiraId: MADLIB-523 ###
-### Type: 1 ###
-### Des: missing value in one view produced by Naive Bayes Classifier ###
-nb_adhoc_function_workaround_0_0
-nb_adhoc_function_workaround_0_12
-nb_precompute_function_workaround_0_0
-nb_precompute_function_workaround_0_12
-nb_precompute_views_0_4
-nb_precompute_function_workaround_0_4
-nb_adhoc_views_4_0_0
-### END ###
-
-### HEAD ###
 ### JiraId: MADLIB-679 ###
 ### Type: 1 ###
 ### Des: NB result is different between GP and PG ###

@@ -3,25 +3,25 @@
 # Start TestSuite ==========
 km_pp_seeding_default_0_0
 # km_pp_seeding_default_0_1
-km_pp_seeding_default_0_2
+# km_pp_seeding_default_0_2
 # km_pp_seeding_default_0_3
-km_pp_seeding_default_0_4
+# km_pp_seeding_default_0_4
 # km_pp_seeding_default_0_5
 
 # TestSuite Name : km_pp_seeding_fndist
 # Test kmeanspp_seeding with different fn_dist functions including user-defined functions
 # Start TestSuite ==========
-km_pp_seeding_fndist_0_0
-# km_pp_seeding_fndist_0_1
-km_pp_seeding_fndist_0_2
+# km_pp_seeding_fndist_0_0
+km_pp_seeding_fndist_0_1
+# km_pp_seeding_fndist_0_2
 # km_pp_seeding_fndist_0_3
-km_pp_seeding_fndist_0_4
+# km_pp_seeding_fndist_0_4
 
 # TestSuite Name : km_pp_seeding_initialcentroids
 # Test kmeanspp_seeding with different initial centroids
 # Start TestSuite ==========
 km_pp_seeding_initialcentroids_0_0
-km_pp_seeding_initialcentroids_0_1
+# km_pp_seeding_initialcentroids_0_1
 
 # TestSuite Name : km_pp_seeding_negative_relsource
 # Test kmeanspp_seeding with invalid rel_source
@@ -61,15 +61,15 @@ km_pp_seeding_negative_initialcentroids_0_1
 # Start TestSuite ==========
 km_random_seeding_default_0_0
 # km_random_seeding_default_0_1
-km_random_seeding_default_0_2
+# km_random_seeding_default_0_2
 # km_random_seeding_default_0_3
-km_random_seeding_default_0_4
+# km_random_seeding_default_0_4
 # km_random_seeding_default_0_5
 
 # TestSuite Name : km_random_seeding_initialcentroids
 # Test kmeans_random_seeding with different initial_centroids
 # Start TestSuite ==========
-km_random_seeding_initialcentroids_0_0
+# km_random_seeding_initialcentroids_0_0
 km_random_seeding_initialcentroids_0_1
 
 # TestSuite Name : km_random_seeding_negative_relsource
@@ -110,7 +110,7 @@ km_default_2movementlibras_0_0
 # TestSuite Name : km_default_3uscensus1990
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-km_default_3uscensus1990_0_0
+# km_default_3uscensus1990_0_0
 
 # TestSuite Name : km_default_4watertreatment
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
@@ -120,21 +120,21 @@ km_default_4watertreatment_0_0
 # TestSuite Name : km_default_5wine
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-km_default_5wine_0_0
+# km_default_5wine_0_0
 
 # TestSuite Name : km_default_6winequalityred
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-km_default_6winequalityred_0_0
+# km_default_6winequalityred_0_0
 
 # TestSuite Name : km_initialcentroids
 # Test kmeans Lloyd heuristic with different initial_centroids
 # Start TestSuite ==========
 km_initialcentroids_0_0
 # km_initialcentroids_0_1
-km_initialcentroids_0_2
+# km_initialcentroids_0_2
 # km_initialcentroids_0_3
-km_initialcentroids_0_4
+# km_initialcentroids_0_4
 # km_initialcentroids_0_5
 
 # TestSuite Name : km_fndist_1distnorm1
@@ -145,12 +145,12 @@ km_fndist_1distnorm1_0_0
 # TestSuite Name : km_fndist_2distangle
 # Test kmeans Lloyd heuristic with different fn_dist
 # Start TestSuite ==========
-km_fndist_2distangle_0_0
+# km_fndist_2distangle_0_0
 
 # TestSuite Name : km_fndist_3disttanimoto
 # Test kmeans Lloyd heuristic with different fn_dist
 # Start TestSuite ==========
-km_fndist_3disttanimoto_0_0
+# km_fndist_3disttanimoto_0_0
 
 # TestSuite Name : km_fndist_4distuserdefined
 # Test kmeans Lloyd heuristic with different fn_dist
@@ -172,20 +172,20 @@ km_aggcentroid_normalizedavg_0_0
 # Start TestSuite ==========
 km_maxnumiterations_0_0
 # km_maxnumiterations_0_1
-km_maxnumiterations_0_2
+# km_maxnumiterations_0_2
 # km_maxnumiterations_0_3
-km_maxnumiterations_0_4
+# km_maxnumiterations_0_4
 
 # TestSuite Name : km_minfracreassigned
 # Test kmeans Lloyd heuristic with different min_frac_reassigned
 # Start TestSuite ==========
 km_minfracreassigned_0_0
 # km_minfracreassigned_0_1
-km_minfracreassigned_0_2
+# km_minfracreassigned_0_2
 # km_minfracreassigned_0_3
-km_minfracreassigned_0_4
+# km_minfracreassigned_0_4
 # km_minfracreassigned_0_5
-km_minfracreassigned_0_6
+# km_minfracreassigned_0_6
 # km_minfracreassigned_0_7
 
 # TestSuite Name : km_ctas
@@ -233,12 +233,12 @@ km_negative_minfrac_0_1
 # TestSuite Name : km_pp_default_1abalone
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-km_pp_default_1abalone_0_0
+# km_pp_default_1abalone_0_0
 
 # TestSuite Name : km_pp_default_2movementlibras
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-km_pp_default_2movementlibras_0_0
+# km_pp_default_2movementlibras_0_0
 
 # TestSuite Name : km_pp_default_3uscensus1990
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
@@ -253,27 +253,27 @@ km_pp_default_4watertreatment_0_0
 # TestSuite Name : km_pp_default_5wine
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-km_pp_default_5wine_0_0
+# km_pp_default_5wine_0_0
 
 # TestSuite Name : km_pp_default_6winequalityred
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-km_pp_default_6winequalityred_0_0
+# km_pp_default_6winequalityred_0_0
 
 # TestSuite Name : km_pp_k
 # Test kmeans plusplus with different k
 # Start TestSuite ==========
 km_pp_k_0_0
 # km_pp_k_0_1
-km_pp_k_0_2
+# km_pp_k_0_2
 # km_pp_k_0_3
-km_pp_k_0_4
+# km_pp_k_0_4
 # km_pp_k_0_5
 
 # TestSuite Name : km_pp_fndist_1distnorm1
 # Test kmeans plusplus with different fn_dist
 # Start TestSuite ==========
-km_pp_fndist_1distnorm1_0_0
+# km_pp_fndist_1distnorm1_0_0
 
 # TestSuite Name : km_pp_fndist_2distangle
 # Test kmeans plusplus with different fn_dist
@@ -283,17 +283,17 @@ km_pp_fndist_2distangle_0_0
 # TestSuite Name : km_pp_fndist_3disttanimoto
 # Test kmeans plusplus with different fn_dist
 # Start TestSuite ==========
-km_pp_fndist_3disttanimoto_0_0
+# km_pp_fndist_3disttanimoto_0_0
 
 # TestSuite Name : km_pp_fndist_4distuserdefined
 # Test kmeans plusplus with different fn_dist
 # Start TestSuite ==========
-km_pp_fndist_4distuserdefined_0_0
+# km_pp_fndist_4distuserdefined_0_0
 
 # TestSuite Name : km_pp_aggcentroid_normalizedavg
 # Test kmeans plusplus with different agg_centroid
 # Start TestSuite ==========
-km_pp_aggcentroid_normalizedavg_0_0
+# km_pp_aggcentroid_normalizedavg_0_0
 
 # TestSuite Name : km_pp_aggcentroid_userdefined
 # Test kmeans plusplus with user defined agg_centroid
@@ -305,20 +305,20 @@ km_pp_aggcentroid_normalizedavg_0_0
 # Start TestSuite ==========
 km_pp_maxnumiterations_0_0
 # km_pp_maxnumiterations_0_1
-km_pp_maxnumiterations_0_2
+# km_pp_maxnumiterations_0_2
 # km_pp_maxnumiterations_0_3
-km_pp_maxnumiterations_0_4
+# km_pp_maxnumiterations_0_4
 
 # TestSuite Name : km_pp_minfracreassigned
 # Test kmeans plusplus with different min_frac_reassigned
 # Start TestSuite ==========
 km_pp_minfracreassigned_0_0
 # km_pp_minfracreassigned_0_1
-km_pp_minfracreassigned_0_2
+# km_pp_minfracreassigned_0_2
 # km_pp_minfracreassigned_0_3
-km_pp_minfracreassigned_0_4
+# km_pp_minfracreassigned_0_4
 # km_pp_minfracreassigned_0_5
-km_pp_minfracreassigned_0_6
+# km_pp_minfracreassigned_0_6
 # km_pp_minfracreassigned_0_7
 
 # TestSuite Name : km_pp_ctas
@@ -362,22 +362,22 @@ km_pp_negative_minfrac_0_1
 # TestSuite Name : km_random_default_1abalone
 # Test kmeans random with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-km_random_default_1abalone_0_0
+# km_random_default_1abalone_0_0
 
 # TestSuite Name : km_random_default_2movementlibras
 # Test kmeans random with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-km_random_default_2movementlibras_0_0
+# km_random_default_2movementlibras_0_0
 
 # TestSuite Name : km_random_default_3uscensus1990
 # Test kmeans random with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-km_random_default_3uscensus1990_0_0
+# km_random_default_3uscensus1990_0_0
 
 # TestSuite Name : km_random_default_4watertreatment
 # Test kmeans random with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-km_random_default_4watertreatment_0_0
+# km_random_default_4watertreatment_0_0
 
 # TestSuite Name : km_random_default_5wine
 # Test kmeans random with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
@@ -394,20 +394,20 @@ km_random_default_6winequalityred_0_0
 # Start TestSuite ==========
 km_random_k_0_0
 # km_random_k_0_1
-km_random_k_0_2
+# km_random_k_0_2
 # km_random_k_0_3
-km_random_k_0_4
+# km_random_k_0_4
 # km_random_k_0_5
 
 # TestSuite Name : km_random_fndist_1distnorm1
 # Test kmeans random with different fn_dist
 # Start TestSuite ==========
-km_random_fndist_1distnorm1_0_0
+# km_random_fndist_1distnorm1_0_0
 
 # TestSuite Name : km_random_fndist_2distangle
 # Test kmeans random with different fn_dist
 # Start TestSuite ==========
-km_random_fndist_2distangle_0_0
+# km_random_fndist_2distangle_0_0
 
 # TestSuite Name : km_random_fndist_3disttanimoto
 # Test kmeans random with different fn_dist
@@ -422,7 +422,7 @@ km_random_fndist_3disttanimoto_0_0
 # TestSuite Name : km_random_aggcentroid_normalizedavg
 # Test kmeans random with different agg_centroid
 # Start TestSuite ==========
-km_random_aggcentroid_normalizedavg_0_0
+# km_random_aggcentroid_normalizedavg_0_0
 
 # TestSuite Name : km_random_aggcentroid_userdefined
 # Test kmeans random with user defined agg_centroid
@@ -434,20 +434,20 @@ km_random_aggcentroid_normalizedavg_0_0
 # Start TestSuite ==========
 km_random_maxnumiterations_0_0
 # km_random_maxnumiterations_0_1
-km_random_maxnumiterations_0_2
+# km_random_maxnumiterations_0_2
 # km_random_maxnumiterations_0_3
-km_random_maxnumiterations_0_4
+# km_random_maxnumiterations_0_4
 
 # TestSuite Name : km_random_minfracreassigned
 # Test kmeans random with different min_frac_reassigned
 # Start TestSuite ==========
 km_random_minfracreassigned_0_0
 # km_random_minfracreassigned_0_1
-km_random_minfracreassigned_0_2
+# km_random_minfracreassigned_0_2
 # km_random_minfracreassigned_0_3
-km_random_minfracreassigned_0_4
+# km_random_minfracreassigned_0_4
 # km_random_minfracreassigned_0_5
-km_random_minfracreassigned_0_6
+# km_random_minfracreassigned_0_6
 # km_random_minfracreassigned_0_7
 
 # TestSuite Name : km_random_ctas

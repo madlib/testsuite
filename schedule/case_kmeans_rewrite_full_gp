@@ -6,16 +6,16 @@ km_pp_seeding_default_0_0
 # km_pp_seeding_default_0_2
 # km_pp_seeding_default_0_3
 # km_pp_seeding_default_0_4
-# km_pp_seeding_default_0_5
+km_pp_seeding_default_0_5
 
 # TestSuite Name : km_pp_seeding_fndist
 # Test kmeanspp_seeding with different fn_dist functions including user-defined functions
 # Start TestSuite ==========
-km_pp_seeding_fndist_0_0
-# km_pp_seeding_fndist_0_1
+# km_pp_seeding_fndist_0_0
+km_pp_seeding_fndist_0_1
 # km_pp_seeding_fndist_0_2
 # km_pp_seeding_fndist_0_3
-# km_pp_seeding_fndist_0_4
+km_pp_seeding_fndist_0_4
 
 # TestSuite Name : km_pp_seeding_initialcentroids
 # Test kmeanspp_seeding with different initial centroids
@@ -27,33 +27,33 @@ km_pp_seeding_initialcentroids_0_0
 # Test kmeanspp_seeding with invalid rel_source
 # Start TestSuite ==========
 km_pp_seeding_negative_relsource_0_0
-# km_pp_seeding_negative_relsource_0_1
+km_pp_seeding_negative_relsource_0_1
 
 # TestSuite Name : km_pp_seeding_negative_exprpoint
 # Test kmeanspp_seeding with invalid expr_point
 # Start TestSuite ==========
 km_pp_seeding_negative_exprpoint_0_0
-# km_pp_seeding_negative_exprpoint_0_1
+km_pp_seeding_negative_exprpoint_0_1
 
 # TestSuite Name : km_pp_seeding_negative_k
 # Test kmeanspp_seeding with invalid k
 # Start TestSuite ==========
 km_pp_seeding_negative_k_0_0
-# km_pp_seeding_negative_k_0_1
-# km_pp_seeding_negative_k_0_2
+km_pp_seeding_negative_k_0_1
+km_pp_seeding_negative_k_0_2
 
 # TestSuite Name : km_pp_seeding_negative_fndist
 # Test kmeanspp_seeding with invalid fn_dist
 # Start TestSuite ==========
 km_pp_seeding_negative_fndist_0_0
-# km_pp_seeding_negative_fndist_0_1
-# km_pp_seeding_negative_fndist_0_2
-# km_pp_seeding_negative_fndist_0_3
+km_pp_seeding_negative_fndist_0_1
+km_pp_seeding_negative_fndist_0_2
+km_pp_seeding_negative_fndist_0_3
 
 # TestSuite Name : km_pp_seeding_negative_initialcentroids
 # Test kmeanspp_seeding with invalid initial_centroids
 # Start TestSuite ==========
-# km_pp_seeding_negative_initialcentroids_0_0
+km_pp_seeding_negative_initialcentroids_0_0
 km_pp_seeding_negative_initialcentroids_0_1
 
 # TestSuite Name : km_random_seeding_default
@@ -64,7 +64,7 @@ km_random_seeding_default_0_0
 # km_random_seeding_default_0_2
 # km_random_seeding_default_0_3
 # km_random_seeding_default_0_4
-# km_random_seeding_default_0_5
+km_random_seeding_default_0_5
 
 # TestSuite Name : km_random_seeding_initialcentroids
 # Test kmeans_random_seeding with different initial_centroids
@@ -75,27 +75,27 @@ km_random_seeding_initialcentroids_0_1
 # TestSuite Name : km_random_seeding_negative_relsource
 # Test kmeans_random_seeding with invalid rel_source
 # Start TestSuite ==========
-# km_random_seeding_negative_relsource_0_0
+km_random_seeding_negative_relsource_0_0
 km_random_seeding_negative_relsource_0_1
 
 # TestSuite Name : km_random_seeding_negative_exprpoint
 # Test kmeans_random_seeding with invalid expr_point
 # Start TestSuite ==========
-# km_random_seeding_negative_exprpoint_0_0
+km_random_seeding_negative_exprpoint_0_0
 km_random_seeding_negative_exprpoint_0_1
 
 # TestSuite Name : km_random_seeding_negative_k
 # Test kmeans_random_seeding with invalid k
 # Start TestSuite ==========
-# km_random_seeding_negative_k_0_0
+km_random_seeding_negative_k_0_0
 km_random_seeding_negative_k_0_1
-# km_random_seeding_negative_k_0_2
+km_random_seeding_negative_k_0_2
 
 # TestSuite Name : km_random_seeding_negative_initialcentroids
 # Test kmeans_random_seeding with invalid initial_centroids
 # Start TestSuite ==========
 km_random_seeding_negative_initialcentroids_0_0
-# km_random_seeding_negative_initialcentroids_0_1
+km_random_seeding_negative_initialcentroids_0_1
 
 # TestSuite Name : km_default_1abalone
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
@@ -105,7 +105,7 @@ km_default_1abalone_0_0
 # TestSuite Name : km_default_2movementlibras
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
 # Start TestSuite ==========
-# km_default_2movementlibras_0_0
+km_default_2movementlibras_0_0
 
 # TestSuite Name : km_default_3uscensus1990
 # Test kmeans Lloyd heuristic with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
@@ -155,12 +155,12 @@ km_fndist_1distnorm1_0_0
 # TestSuite Name : km_fndist_4distuserdefined
 # Test kmeans Lloyd heuristic with different fn_dist
 # Start TestSuite ==========
-# km_fndist_4distuserdefined_0_0
+km_fndist_4distuserdefined_0_0
 
 # TestSuite Name : km_aggcentroid_normalizedavg
 # Test kmeans Lloyd heuristic with different agg_centroid
 # Start TestSuite ==========
-# km_aggcentroid_normalizedavg_0_0
+km_aggcentroid_normalizedavg_0_0
 
 # TestSuite Name : km_aggcentroid_userdefined
 # Test kmeans Lloyd heuristic with user defined agg_centroid
@@ -174,7 +174,7 @@ km_maxnumiterations_0_0
 # km_maxnumiterations_0_1
 # km_maxnumiterations_0_2
 # km_maxnumiterations_0_3
-# km_maxnumiterations_0_4
+km_maxnumiterations_0_4
 
 # TestSuite Name : km_minfracreassigned
 # Test kmeans Lloyd heuristic with different min_frac_reassigned
@@ -186,7 +186,7 @@ km_minfracreassigned_0_0
 # km_minfracreassigned_0_4
 # km_minfracreassigned_0_5
 # km_minfracreassigned_0_6
-# km_minfracreassigned_0_7
+km_minfracreassigned_0_7
 
 # TestSuite Name : km_ctas
 # Test kmeans Lloyd heuristic with create table as
@@ -217,7 +217,7 @@ km_nonfinite_2water_treatment_noninfinite_0_0
 # Test kmeans Lloyd heuristic with invalid nonfinite input
 # Start TestSuite ==========
 km_negative_nonfinite_0_0
-# km_negative_nonfinite_0_1
+km_negative_nonfinite_0_1
 
 # TestSuite Name : km_negative_maxiter
 # Test kmeans Lloyd heuristic with invalid maximum iteration number
@@ -228,7 +228,7 @@ km_negative_maxiter_0_0
 # Test kmeans Lloyd heuristic with invalid minimum fraction of reassigned centroids
 # Start TestSuite ==========
 km_negative_minfrac_0_0
-# km_negative_minfrac_0_1
+km_negative_minfrac_0_1
 
 # TestSuite Name : km_pp_default_1abalone
 # Test kmeans plusplus with default fn_dist, agg_centroid, max_num_iterations and min_frac_reassigned
@@ -268,7 +268,7 @@ km_pp_k_0_0
 # km_pp_k_0_2
 # km_pp_k_0_3
 # km_pp_k_0_4
-# km_pp_k_0_5
+km_pp_k_0_5
 
 # TestSuite Name : km_pp_fndist_1distnorm1
 # Test kmeans plusplus with different fn_dist
@@ -303,23 +303,23 @@ km_pp_fndist_2distangle_0_0
 # TestSuite Name : km_pp_maxnumiterations
 # Test kmeans plusplus with different max_num_iterations
 # Start TestSuite ==========
-# km_pp_maxnumiterations_0_0
+km_pp_maxnumiterations_0_0
 # km_pp_maxnumiterations_0_1
 # km_pp_maxnumiterations_0_2
 # km_pp_maxnumiterations_0_3
-# km_pp_maxnumiterations_0_4
+km_pp_maxnumiterations_0_4
 
 # TestSuite Name : km_pp_minfracreassigned
 # Test kmeans plusplus with different min_frac_reassigned
 # Start TestSuite ==========
-# km_pp_minfracreassigned_0_0
+km_pp_minfracreassigned_0_0
 # km_pp_minfracreassigned_0_1
 # km_pp_minfracreassigned_0_2
 # km_pp_minfracreassigned_0_3
 # km_pp_minfracreassigned_0_4
 # km_pp_minfracreassigned_0_5
 # km_pp_minfracreassigned_0_6
-# km_pp_minfracreassigned_0_7
+km_pp_minfracreassigned_0_7
 
 # TestSuite Name : km_pp_ctas
 # Test kmeans plusplus with create table as
@@ -340,12 +340,12 @@ km_pp_int_0_0
 # Test kmeans plusplus with noninfinite as input
 # Start TestSuite ==========
 km_pp_noninfinite_0_0
-# km_pp_noninfinite_0_1
+km_pp_noninfinite_0_1
 
 # TestSuite Name : km_pp_negative_noninfinite
 # Test kmeans plusplus with invalid noninfinite as input
 # Start TestSuite ==========
-# km_pp_negative_noninfinite_0_0
+km_pp_negative_noninfinite_0_0
 km_pp_negative_noninfinite_0_1
 
 # TestSuite Name : km_pp_negative_maxiter
@@ -356,7 +356,7 @@ km_pp_negative_maxiter_0_0
 # TestSuite Name : km_pp_negative_minfrac
 # Test kmeans plusplus with invalid minimum fraction of reassigned centroids
 # Start TestSuite ==========
-# km_pp_negative_minfrac_0_0
+km_pp_negative_minfrac_0_0
 km_pp_negative_minfrac_0_1
 
 # TestSuite Name : km_random_default_1abalone
@@ -392,12 +392,12 @@ km_random_default_6winequalityred_0_0
 # TestSuite Name : km_random_k
 # Test kmeans random with different k
 # Start TestSuite ==========
-# km_random_k_0_0
+km_random_k_0_0
 # km_random_k_0_1
 # km_random_k_0_2
 # km_random_k_0_3
 # km_random_k_0_4
-# km_random_k_0_5
+km_random_k_0_5
 
 # TestSuite Name : km_random_fndist_1distnorm1
 # Test kmeans random with different fn_dist
@@ -412,7 +412,7 @@ km_random_default_6winequalityred_0_0
 # TestSuite Name : km_random_fndist_3disttanimoto
 # Test kmeans random with different fn_dist
 # Start TestSuite ==========
-# km_random_fndist_3disttanimoto_0_0
+km_random_fndist_3disttanimoto_0_0
 
 # TestSuite Name : km_random_fndist_4distuserdefined
 # Test kmeans random with different fn_dist
@@ -432,28 +432,28 @@ km_random_default_6winequalityred_0_0
 # TestSuite Name : km_random_maxnumiterations
 # Test kmeans random with different max_num_iterations
 # Start TestSuite ==========
-# km_random_maxnumiterations_0_0
+km_random_maxnumiterations_0_0
 # km_random_maxnumiterations_0_1
 # km_random_maxnumiterations_0_2
 # km_random_maxnumiterations_0_3
-# km_random_maxnumiterations_0_4
+km_random_maxnumiterations_0_4
 
 # TestSuite Name : km_random_minfracreassigned
 # Test kmeans random with different min_frac_reassigned
 # Start TestSuite ==========
-# km_random_minfracreassigned_0_0
+km_random_minfracreassigned_0_0
 # km_random_minfracreassigned_0_1
 # km_random_minfracreassigned_0_2
 # km_random_minfracreassigned_0_3
 # km_random_minfracreassigned_0_4
 # km_random_minfracreassigned_0_5
 # km_random_minfracreassigned_0_6
-# km_random_minfracreassigned_0_7
+km_random_minfracreassigned_0_7
 
 # TestSuite Name : km_random_ctas
 # Test kmeans random with create table as
 # Start TestSuite ==========
-# km_random_ctas_0_0
+km_random_ctas_0_0
 
 # TestSuite Name : km_random_svec
 # Test kmeans random with sparse vector as input
@@ -468,13 +468,13 @@ km_random_int_0_0
 # TestSuite Name : km_random_noninfinite
 # Test kmeans random with noninfinite as input
 # Start TestSuite ==========
-# km_random_noninfinite_0_0
+km_random_noninfinite_0_0
 km_random_noninfinite_0_1
 
 # TestSuite Name : km_random_negative_noninfinite
 # Test kmeans random with invalid noninfinite as input
 # Start TestSuite ==========
-# km_random_negative_noninfinite_0_0
+km_random_negative_noninfinite_0_0
 km_random_negative_noninfinite_0_1
 
 # TestSuite Name : km_random_negative_maxiter
@@ -485,6 +485,6 @@ km_random_negative_maxiter_0_0
 # TestSuite Name : km_random_negative_minfrac
 # Test kmeans random with invalid minimum fraction of reassigned centroids
 # Start TestSuite ==========
-# km_random_negative_minfrac_0_0
+km_random_negative_minfrac_0_0
 km_random_negative_minfrac_0_1
 
