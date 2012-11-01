@@ -74,38 +74,64 @@ CREATE OR REPLACE VIEW testresultreport AS
       THEN 'PASSED'
 
       WHEN tr.itemname in ('km_pp_seeding_negative_relsource_0_0_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_pp_seeding_negative_fndist_0_0_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_random_seeding_negative_relsource_0_0_km_random_seeding_default_initialcentroids_0',
-                           'km_pp_seeding_negative_relsource_0_1_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_random_seeding_negative_relsource_0_1_km_random_seeding_default_initialcentroids_0',
-                           'km_pp_seeding_negative_exprpoint_0_0_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_pp_seeding_negative_exprpoint_0_1_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_random_seeding_negative_exprpoint_0_0_km_random_seeding_default_initialcentroids_0',
-                           'km_random_seeding_negative_exprpoint_0_1_km_random_seeding_default_initialcentroids_0',
-                           'km_pp_seeding_negative_k_0_1_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_pp_seeding_negative_k_0_2_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_pp_seeding_negative_initialcentroids_0_1_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_random_seeding_negative_k_0_0_km_random_seeding_default_initialcentroids_0',
-                           'km_random_seeding_negative_k_0_1_km_random_seeding_default_initialcentroids_0',
-                           'km_random_seeding_negative_k_0_2_km_random_seeding_default_initialcentroids_0',
-                           'km_pp_seeding_negative_fndist_0_1_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_pp_seeding_negative_fndist_0_2_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_pp_seeding_negative_fndist_0_3_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_pp_seeding_negative_initialcentroids_0_0_km_pp_seeding_default_fndist_initialcentroids_0',
-                           'km_random_seeding_negative_initialcentroids_0_0_km_random_seeding_default_initialcentroids_0',
-                           'km_random_seeding_negative_initialcentroids_0_1_km_random_seeding_default_initialcentroids_0')
+                           'km_random_seeding_negative_relsource_0_0_km_random_seeding_default_initialcentroids_0', 
+                           'km_pp_seeding_negative_relsource_0_1_km_pp_seeding_default_fndist_initialcentroids_0', 
+                           'km_random_seeding_negative_relsource_0_1_km_random_seeding_default_initialcentroids_0', 
+                           'km_pp_seeding_negative_exprpoint_0_0_km_pp_seeding_default_fndist_initialcentroids_0', 
+                           'km_random_seeding_negative_exprpoint_0_0_km_random_seeding_default_initialcentroids_0', 
+                           'km_pp_seeding_negative_exprpoint_0_1_km_pp_seeding_default_fndist_initialcentroids_0', 
+                           'km_random_seeding_negative_exprpoint_0_1_km_random_seeding_default_initialcentroids_0', 
+                           'km_pp_seeding_negative_fndist_0_0_km_pp_seeding_default_fndist_initialcentroids_0', 
+                           'km_pp_seeding_negative_fndist_0_1_km_pp_seeding_default_fndist_initialcentroids_0', 
+                           'km_pp_seeding_negative_fndist_0_2_km_pp_seeding_default_fndist_initialcentroids_0', 
+                           'km_pp_seeding_negative_fndist_0_3_km_pp_seeding_default_fndist_initialcentroids_0', 
+                           'km_pp_seeding_negative_initialcentroids_0_1_km_pp_seeding_default_fndist_initialcentroids_0', 
+                           'km_random_seeding_negative_initialcentroids_0_1_km_random_seeding_default_initialcentroids_0', 
+                           'km_random_seeding_negative_initialcentroids_0_0_km_random_seeding_default_initialcentroids_0', 
+                           'km_negative_nonfinite_0_0_km_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_negative_nonfinite_0_1_km_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_pp_negative_noninfinite_0_0_km_pp_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_pp_negative_noninfinite_0_1_km_pp_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_random_negative_noninfinite_0_0_km_random_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_random_negative_noninfinite_0_1_km_random_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_negative_maxiter_0_0_km_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_pp_negative_maxiter_0_0_km_pp_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_random_negative_maxiter_0_0_km_random_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_negative_minfrac_0_0_km_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_negative_minfrac_0_1_km_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_pp_negative_minfrac_0_0_km_pp_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_pp_negative_minfrac_0_1_km_pp_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_random_negative_minfrac_0_0_km_random_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_random_negative_minfrac_0_1_km_random_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_pp_seeding_negative_k_0_0_km_pp_seeding_default_fndist_initialcentroids_0', 
+                           'km_pp_seeding_negative_k_0_1_km_pp_seeding_default_fndist_initialcentroids_0', 
+                           'km_random_seeding_negative_k_0_0_km_random_seeding_default_initialcentroids_0', 
+                           'km_random_seeding_negative_k_0_1_km_random_seeding_default_initialcentroids_0', 
+                           'km_nonfinite_2water_treatment_noninfinite_0_0_km_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_pp_noninfinite_0_1_km_pp_default_fndist_aggcentroid_maxiter_minfrac_0', 
+                           'km_random_noninfinite_0_1_km_random_default_fndist_aggcentroid_maxiter_minfrac_0')
         THEN CASE WHEN tr.issuccessful = false and
-                             (tr.result_info like '%relation "madlibtestdata.non_existing_table" does not exist%'
-                           or tr.result_info like '%schema "non_existing_schema" does not exist%'
-                           or tr.result_info like '%column "non_existing_column" does not exist%'
-                           or tr.result_info like '%_src%'
-                           or tr.result_info like '%malformed array literal%'
-                           or tr.result_info like '%function "madlib.non_existing_squared_dist_func(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%'
-                           or tr.result_info like '%function "madlibtestdata.squared_dist_invalid_signature_datatype(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%'
-                           or tr.result_info like '%function "madlibtestdata.squared_dist_invalid_signature_numparam(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%'
-                           or tr.result_info like '%Eigen%'
-                           or tr.result_info like '%cannot concatenate incompatible arrays%'
-                           or tr.result_info like '%invalid input syntax for type double precision%')
+                             (tr.result_info like '%Schema (non_existing_schema) does not exist%' 
+                           or tr.result_info like '%Source table does not exist%' 
+                           or tr.result_info like '%Point coordinates (non_existing_column) are not a valid type (SVEC, FLOAT[], or INTEGER[]) or do not exist%' 
+                           or tr.result_info like '%Point coordinates (pid) are not a valid type (SVEC, FLOAT[], or INTEGER[]) or do not exist%' 
+                           or tr.result_info like '%schema "non_existing_schema" does not exist%' 
+                           or tr.result_info like '%function "madlib.non_existing_squared_dist_func(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%' 
+                           or tr.result_info like '%function "madlibtestdata.squared_dist_invalid_signature_datatype(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%' 
+                           or tr.result_info like '%function "madlibtestdata.squared_dist_invalid_signature_numparam(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%' 
+                           or tr.result_info like '%invalid input syntax for type double precision%' 
+                           or tr.result_info like '%cannot concatenate incompatible arrays%' 
+                           or tr.result_info like '%Number of centroids is greater than number of points%' 
+                           or tr.result_info like '%Number of iterations must be a non-negative integer%' 
+                           or tr.result_info like '%Convergence threshold is not a valid value (must be a fraction between 0 and 1)%' 
+                           or tr.result_info like '%Number of clusters k must be a positive integer%')
+                  THEN 'PASSED'
+                  ELSE 'FAILED'
+                  END
+
+        WHEN tr.itemname in ('km_pp_seeding_negative_k_0_2_km_pp_seeding_default_fndist_initialcentroids_0', 'km_random_seeding_negative_k_0_2_km_random_seeding_default_initialcentroids_0')
+        THEN
+             CASE WHEN tr.evaluation_function=3 and tr.result_info like '%Number of clusters k is less than number of supplied initial centroids. Number of final clusters will equal number of supplied initial centroids%'
                   THEN 'PASSED'
                   ELSE 'FAILED'
                   END

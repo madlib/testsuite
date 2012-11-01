@@ -13,7 +13,12 @@
 ####################################################################
 
 ###### Kmeans Clustering ######
-
+### HEAD ###
+### JiraId: MADLIB-704 ######
+### Des: Need error handling improvement for invalid k in kmeanspp_seeding ###
+### Type: 2 ###
+km_pp_seeding_negative_initialcentroids_0_0_km_pp_seeding_default_fndist_initialcentroids_0
+### END ###
 
 #################Association Rules########################
 ### HEAD ###
@@ -460,8 +465,13 @@ plda_stability_0_6
 multinomial_logistic_regression_utf8_character_0_1
 multinomial_logistic_regression_utf8_character_0_0
 
-###### long running kmeans with user-defined aggreate centroid function #####
+###### Long running kmeans with user-defined aggreate centroid function #####
 km_aggcentroid_userdefined_0_0
 km_pp_aggcentroid_userdefined_0_0
 km_random_aggcentroid_userdefined_0_0
+
+###### MADmark improvement needed: cannot load dataset with sparse vector are present #####
+km_svec_0_0
+km_pp_svec_0_0
+km_random_svec_0_0
 ### END ###
