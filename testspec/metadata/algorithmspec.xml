@@ -1229,9 +1229,14 @@
        <method>
             <name>platform_tmptbl</name>
             <template>
+                   DROP TABLE IF EXISTS platform_tmptest;
+                   CREATE  TABLE platform_tmptest(a int);
+                   SELECT madlibtestdata.platform_test('platform_tmptest');
+                   DROP TABLE IF EXISTS platform_tmptest;
                    CREATE temp TABLE platform_tmptest(a int);
                    SELECT madlibtestdata.platform_test('platform_tmptest');
-            </template>
+                   DROP TABLE IF EXISTS platform_tmptest;
+          </template>
          </method>
     </algorithm>
 
