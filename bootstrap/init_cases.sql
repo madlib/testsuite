@@ -121,6 +121,8 @@ CREATE OR REPLACE VIEW testresultreport AS
                            or tr.result_info like '%function "madlibtestdata.squared_dist_invalid_signature_numparam(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%' 
                            or tr.result_info like '%invalid input syntax for type double precision%' 
                            or tr.result_info like '%cannot concatenate incompatible arrays%' 
+                           or tr.result_info like '%Arrays with differing element dimensions are not compatible for concatenation%' 
+                           or tr.result_info like '%_madlib_km_us_census_1990_filtered%' 
                            or tr.result_info like '%Number of centroids is greater than number of points%' 
                            or tr.result_info like '%Number of iterations must be a non-negative integer%' 
                            or tr.result_info like '%Convergence threshold is not a valid value (must be a fraction between 0 and 1)%' 
@@ -131,7 +133,7 @@ CREATE OR REPLACE VIEW testresultreport AS
 
         WHEN tr.itemname in ('km_pp_seeding_negative_k_0_2_km_pp_seeding_default_fndist_initialcentroids_0', 'km_random_seeding_negative_k_0_2_km_random_seeding_default_initialcentroids_0')
         THEN
-             CASE WHEN tr.evaluation_function=3 and tr.result_info like '%Number of clusters k is less than number of supplied initial centroids. Number of final clusters will equal number of supplied initial centroids%'
+             CASE WHEN tr.evaluation_function=3
                   THEN 'PASSED'
                   ELSE 'FAILED'
                   END
@@ -149,9 +151,9 @@ CREATE OR REPLACE VIEW testresultreport AS
                                 THEN 'FAILED'
                                 WHEN tr.evaluation_function='NaN' and trb.evaluation_function='NaN'
                                 THEN 'PASSED'
-                                WHEN (trb.evaluation_function - tr.evaluation_function) > 0.2
+                                WHEN (trb.evaluation_function - tr.evaluation_function) > 0.3
                                 THEN 'FAILED : silhouette decreased: baseline is:'::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and actual value is '::text || ((tr.evaluation_function)::decimal(6,5))::text
-                                WHEN (tr.evaluation_function - trb.evaluation_function) > 0.2
+                                WHEN (tr.evaluation_function - trb.evaluation_function) > 0.3
                                 THEN 'PASSED: silhouette increased: baseline is:'::text  || ((trb.evaluation_function)::decimal(6,5))::text  || ' and actual value is '::text || ((tr.evaluation_function)::decimal(6,5))::text
                                 ELSE 'PASSED'
                            END

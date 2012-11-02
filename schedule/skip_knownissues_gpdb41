@@ -525,4 +525,8 @@ logistic_regression_ctas_0_0
 logistic_regression_ctas_0_1
 multinomial_logistic_regression_ctas_0_0
 multinomial_logistic_regression_ctas_0_1
+
+km_ctas_0_0
+km_pp_ctas_0_0
+km_random_ctas_0_0
 ### END ###
