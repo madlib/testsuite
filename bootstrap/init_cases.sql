@@ -218,16 +218,17 @@ CREATE OR REPLACE VIEW testresultreport AS
         ELSE 'FAILED'
         END
 
-      WHEN tr.itemname in (
-                            'nb_precompute_views_0_0_test_create_nb_prepared_data_tables_0',
-                            'nb_precompute_views_0_4_test_create_nb_prepared_data_tables_0',
-                            'nb_precompute_function_workaround_0_0_test_create_nb_prepared_data_tables_0',
-                            'nb_precompute_function_workaround_0_4_test_create_nb_prepared_data_tables_0')
-          THEN CASE WHEN tr.issuccessful = false AND (tr.result_info LIKE '%column "value" contains null values%'  OR tr.result_info like '%line 19 at execute statement%')
+     WHEN (tr.itemname like 'nb_precompute_views_0_0%'
+         or tr.itemname like 'nb_precompute_views_0_4%'
+         or tr.itemname like 'nb_precompute_function_workaround_0_0%'
+         or tr.itemname like 'nb_precompute_function_workaround_0_4%')
+          THEN CASE WHEN tr.issuccessful = false
+                      AND (tr.result_info LIKE '%column "value" contains null values%'
+                       OR tr.result_info like '%does not exist%'
+                       OR tr.result_info like '%line 19 at % statement%')
                THEN 'PASSED'
                ELSE 'FAILED'
                END
-
       WHEN  (tr.itemname like 'svm_cls_dot_ds_0_7%' OR tr.itemname like 'svm_cls_dot_ds_0_15%' OR tr.itemname like 'svm_cls_polynomial_ds_0_7%'
           OR tr.itemname like 'svm_cls_polynomial_ds_0_15%' OR tr.itemname like 'svm_cls_gaussian_ds_0_7%' OR tr.itemname like 'svm_cls_gaussian_ds_para_0_7%'
           OR tr.itemname like 'svm_reg_dot_ds_0_4%' OR tr.itemname like 'svm_reg_dot_ds_0_18%' OR tr.itemname like 'svm_reg_polynomial_ds_0_4%'
