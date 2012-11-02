@@ -210,11 +210,7 @@
                     <value></value>
                 </list_parameter>
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
                 </tear_down>
             </method>
         </test_suite>
@@ -262,12 +258,8 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+             </tear_down>
             </method>
         </test_suite>
 
@@ -314,11 +306,7 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
                 </tear_down>
             </method>
         </test_suite>
@@ -366,11 +354,7 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
                 </tear_down>
             </method>
         </test_suite>
@@ -418,11 +402,7 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
                 </tear_down>
             </method>
         </test_suite>
@@ -470,12 +450,8 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+              </tear_down>
             </method>
         </test_suite>
 
@@ -522,11 +498,7 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
                 </tear_down>
             </method>
         </test_suite>
@@ -574,12 +546,8 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+            </tear_down>
             </method>
         </test_suite>
 
@@ -626,11 +594,7 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
                 </tear_down>
             </method>
         </test_suite>
@@ -678,12 +642,8 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+              </tear_down>
             </method>
         </test_suite>
 
@@ -730,12 +690,8 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+               </tear_down>
             </method>
         </test_suite>
 
@@ -782,12 +738,8 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+            </tear_down>
             </method>
         </test_suite>
 
@@ -834,12 +786,8 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+              </tear_down>
             </method>
         </test_suite>
 
@@ -886,12 +834,8 @@
                  </parameters>
 
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+               </tear_down>
             </method>
         </test_suite>
 
@@ -968,12 +912,8 @@
                     <value>madlibtestdata.nb_extra_values_classify</value>
                 </list_parameter>
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+             </tear_down>
             </method>
         </test_suite>
 
@@ -1028,12 +968,8 @@
                     <value>madlibtestdata.nb_extra_values_classify</value>
                 </list_parameter>
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+              </tear_down>
             </method>
         </test_suite>
 
@@ -1110,12 +1046,8 @@
                     <value>madlibtestdata.nb_extra_values_classify</value>
                 </list_parameter>
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+                 </tear_down>
             </method>
         </test_suite>
 
@@ -1170,12 +1102,8 @@
                     <value>madlibtestdata.nb_extra_values_classify</value>
                 </list_parameter>
                 <tear_down>
-                   DROP TABLE IF EXISTS madlibtestresult.trained_probs;
-                   DROP TABLE IF EXISTS madlibtestresult.trained_priors;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_result;
-                   DROP VIEW IF EXISTS madlibtestresult.classified_probs;
-                   DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
-                </tear_down>
+                DROP TABLE IF EXISTS madlibtestresult.trained_probs;DROP TABLE IF EXISTS madlibtestresult.trained_priors;DROP VIEW IF EXISTS madlibtestresult.classified_result;DROP VIEW IF EXISTS madlibtestresult.classified_probs;DROP FUNCTION IF EXISTS madlibtestresult.classified_func(INT[], FLOAT8);
+                  </tear_down>
             </method>
         </test_suite>
 

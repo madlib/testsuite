@@ -151,13 +151,6 @@ plda_label_negative_eta_0_0
 
 
 ###### Naive Bayes Classification ###
-### HEAD ###
-### JiraId: MADLIB-679 ###
-### Type: 1 ###
-### Des: NB result is different between GP and PG ###
-nb_precompute_views_0_12
-nb_adhoc_views_12_0_0
-### END ###
 
 
 ### HEAD ###
@@ -433,13 +426,6 @@ multinomial_logistic_regression_optimizer_0_5
 multinomial_logistic_regression_baseline_0_2
 ### END ###
 
-### HEAD ###
-### JiraId: MADLIB-673 ###
-### Des: For dataset with two categories, It''s runnable when we input bigger number for categories ###
-### Type: 1 ###
-multinomial_logistic_regression_negative_categories_number_0_0
-multinomial_logistic_regression_negative_categories_number_0_2
-### END ###
 
 ### HEAD ###
 ### JiraId: MADLIB-674 ###
