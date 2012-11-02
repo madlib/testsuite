@@ -19,6 +19,19 @@ SET default_with_oids = false;
 -- Name: testitemresultbaseline; Type: TABLE; Schema: benchmark; Owner: maduser; Tablespace: 
 --
 
+CREATE TABLE testitemresultbaseline (
+    itemname text,
+    algorithmic text,
+    method text,
+    elapsedtime bigint,
+    evaluation_function double precision,
+    issuccessful boolean,
+    result_info text,
+    analysis_tool character varying(128)
+) DISTRIBUTED BY (itemname);
+
+
+ALTER TABLE benchmark.testitemresultbaseline OWNER TO maduser;
 
 --
 -- Data for Name: testitemresultbaseline; Type: TABLE DATA; Schema: benchmark; Owner: maduser
@@ -6823,18 +6836,16 @@ km_random_noninfinite_0_0_km_random_default_fndist_aggcentroid_maxiter_minfrac_0
 km_random_maxnumiterations_0_3_km_random_default_fndist_aggcentroid_maxiter_0	kmeans_rewrite	km_random_default_fndist_aggcentroid_maxiter	170897	0.454918426969951	t	-[ RECORD 1 ]-----+------------------\nsimple_silhouette | 0.454918426969951	\N
 km_pp_seeding_negative_k_0_0_km_pp_seeding_default_fndist_initialcentroids_0	kmeans_rewrite	km_pp_seeding_default_fndist_initialcentroids	6	\N	f	Number of clusters k must be a positive integer	\N
 km_random_minfracreassigned_0_1_km_random_default_fndist_aggcentroid_maxiter_minfrac_0	kmeans_rewrite	km_random_default_fndist_aggcentroid_maxiter_minfrac	174573	0.44825664739919402	t	-[ RECORD 1 ]-----+------------------\nsimple_silhouette | 0.448256647399194	\N
-km_pp_seeding_negative_k_0_2_km_pp_seeding_default_fndist_initialcentroids_0	kmeans_rewrite	km_pp_seeding_default_fndist_initialcentroids	6	\N	f	Number of clusters k is less than number of supplied initial centroids. Number of final clusters will equal number of supplied initial centroids.	\N
-km_random_minfracreassigned_0_3_km_random_default_fndist_aggcentroid_maxiter_minfrac_0	kmeans_rewrite	km_random_default_fndist_aggcentroid_maxiter_minfrac	233126	0.40721869526972099	t	-[ RECORD 1 ]-----+------------------\nsimple_silhouette | 0.407218695269721	\N
 nb_precompute_views_0_4_test_create_nb_prepared_data_tables_0	naive_bayes	test_create_nb_prepared_data_tables	601	\N	f	 SELECT madlib.create_nb_prepared_data_tables("madlibtestdata.nb_adult_withmissing","class","attributes",14,"madlibtestresult.trained_probs","madlibtestresult.trained_priors");\nERROR:  plpy.SPIError: column "value" contains null values  (seg1 gpdb12.delta.sm.greenplum.com:40201 pid=29695) (plpython.c:4648)\nCONTEXT:  Traceback (most recent call last):\n  PL/Python function "create_nb_prepared_data_tables", line 24, in <module>\n    return bayes.create_prepared_data_table(**globals())\n  PL/Python function "create_nb_prepared_data_tables", line 374, in create_prepared_data_table\n  PL/Python function "create_nb_prepared_data_tables", line 435, in create_prepared_data\nPL/Python function "create_nb_prepared_data_tables"\nSQL statement "SELECT madlib.create_nb_prepared_data_tables("madlibtestdata.nb_adult_withmissing","class","attributes",14,"madlibtestresult.trained_probs","madlibtestresult.trained_priors");"\nPL/pgSQL function "test_create_nb_prepared_data_tables" line 19 at execute statement\n.	\N
-km_random_minfracreassigned_0_5_km_random_default_fndist_aggcentroid_maxiter_minfrac_0	kmeans_rewrite	km_random_default_fndist_aggcentroid_maxiter_minfrac	243775	0.50920832790144699	t	-[ RECORD 1 ]-----+------------------\nsimple_silhouette | 0.509208327901447	\N
+km_random_minfracreassigned_0_3_km_random_default_fndist_aggcentroid_maxiter_minfrac_0	kmeans_rewrite	km_random_default_fndist_aggcentroid_maxiter_minfrac	233126	0.40721869526972099	t	-[ RECORD 1 ]-----+------------------\nsimple_silhouette | 0.407218695269721	\N
 nb_precompute_views_0_4_test_create_nb_probs_view_2	naive_bayes	test_create_nb_probs_view	153	\N	t	-[ RECORD 1 ]-------------+-\ntest_create_nb_probs_view | 	\N
-km_random_minfracreassigned_0_7_km_random_default_fndist_aggcentroid_maxiter_minfrac_0	kmeans_rewrite	km_random_default_fndist_aggcentroid_maxiter_minfrac	226292	0.452304589426132	t	-[ RECORD 1 ]-----+------------------\nsimple_silhouette | 0.452304589426132	\N
+km_random_minfracreassigned_0_5_km_random_default_fndist_aggcentroid_maxiter_minfrac_0	kmeans_rewrite	km_random_default_fndist_aggcentroid_maxiter_minfrac	243775	0.50920832790144699	t	-[ RECORD 1 ]-----+------------------\nsimple_silhouette | 0.509208327901447	\N
 nb_precompute_views_0_12_test_create_nb_classify_view_1	naive_bayes	test_create_nb_classify_view	147	\N	t	-[ RECORD 1 ]----------------+-\ntest_create_nb_classify_view | 	\N
-km_pp_seeding_negative_k_0_1_km_pp_seeding_default_fndist_initialcentroids_0	kmeans_rewrite	km_pp_seeding_default_fndist_initialcentroids	6	\N	f	Number of clusters k must be a positive integer	\N
+km_random_minfracreassigned_0_7_km_random_default_fndist_aggcentroid_maxiter_minfrac_0	kmeans_rewrite	km_random_default_fndist_aggcentroid_maxiter_minfrac	226292	0.452304589426132	t	-[ RECORD 1 ]-----+------------------\nsimple_silhouette | 0.452304589426132	\N
 nb_precompute_views_0_12_test_calculate_accuracy_3	naive_bayes	test_calculate_accuracy	1800	\N	t	-[ RECORD 1 ]-----------+------\ntest_calculate_accuracy | 0.560	\N
-km_random_seeding_negative_k_0_0_km_random_seeding_default_initialcentroids_0	kmeans_rewrite	km_random_seeding_default_initialcentroids	7	\N	f	Number of clusters k must be a positive integer	\N
+km_pp_seeding_negative_k_0_1_km_pp_seeding_default_fndist_initialcentroids_0	kmeans_rewrite	km_pp_seeding_default_fndist_initialcentroids	6	\N	f	Number of clusters k must be a positive integer	\N
 nb_adhoc_views_4_0_0_test_create_nb_probs_view_table_1	naive_bayes	test_create_nb_probs_view_table	164	\N	t	-[ RECORD 1 ]-------------------+-\ntest_create_nb_probs_view_table | 	\N
-km_random_seeding_negative_k_0_2_km_random_seeding_default_initialcentroids_0	kmeans_rewrite	km_random_seeding_default_initialcentroids	6	\N	f	Number of clusters k is less than number of supplied initial centroids. Number of final clusters will equal number of supplied initial centroids.	\N
+km_random_seeding_negative_k_0_0_km_random_seeding_default_initialcentroids_0	kmeans_rewrite	km_random_seeding_default_initialcentroids	7	\N	f	Number of clusters k must be a positive integer	\N
 nb_adhoc_views_4_0_0_test_calculate_accuracy_2	naive_bayes	test_calculate_accuracy	8923	\N	t	-[ RECORD 1 ]-----------+------\ntest_calculate_accuracy | 0.822	\N
 nb_precompute_views_0_4_test_create_nb_classify_view_1	naive_bayes	test_create_nb_classify_view	154	\N	t	-[ RECORD 1 ]----------------+-\ntest_create_nb_classify_view | 	\N
 nb_adhoc_views_12_0_0_test_create_nb_classify_view_table_0	naive_bayes	test_create_nb_classify_view_table	222	\N	t	-[ RECORD 1 ]----------------------+-\ntest_create_nb_classify_view_table | 	\N
@@ -6847,6 +6858,7 @@ nb_precompute_function_workaround_0_12_test_create_nb_prepared_data_tables_0	nai
 nb_adhoc_views_4_0_0_test_create_nb_classify_view_table_0	naive_bayes	test_create_nb_classify_view_table	168	\N	t	-[ RECORD 1 ]----------------------+-\ntest_create_nb_classify_view_table | 	\N
 nb_precompute_function_workaround_0_12_test_create_nb_classify_fn_1	naive_bayes	test_create_nb_classify_fn	143	\N	t	-[ RECORD 1 ]--------------+-\ntest_create_nb_classify_fn | 	\N
 nb_adhoc_views_12_0_0_test_create_nb_probs_view_table_1	naive_bayes	test_create_nb_probs_view_table	166	\N	t	-[ RECORD 1 ]-------------------+-\ntest_create_nb_probs_view_table | 	\N
+km_pp_seeding_negative_k_0_2_km_pp_seeding_default_fndist_initialcentroids_0	kmeans_rewrite	km_pp_seeding_default_fndist_initialcentroids	6	3	t	Number of clusters k is less than number of supplied initial centroids. Number of final clusters will equal number of supplied initial centroids.	\N
 nb_adhoc_views_12_0_0_test_calculate_accuracy_2	naive_bayes	test_calculate_accuracy	3542	\N	t	-[ RECORD 1 ]-----------+------\ntest_calculate_accuracy | 0.560	\N
 nb_precompute_function_workaround_0_0_test_create_nb_prepared_data_tables_0	naive_bayes	test_create_nb_prepared_data_tables	3141	\N	f	ecordlink;\nINFO:  SELECT madlib.create_nb_prepared_data_tables("madlibtestdata.nb_recordlink","class","attributes",9,"madlibtestresult.trained_probs","madlibtestresult.trained_priors");\nERROR:  plpy.SPIError: column "value" contains null values  (seg1 gpdb12.delta.sm.greenplum.com:40201 pid=1182) (plpython.c:4648)\nCONTEXT:  Traceback (most recent call last):\n  PL/Python function "create_nb_prepared_data_tables", line 24, in <module>\n    return bayes.create_prepared_data_table(**globals())\n  PL/Python function "create_nb_prepared_data_tables", line 374, in create_prepared_data_table\n  PL/Python function "create_nb_prepared_data_tables", line 435, in create_prepared_data\nPL/Python function "create_nb_prepared_data_tables"\nSQL statement "SELECT madlib.create_nb_prepared_data_tables("madlibtestdata.nb_recordlink","class","attributes",9,"madlibtestresult.trained_probs","madlibtestresult.trained_priors");"\nPL/pgSQL function "test_create_nb_prepared_data_tables" line 19 at execute statement\n.	\N
 nb_precompute_function_workaround_0_0_test_create_nb_classify_fn_1	naive_bayes	test_create_nb_classify_fn	177	\N	t	-[ RECORD 1 ]--------------+-\ntest_create_nb_classify_fn | 	\N
@@ -6856,6 +6868,7 @@ nb_precompute_function_workaround_0_12_test_create_nb_classify_fn_revoke_workaro
 nb_adhoc_function_workaround_0_12_test_create_nb_classify_fn_table_0	naive_bayes	test_create_nb_classify_fn_table	146	\N	t	-[ RECORD 1 ]--------------------+-\ntest_create_nb_classify_fn_table | 	\N
 nb_adhoc_function_workaround_0_12_test_create_nb_classify_fn_revoke_workaround_1	naive_bayes	test_create_nb_classify_fn_revoke_workaround	1564	\N	t	-[ RECORD 1 ]--------------------------------+--\ntest_create_nb_classify_fn_revoke_workaround | 2	\N
 platform_tmptbl_plpgsql_0_0_platform_tmptbl_0	common	platform_tmptbl	176	\N	t	-[ RECORD 1 ]-+---\nplatform_test | OK\n-[ RECORD 1 ]-+---\nplatform_test | OK	\N
+km_random_seeding_negative_k_0_2_km_random_seeding_default_initialcentroids_0	kmeans_rewrite	km_random_seeding_default_initialcentroids	6	3	t	Number of clusters k is less than number of supplied initial centroids. Number of final clusters will equal number of supplied initial centroids.	\N
 \.
 
 

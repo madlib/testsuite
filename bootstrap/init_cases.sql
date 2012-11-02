@@ -133,7 +133,7 @@ CREATE OR REPLACE VIEW testresultreport AS
 
         WHEN tr.itemname in ('km_pp_seeding_negative_k_0_2_km_pp_seeding_default_fndist_initialcentroids_0', 'km_random_seeding_negative_k_0_2_km_random_seeding_default_initialcentroids_0')
         THEN
-             CASE WHEN tr.evaluation_function=3
+             CASE WHEN tr.issuccessful = trb.issuccessful and tr.evaluation_function = trb.evaluation_function
                   THEN 'PASSED'
                   ELSE 'FAILED'
                   END
