@@ -19,19 +19,6 @@ SET default_with_oids = false;
 -- Name: testitemresultbaseline; Type: TABLE; Schema: benchmark; Owner: maduser; Tablespace: 
 --
 
-CREATE TABLE testitemresultbaseline (
-    itemname text,
-    algorithmic text,
-    method text,
-    elapsedtime bigint,
-    evaluation_function double precision,
-    issuccessful boolean,
-    result_info text,
-    analysis_tool character varying(128)
-) DISTRIBUTED BY (itemname);
-
-
-ALTER TABLE benchmark.testitemresultbaseline OWNER TO maduser;
 
 --
 -- Data for Name: testitemresultbaseline; Type: TABLE DATA; Schema: benchmark; Owner: maduser
@@ -6850,25 +6837,25 @@ nb_adhoc_views_4_0_0_test_calculate_accuracy_2	naive_bayes	test_calculate_accura
 nb_precompute_views_0_4_test_create_nb_classify_view_1	naive_bayes	test_create_nb_classify_view	154	\N	t	-[ RECORD 1 ]----------------+-\ntest_create_nb_classify_view | 	\N
 nb_adhoc_views_12_0_0_test_create_nb_classify_view_table_0	naive_bayes	test_create_nb_classify_view_table	222	\N	t	-[ RECORD 1 ]----------------------+-\ntest_create_nb_classify_view_table | 	\N
 nb_precompute_views_0_4_test_calculate_accuracy_3	naive_bayes	test_calculate_accuracy	9208	\N	t	-[ RECORD 1 ]-----------+------\ntest_calculate_accuracy | 0.000	\N
-nb_precompute_function_workaround_0_0_test_create_nb_classify_fn_revoke_workaround_2	naive_bayes	test_create_nb_classify_fn_revoke_workaround	595	\N	t	-[ RECORD 1 ]--------------------------------+--\ntest_create_nb_classify_fn_revoke_workaround | 1	\N
-nb_precompute_views_0_12_test_create_nb_prepared_data_tables_0	naive_bayes	test_create_nb_prepared_data_tables	1851	\N	t	-[ RECORD 1 ]-----------------------+-\ntest_create_nb_prepared_data_tables | 	\N
-nb_precompute_function_workaround_0_4_test_create_nb_classify_fn_revoke_workaround_2	naive_bayes	test_create_nb_classify_fn_revoke_workaround	400	\N	t	-[ RECORD 1 ]--------------------------------+---\ntest_create_nb_classify_fn_revoke_workaround | -1	\N
-nb_precompute_views_0_12_test_create_nb_probs_view_2	naive_bayes	test_create_nb_probs_view	147	\N	t	-[ RECORD 1 ]-------------+-\ntest_create_nb_probs_view | 	\N
-nb_precompute_function_workaround_0_12_test_create_nb_prepared_data_tables_0	naive_bayes	test_create_nb_prepared_data_tables	1832	\N	t	-[ RECORD 1 ]-----------------------+-\ntest_create_nb_prepared_data_tables | 	\N
-nb_adhoc_views_4_0_0_test_create_nb_classify_view_table_0	naive_bayes	test_create_nb_classify_view_table	168	\N	t	-[ RECORD 1 ]----------------------+-\ntest_create_nb_classify_view_table | 	\N
-nb_precompute_function_workaround_0_12_test_create_nb_classify_fn_1	naive_bayes	test_create_nb_classify_fn	143	\N	t	-[ RECORD 1 ]--------------+-\ntest_create_nb_classify_fn | 	\N
-nb_adhoc_views_12_0_0_test_create_nb_probs_view_table_1	naive_bayes	test_create_nb_probs_view_table	166	\N	t	-[ RECORD 1 ]-------------------+-\ntest_create_nb_probs_view_table | 	\N
 km_pp_seeding_negative_k_0_2_km_pp_seeding_default_fndist_initialcentroids_0	kmeans_rewrite	km_pp_seeding_default_fndist_initialcentroids	6	3	t	Number of clusters k is less than number of supplied initial centroids. Number of final clusters will equal number of supplied initial centroids.	\N
+nb_precompute_views_0_12_test_create_nb_prepared_data_tables_0	naive_bayes	test_create_nb_prepared_data_tables	1851	\N	t	-[ RECORD 1 ]-----------------------+-\ntest_create_nb_prepared_data_tables | 	\N
+nb_precompute_function_workaround_0_0_test_create_nb_classify_fn_revoke_workaround_2	naive_bayes	test_create_nb_classify_fn_revoke_workaround	595	\N	t	-[ RECORD 1 ]--------------------------------+--\ntest_create_nb_classify_fn_revoke_workaround | 1	\N
+nb_precompute_views_0_12_test_create_nb_probs_view_2	naive_bayes	test_create_nb_probs_view	147	\N	t	-[ RECORD 1 ]-------------+-\ntest_create_nb_probs_view | 	\N
+nb_precompute_function_workaround_0_4_test_create_nb_classify_fn_revoke_workaround_2	naive_bayes	test_create_nb_classify_fn_revoke_workaround	400	\N	t	-[ RECORD 1 ]--------------------------------+---\ntest_create_nb_classify_fn_revoke_workaround | -1	\N
+nb_adhoc_views_4_0_0_test_create_nb_classify_view_table_0	naive_bayes	test_create_nb_classify_view_table	168	\N	t	-[ RECORD 1 ]----------------------+-\ntest_create_nb_classify_view_table | 	\N
+nb_precompute_function_workaround_0_12_test_create_nb_prepared_data_tables_0	naive_bayes	test_create_nb_prepared_data_tables	1832	\N	t	-[ RECORD 1 ]-----------------------+-\ntest_create_nb_prepared_data_tables | 	\N
+nb_adhoc_views_12_0_0_test_create_nb_probs_view_table_1	naive_bayes	test_create_nb_probs_view_table	166	\N	t	-[ RECORD 1 ]-------------------+-\ntest_create_nb_probs_view_table | 	\N
+nb_precompute_function_workaround_0_12_test_create_nb_classify_fn_1	naive_bayes	test_create_nb_classify_fn	143	\N	t	-[ RECORD 1 ]--------------+-\ntest_create_nb_classify_fn | 	\N
 nb_adhoc_views_12_0_0_test_calculate_accuracy_2	naive_bayes	test_calculate_accuracy	3542	\N	t	-[ RECORD 1 ]-----------+------\ntest_calculate_accuracy | 0.560	\N
+nb_adhoc_function_workaround_0_12_test_create_nb_classify_fn_table_0	naive_bayes	test_create_nb_classify_fn_table	146	\N	t	-[ RECORD 1 ]--------------------+-\ntest_create_nb_classify_fn_table | 	\N
+nb_adhoc_function_workaround_0_12_test_create_nb_classify_fn_revoke_workaround_1	naive_bayes	test_create_nb_classify_fn_revoke_workaround	1564	\N	t	-[ RECORD 1 ]--------------------------------+--\ntest_create_nb_classify_fn_revoke_workaround | 2	\N
+platform_tmptbl_plpgsql_0_0_platform_tmptbl_0	common	platform_tmptbl	176	\N	t	-[ RECORD 1 ]-+---\nplatform_test | OK\n-[ RECORD 1 ]-+---\nplatform_test | OK	\N
+km_random_seeding_negative_k_0_2_km_random_seeding_default_initialcentroids_0	kmeans_rewrite	km_random_seeding_default_initialcentroids	6	3	t	Number of clusters k is less than number of supplied initial centroids. Number of final clusters will equal number of supplied initial centroids.	\N
 nb_precompute_function_workaround_0_0_test_create_nb_prepared_data_tables_0	naive_bayes	test_create_nb_prepared_data_tables	3141	\N	f	ecordlink;\nINFO:  SELECT madlib.create_nb_prepared_data_tables("madlibtestdata.nb_recordlink","class","attributes",9,"madlibtestresult.trained_probs","madlibtestresult.trained_priors");\nERROR:  plpy.SPIError: column "value" contains null values  (seg1 gpdb12.delta.sm.greenplum.com:40201 pid=1182) (plpython.c:4648)\nCONTEXT:  Traceback (most recent call last):\n  PL/Python function "create_nb_prepared_data_tables", line 24, in <module>\n    return bayes.create_prepared_data_table(**globals())\n  PL/Python function "create_nb_prepared_data_tables", line 374, in create_prepared_data_table\n  PL/Python function "create_nb_prepared_data_tables", line 435, in create_prepared_data\nPL/Python function "create_nb_prepared_data_tables"\nSQL statement "SELECT madlib.create_nb_prepared_data_tables("madlibtestdata.nb_recordlink","class","attributes",9,"madlibtestresult.trained_probs","madlibtestresult.trained_priors");"\nPL/pgSQL function "test_create_nb_prepared_data_tables" line 19 at execute statement\n.	\N
 nb_precompute_function_workaround_0_0_test_create_nb_classify_fn_1	naive_bayes	test_create_nb_classify_fn	177	\N	t	-[ RECORD 1 ]--------------+-\ntest_create_nb_classify_fn | 	\N
 nb_precompute_function_workaround_0_4_test_create_nb_prepared_data_tables_0	naive_bayes	test_create_nb_prepared_data_tables	578	\N	f	  SELECT madlib.create_nb_prepared_data_tables("madlibtestdata.nb_adult_withmissing","class","attributes",14,"madlibtestresult.trained_probs","madlibtestresult.trained_priors");\nERROR:  plpy.SPIError: column "value" contains null values  (seg1 gpdb12.delta.sm.greenplum.com:40201 pid=1668) (plpython.c:4648)\nCONTEXT:  Traceback (most recent call last):\n  PL/Python function "create_nb_prepared_data_tables", line 24, in <module>\n    return bayes.create_prepared_data_table(**globals())\n  PL/Python function "create_nb_prepared_data_tables", line 374, in create_prepared_data_table\n  PL/Python function "create_nb_prepared_data_tables", line 435, in create_prepared_data\nPL/Python function "create_nb_prepared_data_tables"\nSQL statement "SELECT madlib.create_nb_prepared_data_tables("madlibtestdata.nb_adult_withmissing","class","attributes",14,"madlibtestresult.trained_probs","madlibtestresult.trained_priors");"\nPL/pgSQL function "test_create_nb_prepared_data_tables" line 19 at execute statement\n.	\N
 nb_precompute_function_workaround_0_4_test_create_nb_classify_fn_1	naive_bayes	test_create_nb_classify_fn	196	\N	t	-[ RECORD 1 ]--------------+-\ntest_create_nb_classify_fn | 	\N
 nb_precompute_function_workaround_0_12_test_create_nb_classify_fn_revoke_workaround_2	naive_bayes	test_create_nb_classify_fn_revoke_workaround	292	\N	t	-[ RECORD 1 ]--------------------------------+--\ntest_create_nb_classify_fn_revoke_workaround | 1	\N
-nb_adhoc_function_workaround_0_12_test_create_nb_classify_fn_table_0	naive_bayes	test_create_nb_classify_fn_table	146	\N	t	-[ RECORD 1 ]--------------------+-\ntest_create_nb_classify_fn_table | 	\N
-nb_adhoc_function_workaround_0_12_test_create_nb_classify_fn_revoke_workaround_1	naive_bayes	test_create_nb_classify_fn_revoke_workaround	1564	\N	t	-[ RECORD 1 ]--------------------------------+--\ntest_create_nb_classify_fn_revoke_workaround | 2	\N
-platform_tmptbl_plpgsql_0_0_platform_tmptbl_0	common	platform_tmptbl	176	\N	t	-[ RECORD 1 ]-+---\nplatform_test | OK\n-[ RECORD 1 ]-+---\nplatform_test | OK	\N
-km_random_seeding_negative_k_0_2_km_random_seeding_default_initialcentroids_0	kmeans_rewrite	km_random_seeding_default_initialcentroids	6	3	t	Number of clusters k is less than number of supplied initial centroids. Number of final clusters will equal number of supplied initial centroids.	\N
 \.
 
 
