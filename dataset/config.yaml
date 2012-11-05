@@ -1,16 +1,5 @@
 DataModeling :
     SupervisedLearning :
-        DecisionTree : 
-        LinearRegression : 
-        LogisticRegression : 
-        MultinomialLogisticRegression :
         NaiveBayesClassification : 
-        RandomForest : 
-        SupportVectorMachines : 
     UnsupervisedLearning :
         kMeansClustering : 
-        AssociationRules : 
-        ParallelLatentDirichletAllocation : 
-InferentialStatistics :
-    HypothesisTests : 
-Common :
