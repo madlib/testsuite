@@ -159,6 +159,35 @@ plda_label_negative_eta_0_0
 nb_adhoc_views_11_0_0
 ### END ###
 
+
+### HEAD ###
+### JiraId: MADLIB-614 ###
+### Type: 2 ###
+### Des: Inconsistent handling of NULLs in precomputed mode and ad hoc mode in Naive Bayes  ###
+nb_adhoc_views_4_0_0
+nb_precompute_views_0_0
+nb_precompute_views_0_4
+nb_precompute_function_workaround_0_0
+nb_precompute_function_workaround_0_4
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-523 ###
+### Type: 2 ###
+### Des: missing value in one view produced by Naive Bayes Classifier  ###
+nb_adhoc_views_12_0_0
+nb_precompute_views_0_12
+### END ###
+
+### HEAD ###
+### JiraId: MADLIB-679 ###
+### Type: 2 ###
+### Des: NB result is different between GP and PG due to test cleanup issues.  ###
+nb_precompute_function_workaround_0_12
+nb_adhoc_function_workaround_0_12
+### END ###
+
+
 ### HEAD ###
 ### JiraId: MADLIB-612 ###
 ### Type: 2 ###

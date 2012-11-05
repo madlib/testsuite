@@ -111,10 +111,8 @@ CREATE OR REPLACE VIEW testresultreport AS
                            'km_pp_noninfinite_0_1_km_pp_default_fndist_aggcentroid_maxiter_minfrac_0', 
                            'km_random_noninfinite_0_1_km_random_default_fndist_aggcentroid_maxiter_minfrac_0')
         THEN CASE WHEN tr.issuccessful = false and
-                             (tr.result_info like '%Schema (non_existing_schema) does not exist%' 
-                           or tr.result_info like '%Source table does not exist%' 
-                           or tr.result_info like '%Point coordinates (non_existing_column) are not a valid type (SVEC, FLOAT[], or INTEGER[]) or do not exist%' 
-                           or tr.result_info like '%Point coordinates (pid) are not a valid type (SVEC, FLOAT[], or INTEGER[]) or do not exist%' 
+                            ( tr.result_info like '%relation "madlibtestdata.non_existing_table" does not exist%' 
+                           or tr.result_info like '%Point coordinates (pid) are not a valid type%' 
                            or tr.result_info like '%schema "non_existing_schema" does not exist%' 
                            or tr.result_info like '%function "madlib.non_existing_squared_dist_func(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%' 
                            or tr.result_info like '%function "madlibtestdata.squared_dist_invalid_signature_datatype(DOUBLE PRECISION[], DOUBLE PRECISION[])" does not exist%' 
