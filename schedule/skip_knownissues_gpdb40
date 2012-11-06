@@ -506,15 +506,21 @@ svm_reg_polynomial_ds_0_18
 svm_reg_gaussian_ds_0_4
 svm_reg_gaussian_ds_para_0_4
 
-###### Long running kmeans with user-defined aggreate centroid function #####
+###### Long running kmeans with user-defined aggreate centroid function ######
 km_aggcentroid_userdefined_0_0
 km_pp_aggcentroid_userdefined_0_0
 km_random_aggcentroid_userdefined_0_0
 
-###### MADmark improvement needed: cannot load dataset with sparse vector are present #####
+###### MADmark improvement needed: cannot load dataset with sparse vector are present ######
 km_svec_0_0
 km_pp_svec_0_0
 km_random_svec_0_0
+
+###### plpythonu on GPDB4.1/4.0 is old version and uses old fashion of parameter handling ######
+km_pp_seeding_fndist_0_4
+km_fndist_4distuserdefined_0_0
+km_pp_fndist_4distuserdefined_0_0
+km_random_fndist_4distuserdefined_0_0
 ### END ###
 
 ### HEAD ###

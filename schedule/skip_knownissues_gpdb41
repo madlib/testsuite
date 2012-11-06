@@ -489,6 +489,12 @@ km_random_aggcentroid_userdefined_0_0
 km_svec_0_0
 km_pp_svec_0_0
 km_random_svec_0_0
+
+###### plpythonu on GPDB4.1/4.0 is old version and uses old fashion of parameter handling ######
+km_pp_seeding_fndist_0_4
+km_fndist_4distuserdefined_0_0
+km_pp_fndist_4distuserdefined_0_0
+km_random_fndist_4distuserdefined_0_0
 ### END ###
 
 

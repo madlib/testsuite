@@ -136,6 +136,30 @@ CREATE OR REPLACE VIEW testresultreport AS
                   ELSE 'FAILED'
                   END
 
+        WHEN tr.itemname in ( 'km_maxnumiterations_0_0_km_default_fndist_aggcentroid_maxiter_0',
+                              'km_maxnumiterations_0_1_km_default_fndist_aggcentroid_maxiter_0',
+                              'km_maxnumiterations_0_2_km_default_fndist_aggcentroid_maxiter_0',
+                              'km_minfracreassigned_0_0_km_default_fndist_aggcentroid_maxiter_minfrac_0',
+                              'km_minfracreassigned_0_1_km_default_fndist_aggcentroid_maxiter_minfrac_0',
+                              'km_minfracreassigned_0_2_km_default_fndist_aggcentroid_maxiter_minfrac_0',
+                              'km_pp_maxnumiterations_0_0_km_pp_default_fndist_aggcentroid_maxiter_0',
+                              'km_pp_maxnumiterations_0_1_km_pp_default_fndist_aggcentroid_maxiter_0',
+                              'km_pp_maxnumiterations_0_2_km_pp_default_fndist_aggcentroid_maxiter_0',
+                              'km_pp_minfracreassigned_0_0_km_pp_default_fndist_aggcentroid_maxiter_minfrac_0',
+                              'km_pp_minfracreassigned_0_1_km_pp_default_fndist_aggcentroid_maxiter_minfrac_0',
+                              'km_pp_minfracreassigned_0_2_km_pp_default_fndist_aggcentroid_maxiter_minfrac_0',
+                              'km_random_maxnumiterations_0_0_km_random_default_fndist_aggcentroid_maxiter_0',
+                              'km_random_maxnumiterations_0_1_km_random_default_fndist_aggcentroid_maxiter_0',
+                              'km_random_maxnumiterations_0_2_km_random_default_fndist_aggcentroid_maxiter_0',
+                              'km_random_minfracreassigned_0_0_km_random_default_fndist_aggcentroid_maxiter_minfrac_0',
+                              'km_random_minfracreassigned_0_1_km_random_default_fndist_aggcentroid_maxiter_minfrac_0',
+                              'km_random_minfracreassigned_0_2_km_random_default_fndist_aggcentroid_maxiter_minfrac_0' )
+        THEN
+             CASE WHEN tr.issuccessful = trb.issuccessful and tr.evaluation_function >= 0.0
+                  THEN 'PASSED'
+                  ELSE 'FAILED'
+                  END
+
         WHEN tr.itemname like 'km_%' and tr.itemname not like '%negative%'
         THEN CASE WHEN tr.issuccessful = false
                   THEN
