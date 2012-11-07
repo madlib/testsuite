@@ -177,12 +177,6 @@ nb_precompute_function_workaround_0_4
 ### Des: missing value in one view produced by Naive Bayes Classifier  ###
 nb_adhoc_views_12_0_0
 nb_precompute_views_0_12
-### END ###
-
-### HEAD ###
-### JiraId: MADLIB-679 ###
-### Type: 2 ###
-### Des: NB result is different between GP and PG due to test cleanup issues.  ###
 nb_precompute_function_workaround_0_12
 nb_adhoc_function_workaround_0_12
 ### END ###
