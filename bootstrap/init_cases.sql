@@ -438,7 +438,7 @@ SELECT COUNT(*) AS failedcases,
        j.jiradescription
 FROM jiras_cases as jc,
              madlib_jiras as j,
-             (SELECT algorithmic, casename from testitemresult as tr, testitems as ti
+             (SELECT distinct algorithmic, casename from testitemresult as tr, testitems as ti
               WHERE runid = (select max(runid) from testitemseq)
                  AND issuccessful IS NULL and tr.itemname = ti.itemname) as tr
 WHERE j.jiraid = jc.jiraid AND tr.casename = jc.casename
