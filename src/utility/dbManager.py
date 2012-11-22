@@ -93,13 +93,17 @@ class dbManager:
         # 0. Update pg_hba to allow madlibtester to access all databases
         self.addUserPGHBA(username, conf["master_dir"], conf['kind'])
         # clear up
-        sql = 'DROP SCHEMA %s CASCADE'%ResultSchema
-        run_sql.runSQL(sql, logusername = superuser, logport = port, logdatabase = dbname, \
-                         onErrorStop = False, source_path = conf['env'])
-     
-        sql = 'DROP SCHEMA %s CASCADE'%DataSchema
-        run_sql.runSQL(sql, logusername = superuser, logport = port, logdatabase = dbname, \
-                         onErrorStop = False, source_path = conf['env'])
+        try :
+            sql = 'DROP SCHEMA %s CASCADE'%ResultSchema
+            run_sql.runSQL(sql, logusername = superuser, logport = port, logdatabase = dbname, \
+                             onErrorStop = False, source_path = conf['env'])
+         
+            sql = 'DROP SCHEMA %s CASCADE'%DataSchema
+            run_sql.runSQL(sql, logusername = superuser, logport = port, logdatabase = dbname, \
+                             onErrorStop = False, source_path = conf['env'])
+        except Exception, e:
+            print e
+            print 'Database "%s" does not exist \nCreate the new database "%s"'%(dbname,dbname)
 
         sql = 'DROP USER %s CASCADE'%username
         run_sql.runSQL(sql, logusername = superuser, logport = port, logdatabase = dbtemplate, \

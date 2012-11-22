@@ -79,7 +79,7 @@ class loadingManager:
             (root, _) = os.path.split(yaml_path)
             cfg = yaml.load(open(yaml_path))
             if not 'tables' in cfg:
-                return 
+                continue
             for table in cfg['tables']:
                 if 'skip' in table and table['skip'] == 'all' : continue
 
