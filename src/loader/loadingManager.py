@@ -177,7 +177,7 @@ class loadingManager:
                         if 'sql' in table:
                             run_sql.runSQL(os.path.join(self.__yamlPath, os.path.dirname(yaml_path), table['sql']), \
                                 logport = db_manager.db_conf['port'], logdatabase = db_manager.db_conf['database'], \
-                                isFile = True, source_path = db_manager.getDBenv() )
+                                onErrorStop = False,isFile = True, source_path = db_manager.getDBenv() )
 
                         print "INFO : Success Loaded : %s " % table['id']
                     except:
