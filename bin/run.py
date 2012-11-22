@@ -2,57 +2,17 @@
 """This is the entry script of this project. 
 
 Most functions start with 'python run.py [-i][-g][-s]'"""
-import glob
-import os
+import glob, os
 import sys, subprocess
-from datetime import datetime
-from optparse import OptionParser
 
+sys.path.append('../src/')
 
-TestCaseDir     = '../testcase/'
-TestMataDir     = '../bootstrap/'
-GeneratorSrcDir = '../src/generator/'
-AnalyticsTool   = '../testspec/metadata/analyticstool.xml'
-ReportDir       = '../report/'
-ScheduleDir     = '../schedule/'
-SrcDir          = '../src/'
-TestConfig      = '../testspec/metadata/testconfig.xml'
+from  utility.argparse import ArgumentParser
+from  utility import test_config, analytics_tool, file_path, run_sql, tools
+from  executor import gen_report, run_case
+from  loader.loadingManager import loadingManager
 
-sys.path.append(SrcDir)
-from generator.argparse import ArgumentParser
-from generator.test_config import Configer
-
-test_cfg = Configer(TestConfig)
-test_cfg.testconfig()
-
-from loader.loadingManager import loadingManager
-import utility
-
-sys.path.append('../src/generator/')
-import gen_report
-
-def getList(filename):
-    """Parse file and return a list of non-empty lines"""
-    return [ l.strip() for l in open(filename).readlines() if l.strip() != '' and l.strip()[0] != '#']
-
-def generateReport(psql_cmd, environ, run_id, platform):
-    """generate test result report
-    
-    """
-    reportDir = os.path.abspath(ReportDir) + '/'
-    gen_report.generate_report(psql_cmd, environ, run_id, platform, reportDir)
-
-
-def copyToFile(psql_cmd, environ, sql, filename):
-    """generate test result report
-    
-    param sql as select, but we need to create as temp table to store 
-        those data and copy to file 
-    """
-    out = utility.runSQL(psql_cmd, sql, environ, False)
-    f = open(filename, 'w')
-    f.write(out)
-    f.close()
+Path = file_path.Path()
 
 def main():
     """Change the options, del -c -S -t -r. Modify -s. i.e. python run.py -s map.yaml"""
@@ -71,7 +31,7 @@ def main():
     parser.add_argument("-g", "--gencase", action='store_true', help = "Generate cases.")
     parser.add_argument("-d", "--debug", action = 'store_true', help ="Debug model will generate all sql for each case, it take a long time.")
 
-    parser.add_argument("-l", "--forceload", action='store_true', help = "Drop db, reconvert and reload all tables set in config.yaml and tables.yaml.")
+    parser.add_argument("-l", "--forceload", action='store_true', help = "Reconvert and reload all tables set in config.yaml and tables.yaml.")
     parser.add_argument("-L", "--smartload", action='store_true', help = "Load modules by config.yaml, tables.yaml and -m. If table exists in db, do nothing.")
     parser.add_argument("-m", "--module", nargs = "*", help = "Modules selected to load. For exapme: 'run.py -Lm Dec Ran' means only load decisition tree and random forest.")
 
@@ -79,17 +39,23 @@ def main():
 
     options = parser.parse_args()
 
-    psql_cmd = utility.getResultDBPsqlCMD()
-    environ = os.environ
-    import generator.execute_case
+    testConfiger = test_config.Configer(Path.TestConfigXml)
+    testConfiger.testconfig()
+    analyticsTools = analytics_tool.AnalyticsTools(Path.AnalyticsToolXml)
+    analyticsTools.parseTools()
+
+    psql_args = testConfiger.getResultDBmanager().getDBsqlArgs()
+    schema   = testConfiger.getResultSchema()
+    tools.set_search_path(schema, Path.BootstrapDir)
+
     if options.schedule:
         map_file = options.schedule
-        plans = utility.parserMap(map_file)
-        utility.runSQL(psql_cmd, "update benchmark.testitemseq set runid = runid + 1;"
-                           , environ, False)
-        ret = utility.runSQL(psql_cmd, "select max(runid) from benchmark.testitemseq;"
-                                , environ, False)
+        plans    = tools.parserMap(Path.ScheduleDir + map_file)
+
+        run_sql.runSQL("update %s.testitemseq set runid = runid + 1;"%schema, psqlArgs = psql_args)
+        ret = run_sql.runSQL("select max(runid) from %s.testitemseq;"%schema, psqlArgs = psql_args)
         run_id = ret.splitlines()[2].strip()
+        
         for plan in plans:
             if len(plan) > 4:
                 sys.exit('ERROR:-s arg file has some grammer error, too many lines.')
@@ -105,50 +71,47 @@ def main():
                 isUnique = True
             else:
                 isUnique = False
-
-            version = utility.runCases(filename, plan['skip'], isList, isUnique, plan['platform'], TestCaseDir, AnalyticsTool, run_id)
-            if plan['skip']:
-                utility.runSQL(psql_cmd, TestMataDir + 'skipsqlfile.sql', environ)
             
-            utility.runSQL(psql_cmd, TestMataDir + 'post.sql', environ)
-            generateReport(psql_cmd, environ, run_id, plan['platform'])
+            version = run_case.runCases(filename, plan['skip'], isList, isUnique, plan['platform'], analyticsTools, testConfiger, run_id)
+            if plan['skip']:
+                run_sql.runSQL(Path.BootstrapDir + 'skipsqlfile.sql', psqlArgs = psql_args, isFile = True)
+            run_sql.runSQL(Path.BootstrapDir + 'post.sql', psqlArgs = psql_args, onErrorStop = False, isFile = True)
+            
+            gen_report.generate_report(psql_args, schema, run_id, plan['platform'], Path.ReportDir)
 
     #load data set to all databases to test
     if options.forceload:
-        loading_manager = loadingManager('..', 'madlibtestdata')
+        loading_manager = loadingManager(Path.RootPath, 'madlibtestdata', analyticsTools)
         loading_manager.do(options.module, False, True, True)
 
     if options.initbenchmark:
         #initialization
-        utility.runSQL(psql_cmd, TestMataDir + 'init.sql', environ)
-        utility.runSQL(psql_cmd, TestMataDir + 'init_cases.sql', environ)
-        utility.runSQL(psql_cmd, TestMataDir + 'resultbaseline.sql', environ)
+        run_sql.runSQL(Path.BootstrapDir + 'init.sql', psqlArgs = psql_args, isFile = True)
+        run_sql.runSQL(Path.BootstrapDir + 'init_cases.sql', psqlArgs = psql_args, isFile = True)
+        run_sql.runSQL(Path.BootstrapDir + 'resultbaseline.sql', psqlArgs = psql_args, isFile = True)
         #generate new cases
         os.system('cd ../src/generator/ && python ./gen_testcase.py')
-        utility.runSQL(psql_cmd, TestMataDir + 'analyticstool.sql', environ)
+        run_sql.runSQL(Path.BootstrapDir + 'analyticstool.sql', psqlArgs = psql_args, isFile = True)
         #initialize algorithm result table
-        utility.runSQL(psql_cmd, TestMataDir + 'algorithmspec.sql', environ)
+        run_sql.runSQL(Path.BootstrapDir + 'algorithmspec.sql', psqlArgs = psql_args, isFile = True)
         for sqlfile in glob.glob('../testcase/*.sql'):
-            utility.runSQL(psql_cmd, sqlfile, environ)
+            run_sql.runSQL(sqlfile, psqlArgs = psql_args, onErrorStop = False, isFile = True)
     if options.gencase:
         #initialization
-        utility.runSQL(psql_cmd, TestMataDir + 'init_cases.sql', environ)
-        utility.runSQL(psql_cmd, TestMataDir + 'resultbaseline.sql', environ)
+        run_sql.runSQL(Path.BootstrapDir + 'init_cases.sql', psqlArgs = psql_args, isFile = True)
+        run_sql.runSQL(Path.BootstrapDir + 'resultbaseline.sql', psqlArgs = psql_args, isFile = True)
         #generate new cases
         if options.debug:
             os.system('cd ../src/generator/ && python ./gen_testcase.py debug')
         else:
             os.system('cd ../src/generator/ && python ./gen_testcase.py')
-        utility.runSQL(psql_cmd, TestMataDir + '/analyticstool.sql', environ)
-        psql_cmd = utility.getResultDBPsqlCMD(onErrorStop = False)
-        print psql_cmd
-        utility.runSQL(psql_cmd, TestMataDir + 'algorithmspec.sql', environ, onErrorStop = False)
-
+        run_sql.runSQL(Path.BootstrapDir + 'analyticstool.sql', psqlArgs = psql_args, isFile = True)
+        run_sql.runSQL(Path.BootstrapDir + 'algorithmspec.sql', psqlArgs = psql_args, onErrorStop = False,  isFile = True)
         for sqlfile in glob.glob('../testcase/*.sql'):
-            utility.runSQL(psql_cmd, sqlfile, environ)
+            run_sql.runSQL(sqlfile, psqlArgs = psql_args, onErrorStop = False, isFile = True)
 
     if options.smartload:
-        loading_manager = loadingManager('..', 'madlibtestdata')
+        loading_manager = loadingManager(Path.RootPath, 'madlibtestdata', analyticsTools)
         loading_manager.do(options.module, False, False, False)
 
 if __name__ == '__main__':

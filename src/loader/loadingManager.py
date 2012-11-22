@@ -24,20 +24,20 @@ cmd : "./convertor.sh <data> <sql> <table> <desc>"
 
 import os, sys, yaml, subprocess, types, re, time, urllib
 
-import dbManager
+sys.path.append('../')
+from utility import dbManager, run_sql
 
 class loadingManager:
     """Manage loading"""
 
-    def __init__(self, rootPath, schema):
+    def __init__(self, rootPath, schema, analyticsTools):
         """Load the config yaml"""
 
-        self.__yamlPath = os.path.join(os.path.abspath(rootPath), "dataset/")
+        self.__yamlPath = os.path.join(rootPath, "dataset/")
         self.__schema = schema
         self.__sqlPath = os.path.join(self.__yamlPath, "sql")
         self.conf = yaml.load(open(self.__yamlPath + "config.yaml"))
-        self.db_manager = dbManager.dbManager(os.path.join(rootPath, 'testspec/metadata/analyticstool.xml'))
-
+        self.testdbs_conf = analyticsTools.analyticsTools
         self.__log = {}
 
     def __logInfo(self, id, attri, value):
@@ -57,15 +57,15 @@ class loadingManager:
                 list.append(root + key +'/tables.yaml')
         return list
                 
-    def __loadYaml(self, yamls = None):
+    def __loadYaml(self, modules = None):
         """Load from file."""
         list = self.__getYamls(self.conf, self.__yamlPath)
-        if yamls is not None:
+        if modules is not None:
             new_list = []
-            for yaml in yamls:
-                for one in list:
-                    if yaml in one and one not in new_list:
-                        new_list.append(one)
+            for module in modules:
+                for yaml in list:
+                    if module in yaml and yaml not in new_list:
+                        new_list.append(yaml)
             return new_list
         return list 
 
@@ -145,7 +145,7 @@ class loadingManager:
             return os.path.abspath(fileName)
         return str     
 
-    def __load(self, kind, list, overload = False):
+    def __load(self, db_manager, kind, list, overload = False):
         """Load table into db."""
         fail_list = []
         for yaml_path in list:
@@ -157,7 +157,8 @@ class loadingManager:
                         continue
                     table_name = '.'.join([self.__schema, table['id']])
                     outSQL = os.path.join(self.__yamlPath, 'sql', table['id'] + '.sql')
-                    output = self.db_manager.runSQL("SELECT count(*) FROM %s.%s" % (self.__schema, table['id']))
+                    output = run_sql.runSQL("SELECT count(*) FROM %s"%table_name, \
+                           psqlArgs = db_manager.getDBsqlArgs(), onErrorStop = False, Return = "all" )
                     #If table exists and no nedd to overload, skip this sql.
                     if output.find('not exist') < 0 and output.find('     0') < 0 and overload is False:
                         continue
@@ -168,12 +169,15 @@ class loadingManager:
                     try:
                         start = time.time()
                         subprocess.check_call('gunzip %s.gz' % outSQL, shell=True)
-                        self.db_manager.loadSQL(outSQL)
+                        run_sql.runSQL(outSQL, logport = db_manager.db_conf['port'], logdatabase = \
+                           db_manager.db_conf['database'], isFile = True, source_path = db_manager.getDBenv() )
                         subprocess.check_call('gzip -f %s'%outSQL, shell=True)
                         self.__logInfo(table['id'], 'load', time.time() - start)
                         #Load additional sql file for table.
                         if 'sql' in table:
-                            self.db_manager.loadSQL(os.path.join(self.__yamlPath, os.path.dirname(yaml_path), table['sql']))
+                            run_sql.runSQL(os.path.join(self.__yamlPath, os.path.dirname(yaml_path), table['sql']), \
+                                logport = db_manager.db_conf['port'], logdatabase = db_manager.db_conf['database'], \
+                                isFile = True, source_path = db_manager.getDBenv() )
 
                         print "INFO : Success Loaded : %s " % table['id']
                     except:
@@ -181,21 +185,24 @@ class loadingManager:
                         print "ERROR : Fail Loaded : %s " % table['id']
             #Load additional sql file for algorithm.
             if 'sql' in yaml_content:
-                self.db_manager.loadSQL(os.path.join(self.__yamlPath, os.path.dirname(yaml_path), yaml_content['sql']))
+                run_sql.runSQL(os.path.join(self.__yamlPath, os.path.dirname(yaml_path), yaml_content['sql']), \
+                 logport = db_manager.db_conf['port'], logdatabase = db_manager.db_conf['database'], \
+                                onErrorStop = False, isFile = True, source_path = db_manager.getDBenv() )
         print "FAILED LOAD TABLES:\n", fail_list 
-    def do(self, yamls = None, overwritten = False, overload = False, initdb = False):
+    def do(self, modules = None, overwritten = False, overload = False, initdb = False):
         """Read yaml files, download, unzip, convert and load"""
-        list = self.__loadYaml(yamls)
+        list = self.__loadYaml(modules)
         self.__convert(list, overwritten)
         #Get info of each platform. Foreach, start it and do:
-        for name in self.db_manager.getNames():
-            self.db_manager.start(name)
+        for name in self.testdbs_conf:
+            db_manager = dbManager.dbManager(self.testdbs_conf[name])
+            db_manager.start() 
 
             if initdb is True:
-                self.db_manager.initDB()
+                db_manager.initDB()
 
-            self.__load(name.lower(), list, overload)
-            self.db_manager.stop(name)
+            self.__load(db_manager, name.lower(), list, overload)
+            db_manager.stop()
             print name
             total_time = 0.0
             for id, attris in self.__log.items():

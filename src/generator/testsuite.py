@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 """Parse <test_suite> tag. """
-import os
+import os, sys
+sys.path.append('../')
 
-from xml_parser import *
-from test_config import *
-from analytics_tool import *
+from utility.xml_parser import *
+from utility.test_config import *
+from utility.analytics_tool import *
 from testcase import *
 from para_handler import *
 
@@ -67,7 +68,7 @@ class TestSuite(Parser):
         for i in range(0, int(self.tsExecuterate)):
             for caseID in range(0, self.numExtendParams):
                 caseName = self.tsName + '_' + str(0) + '_' + str(caseID)
-                caseFileHD = open(os.path.join(Path.casePath, caseName + '.case'), 'a+')
+                caseFileHD = open(os.path.join(Path.TestCaseDir, caseName + '.case'), 'a+')
                 case = TestCase(self.configer, self.analyticsTools, self.datasets, \
                             self.algorithm, self.paraHandler, self.preParas, \
                             self.varExpandParaPairList, self.tsName, caseName, caseID, \
@@ -183,7 +184,7 @@ class TestSuite(Parser):
     def __writeTestSuitesSql(self):
         """write test suite sql statement"""
 
-        tbName = self.configer.metaDBSchema + "." + "testsuites"
+        tbName = self.configer.resultDBSchema + "." + "testsuites"
         samePara = self.__formSamePara(self.preParas)
         stmt = "INSERT INTO " + tbName + " VALUES (" \
             "'" + self.tsName + "'" + ", " +\

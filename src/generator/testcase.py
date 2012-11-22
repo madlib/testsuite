@@ -2,16 +2,13 @@
 """generate test case from each <testsuite> tag, including using differenct iteration 
 number and different vary parameter combinations
 """
-import os
-import pipes
+import os, pipes, sys
+sys.path.append('../')
+from utility import file_path
+from utility.xml_parser import Parser
+from executor import template_executor
 
-from xml_parser import *
-from file_path import *
-from test_config import *
-from analytics_tool import *
-from para_handler import *
-import template_executor
-
+Path = file_path.Path()
 
 class TestCase(Parser):
     """
@@ -72,7 +69,7 @@ class TestCase(Parser):
     def __writeTestItemsSql(self, itemName, algorithm, method, \
             paras, varVal, varName, dataset, rownum):
 
-        itemsTbName = self.configer.metaDBSchema + "." + "testitems"
+        itemsTbName = self.configer.resultDBSchema + "." + "testitems"
 
         stmt = "INSERT INTO " + itemsTbName + " VALUES ( '" + itemName  + "' ," + \
             "'" + self.tsName       + "' ," +\
@@ -172,7 +169,7 @@ class TestCase(Parser):
 
             #madlib logger configuration
             caseItemPara.append("--iteration_id " + str(exeIteration))
-            caseItemPara.append("--logger DbOut " + "--logger_conn " + self.configer.metaDB)
+            caseItemPara.append("--logger DbOut " + "--logger_conn " + self.configer.dbmanager.getDBConnection())
             caseItemPara.append("--target_base_name " + targetBaseName)
 
             caseItem.extend(caseItemPara)
@@ -194,7 +191,7 @@ class TestCase(Parser):
             # try to add tear down operation, this step is optional
             try:
                 teardown = Parser.getNodeVal(self, mtd, "tear_down")
-                teardownSQL = "psql -c '" + teardown + "'" 
+                teardownSQL = "psql " + teardown
                 self.caseFileHd.write(teardownSQL)
                 self.caseSQLFileHd.write( teardownSQL )
             except Exception, exp:

@@ -22,13 +22,13 @@ the input and output parameters willbe stored in result database.
     </algorithms>
 </algorithm> 
 """
-from xml_parser import *
-from file_path import *
-from argparse import ArgumentParser
-import sys
-import db_out
-from run_sql import parseConnectionStr, runSQL, Timer
+import sys, os
+sys.path.append('../src/')
 
+from utility import run_sql, file_path, db_out, argparse
+from utility.xml_parser import Parser
+
+Path = file_path.Path()
 
 class ExecutorSpec(Parser):
     def __init__(self, xml, db_schema = 'madlib'):
@@ -248,7 +248,7 @@ class Executor:
         """
 
         #1) general options
-        parser = ArgumentParser(description="MADLib Executor")
+        parser = argparse.ArgumentParser(description="MADLib Executor")
         parser.add_argument("--p"               , type=str, required = False, 
                             default = 'greenplum')
         parser.add_argument("--madlib_schema"   , type=str, required = False
@@ -267,13 +267,13 @@ class Executor:
 
         parser.parse_known_args(args = self.argv, namespace = self)
         (self.logusername, self.logpassword, self.loghostname, self.logport,
-            self.logdatabase, _) = parseConnectionStr(self.connection_string)
+            self.logdatabase, _) = run_sql.parseConnectionStr(self.connection_string)
 
         #come out the executor specification
         self.spec = ExecutorSpec(self.spec_file, self.madlib_schema)
 
         #2) specific options
-        parser = ArgumentParser(description="MADLib Executor")
+        parser = argparse.ArgumentParser(description="MADLib Executor")
         method = self.spec.getAlgorithm(self.algorithm).getMethod(self.method)
         paras = method.getInputParams()
         for para in paras:
@@ -306,11 +306,11 @@ class Executor:
         print '----------------------------------------------------'
         print ' '.join(self.argv)
         print self.sql
-        timer = Timer()
+        timer = run_sql.Timer()
         #the elapsed time is in second, but we will convert it to ms in database
         with timer:
             try:
-                result = runSQL(
+                result = run_sql.runSQL(
                     sql
                     , self.logusername, self.logpassword, self.loghostname
                     , self.logport, self.logdatabase

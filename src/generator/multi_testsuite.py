@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 """Parse the root tag <multi_test_suites> of test case spec xml"""
+import sys
+sys.path.append('../')
 
-from xml_parser import *
-from test_config import *
-from analytics_tool import *
-from testsuite import *
-from para_handler import *
+from utility.xml_parser import Parser
+import testsuite
 
 class MultiTestSuite(Parser):
     def __init__(self, configer, analyticsTools, datasets, paraHandler, algorithm, preParas, \
@@ -42,7 +41,7 @@ class MultiTestSuite(Parser):
         """Generate test case under this <multi_test_suites> tag."""
         for ts in self.tsNodes:         
             # Init a testsuite instance 
-            testsuite = TestSuite(ts, self.tsType, self.configer, self.analyticsTools, self.datasets, \
+            Testsuite = testsuite.TestSuite(ts, self.tsType, self.configer, self.analyticsTools, self.datasets, \
                     self.paraHandler, self.algorithm, self.preParas, self.caseScheduleFileHd, \
                     self.caseSQLFileHd, self.testSuiteSqlHd, self.testItemSqlHd)
-            testsuite.GenCases(debug)
+            Testsuite.GenCases(debug)

@@ -1,11 +1,5 @@
 """DB out logger to store madlib invocation from the testing database."""
-import inspect
-import time
-import re
-import os
-import subprocess
-
-from run_sql import *
+import run_sql
 
 class Logger:
     def __init__(self, args):
@@ -27,7 +21,7 @@ class Logger:
         
         (_, _) = parser.parse_known_args(args = self.args, namespace = self)
         (self.logusername, self.logpassword, self.loghostname, self.logport,
-            self.logdatabase, logger_schema) = parseConnectionStr(self.connection_string)
+            self.logdatabase, logger_schema) = run_sql.parseConnectionStr(self.connection_string)
         if logger_schema:
             self.logger_schema = logger_schema
 
@@ -54,7 +48,7 @@ class Logger:
                     self.iteration_id, result_type, self.analyticstool, elapsed*1000, 
                     is_successful, str(result_info), command, is_verification)
         print sql
-        runSQL(sql, self.logusername, self.logpassword, self.loghostname, 
+        run_sql.runSQL(sql, self.logusername, self.logpassword, self.loghostname, 
                self.logport, self.logdatabase)
 
     def runSQL(self, sql):
@@ -63,5 +57,5 @@ class Logger:
         params:
             sql statement to run
         """
-        runSQL(sql, self.logusername, self.logpassword, self.loghostname, \
+        run_sql.runSQL(sql, self.logusername, self.logpassword, self.loghostname, \
                self.logport, self.logdatabase)

@@ -3,7 +3,8 @@
 
 The MADmark supports both postgres and greenplum.
 """
-from test_config import *
+import sys
+from xml_parser import Parser
 
 class AnalyticsTools(Parser):
     """this file include analytics tool table description and tool configuration."""
@@ -19,29 +20,32 @@ class AnalyticsTools(Parser):
 
     def parseTools(self):
         """parse the xml file and generate sql file""" 
-        analytics_tools = Parser.getNodeTag(self, self.xmlDoc, "analytics_tools")
-        atList = Parser.getNodeList(self, analytics_tools, "analytics_tool")
-        
-        for at in atList:
-            atDic = {}
-            name = Parser.getNodeVal(self, at, "name")
-            kind = Parser.getNodeVal(self, at, "kind")
+        try:
+            analytics_tools = Parser.getNodeTag(self, self.xmlDoc, "analytics_tools")
+            atList = Parser.getNodeList(self, analytics_tools, "analytics_tool")
 
-            if kind in( "greenplum", "postgres"):
-                atDic["name"]           =   Parser.getNodeVal(self, at, "name")
-                atDic["kind"]           =   Parser.getNodeVal(self, at, "kind")
-                atDic["toolversion"]    =   Parser.getNodeVal(self, at, "toolversion")
-                atDic["madlibversion"]  =   Parser.getNodeVal(self, at, "madlibversion")
-                atDic["host"]           =   Parser.getNodeVal(self, at, "host")
-                atDic["port"]           =   Parser.getNodeVal(self, at, "port")
-                atDic["superuser"]  =   Parser.getNodeVal(self, at, "superuser")
-                atDic["database"]       =   Parser.getNodeVal(self, at, "database")
-                atDic["username"]       =   Parser.getNodeVal(self, at, "user")
-                atDic["segmentnum"]     =   Parser.getNodeVal(self, at, "segmentnum")
-                atDic["master_dir"]     =   Parser.getNodeVal(self, at, "master_dir")
-                atDic["env"]    =   Parser.getNodeVal(self, at, "env")
-            self.analyticsTools[name] = atDic
+            for at in atList:
+                atDic = {}
+                name = Parser.getNodeVal(self, at, "name")
+                kind = Parser.getNodeVal(self, at, "kind")
+               
+                if kind.lower() in( "greenplum", "postgres"):
+                    atDic["name"]           =   Parser.getNodeVal(self, at, "name")
+                    atDic["kind"]           =   Parser.getNodeVal(self, at, "kind")
+                    atDic["host"]           =   Parser.getNodeVal(self, at, "host")
+                    atDic["port"]           =   Parser.getNodeVal(self, at, "port")
+                    atDic["superuser"]  =   Parser.getNodeVal(self, at, "superuser")
+                    atDic["database"]       =   Parser.getNodeVal(self, at, "database")
+                    atDic["username"]       =   Parser.getNodeVal(self, at, "user")
+                    atDic["master_dir"]     =   Parser.getNodeVal(self, at, "master_dir")
+                    atDic["env"]    =   Parser.getNodeVal(self, at, "env")
+                self.analyticsTools[name] = atDic
 
+        except Exception, exp:
+            print str(exp)
+            print "Error when parsing analyticsTools"
+            sys.exit()
+  
     def generateSqlCmdfile(self, tbName, sqlFile, cmdFile):
         """generate sql file and initial command for each tool
         

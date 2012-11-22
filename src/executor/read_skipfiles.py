@@ -1,30 +1,27 @@
 #!/usr/bin/env python
 # Filename read_skipfiles.py
 '''
-   read skip files and update the db
+   read skip files and update the  result DB
 '''
-import glob
-import os
-import sys
-
-from file_path import *
+import os, sys
 
 class ReadSkipfiles:
     '''skip files reader.'''
 
-    def __init__(self, skipfilepath = "../../schedule/skip_knownissues",sqlfilePath = "../../bootstrap/skipsqlfile.sql"):
+    def __init__(self, skipfilepath = "../../schedule/skip_knownissues",sqlfilePath = "../../bootstrap/skipsqlfile.sql", schema = "benchmark"):
         '''
         skipfilepath: skip file path
         sqlfilePath:  file path of sql file, which will  create the Madlib_Jiras table and jiras_cases table
         '''
-        self.skipfilepath = skipfilepath
-        self.sqlfilePath = sqlfilePath 
-        self.skipfiles  = [self.skipfilepath] 
-        self.jiras_list = []
-        self.mapping_list = []
-        self.noRunCaselist =[]
-        self.Jiras_table = "benchmark.Madlib_Jiras"
-        self.Mapping_table = "benchmark.jiras_cases"
+        self.skipfilepath  = skipfilepath
+        self.sqlfilePath   = sqlfilePath 
+        self.skipfiles     = [self.skipfilepath] 
+        self.jiras_list    = []
+        self.mapping_list  = []
+        self.noRunCaselist = []
+        self.schema = schema
+        self.Jiras_table   = schema + ".Madlib_Jiras"
+        self.Mapping_table = schema + ".jiras_cases"
   
     def getNoRunCases(self):
         '''read the skip files and return the cases to be skipped.'''

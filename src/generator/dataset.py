@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 """Define a class to parse the dataset xml file."""
-from xml_parser import *
+import sys
+sys.path.append('../')
+
+from utility.xml_parser import Parser
 
 class Datasets(Parser):
     """Parse the dataset xml file."""

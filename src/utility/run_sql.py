@@ -1,8 +1,4 @@
-import inspect
-import time
-import re
-import os, subprocess
-
+import inspect, time, re, os, subprocess 
 
 class PSQLError(Exception):
     def __init__(self, returnMsg):
@@ -49,9 +45,9 @@ def parseConnectionStr(connectionStr):
 @param utility: run this sql in utility mode
 @param stdinCmd: psql's stdin is piped from stdinCmd
 """
-def runSQL(sql, logusername = None, logpassword = None, loghostname = None
-           , logport = None, logdatabase = None
-           , psqlArgs = None, utility=False, stdinCmd=None, onErrorStop = True):
+def runSQL(sql, logusername = None, logpassword = None, loghostname = None, logport = None,
+            logdatabase = None, psqlArgs = None, utility=False, stdinCmd=None, onErrorStop = True,
+              isFile = False, source_path = '', Return = "stdout"):
     """Run SQL commands with psql and return output
 
        params:
@@ -75,6 +71,8 @@ def runSQL(sql, logusername = None, logpassword = None, loghostname = None
     if logusername:
         cmdLine.extend(['-U', logusername])
     
+    if source_path:
+        subprocess.call('source ' + source_path, shell = True)
     if psqlArgs:
         cmdLine.extend(psqlArgs)
 
@@ -87,31 +85,40 @@ def runSQL(sql, logusername = None, logpassword = None, loghostname = None
     else:
         environ['PGOPTIONS'] = '--client-min-messages=error'
     
-    if stdinCmd:
-        cmdLine.extend(['-c', "'" + sql + "'"])
-        psqlCmd = ' '.join(cmdLine)
-        stdinProcess = subprocess.Popen(stdinCmd, shell=True, stdout=subprocess.PIPE)
-        psqlProcess = subprocess.Popen(psqlCmd, env = environ, shell=True, 
-            stdin=stdinProcess.stdout, stdout=subprocess.PIPE, stderr = subprocess.PIPE)
-        (stdoutdata, stderrdata) = psqlProcess.communicate()
-        
-    else:
-        psqlProcess = subprocess.Popen(cmdLine, env = environ,
-            stdin = subprocess.PIPE,
-            stdout = subprocess.PIPE, stderr = subprocess.PIPE)
-        (stdoutdata, stderrdata) = psqlProcess.communicate(sql)
-    
-    if psqlProcess.returncode != 0:
-        print 'ERROR IN ', sql
-        print 'Connection INFO ', logusername, logpassword\
-            , loghostname, logport, logdatabase
-        raise PSQLError(stderrdata)
-    
-    # Strip trailing newline character
-    if stdoutdata[-1:] == '\n':
-        stdoutdata = stdoutdata[:-1]
-    return stdoutdata
+    if isFile:
+        cmdLine.extend(['-f',"'" + sql + "'"])
+        psql_cmd = ' '.join(cmdLine)
+        subprocess.check_call(psql_cmd, shell = True)
 
+    else:
+        if stdinCmd:
+            cmdLine.extend(['-c', "'" + sql + "'"])
+            psqlCmd = ' '.join(cmdLine)
+            stdinProcess = subprocess.Popen(stdinCmd, shell=True, stdout=subprocess.PIPE)
+            psqlProcess = subprocess.Popen(psqlCmd, env = environ, shell=True, 
+                stdin=stdinProcess.stdout, stdout=subprocess.PIPE, stderr = subprocess.PIPE)
+            (stdoutdata, stderrdata) = psqlProcess.communicate()
+ 
+        else:
+            psqlProcess = subprocess.Popen(cmdLine, env = environ,
+                stdin = subprocess.PIPE,
+                stdout = subprocess.PIPE, stderr = subprocess.PIPE)
+            (stdoutdata, stderrdata) = psqlProcess.communicate(sql)
+
+        if psqlProcess.returncode != 0:
+            print 'ERROR IN ', sql
+            print 'Connection INFO ', logusername, logpassword\
+                , loghostname, logport, logdatabase
+            raise PSQLError(stderrdata)
+    
+        # Strip trailing newline character
+        if stdoutdata[-1:] == '\n':
+            stdoutdata = stdoutdata[:-1]
+        if Return == "all":
+            return str(stdoutdata) + str(stderrdata)
+        else:
+            return stdoutdata
+        
 def getDataDir(logusername = None, logpassword = None, loghostname = None
         , logport = None, logdatabase = None):
     """Get the master directory of gpdb."""

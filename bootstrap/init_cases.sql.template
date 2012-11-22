@@ -1,4 +1,5 @@
-SET SEARCH_PATH = benchmark;
+SET SEARCH_PATH = $$$benchmark$$$ ;
+
 DROP TABLE IF EXISTS analyticstool CASCADE;
 DROP TABLE IF EXISTS testitems CASCADE;
 DROP TABLE IF EXISTS testsuites CASCADE;

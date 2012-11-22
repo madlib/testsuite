@@ -3,20 +3,14 @@
 
 Parse the root tag <test_suites>
 """
-import glob
-import sys
-import os
+import glob, sys, os
+sys.path.append("../")
+from utility import file_path, test_config, analytics_tool
+from utility.xml_parser import Parser
+from executor.template_executor import ExecutorSpec
+import dataset, multi_testsuite, para_handler 
 
-from file_path import *
-from xml_parser import *
-from test_config import *
-from template_executor import *
-from analytics_tool import *
-from datasets import *
-from multi_testsuite import *
-from testsuite import *
-from testcase import *
-from para_handler import *
+Path = file_path.Path()
 
 class Generator (Parser):
     """Test case gnerator."""
@@ -37,7 +31,7 @@ class Generator (Parser):
         self.configer           =   configer
         self.analyticsTools     =   analyticsTools
         self.datasets           =   datasets
-        self.paraHandler        =   ParaHandler(analyticsTools, datasets)
+        self.paraHandler        =   para_handler.ParaHandler(analyticsTools, datasets)
         self.caseScheduleFileHd =   open(caseScheduleFileHd, "w")
         self.caseSQLFileHd      =   open(caseSQLFileHd, "w")
         self.testSuiteSqlHd     =   open(tsSqlFileHd, "w")
@@ -81,7 +75,7 @@ class Generator (Parser):
         # get test suite nodes list
         tsNodeList  =   Parser.getNodeList(self, mlTs, "test_suite")
         # init a MutiTestSuite instance
-        mlTs        =   MultiTestSuite(self.configer, self.analyticsTools, \
+        mlTs        =   multi_testsuite.MultiTestSuite(self.configer, self.analyticsTools, \
                                       self.datasets, self.paraHandler, algorithm, preParas, \
                                       tsNodeList, tsType, self.caseScheduleFileHd, \
                                       self.caseSQLFileHd, self.testSuiteSqlHd, self.testItemSqlHd)
@@ -111,8 +105,8 @@ class Generator (Parser):
 
 def main():
     #remove old cases
-    os.system('rm -rf ' + Path.casePath)
-    os.system('mkdir ' + Path.casePath)
+    os.system('rm -rf ' + Path.TestCaseDir)
+    os.system('mkdir ' + Path.TestCaseDir)
 
     debug = False
     if len(sys.argv) > 1 and sys.argv[1] == 'debug':
@@ -120,7 +114,7 @@ def main():
 
     try:
         # parse testconfig
-        configer = Configer(Path.CfgSpecPath + Path.testconfigXml)
+        configer = test_config.Configer(Path.CfgSpecPath + Path.testconfigXml)
         configer.testconfig()
     except Exception, exp:
         print exp
@@ -130,10 +124,10 @@ def main():
     try:
         # parse analyticsTool, generate "insert into " statement
         tbName = Path.analyticstoolXml.split(".")[0]
-        analyticsTools = AnalyticsTools(Path.CfgSpecPath + Path.analyticstoolXml)
+        analyticsTools = analytics_tool.AnalyticsTools(Path.CfgSpecPath + Path.analyticstoolXml)
         analyticsTools.parseTools()
-        analyticsTools.generateSqlCmdfile(configer.metaDBSchema+"." + tbName, \
-            Path.cfgPath + tbName + ".sql", Path.casePath + "init.cmd")
+        analyticsTools.generateSqlCmdfile(configer.resultDBSchema+"." + tbName, \
+            Path.BootstrapDir + tbName + ".sql", Path.TestCaseDir + "init.cmd")
     except Exception, exp:
         print exp
         print "Error when parsing analyticsTools"
@@ -142,9 +136,9 @@ def main():
     try:
         # parse algorithm specification file, which is used by TemplateExecutor for madlib
         # generate "create table schema.algorithmname" statement
-        spec = ExecutorSpec(Path.CfgSpecPath + Path.algorithmsSpecXml, configer.metaDBSchema)
+        spec = ExecutorSpec(Path.CfgSpecPath + Path.algorithmsSpecXml, configer.resultDBSchema)
         specName = Path.algorithmsSpecXml.split(".")[0]
-        spec.writeCreateSQL(Path.cfgPath + specName + ".sql")
+        spec.writeCreateSQL(Path.BootstrapDir + specName + ".sql")
 
     except Exception, exp:
         print exp
@@ -153,7 +147,7 @@ def main():
 
     try:
         # parse dataset
-        datasets = Datasets(Path.CfgSpecPath + Path.datasetXml)
+        datasets = dataset.Datasets(Path.CfgSpecPath + Path.datasetXml)
         datasets.getDataSets()
     except Exception, exp:
         print exp
@@ -166,10 +160,10 @@ def main():
         name = specXml.split("/")[len(specXml.split("/"))-1].split(".")[0]
 
         # test cases's file absolute path
-        scheduleFile    =   Path.casePath + "case_" + name
-        caseSQLFile     =   Path.casePath + name + ".sql_out"
-        suiteSqlFile    =   Path.casePath + name + "suite.sql"
-        itemSqlFile     =   Path.casePath + name + "item.sql"
+        scheduleFile    =   Path.TestCaseDir + "case_" + name
+        caseSQLFile     =   Path.TestCaseDir + name + ".sql_out"
+        suiteSqlFile    =   Path.TestCaseDir + name + "suite.sql"
+        itemSqlFile     =   Path.TestCaseDir + name + "item.sql"
 
         try:
             # create a generator to generate cases with this specXml
