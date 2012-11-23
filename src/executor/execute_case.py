@@ -39,9 +39,9 @@ class TestCaseExecutor:
         for line in lines:
             line = line.strip()
             if line and line[0] != '#':
-                if line.startswith('psql '):
+                if line.startswith('psql'):
                     #this is a psql command, need to add connection options
-                    line = line.replace("psql ","")
+                    line = line.replace("psql", "", 1)
                     run_sql.runSQL(line, psqlArgs = self.psql_append, source_path = self.cur_dbconf['env'])
                 else:
                     #this is a executor command, need to add run_id and connection options
