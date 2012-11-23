@@ -170,7 +170,7 @@ class loadingManager:
                         start = time.time()
                         subprocess.check_call('gunzip %s.gz' % outSQL, shell=True)
                         run_sql.runSQL(outSQL, logport = db_manager.db_conf['port'], logdatabase = \
-                           onErrorStop = False,db_manager.db_conf['database'], isFile = True, source_path = db_manager.getDBenv() )
+                           db_manager.db_conf['database'], onErrorStop = False, isFile = True, source_path = db_manager.getDBenv() )
                         subprocess.check_call('gzip -f %s'%outSQL, shell=True)
                         self.__logInfo(table['id'], 'load', time.time() - start)
                         #Load additional sql file for table.
